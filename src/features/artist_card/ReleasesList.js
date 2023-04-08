@@ -11,13 +11,13 @@ export default function ReleasesList() {
   }, [dispatch])
 
   return (
-    <section className='release-list'>
-      {releases.length > 0 && releases.map((release) => {
+    <section className='releases'>
+      {releases.length > 0 && releases.map((release, id) => {
         const date = new Date(release.release_date)
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
         return (
-          <article key={release.id} className='release-list-item'>
+          <article key={id} className='releases__release release'>
             <h3 className='release__title'>{release.title}</h3>
             <img className='release__image' src={release.image} alt='img'/>
             <p className='release__date'>Выпущен {date.toLocaleDateString('RU-ru', options)}</p>

@@ -1,33 +1,28 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
-import handleErrors from "./handleErrors";
+import handleError, {handlePending, handleSuccess} from "./handleResponse";
 
 export const fetchReleases = createAsyncThunk('releases/fetchReleases', async () => {
-  const response = await axios.get('http://127.0.0.1:8000/api/releases/');
-  console.log(response)
-  return response.data;
+    const response = await axios.get('http://sonichaven-backend.std-962.ist.mospolytech.ru/api/releases/');
+    return response.data;
 });
 
+
 const artistReducer = createSlice({
-  name: 'artist',
-  initialState: {
-    releases: [],
-    userInfo: {
-      artist_name:'Imagine Dragons'
+    name: 'artist',
+    initialState: {
+        releases: [],
+        userInfo: {
+            artist_name:'Imagine Dragons'
+        },
+        status: '',
     },
-    status: '',
-  },
-  reducers: {},
-  extraReducers: {
-    [fetchReleases.pending]: state => {
-      state.status = 'Загрузка данных...'
-    },
-    [fetchReleases.fulfilled]: (state,action) => {
-      state.status = 'Успешно'
-      state.releases = action.payload
-    },
-    [fetchReleases.rejected]: (state,action) => handleErrors(state,action)
-  }
+    reducers: {},
+    extraReducers: {
+        [fetchReleases.pending]: state => handlePending(state),
+        [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
+        [fetchReleases.rejected]: (state,action) => handleError(state,action)
+    }
 })
 
 export default artistReducer.reducer

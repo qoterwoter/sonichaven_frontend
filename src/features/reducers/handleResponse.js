@@ -1,0 +1,16 @@
+const handleError = (state, action) => {
+    const err = `[${action.error.name}]: ${action.error.code} - ${action.error.message}`
+    state.status = 'Ошибка при получении: ' + err
+    console.log(action)
+}
+
+export const handleSuccess = (state, action, type) => {
+    state.status = 'Успешно'
+    state[type] = action.payload
+}
+
+export const handlePending = state => {
+    state.status = 'Загрузка данных...'
+}
+
+export default handleError

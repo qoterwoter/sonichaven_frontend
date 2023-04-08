@@ -1,0 +1,104 @@
+$white: #f3f3f3;
+$gap: 15px;
+
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    //color: $white;
+
+    background-color: #f3f3f3;
+    //background:
+    //    linear-gradient(45deg, rgb(0, 30, 182), rgba(0, 0, 0, 0.1) 55.71%),
+    //    linear-gradient(127deg, rgb(224, 0, 211), rgba(0, 0, 0, 0.1) 60.71%),
+    //    linear-gradient(217deg, rgb(9, 0, 215), rgba(0, 0, 0, 0.1) 70.71%),
+    //    linear-gradient(336deg, rgb(215, 0, 0), rgba(0, 0, 0, 0.1) 70.71%);
+    min-height: 100vh;
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+        color: #00d8ff;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+    padding: 5px $gap;
+
+    .nav {
+        display: flex;
+        width: 10%;
+        justify-content: space-between;
+    }
+}
+
+.main {
+    padding: $gap;
+    display: grid;
+    gap: $gap;
+
+    grid-template-columns: 5fr 2fr;
+
+    .releases {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+
+        .releases__title {
+            grid-column: span 3;
+        }
+
+        .release {
+            margin: 0 $gap;
+            padding: 5px 20px;
+            background-color: white;
+            border-radius: 12px;
+
+            .release__title {
+                font-size: 24px;
+                margin: 10px 0;
+            }
+
+            .release__image {
+                border-radius: 12px;
+            }
+
+            .release__date {
+                margin-top: 5px;
+                color: #868686;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .news {
+        .news__article {
+            background-color: white;
+            border-radius: 12px;
+            padding: 5px 20px;
+
+            .article__image {
+                width: 100%;
+                border-radius: 12px;
+            }
+            .article__date {
+                margin-top: 5px;
+                color: #868686;
+            }
+        }
+    }
+}
