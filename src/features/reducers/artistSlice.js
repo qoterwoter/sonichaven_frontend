@@ -19,9 +19,9 @@ const artistReducer = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [fetchReleases.pending]: state => handlePending(state),
+        [fetchReleases.pending]: handlePending,
         [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
-        [fetchReleases.rejected]: (state,action) => handleError(state,action)
+        [fetchReleases.rejected]: handleError,
     }
 })
 

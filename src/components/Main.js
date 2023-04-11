@@ -5,10 +5,10 @@ import NewsList from "../features/news_blog/NewsList";
 const Main = () => {
 
     return (
-        <main className='main'>
+        <>
             <ReleasesList/>
             <NewsList/>
-        </main>
+        </>
     )
 }
 

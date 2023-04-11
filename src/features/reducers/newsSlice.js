@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-import handleResponse, {handlePending, handleSuccess} from "./handleResponse";
+import {handlePending, handleSuccess, handleError} from "./handleResponse";
 
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async  () => {
@@ -16,9 +16,9 @@ const newsReducer = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [fetchNews.pending]: state => handlePending(state),
+    [fetchNews.pending]: handlePending,
     [fetchNews.fulfilled]: (state, action) => handleSuccess(state,action,'news'),
-    [fetchNews.rejected]: (state,action) => handleResponse(state,action)
+    [fetchNews.rejected]: handleError
   }
 })
 

@@ -10,8 +10,6 @@ import {
     Route,
 } from "react-router-dom";
 import Authorization from "./features/auth/Authorization";
-import ReleasesList from "./features/artist_card/ReleasesList";
-import NewsList from "./features/news_blog/NewsList";
 import Main from "./components/Main";
 
 const router = createBrowserRouter(
