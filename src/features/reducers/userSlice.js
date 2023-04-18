@@ -17,7 +17,6 @@ export const authArtist = createAsyncThunk('artist/authArtist', async ({username
     return response.data
 })
 
-
 const initialState = {
     ...user,
     status: 'Не авторизован',

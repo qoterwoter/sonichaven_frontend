@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Authorization from "./features/auth/Authorization";
 import Main from "./components/Main";
+import AboutUs from "./components/AboutUs";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
         <Route path='/' element={<App/>}>
             <Route index element={<Main/>}/>
             <Route path='auth' element={<Authorization/>}/>
+            <Route path='about-us' element={<AboutUs/>}/>
         </Route>
     </>
     )

@@ -8,13 +8,12 @@ const Header = () => {
     const dispatch = useDispatch()
     const [loginLogoutButton, setButton] = useState()
 
-
     const handleLogout = () => {
         dispatch(unAuthorize())
         setButton(loginButton)
     }
 
-    const loginButton = <NavLink className='nav__link' onClick={handleLogout}>Выйти</NavLink>
+    const loginButton = <a className='nav__link' onClick={handleLogout}>Выйти</a>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
     useEffect(() => {
@@ -26,16 +25,16 @@ const Header = () => {
         }
     }, [isAuth])
 
-
-
     return (
         <header className='header'>
-            <Link className='header__main-route' to='/'><h1>SonicHaven</h1></Link>
-
-            <nav className='header__nav nav'>
-                <NavLink className='nav__link' to='/'>Главная</NavLink>
-                {loginLogoutButton}
-            </nav>
+            <div className="container">
+                <Link className='header__logo' to='/'>SonicHaven</Link>
+                <nav className='header__nav nav'>
+                    <NavLink className='nav__link' to='/'>Главная</NavLink>
+                    <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
+                    {loginLogoutButton}
+                </nav>
+            </div>
         </header>
     )
 }

@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authArtist} from "../reducers/userSlice";
+import {useNavigate} from "react-router-dom";
 
 const Authorization = () => {
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
+
+    const navigate = useNavigate()
 
     const onChangeUsername = e => setUsername(e.target.value)
     const onChangePassword = e => setPassword(e.target.value)
@@ -16,22 +19,24 @@ const Authorization = () => {
         e.preventDefault()
 
         dispatch(authArtist({username, password}))
+        // navigate('/')
     }
 
     return (
         <>
-        <form onSubmit={login}>
-            <label htmlFor='login'>Введите логин</label>
+        <form className='form' onSubmit={login}>
+            <label className='form__label' htmlFor='login'>Введите логин:</label>
             <input
+                className='form__input'
                 id='login'
                 type='text'
                 placeholder='Логин'
                 onChange={onChangeUsername}
                 value={username}
             />
-
-            <label htmlFor='password'>Введите пароль</label>
+            <label className='form__label' htmlFor='password'>Введите пароль:</label>
             <input
+                className='form__input'
                 id='password'
                 type='password'
                 placeholder='Пароль'
@@ -39,10 +44,11 @@ const Authorization = () => {
                 value={password}
             />
             <input
+                className='form__input_submit form__input'
                 type='submit'
             />
+            <p>Статус: {userData.status}</p>
         </form>
-        <p>Статус: {userData.status}</p>
         </>
     )
 }

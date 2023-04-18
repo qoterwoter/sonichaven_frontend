@@ -1,34 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+*::selection {
+  background-color: #0090e0;
+  color: #DFE1E5;
+}
+
 body {
   margin: 0 auto;
   font-family: Arial, sans-serif;
-  background-color: #f3f3f3;
+  color: #DFE1E5;
+  font-size: 16px;
+  background-color: black;
   min-height: 100vh;
 }
 
 a {
-  color: #f3f3f3;
+  color: #6B9BFA;
   text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
 }
 a:hover {
-  color: #00d8ff;
+  color: #366ACF;
+}
+a:active {
+  color: #375FAD;
+}
+a.active {
+  color: #DFE1E5;
 }
 
-.header {
+.header .container, .footer .container {
+  width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+  height: 7vh;
+  min-height: 70px;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
   padding: 5px 15px;
+}
+
+.header {
+  position: fixed;
+  height: 7vh;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+.header .header__logo {
+  font-size: 24px;
+  color: #DFE1E5;
+  font-weight: 700;
 }
 .header .nav {
   display: flex;
-  width: 10%;
+  width: 20%;
   justify-content: space-between;
+}
+.header:after {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  height: 200px;
+}
+
+.about-us {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position-x: 50vw;
+  background-repeat: repeat-x;
+  grid-column: span 2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about-us .helloElement {
+  width: 1100px;
+}
+.about-us .helloElement .helloElement__title {
+  font-size: 65px;
+  text-align: center;
+  text-shadow: 0 0 20px black;
+  color: #DFE1E5;
+  margin-bottom: 50px;
+}
+.about-us .helloElement .helloElement__description {
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 0 20px 50px black;
+  background: linear-gradient(34deg, #00ceff, #ff00ea 70%);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .main {
   padding: 15px;
+  min-height: 86vh;
+  width: 1200px;
+  margin: 0 auto;
   display: grid;
   gap: 15px;
   grid-template-columns: 5fr 2fr;
@@ -43,20 +118,21 @@ a:hover {
 }
 .main .releases .release {
   margin: 0 15px;
-  padding: 5px 20px;
-  background-color: white;
-  border-radius: 12px;
+  padding: 6px 15px;
+  background-color: #1E1F22;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 .main .releases .release .release__title {
-  font-size: 24px;
-  margin: 10px 0;
+  font-size: 20px;
+  margin: 8px 0;
 }
 .main .releases .release .release__image {
   border-radius: 12px;
 }
 .main .releases .release .release__date {
   margin-top: 5px;
-  color: #868686;
+  color: #6F737A;
 }
 .main .releases .release:first-child {
   margin-left: 0;
@@ -64,10 +140,17 @@ a:hover {
 .main .releases .release:last-child {
   margin-right: 0;
 }
+.main .releases:before {
+  position: absolute;
+  width: 100vw;
+  height: 70px;
+  background: linear-gradient(black, rgba(0, 0, 0, 0));
+}
 .main .news .news__article {
-  background-color: white;
-  border-radius: 12px;
-  padding: 5px 20px;
+  background-color: #1E1F22;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 6px 15px;
 }
 .main .news .news__article .article__image {
   width: 100%;
@@ -75,7 +158,50 @@ a:hover {
 }
 .main .news .news__article .article__date {
   margin-top: 5px;
-  color: #868686;
+  color: #6F737A;
+}
+.main .form {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: span 2;
+  margin-top: 10vh;
+}
+.main .form .form__label {
+  color: #CED0D6;
+}
+.main .form .form__input {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 8px 0;
+  font-size: 18px;
+  border: 2px solid #4E5157;
+  border-radius: 4px;
+  padding: 8px 6px;
+  color: #DFE1E5;
+  background-color: black;
+}
+.main .form .form__input:focus {
+  border-color: #3574F0;
+  outline: none !important;
+}
+.main .form .form__input_submit {
+  cursor: pointer;
+  color: #DFE1E5;
+  border: none;
+  background-color: #3574F0;
+  transition: 0.2s;
+}
+.main .form .form__input_submit:hover {
+  background-color: #366ACF;
+}
+.main .form .form__input_submit:active {
+  background-color: #375FAD;
+}
+
+.footer__description {
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */
