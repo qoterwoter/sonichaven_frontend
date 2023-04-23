@@ -1,13 +1,18 @@
 import React from "react";
-import ReleasesList from "../features/artist_card/ReleasesList";
+import ReleasesList from "../features/releases/ReleasesList";
 import NewsList from "../features/news_blog/NewsList";
+import MainTitle from "./MainTitle";
+import Catalog from "../features/services/Catalog";
 
 const Main = () => {
-
     return (
         <>
-            <ReleasesList/>
-            <NewsList/>
+            <MainTitle/>
+            <main className="main">
+                <Catalog/>
+                <ReleasesList/>
+                <NewsList/>
+            </main>
         </>
     )
 }

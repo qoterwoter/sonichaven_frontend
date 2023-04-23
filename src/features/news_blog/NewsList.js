@@ -27,7 +27,7 @@ const NewsList = () => {
 
     return (
     <aside className='news'>
-        <h2 className='news__title'>Новости</h2>
+        <h2 className='news__title block-title'>Новости</h2>
         {newsList}
     </aside>
     )
