@@ -17,7 +17,7 @@ const Catalog = () => {
 
     return (
     <div className='catalog'>
-        <h2 className="catalog__title">Популярные услуги</h2>
+        <h2 className="catalog__title block-title">Популярные услуги</h2>
         {servicesList}
     </div>
     )

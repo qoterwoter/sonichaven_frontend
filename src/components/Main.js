@@ -1,13 +1,13 @@
 import React from "react";
 import ReleasesList from "../features/releases/ReleasesList";
 import NewsList from "../features/news_blog/NewsList";
-import AboutUs from "./AboutUs";
+import MainTitle from "./MainTitle";
 import Catalog from "../features/services/Catalog";
 
 const Main = () => {
     return (
         <>
-            <AboutUs/>
+            <MainTitle/>
             <main className="main">
                 <Catalog/>
                 <ReleasesList/>

@@ -6,25 +6,25 @@ import {unAuthorize} from "../features/reducers/userSlice";
 const Header = () => {
     const isAuth = useSelector(state => state.user.token)
     const dispatch = useDispatch()
-    const [loginLogoutButton, setButton] = useState()
+    const [buttons, setButtons] = useState()
 
     const handleLogout = () => {
         dispatch(unAuthorize())
-        setButton(loginButtons)
+        setButtons(loginButtons)
     }
 
     const loginButtons = <div className='nav__user-actions'>
-        <a className='nav__link' onClick={handleLogout}>Выйти</a>
         <NavLink className='nav__link' to='/shopCart' >Корзина</NavLink>
+        <a className='nav__link' onClick={handleLogout} href='#'>Выйти</a>
     </div>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
     useEffect(() => {
         console.log(isAuth)
         if(isAuth) {
-            setButton(loginButtons)
+            setButtons(loginButtons)
         } else {
-            setButton(logoutButton)
+            setButtons(logoutButton)
         }
     }, [isAuth])
 
@@ -36,7 +36,7 @@ const Header = () => {
                     <NavLink className='nav__link' to='/'>Главная</NavLink>
                     <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
                 </nav>
-                {loginLogoutButton}
+                {buttons}
             </div>
         </header>
     )

@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 import Authorization from "./features/auth/Authorization";
 import Main from "./components/Main";
+import ShopCart from "./components/ShopCart/ShopCart";
 import AboutUs from "./components/AboutUs";
-import ShopCart from "./components/ShopCart";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
