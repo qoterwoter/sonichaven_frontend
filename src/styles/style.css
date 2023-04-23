@@ -11,7 +11,10 @@ body {
   font-family: Arial, sans-serif;
   color: #DFE1E5;
   font-size: 16px;
-  background-color: black;
+  background-image: url("../images/body_background.jpg");
+  background-position-y: 100vh;
+  background-size: 100%;
+  background-repeat: repeat-y;
   min-height: 100vh;
 }
 
@@ -31,41 +34,48 @@ a.active {
   color: #DFE1E5;
 }
 
+.header, .footer {
+  background: rgba(30, 30, 30, 0.7);
+  height: 70px;
+}
 .header .container, .footer .container {
   width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 7vh;
+  height: 70px;
   min-height: 70px;
-  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
-  padding: 5px 15px;
+  padding: 5px 16px;
 }
 
 .header {
-  position: fixed;
-  height: 7vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.45);
   width: 100%;
+  box-shadow: 0px 8px 40px black;
+  backdrop-filter: blur(15px);
+  position: fixed;
+  z-index: 999;
 }
-.header .header__logo {
-  font-size: 24px;
-  color: #DFE1E5;
-  font-weight: 700;
-}
-.header .nav {
+.header .container {
   display: flex;
-  width: 20%;
   justify-content: space-between;
 }
-.header:after {
-  content: "";
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  height: 200px;
+.header .container .header__logo {
+  font-size: 24px;
+  text-shadow: 0 20px 50px black;
+  background: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, #3574F0);
+  background-size: 500%;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.1);
+  animation: gradient 10s linear infinite;
+  font-weight: 700;
+}
+.header .container .nav .nav__user-actions {
+  width: 10%;
+}
+.header .container .nav .nav__link {
+  margin: 0 8px;
 }
 
 .about-us {
@@ -73,7 +83,6 @@ a.active {
   background-size: cover;
   background-position-x: 50vw;
   background-repeat: repeat-x;
-  grid-column: span 2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -93,46 +102,105 @@ a.active {
 .about-us .helloElement .helloElement__description {
   font-size: 24px;
   text-align: center;
-  text-shadow: 0 20px 50px black;
-  background: linear-gradient(34deg, #00ceff, #ff00ea 70%);
+  background: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, #3574F0);
+  background-size: 200%;
   -webkit-background-clip: text;
   color: transparent;
+  animation: gradient 4s linear infinite;
 }
 
 .main {
-  padding: 15px;
+  padding: 16px;
   min-height: 86vh;
   width: 1200px;
   margin: 0 auto;
-  display: grid;
-  gap: 15px;
-  grid-template-columns: 5fr 2fr;
+  display: flex;
+  flex-direction: column;
 }
-.main .releases {
+.main .catalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.main .catalog .catalog__title {
+  grid-column: span 3;
+  background-color: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(15px);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+.main .catalog .service {
+  background-color: rgba(45, 45, 45, 0.6);
+  padding: 16px;
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+.main .catalog .service .service__title {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #2d2d2d;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.main .catalog .service .service__description {
+  margin: 16px 0;
+  color: #B4B8BF;
+}
+.main .catalog .service .service__cost {
+  margin: 8px 0;
+  color: #868A91;
+}
+.main .catalog .service .service__addToCart {
+  background-color: #2d2d2d;
+  color: #DFE1E5;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.main .catalog .service .service__addToCart:hover {
+  background-color: #366ACF;
+}
+.main .catalog .service .service__addToCart:active {
+  background-color: #375FAD;
+}
+.main .releases {
+  display: grid;
+  justify-content: space-between;
   align-items: start;
+  gap: 16px;
 }
 .main .releases .releases__title {
   grid-column: span 3;
+  background-color: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(15px);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 .main .releases .release {
-  margin: 0 15px;
-  padding: 6px 15px;
-  background-color: #1E1F22;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  background-color: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 .main .releases .release .release__title {
   font-size: 20px;
-  margin: 8px 0;
+  margin: 0;
+  padding-bottom: 16px;
 }
 .main .releases .release .release__image {
-  border-radius: 12px;
+  border-radius: 8px;
 }
 .main .releases .release .release__date {
-  margin-top: 5px;
-  color: #6F737A;
+  margin-top: 16px;
+  color: #868A91;
 }
 .main .releases .release:first-child {
   margin-left: 0;
@@ -147,10 +215,10 @@ a.active {
   background: linear-gradient(black, rgba(0, 0, 0, 0));
 }
 .main .news .news__article {
-  background-color: #1E1F22;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  padding: 6px 15px;
+  background-color: rgba(33, 33, 33, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  padding: 16px;
 }
 .main .news .news__article .article__image {
   width: 100%;
@@ -158,18 +226,19 @@ a.active {
 }
 .main .news .news__article .article__date {
   margin-top: 5px;
-  color: #6F737A;
+  color: #868A91;
 }
 .main .form {
   font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   grid-column: span 2;
-  margin-top: 10vh;
+  height: 86vh;
 }
 .main .form .form__label {
-  color: #CED0D6;
+  color: #B4B8BF;
 }
 .main .form .form__input {
   box-sizing: border-box;
@@ -180,7 +249,7 @@ a.active {
   border-radius: 4px;
   padding: 8px 6px;
   color: #DFE1E5;
-  background-color: black;
+  background-color: #2d2d2d;
 }
 .main .form .form__input:focus {
   border-color: #3574F0;
@@ -202,6 +271,18 @@ a.active {
 
 .footer__description {
   margin: 0 auto;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

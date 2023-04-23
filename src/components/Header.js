@@ -10,16 +10,19 @@ const Header = () => {
 
     const handleLogout = () => {
         dispatch(unAuthorize())
-        setButton(loginButton)
+        setButton(loginButtons)
     }
 
-    const loginButton = <a className='nav__link' onClick={handleLogout}>Выйти</a>
+    const loginButtons = <div className='nav__user-actions'>
+        <a className='nav__link' onClick={handleLogout}>Выйти</a>
+        <NavLink className='nav__link' to='/shopCart' >Корзина</NavLink>
+    </div>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
     useEffect(() => {
         console.log(isAuth)
         if(isAuth) {
-            setButton(loginButton)
+            setButton(loginButtons)
         } else {
             setButton(logoutButton)
         }
@@ -32,8 +35,8 @@ const Header = () => {
                 <nav className='header__nav nav'>
                     <NavLink className='nav__link' to='/'>Главная</NavLink>
                     <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
-                    {loginLogoutButton}
                 </nav>
+                {loginLogoutButton}
             </div>
         </header>
     )

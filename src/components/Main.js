@@ -1,5 +1,5 @@
 import React from "react";
-import ReleasesList from "../features/artist_card/ReleasesList";
+import ReleasesList from "../features/releases/ReleasesList";
 import NewsList from "../features/news_blog/NewsList";
 import AboutUs from "./AboutUs";
 import Catalog from "../features/services/Catalog";

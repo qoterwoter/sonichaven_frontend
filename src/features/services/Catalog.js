@@ -13,12 +13,13 @@ const Catalog = () => {
 
     const servicesList = services.services.map(service => {
         return <CatalogItem service={service}/>
-    })
+    }).slice(0,6)
 
     return (
-    <>
+    <div className='catalog'>
+        <h2 className="catalog__title">Популярные услуги</h2>
         {servicesList}
-    </>
+    </div>
     )
 }
 
