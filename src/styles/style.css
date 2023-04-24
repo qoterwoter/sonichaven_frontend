@@ -135,8 +135,27 @@ body {
   margin: 16px 0;
   color: #868A91;
 }
-.main .catalog .service .service__addToCart {
-  background-color: #57965C;
+.main .catalog .service .service__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .catalog .service .service__actions .service__count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95px;
+}
+.main .catalog .service .service__actions .service__count .count__setCount {
+  height: 32px;
+  width: 32px;
+  padding: 3px;
+  cursor: pointer;
+  background: #955AE0;
+  border-radius: 50px;
+}
+.main .catalog .service .service__actions .service__addToCart {
+  background-color: #3574F0;
   color: #DFE1E5;
   padding: 8px 16px;
   border: none;
@@ -145,10 +164,10 @@ body {
   transition: 0.2s;
   width: fit-content;
 }
-.main .catalog .service .service__addToCart:hover {
+.main .catalog .service .service__actions .service__addToCart:hover {
   background-color: #4E8052;
 }
-.main .catalog .service .service__addToCart:active {
+.main .catalog .service .service__actions .service__addToCart:active {
   background-color: #436946;
 }
 .main .releases {
@@ -258,7 +277,7 @@ body {
 }
 .main .shop-cart .shop-cart__items .item {
   padding: 16px 0;
-  border-bottom: 2px solid #4E5157;
+  border-bottom: 2px solid #2d2d2d;
 }
 .main .shop-cart .shop-cart__items .item:last-child {
   border: none;
@@ -266,11 +285,10 @@ body {
 .main .shop-cart .shop-cart__items .item .item__title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin: 0;
 }
 .main .shop-cart .shop-cart__items .item .item__icon {
-  color: #868A91;
+  margin-right: 16px;
 }
 .main .shop-cart .shop-cart__items .item .item__description {
   color: #B4B8BF;
@@ -300,7 +318,7 @@ body {
   transition: 0.3s;
 }
 .main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .icon:hover {
-  filter: opacity(75%);
+  filter: opacity(70%);
 }
 .main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .icon:active {
   filter: opacity(50%);

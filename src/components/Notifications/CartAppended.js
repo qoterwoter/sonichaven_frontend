@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
-
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 const CartAppended = (props) => {
     const [isShow, setIsShow] = useState('notification_hide')
 
@@ -16,8 +16,8 @@ const CartAppended = (props) => {
     return (
     <>
     <div className={'notification '+isShow}>
-        <h2 className="notification__title">Товар добавлен в корзину! <span className='notification__close'>x</span></h2>
-        <p className="notification__description">"{props.service.name}" добавлен в корзину.</p>
+        <h2 className="notification__title">Товар добавлен в корзину! <CloseRoundedIcon className='notification__close'/></h2>
+        <p className="notification__description">"{props.service.name}" в количестве {props.count} шт. добавлен в корзину.</p>
         <NavLink to='/shopCart'>Перейти в корзину</NavLink>
     </div>
     </>

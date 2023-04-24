@@ -35,6 +35,7 @@ const Header = () => {
                 <nav className='header__nav nav'>
                     <NavLink className='nav__link' to='/'>Главная</NavLink>
                     <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
+                    <NavLink className='nav__link' to='/catalog'>Каталог</NavLink>
                 </nav>
                 {buttons}
             </div>

@@ -199,20 +199,40 @@ body {
                 margin: 16px 0;
                 color: $gray-text-secondary;
             }
-            .service__addToCart {
-                background-color: $green-primary;
-                color: $gray-text-primary;
-                padding: 8px 16px;
-                border: none;
-                border-radius: 100px;
-                cursor: pointer;
-                transition: .2s;
-                width: fit-content;
-                &:hover {
-                    background-color: $green-hovered;
+            .service__actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .service__count {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 95px;
+
+                    .count__setCount {
+                        height: 32px;
+                        width: 32px;
+                        padding: 3px;
+                        cursor: pointer;
+                        background: $purple-primary;
+                        border-radius: 50px;
+                    }
                 }
-                &:active {
-                    background-color: $green-pressed;
+                .service__addToCart {
+                    background-color: $blue-primary;
+                    color: $gray-text-primary;
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 100px;
+                    cursor: pointer;
+                    transition: .2s;
+                    width: fit-content;
+                    &:hover {
+                        background-color: $green-hovered;
+                    }
+                    &:active {
+                        background-color: $green-pressed;
+                    }
                 }
             }
         }
@@ -342,19 +362,18 @@ body {
 
             .item {
                 padding: 16px 0;
-                border-bottom: 2px solid $gray-border;
+                border-bottom: 2px solid $gray-background-primary;
                 &:last-child {
                     border: none;
                 }
                 .item__title {
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;;
                     margin: 0;
                 }
 
                 .item__icon {
-                    color: $gray-text-secondary;
+                    margin-right: 16px;
                 }
 
                 .item__description {
@@ -387,7 +406,7 @@ body {
                         .icon {
                             transition: .3s;
                             &:hover {
-                                filter: opacity(75%);
+                                filter: opacity(70%);
                             }
                             &:active {
                                 filter: opacity(50%);

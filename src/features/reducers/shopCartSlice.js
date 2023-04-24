@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {handlePending,  handleError} from "./handleResponse";
 
-const API_URL = 'http://127.0.0.1:8000/api'
+const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
 
 const user = JSON.parse(localStorage.getItem('user')) || {}
 const headers = {'Authorization': `Token ${user.token}`}
@@ -13,8 +13,8 @@ export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
     return response.data
 })
 
-export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service}) => {
-    return await axios.post(`${API_URL}/cart-items/`, {cart, service}, {headers})
+export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service, quantity}) => {
+    return await axios.post(`${API_URL}/cart-items/`, {cart, service, quantity}, {headers})
 })
 
 export const deleteCartItem = createAsyncThunk('shopCart/deleteCartItem', async (id) => {

@@ -5,11 +5,14 @@ import MicExternalOnRoundedIcon from '@mui/icons-material/MicExternalOnRounded';
 import HeadphonesRoundedIcon from '@mui/icons-material/HeadphonesRounded';
 import SurroundSoundRoundedIcon from '@mui/icons-material/SurroundSoundRounded';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
+
 import {useDispatch, useSelector} from "react-redux";
-import {addCartItem} from "../reducers/shopCartSlice";
-import CartAppended from "../../components/Notifications/CartAppended";
+import {addCartItem} from "../../features/reducers/shopCartSlice";
+import CartAppended from "../Notifications/CartAppended";
 import {NavLink} from "react-router-dom";
-import {beautyNum} from "../../components/ShopCart/ShopCart";
+import {beautyNum} from "../ShopCart/ShopCart";
 
 export const getIcon = (service, className) => {
     if (service.type === 'Exclusive' || service.type === 'Exclusive+') return <MusicNoteRoundedIcon className={className}/>
@@ -28,12 +31,13 @@ const CatalogItem = (props) => {
     const isLogin = useSelector(state=>state.user.is_artist)
 
     const [notification, showNotification] = useState(false)
+    const [count, setCount] = useState(1)
 
     useEffect(() => {
         if(notification===true) {
             setTimeout(() => {
                 showNotification(false)
-            },2000)
+            },2500)
         }
     })
 
@@ -41,13 +45,19 @@ const CatalogItem = (props) => {
         showNotification(true)
         dispatch(addCartItem({
             cart: cartId,
-            service: service.id
+            service: service.id,
+            quantity: count,
         }))
     }
 
-    const button = isLogin ?
-        <button className='service__addToCart' onClick={addServiceToCart}>Добавить в корзину</button> :
-        <NavLink className='service__addToCart' to='/auth'>Войти</NavLink>
+    const increment = () => {
+        setCount(count+1)
+    }
+
+    const decrement = () => {
+        if (count != 1)
+            setCount(count-1)
+    }
 
     return (
     <>
@@ -55,9 +65,20 @@ const CatalogItem = (props) => {
         <h2 className='service__title'>{service.name} {getIcon(service, 'service__icon icon')}</h2>
         <p className="service__description">{service.description}</p>
         <p className='service__cost'>{beautyNum(service.cost)} Руб</p>
-        {button}
+        <div className="service__actions">
+            {isLogin ?
+                <>
+                    <button className='service__addToCart' onClick={addServiceToCart}>Добавить в корзину</button>
+                    <p className="service__count count">
+                        <AddRoundedIcon className="count__setCount" onClick={increment}/>
+                        {count}
+                        <RemoveRoundedIcon className="count__setCount" onClick={decrement}/>
+                    </p>
+                </> :
+                <NavLink className='service__addToCart' to='/auth'>Войти</NavLink>}
+        </div>
     </div>
-    <CartAppended service={service} isShow={notification}/>
+    <CartAppended service={service} isShow={notification} count={count}/>
     </>
     )
 }

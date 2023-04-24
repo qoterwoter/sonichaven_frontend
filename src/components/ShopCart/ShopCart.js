@@ -25,6 +25,7 @@ const ShopCart = () => {
         dispatch(fetchCart())
     },[dispatch])
 
+
     const cartItems = shopCart.cart && shopCart.cart.map(cart => {
         return <CartItem cartId = {shopCart.cartId} item={cart}/>
     })

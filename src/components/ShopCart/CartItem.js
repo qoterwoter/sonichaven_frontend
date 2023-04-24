@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
-import {changeCartItem, deleteCartItem, deleteItem} from "../../features/reducers/shopCartSlice";
+import {changeCartItem, deleteCartItem, deleteItem, fetchCart} from "../../features/reducers/shopCartSlice";
 import {beautyNum} from "./ShopCart";
-import {getIcon} from "../../features/catalog/CatalogItem";
+import {getIcon} from "../Catalog/CatalogItem";
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
@@ -21,7 +21,7 @@ const CartItem = (props) => {
         setSum(beautyNum(service.cost * e.target.value + '.00'))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const data = {
             quantity: +count,
@@ -29,12 +29,14 @@ const CartItem = (props) => {
             cart: props.cartId,
             id: props.item.id
         }
-        dispatch(changeCartItem(data))
+        await dispatch(changeCartItem(data))
+        dispatch(fetchCart())
     }
 
-    const handleDelete = (e) => {
+    const handleDelete = async (e) => {
         dispatch(deleteItem(props.item.id))
-        dispatch(deleteCartItem(props.item.id))
+        await dispatch(deleteCartItem(props.item.id))
+        dispatch(fetchCart())
     }
 
     const toggleEdit = () => {
@@ -59,7 +61,7 @@ const CartItem = (props) => {
     <>
         <article key={props.item.id} className="shop-cart__item item">
             <div className="item__content">
-                <h3 className="item__title">{service.name} - {count} шт. {getIcon(service, 'item__icon icon')}</h3>
+                <h3 className="item__title">{getIcon(service, 'item__icon icon')} {service.name} - {count} шт.</h3>
                 <p className="item__description">{service.description}</p>
             </div>
             <div className="item__bottom-menu">
