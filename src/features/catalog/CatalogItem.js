@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addCartItem} from "../reducers/shopCartSlice";
 import CartAppended from "../../components/Notifications/CartAppended";
 import {NavLink} from "react-router-dom";
+import {beautyNum} from "../../components/ShopCart/ShopCart";
 
 export const getIcon = (service, className) => {
     if (service.type === 'Exclusive' || service.type === 'Exclusive+') return <MusicNoteRoundedIcon className={className}/>
@@ -51,9 +52,9 @@ const CatalogItem = (props) => {
     return (
     <>
     <div key={service.id} className='catalog__service service'>
-        <h2 className='service__title'>{service.name} {getIcon(service, 'service__icon')}</h2>
+        <h2 className='service__title'>{service.name} {getIcon(service, 'service__icon icon')}</h2>
         <p className="service__description">{service.description}</p>
-        <p className='service__cost'>{service.cost} Руб</p>
+        <p className='service__cost'>{beautyNum(service.cost)} Руб</p>
         {button}
     </div>
     <CartAppended service={service} isShow={notification}/>
