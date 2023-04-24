@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
 import {changeCartItem, deleteCartItem, deleteItem} from "../../features/reducers/shopCartSlice";
 import {beautyNum} from "./ShopCart";
-import {getIcon} from "../../features/services/CatalogItem";
+import {getIcon} from "../../features/catalog/CatalogItem";
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
@@ -45,31 +45,31 @@ const CartItem = (props) => {
         if (isEdit) {
             setButton(<>
                     <div className="actions__type">
-                        <label className='actions__label label' htmlFor={'count' + props.item.id}>Количество</label>
+                        <label className='actions__label label' htmlFor={'count' + props.item.id}>Количество:</label>
                         <input className='actions__input input' type='number' id={'count' + props.item.id}
                                onChange={onChangeCount} value={count}/>
                     </div>
                     <input className='actions__submit button' type='submit' value='Сохранить' onClick={toggleEdit}/>
                 </>)
         }
-        else setButton(<EditRoundedIcon className='actions__edit' onClick={toggleEdit}/>)
+        else setButton(<EditRoundedIcon className='actions__edit icon' onClick={toggleEdit}/>)
     }, [isEdit, count])
 
     return (
     <>
-        <div key={props.item.id} className="shop-cart__item item">
+        <article key={props.item.id} className="shop-cart__item item">
             <div className="item__content">
-                <h3 className="item__title">{service.name} - {count} шт. {getIcon(service, 'item__icon')}</h3>
+                <h3 className="item__title">{service.name} - {count} шт. {getIcon(service, 'item__icon icon')}</h3>
                 <p className="item__description">{service.description}</p>
             </div>
             <div className="item__bottom-menu">
                 <p className="item__cost">{sum} Руб.</p>
                 <form className="item__actions actions form" onSubmit={handleSubmit}>
-                    <DeleteRoundedIcon alt='Удалить' className='actions__delete action' onClick={handleDelete}/>
+                    <DeleteRoundedIcon alt='Удалить' className='actions__delete action icon' onClick={handleDelete}/>
                     {button}
                 </form>
             </div>
-        </div>
+        </article>
     </>
     )
 }

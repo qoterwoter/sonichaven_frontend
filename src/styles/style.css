@@ -104,10 +104,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
-  margin-bottom: 16px;
 }
 .main .catalog .catalog__title {
   grid-column: span 3;
+  margin-bottom: 16px;
 }
 .main .catalog .service {
   display: flex;
@@ -246,64 +246,80 @@ body {
   background-color: #375FAD;
 }
 .main .shop-cart {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
 }
-.main .shop-cart .shop-cart__title, .main .shop-cart .shop-cart__sum {
-  grid-column: span 2;
-}
-.main .shop-cart .item {
+.main .shop-cart .shop-cart__items {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(15px);
-  padding: 16px;
+  padding: 16px 32px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
-.main .shop-cart .item .item__title {
+.main .shop-cart .shop-cart__items .item {
+  padding: 16px 0;
+  border-bottom: 2px solid #4E5157;
+}
+.main .shop-cart .shop-cart__items .item:last-child {
+  border: none;
+}
+.main .shop-cart .shop-cart__items .item .item__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0;
 }
-.main .shop-cart .item .item__icon {
+.main .shop-cart .shop-cart__items .item .item__icon {
   color: #868A91;
 }
-.main .shop-cart .item .item__description {
+.main .shop-cart .shop-cart__items .item .item__description {
   color: #B4B8BF;
 }
-.main .shop-cart .item .item__bottom-menu {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
-.main .shop-cart .item .item__bottom-menu .item__cost {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__cost {
   color: #868A91;
+  margin: 0;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions .actions__delete {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .actions__delete {
   color: #DB5C5C;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions .actions__edit {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .actions__edit {
   color: #5FAD65;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions .actions__label {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .icon {
+  transition: 0.3s;
+}
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .icon:hover {
+  filter: opacity(75%);
+}
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .icon:active {
+  filter: opacity(50%);
+}
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .actions__label {
   margin-right: 8px;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions .actions__input {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .actions__input {
   margin-right: 8px;
   width: 60px;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions .action {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions .action {
   margin: 0 8px;
 }
-.main .shop-cart .item .item__bottom-menu .item__actions > * {
+.main .shop-cart .shop-cart__items .item .item__bottom-menu .item__actions > * {
   cursor: pointer;
+}
+.main .shop-cart .shop-cart__sum {
+  margin-top: 16px;
 }
 .main .about-us {
   display: grid;
@@ -333,6 +349,7 @@ body {
   background-color: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(15px);
   padding: 16px;
+  margin: 32px 0 16px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
@@ -393,7 +410,7 @@ a.active {
   background: #3574F0;
   border: none;
   padding: 6px 15px;
-  height: 30px;
+  height: 28px;
   border-radius: 4px;
   transition: 0.3s;
 }
@@ -404,8 +421,13 @@ a.active {
   background: #375FAD;
 }
 
+.icon {
+  height: 28px !important;
+  width: 28px !important;
+}
+
 .form .input {
-  height: 30px;
+  height: 28px;
   border-radius: 4px;
   padding: 6px 9px;
   background: none;

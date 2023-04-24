@@ -33,7 +33,9 @@ const ShopCart = () => {
     <main className='main'>
         <div className="shop-cart">
             <h2 className="shop-cart__title block-title">Корзина</h2>
-            {cartItems}
+            <section className="shop-cart__items">
+                {cartItems}
+            </section>
             <p className="shop-cart__sum block-title">Сумма - {beautyNum(shopCart.sum)} Руб.</p>
         </div>
     </main>

@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {handlePending,  handleError} from "./handleResponse";
 
-const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
+const API_URL = 'http://127.0.0.1:8000/api'
 
 const user = JSON.parse(localStorage.getItem('user')) || {}
 const headers = {'Authorization': `Token ${user.token}`}
