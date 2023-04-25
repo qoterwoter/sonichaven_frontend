@@ -1,4 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {addCartItem} from "../../features/reducers/shopCartSlice";
+import CartAppended from "../Notifications/CartAppended";
+import {NavLink} from "react-router-dom";
+import {beautyNum} from "../ShopCart/ShopCart";
+
 import MusicNoteRoundedIcon from '@mui/icons-material/MusicNoteRounded';
 import GraphicEqRoundedIcon from '@mui/icons-material/GraphicEqRounded';
 import MicExternalOnRoundedIcon from '@mui/icons-material/MicExternalOnRounded';
@@ -7,12 +13,8 @@ import SurroundSoundRoundedIcon from '@mui/icons-material/SurroundSoundRounded';
 import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
-
-import {useDispatch, useSelector} from "react-redux";
-import {addCartItem} from "../../features/reducers/shopCartSlice";
-import CartAppended from "../Notifications/CartAppended";
-import {NavLink} from "react-router-dom";
-import {beautyNum} from "../ShopCart/ShopCart";
+import LibraryMusicRoundedIcon from '@mui/icons-material/LibraryMusicRounded';
+import {pushNotification} from "../../features/reducers/notificationSlice";
 
 export const getIcon = (service, className) => {
     if (service.type === 'Exclusive' || service.type === 'Exclusive+') return <MusicNoteRoundedIcon className={className}/>
@@ -21,6 +23,7 @@ export const getIcon = (service, className) => {
     if (service.type === 'Production') return <SurroundSoundRoundedIcon className={className}/>
     if (service.type === 'Key') return <KeyRoundedIcon className={className}/>
     if (service.type === 'Record') return <MicExternalOnRoundedIcon className={className}/>
+    if (service.type === 'Distribution') return <LibraryMusicRoundedIcon className={className}/>
 }
 
 const CatalogItem = (props) => {
@@ -30,19 +33,14 @@ const CatalogItem = (props) => {
     const cartId = useSelector(state=>state.user.cart_id)
     const isLogin = useSelector(state=>state.user.is_artist)
 
-    const [notification, showNotification] = useState(false)
     const [count, setCount] = useState(1)
 
-    useEffect(() => {
-        if(notification===true) {
-            setTimeout(() => {
-                showNotification(false)
-            },2500)
-        }
-    })
+    const setNotification = () => {
+        dispatch(pushNotification({...service, count}, {dispatch}))
+    }
 
     const addServiceToCart = (e) => {
-        showNotification(true)
+        setNotification()
         dispatch(addCartItem({
             cart: cartId,
             service: service.id,
@@ -68,17 +66,16 @@ const CatalogItem = (props) => {
         <div className="service__actions">
             {isLogin ?
                 <>
-                    <button className='service__addToCart' onClick={addServiceToCart}>Добавить в корзину</button>
+                    <button className='service__addToCart button' onClick={addServiceToCart}>Добавить в корзину</button>
                     <p className="service__count count">
-                        <AddRoundedIcon className="count__setCount" onClick={increment}/>
+                        <RemoveRoundedIcon className="count__setCount button" onClick={decrement}/>
                         {count}
-                        <RemoveRoundedIcon className="count__setCount" onClick={decrement}/>
+                        <AddRoundedIcon className="count__setCount button" onClick={increment}/>
                     </p>
                 </> :
                 <NavLink className='service__addToCart' to='/auth'>Войти</NavLink>}
         </div>
     </div>
-    <CartAppended service={service} isShow={notification} count={count}/>
     </>
     )
 }

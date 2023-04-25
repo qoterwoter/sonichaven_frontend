@@ -4,13 +4,15 @@ import newsReducer from "./features/reducers/newsSlice";
 import userReducer from "./features/reducers/userSlice";
 import serviceReducer from "./features/reducers/serviceSlice";
 import shopCartReducer from "./features/reducers/shopCartSlice";
+import notificationSlice from "./features/reducers/notificationSlice";
 
 const rootReducer = combineReducers({
   artist: artistReducer,
   news: newsReducer,
   user: userReducer,
   services: serviceReducer,
-  shopCart: shopCartReducer
+  shopCart: shopCartReducer,
+  notifications: notificationSlice
 })
 
 export default rootReducer

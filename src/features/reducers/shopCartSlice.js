@@ -14,7 +14,16 @@ export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
 })
 
 export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service, quantity}) => {
-    return await axios.post(`${API_URL}/cart-items/`, {cart, service, quantity}, {headers})
+    let response
+    try {
+        response = await axios.post(`${API_URL}/cart-items/`, {cart, service, quantity}, {headers})
+    } catch (error) {
+        response = error
+    }
+    finally {
+        return response
+    }
+
 })
 
 export const deleteCartItem = createAsyncThunk('shopCart/deleteCartItem', async (id) => {
@@ -44,6 +53,9 @@ const shopCartSlice = createSlice({
         deleteItem: (state, action) => {
             console.log(action.payload)
             state.cart = state.cart.filter(item => item.id !== action.payload)
+        },
+        setSum: (state, action) => {
+            state.sum = action.payload
         }
     },
     extraReducers: {
@@ -56,6 +68,9 @@ const shopCartSlice = createSlice({
             state.status = 'Успешно'
         },
         [fetchCart.rejected]: handleError,
+        [addCartItem.rejected]: (state, action) => {
+
+        }
     }
 })
 

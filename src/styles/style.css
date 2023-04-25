@@ -151,11 +151,13 @@ body {
   width: 32px;
   padding: 3px;
   cursor: pointer;
-  background: #955AE0;
+  background-color: #3574F0;
   border-radius: 50px;
+  transition: 0.3s;
 }
 .main .catalog .service .service__actions .service__addToCart {
-  background-color: #3574F0;
+  height: fit-content;
+  background-color: #57965C;
   color: #DFE1E5;
   padding: 8px 16px;
   border: none;
@@ -164,11 +166,11 @@ body {
   transition: 0.2s;
   width: fit-content;
 }
-.main .catalog .service .service__actions .service__addToCart:hover {
-  background-color: #4E8052;
+.main .catalog .service .service__actions .button:hover {
+  opacity: 85%;
 }
-.main .catalog .service .service__actions .service__addToCart:active {
-  background-color: #436946;
+.main .catalog .service .service__actions .button:active {
+  opacity: 75%;
 }
 .main .releases {
   display: grid;
@@ -384,25 +386,28 @@ body {
   opacity: 1;
 }
 
-.notification {
-  transition: 0.5s;
+.notifications {
   position: fixed;
   right: 16px;
-  bottom: 16px;
+  bottom: 0;
   z-index: 9999;
+}
+.notifications .notification {
+  margin: 16px 0;
+  transition: 0.5s;
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(15px);
   padding: 16px;
   width: 390px;
   border-radius: 12px;
 }
-.notification .notification__title {
+.notifications .notification .notification__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
 }
-.notification .notification__title .notification__close {
+.notifications .notification .notification__title .notification__close {
   cursor: pointer;
   color: #DB5C5C;
 }
@@ -432,11 +437,11 @@ a.active {
   border-radius: 4px;
   transition: 0.3s;
 }
-.button:hover {
-  background: #366ACF;
+.button .button:hover {
+  opacity: 76%;
 }
-.button:active {
-  background: #375FAD;
+.button .button:active {
+  opacity: 55%;
 }
 
 .icon {
