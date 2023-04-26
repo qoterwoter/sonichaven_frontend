@@ -27,7 +27,7 @@ body {
 }
 
 .header, .footer {
-    background: rgba(0, 0, 0, 0.55);
+    background: $header-background;
     backdrop-filter: $blur;
     height: 70px;
     box-shadow: 0px 8px 40px black;
@@ -64,6 +64,44 @@ body {
             font-weight: 700;
         }
 
+        .header__avatar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .avatar__image {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                cursor: pointer;
+                object-fit: cover;
+            }
+            .avatar__menu {
+                top: 70px;
+                position: fixed;
+                z-index: 1000;
+                box-shadow: 0px 8px 40px $gray-shadow;
+                flex-direction: column;
+                background: $header-background;
+                backdrop-filter: $blur;
+                padding: 8px;
+                border-radius: 0 0 8px 8px;
+                .menu__action {
+                    display: block;
+                    padding: 8px 0;
+                    border-bottom: 1px solid $gray-border;
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+            .menu_hide {
+                display: none;
+            }
+            .menu_show {
+                display: flex;
+            }
+        }
+
         .nav {
             .nav__link {
                 margin: 0 8px;
@@ -78,11 +116,10 @@ body {
         }
     }
 }
-
-@import "./main/main";
-
 .footer__description {
     margin: 0 auto;
 }
+
+@import "./main/main";
 @import "helloElement";
 @import 'elements';

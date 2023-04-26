@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link, NavLink  } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {unAuthorize} from "../../features/reducers/userSlice";
+import Avatar from "./Avatar";
 
 const Header = () => {
     const isAuth = useSelector(state => state.user.token)
@@ -13,10 +14,7 @@ const Header = () => {
         setButtons(loginButtons)
     }
 
-    const loginButtons = <div className='nav__user-actions'>
-        <NavLink className='nav__link' to='/shopCart' >Корзина</NavLink>
-        <a className='nav__link' onClick={handleLogout} href='src/components/Header/Header#'>Выйти</a>
-    </div>
+    const loginButtons = <Avatar handleLogout = {handleLogout}/>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
     useEffect(() => {
