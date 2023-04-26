@@ -1,0 +1,47 @@
+.releases {
+    display: grid;
+    justify-content: space-between;
+    align-items: start;
+    gap: $gap;
+
+    .releases__title {
+        grid-column: span 3;
+    }
+
+    .release {
+        padding: $block-padding;
+        background-color: $blur-background;
+        backdrop-filter: $blur;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        .release__title {
+            font-size: $heading-text-2;
+            margin: 0;
+            padding-bottom: 16px;
+        }
+
+        .release__image {
+            border-radius: 8px;
+        }
+
+        .release__date {
+            margin: 8px 0 0;
+            color: $gray-text-secondary;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &:before {
+        position: absolute;
+        width: 100vw;
+        height: 70px;
+        background: linear-gradient(black, rgba(0,0,0,0));
+    }
+}

@@ -1,0 +1,89 @@
+.shopCart {
+    display: flex;
+    flex-direction: column;
+
+    .shop-cart__items {
+        background: $blur-background;
+        backdrop-filter: $blur;
+        padding: 16px 32px;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        .item {
+            padding: 16px 0;
+            border-bottom: 2px solid $gray-background-primary;
+            &:last-child {
+                border: none;
+            }
+            .item__title {
+                display: flex;
+                align-items: center;
+                margin: 0;
+            }
+
+            .item__icon {
+                margin-right: 16px;
+            }
+
+            .item__description {
+                color: $gray-text-general;
+            }
+            .item__bottom-menu {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+
+                .item__cost {
+                    color: $gray-text-secondary;
+                    margin: 0;
+                }
+
+                .item__actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .actions__delete {
+                        color: $red-primary;
+                    }
+                    .actions__edit {
+                        color: $green-edit;
+
+                    }
+
+                    .icon {
+                        transition: .3s;
+                        &:hover {
+                            filter: opacity(70%);
+                        }
+                        &:active {
+                            filter: opacity(50%);
+                        }
+                    }
+
+                    .actions__label {
+                        margin-right: 8px;
+                    }
+                    .actions__input {
+                        margin-right: 8px;
+                        width: 60px;
+                    }
+
+                    .action {
+                        margin: 0 8px;
+                    }
+
+                    >* {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .shop-cart__sum {
+        margin-top: 16px;
+    }
+}

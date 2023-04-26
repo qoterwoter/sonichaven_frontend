@@ -32,7 +32,7 @@ const ShopCart = () => {
 
     return (
     <main className='main'>
-        <div className="shop-cart">
+        <div className="shopCart">
             <h2 className="shop-cart__title block-title">Корзина</h2>
             <section className="shop-cart__items">
                 {cartItems}

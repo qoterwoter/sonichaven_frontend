@@ -1,0 +1,53 @@
+$gray-text-primary: #DFE1E5;
+$gray-text-general: #CED0D6;
+$gray-background-primary: #2d2d2d; // #1E1F22
+$gray-background-secondary: rgba(30, 30, 30, 0.7); // #2B2D30
+$gray-text-secondary: #868A91;
+$gray-text-general: #B4B8BF;
+$gray-border: #4E5157;
+
+$gray-shadow: rgba(0, 0, 0, 0.35);
+$box-shadow: 0 8px 32px $gray-shadow;
+
+$blue-link: #6B9BFA;
+$blue-general: #548AF7;
+$blue-primary: #3574F0;
+$blue-hovered: #366ACF;
+$blue-pressed: #375FAD;
+
+$purple-general: #A571E6;
+$purple-primary: #955AE0;
+
+$red-primary: #DB5C5C;
+$red-secondary: #BD5757;
+
+$green-edit: #5FAD65;
+$green-primary: #57965C;
+$green-hovered: #4E8052;
+$green-pressed: #436946;
+
+$gap: 16px;
+
+$heading-text-1: 24px;
+$heading-text-2: 20px;
+$default-text: 16px;
+
+$border-radius: 16px;
+$block-padding: 16px;
+
+$blur-background: rgba(30, 30, 30, 0.5);
+$blur: blur(15px);
+
+$gradient: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, $blue-primary);
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

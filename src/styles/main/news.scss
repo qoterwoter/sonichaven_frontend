@@ -1,0 +1,17 @@
+.news {
+    .news__article {
+        background-color: rgba(33, 33, 33, 0.35);
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        padding: $block-padding;
+
+        .article__image {
+            width: 100%;
+            border-radius: 12px;
+        }
+        .article__date {
+            margin-top: 5px;
+            color: $gray-text-secondary;
+        }
+    }
+}

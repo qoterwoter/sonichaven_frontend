@@ -8,13 +8,10 @@ export const fetchReleases = createAsyncThunk('releases/fetchReleases', async ()
 });
 
 
-const artistReducer = createSlice({
-    name: 'artist',
+const releasesSlice = createSlice({
+    name: 'releases',
     initialState: {
         releases: [],
-        userInfo: {
-            artist_name:'Imagine Dragons'
-        },
         status: '',
     },
     reducers: {},
@@ -25,4 +22,4 @@ const artistReducer = createSlice({
     }
 })
 
-export default artistReducer.reducer
+export default releasesSlice.reducer

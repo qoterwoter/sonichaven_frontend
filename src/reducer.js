@@ -1,4 +1,4 @@
-import artistReducer from "./features/reducers/artistSlice";
+import releasesSlice from "./features/reducers/releasesSlice";
 import {combineReducers} from "@reduxjs/toolkit";
 import newsReducer from "./features/reducers/newsSlice";
 import userReducer from "./features/reducers/userSlice";
@@ -7,7 +7,7 @@ import shopCartReducer from "./features/reducers/shopCartSlice";
 import notificationSlice from "./features/reducers/notificationSlice";
 
 const rootReducer = combineReducers({
-  artist: artistReducer,
+  releases: releasesSlice,
   news: newsReducer,
   user: userReducer,
   services: serviceReducer,

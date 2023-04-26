@@ -1,0 +1,88 @@
+@import "variables";
+
+* {
+    box-sizing: border-box;
+    &::selection {
+        background-color: #0090e0;
+        color: $gray-text-primary;
+    }
+}
+
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: $gray-text-primary;
+    font-size: $default-text;
+    background-image: url("../images/body_background.jpg");
+    background-position-y: 100vh;
+    background-size: 100%;
+    background-repeat: repeat-y;
+
+    //background:
+    //    linear-gradient(45deg, rgb(0, 30, 182), rgba(0, 0, 0, 0.1) 55.71%),
+    //    linear-gradient(127deg, rgb(224, 0, 211), rgba(0, 0, 0, 0.1) 60.71%),
+    //    linear-gradient(217deg, rgb(9, 0, 215), rgba(0, 0, 0, 0.1) 70.71%),
+    //    linear-gradient(336deg, rgb(215, 0, 0), rgba(0, 0, 0, 0.1) 70.71%);
+    min-height: 100vh;
+}
+
+.header, .footer {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: $blur;
+    height: 70px;
+    box-shadow: 0px 8px 40px black;
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        min-height: 70px;
+        padding: 5px $gap;
+    }
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        .header__logo {
+            font-size: $heading-text-1;
+            text-shadow: 0 20px 50px black;
+            background: $gradient;
+            background-size: 500%;
+            -webkit-background-clip: text;
+            color: rgba(255, 255, 255, 0.1);
+
+            animation: gradient 10s linear infinite;
+            font-weight: 700;
+        }
+
+        .nav {
+            .nav__link {
+                margin: 0 8px;
+            }
+        }
+
+        .nav__user-actions {
+            .nav__link {
+                margin: 0 8px;
+
+            }
+        }
+    }
+}
+
+@import "./main/main";
+
+.footer__description {
+    margin: 0 auto;
+}
+@import "helloElement";
+@import 'elements';

@@ -11,7 +11,7 @@ const AboutUs = () => {
             </div>
         </div>
         <main className="main">
-            <div className='about-us'>
+            <div className='aboutUs'>
                 <img className='about-us__image' src='https://psv4.userapi.com/c237131/u482136744/docs/d20/042ade371599/mice.jpg?extra=Rz9C3Z_ZllACNRE3LMihuxe4YERC-4AuxecbLuAcRTvFTWRjxXKNs-1Rjys89FR1tcxnxnQgGqYPcw-FtUfAFBdtIERAbda3nkzj0DB6fwHxIVZbuOLuD7qvcMfRfxCM2PmVaaR9FX1Ddr8SPEMOZp70'/>
                 <p className="about-us__paragraph paragraph">
                     Эта студия звукозаписи - идеальное место для музыкантов, которые ищут качественную и
