@@ -2,11 +2,8 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 export const pushNotification = createAsyncThunk('notifications/pushNotification', async (notification, {dispatch}) => {
     setTimeout(() => {
-        dispatch(hideNotification(notification.id))
-        setTimeout(() => {
-            dispatch(removeNotification())
-        }, 1000)
-    },2000)
+        dispatch(removeNotification())
+    },3000)
 
     return notification
 })
@@ -22,12 +19,6 @@ const notificationSlice = createSlice({
         removeNotification: state => {
             state.notifications = state.notifications.slice(1)
         },
-        hideNotification: (state, action) => {
-            const toHide = action.payload
-            const id = state.notifications.findIndex(notification => notification.id === toHide)
-
-            if(id > -1) state.notifications[id].classList = 'hide'
-        }
     },
     extraReducers: {
         [pushNotification.pending]: (state, action) => {

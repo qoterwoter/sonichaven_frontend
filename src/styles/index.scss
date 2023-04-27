@@ -24,6 +24,14 @@ body {
     //    linear-gradient(217deg, rgb(9, 0, 215), rgba(0, 0, 0, 0.1) 70.71%),
     //    linear-gradient(336deg, rgb(215, 0, 0), rgba(0, 0, 0, 0.1) 70.71%);
     min-height: 100vh;
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: $gray-background-primary;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #999;
+        border-radius: 5px;
+    }
 }
 
 .header, .footer {
@@ -75,31 +83,6 @@ body {
                 cursor: pointer;
                 object-fit: cover;
             }
-            .avatar__menu {
-                top: 70px;
-                position: fixed;
-                z-index: 1000;
-                box-shadow: 0px 8px 40px $gray-shadow;
-                flex-direction: column;
-                background: $header-background;
-                backdrop-filter: $blur;
-                padding: 8px;
-                border-radius: 0 0 8px 8px;
-                .menu__action {
-                    display: block;
-                    padding: 8px 0;
-                    border-bottom: 1px solid $gray-border;
-                    &:last-child {
-                        border: none;
-                    }
-                }
-            }
-            .menu_hide {
-                display: none;
-            }
-            .menu_show {
-                display: flex;
-            }
         }
 
         .nav {
@@ -116,6 +99,42 @@ body {
         }
     }
 }
+
+.header__bottomMenu {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+
+    .menu {
+        top: 0;
+        position: fixed;
+        z-index: 998;
+        flex-direction: column;
+        justify-content: end;
+
+        box-shadow: 0px 8px 40px $gray-shadow;
+        background: $header-background;
+        backdrop-filter: blur(15px);
+        padding: 78px 8px 8px;
+        border-radius: 0 0 8px 8px;
+        .menu__action {
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid $gray-border;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_show {
+        display: flex;
+    }
+}
+
 .footer__description {
     margin: 0 auto;
 }
