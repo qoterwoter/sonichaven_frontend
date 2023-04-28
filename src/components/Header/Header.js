@@ -6,10 +6,12 @@ import Avatar from "./Avatar";
 
 const Header = () => {
     const isAuth = useSelector(state => state.user.token)
+    const isHaveCart = useSelector(state => state.shopCart.cart)
     const dispatch = useDispatch()
     const [buttons, setButtons] = useState()
     const [menuClass, setMenuClass] = useState('hide')
     const ref = useRef()
+
 
     const handleLogout = () => {
         dispatch(unAuthorize())
@@ -21,9 +23,6 @@ const Header = () => {
         if(menuClass==='hide') setMenuClass('show')
         else setMenuClass('hide')
     }
-
-    const loginButtons = <Avatar handleLogout = {handleLogout} toggleMenu={toggleMenu}/>
-    const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
     const handleClick = (event) => {
         if(ref.current && !ref.current.contains(event.target)) {
@@ -44,6 +43,9 @@ const Header = () => {
         }
     }, [isAuth])
 
+    const loginButtons = <Avatar handleLogout = {handleLogout} toggleMenu={toggleMenu}/>
+    const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
+
     return (
         <header ref={ref}>
             <div className='header'>
@@ -59,7 +61,8 @@ const Header = () => {
             </div>
             <div className="header__bottomMenu">
                 <div className={'menu menu_'+menuClass} onClick={toggleMenu}>
-                    <NavLink className='menu__action nav__link' to='/shopCart' >Корзина</NavLink>
+                    {isHaveCart && isHaveCart.length > 0 && <NavLink className='menu__action nav__link' to='/shopCart' >Корзина</NavLink>}
+                    <NavLink className='menu__action nav__link' to='/orders'>Заказы</NavLink>
                     <a className='menu__action nav__link' onClick={handleLogout} href='#'>Выйти</a>
                 </div>
             </div>

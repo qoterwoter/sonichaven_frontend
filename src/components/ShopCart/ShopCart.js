@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCart} from "../../features/reducers/shopCartSlice";
 import CartItem from "./CartItem";
+import {makeOrder} from "../../features/reducers/ordersSlice";
 
 const beautyNum = num => {
     num=`${num}`
@@ -25,6 +26,10 @@ const ShopCart = () => {
         dispatch(fetchCart())
     },[dispatch])
 
+    const handleOrder = () => {
+        dispatch(makeOrder())
+        dispatch(fetchCart())
+    }
 
     const cartItems = shopCart.cart && shopCart.cart.map(cart => {
         return <CartItem cartId = {shopCart.cartId} item={cart}/>
@@ -37,7 +42,9 @@ const ShopCart = () => {
             <section className="shop-cart__items">
                 {cartItems}
             </section>
-            <p className="shop-cart__sum block-title">Сумма - {beautyNum(shopCart.sum)} Руб.</p>
+            <p className="shop-cart__sum block-title">Сумма - {beautyNum(shopCart.sum)} Руб.
+                <button className='button' onClick={handleOrder}>Оформить заказ</button>
+            </p>
         </div>
     </main>
     )
