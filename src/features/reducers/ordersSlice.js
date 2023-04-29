@@ -18,19 +18,27 @@ export const makeOrder = createAsyncThunk('shopCart/makeOrder', async () => {
 
 const initialState = {
     orders: [],
-    status: ''
+    orderStatus: ''
 }
 
 const ordersSlice = createSlice(({
     name: 'orders',
     initialState,
     extraReducers: {
+        [makeOrder.pending]: (state) => {
+            state.orderStatus = 'Оформляем заказ...'
+        },
+        [makeOrder.fulfilled]: state => {
+            state.orderStatus = 'Заказ успешно оформлен'
+        },
+        [makeOrder.rejected]: state => {
+            state.orderStatus = 'Ошибка при оформлекнии заказа'
+        },
         [fetchOrders.pending]: handlePending,
         [fetchOrders.fulfilled]: (state, action) => {
             console.log(action)
             const data = action.payload;
             state.orders = [...data]
-            state.status = 'Загрузка завершена'
         }
     }
 }))

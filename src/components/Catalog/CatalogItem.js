@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addCartItem} from "../../features/reducers/shopCartSlice";
-import CartAppended from "../Notifications/CartAppended";
 import {NavLink} from "react-router-dom";
 import {beautyNum} from "../ShopCart/ShopCart";
 
@@ -36,7 +35,7 @@ const CatalogItem = (props) => {
     const [count, setCount] = useState(1)
 
     const setNotification = () => {
-        dispatch(pushNotification({...service, count}, {dispatch}))
+        dispatch(pushNotification({...service, count, notificationType: 'cartAppended'}))
     }
 
     const addServiceToCart = (e) => {
@@ -53,7 +52,7 @@ const CatalogItem = (props) => {
     }
 
     const decrement = () => {
-        if (count != 1)
+        if (count !== 1)
             setCount(count-1)
     }
 

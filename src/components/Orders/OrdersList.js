@@ -15,12 +15,14 @@ const OrdersList = () => {
 
     const orderItems = orders && orders.map(order => {
         return <OrderItem order={order}/>
-    })
+    }).reverse()
 
     return (
     <main className='main'>
-        <h2 className='block-title'>Список заказов</h2>
-        {orderItems}
+        <div className="orders">
+            <h2 className='orders__title block-title'>Список заказов</h2>
+            {orderItems}
+        </div>
     </main>
     )
 }

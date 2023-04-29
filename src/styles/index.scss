@@ -96,13 +96,13 @@ body {
 }
 
 .header__bottomMenu {
-    width: 1200px;
+    width: 1190px;
     margin: 0 auto;
     display: flex;
     justify-content: end;
 
     .menu {
-        top: 0;
+        top: 70px;
         position: fixed;
         z-index: 998;
         flex-direction: column;
@@ -111,7 +111,7 @@ body {
         box-shadow: 0px 8px 40px $gray-shadow;
         background: $header-background;
         backdrop-filter: blur(15px);
-        padding: 78px 8px 8px;
+        padding: 8px;
         border-radius: 0 0 8px 8px;
         .menu__action {
             display: block;
@@ -122,12 +122,12 @@ body {
             }
         }
     }
-    .menu_hide {
-        display: none;
-    }
-    .menu_show {
-        display: flex;
-    }
+    //.menu_hide {
+    //    display: none;
+    //}
+    //.menu_show {
+    //    display: flex;
+    //}
 }
 
 .footer__description {
