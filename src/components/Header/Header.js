@@ -8,7 +8,7 @@ const Header = () => {
     const isAuth = useSelector(state => state.user.token)
     const dispatch = useDispatch()
     const [buttons, setButtons] = useState()
-    const [menuClass, setMenuClass] = useState('hide')
+    const [isShow, setIsShow] = useState(false)
     const ref = useRef()
 
     const handleLogout = () => {
@@ -17,23 +17,26 @@ const Header = () => {
     }
 
     const toggleMenu = () => {
-        console.log(menuClass)
-        if(menuClass==='hide') setMenuClass('show')
-        else setMenuClass('hide')
-    }
-
-    const loginButtons = <Avatar handleLogout = {handleLogout} toggleMenu={toggleMenu}/>
-    const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
+        setIsShow(!isShow);
+        console.log(isShow);
+        if (isShow) {
+            setIsShow(false);
+        }
+    };
 
     const handleClick = (event) => {
         if(ref.current && !ref.current.contains(event.target)) {
-            setMenuClass('hide')
+            console.log('handled click', isShow)
+            setIsShow(false)
         }
     }
 
     useEffect(() => {
         document.addEventListener('click', handleClick)
-    }, [ref])
+        return () => {
+            document.removeEventListener("click", handleClick)
+        }
+    }, [ref.current])
 
     useEffect(() => {
         console.log(isAuth)
@@ -44,8 +47,15 @@ const Header = () => {
         }
     }, [isAuth])
 
+    const loginButtons = <Avatar handleLogout={handleLogout} isShow={isShow} setIsShow={setIsShow} ref={ref}/>
+    const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
+
+    const hideMenu = () => {
+        setIsShow(false)
+    }
+
     return (
-        <header ref={ref}>
+        <header>
             <div className='header'>
                 <div className="container">
                     <Link className='header__logo' to='/'>SonicHaven</Link>
@@ -57,12 +67,13 @@ const Header = () => {
                     {buttons}
                 </div>
             </div>
-            <div className="header__bottomMenu">
-                <div className={'menu menu_'+menuClass} onClick={toggleMenu}>
-                    <NavLink className='menu__action nav__link' to='/shopCart' >Корзина</NavLink>
-                    <a className='menu__action nav__link' onClick={handleLogout} href='#'>Выйти</a>
+            {isShow && <div className="header__bottomMenu">
+                <div className={'menu'} ref={ref}>
+                    <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>
+                    <NavLink className='menu__action nav__link' to='/orders' onClick={hideMenu}>Заказы</NavLink>
+                    <a className='menu__action nav__link' onClick={handleLogout} href='/' onClick={hideMenu}>Выйти</a>
                 </div>
-            </div>
+            </div>}
         </header>
     )
 }

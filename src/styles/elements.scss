@@ -53,18 +53,17 @@ a {
 .button {
     color: $gray-text-primary;
     background: $blue-primary;
+    cursor: pointer;
     border: none;
     padding: 6px 15px;
-    height: 28px;
+    height: 32px;
     border-radius: 4px;
     transition: .3s;
-    .button {
-        &:hover {
-            opacity: 76%;
-        }
-        &:active {
-            opacity: 55%;
-        }
+    &:hover {
+        opacity: 90%;
+    }
+    &:active {
+        opacity: 75%;
     }
 }
 

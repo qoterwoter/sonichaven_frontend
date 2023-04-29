@@ -17,13 +17,8 @@ body {
     background-position-y: 100vh;
     background-size: 100%;
     background-repeat: repeat-y;
-
-    //background:
-    //    linear-gradient(45deg, rgb(0, 30, 182), rgba(0, 0, 0, 0.1) 55.71%),
-    //    linear-gradient(127deg, rgb(224, 0, 211), rgba(0, 0, 0, 0.1) 60.71%),
-    //    linear-gradient(217deg, rgb(9, 0, 215), rgba(0, 0, 0, 0.1) 70.71%),
-    //    linear-gradient(336deg, rgb(215, 0, 0), rgba(0, 0, 0, 0.1) 70.71%);
     min-height: 100vh;
+
     &::-webkit-scrollbar {
         width: 10px;
         background-color: $gray-background-primary;
@@ -101,13 +96,13 @@ body {
 }
 
 .header__bottomMenu {
-    width: 1200px;
+    width: 1190px;
     margin: 0 auto;
     display: flex;
     justify-content: end;
 
     .menu {
-        top: 0;
+        top: 70px;
         position: fixed;
         z-index: 998;
         flex-direction: column;
@@ -116,7 +111,7 @@ body {
         box-shadow: 0px 8px 40px $gray-shadow;
         background: $header-background;
         backdrop-filter: blur(15px);
-        padding: 78px 8px 8px;
+        padding: 8px;
         border-radius: 0 0 8px 8px;
         .menu__action {
             display: block;
@@ -127,12 +122,12 @@ body {
             }
         }
     }
-    .menu_hide {
-        display: none;
-    }
-    .menu_show {
-        display: flex;
-    }
+    //.menu_hide {
+    //    display: none;
+    //}
+    //.menu_show {
+    //    display: flex;
+    //}
 }
 
 .footer__description {
@@ -142,3 +137,17 @@ body {
 @import "./main/main";
 @import "helloElement";
 @import 'elements';
+
+//@media (prefers-color-scheme: dark) {
+//    body {
+//        background-color: black;
+//        color: white;
+//    }
+//}
+//
+//@media (prefers-color-scheme: light) {
+//    body {
+//        background-color: white;
+//        color: black;
+//    }
+//}

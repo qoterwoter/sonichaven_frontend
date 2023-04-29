@@ -23,7 +23,6 @@ export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart
     finally {
         return response
     }
-
 })
 
 export const deleteCartItem = createAsyncThunk('shopCart/deleteCartItem', async (id) => {
@@ -38,6 +37,7 @@ export const changeCartItem = createAsyncThunk('shopCart/changeCartItem', async 
 
     }, {headers})
 })
+
 
 const initialState = {
     cart: '',
@@ -69,7 +69,7 @@ const shopCartSlice = createSlice({
         },
         [fetchCart.rejected]: handleError,
         [addCartItem.rejected]: (state, action) => {
-
+            console.log(action)
         }
     }
 })

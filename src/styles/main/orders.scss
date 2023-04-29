@@ -1,0 +1,37 @@
+.orders {
+    .order {
+        padding: 16px;
+        background-color: $blur-background;
+        backdrop-filter: $blur;
+        border-radius: $border-radius;
+        margin: 16px 0;
+        .order__title {
+            margin: 0;
+        }
+        .order__service {
+            border-bottom: 2px solid $gray-background-primary;
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .service__title {
+                color: $gray-text-primary;
+            }
+            .service__description {
+                color: $gray-text-general;
+            }
+            .service__cost {
+                color: $gray-text-secondary;
+            }
+        }
+        .order__sum {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+            color: $gray-text-general;
+            .span__border {
+                padding: 0 6px;
+            }
+        }
+    }
+}
