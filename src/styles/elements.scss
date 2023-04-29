@@ -45,9 +45,6 @@ a {
     &:active {
         color: $blue-pressed;
     }
-    &.active {
-        color: $gray-text-general;
-    }
 }
 
 .button {
@@ -65,6 +62,18 @@ a {
     &:active {
         opacity: 75%;
     }
+}
+
+.button__success {
+    height: fit-content;
+    background-color: $green-primary;
+    color: $gray-text-primary;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .2s;
+    width: fit-content;
 }
 
 .icon {

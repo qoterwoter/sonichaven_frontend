@@ -188,23 +188,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50px;
   transition: 0.3s;
 }
-.main .catalog .service .service__actions .service__addToCart {
-  height: fit-content;
-  background-color: #57965C;
-  color: #DFE1E5;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: 0.2s;
-  width: fit-content;
-}
-.main .catalog .service .service__actions .button:hover {
-  opacity: 85%;
-}
-.main .catalog .service .service__actions .button:active {
-  opacity: 75%;
-}
 .main .releases {
   display: grid;
   justify-content: space-between;
@@ -389,28 +372,35 @@ body::-webkit-scrollbar-thumb {
   margin-top: 16px;
 }
 .main .shopCart .shop-cart__bottomMenu .shop-cart__sum {
-  margin-right: 32px;
+  margin: 0 32px 0 0;
 }
 .main .aboutUs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .main .aboutUs > * {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
-.main .aboutUs .about-us__paragraph {
+.main .aboutUs .aboutUs__article {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(15px);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.main .aboutUs .aboutUs__article:last-child {
+  margin-bottom: 0;
+}
+.main .aboutUs .aboutUs__article .about-us__paragraph {
   display: block;
   font-size: 20px;
   line-height: 28px;
-  padding: 16px;
-  border-radius: 16px;
 }
-.main .aboutUs .about-us__image {
+.main .aboutUs .aboutUs__article .about-us__image {
   border-radius: 16px;
   display: block;
   width: 100%;
@@ -527,9 +517,6 @@ a:hover {
 a:active {
   color: #375FAD;
 }
-a.active {
-  color: #B4B8BF;
-}
 
 .button {
   color: #DFE1E5;
@@ -546,6 +533,18 @@ a.active {
 }
 .button:active {
   opacity: 75%;
+}
+
+.button__success {
+  height: fit-content;
+  background-color: #57965C;
+  color: #DFE1E5;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: fit-content;
 }
 
 .icon {

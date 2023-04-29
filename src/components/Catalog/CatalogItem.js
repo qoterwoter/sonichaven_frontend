@@ -65,14 +65,14 @@ const CatalogItem = (props) => {
         <div className="service__actions">
             {isLogin ?
                 <>
-                    <button className='service__addToCart button' onClick={addServiceToCart}>Добавить в корзину</button>
+                    <button className='button button__success' onClick={addServiceToCart}>Добавить в корзину</button>
                     <p className="service__count count">
                         <RemoveRoundedIcon className="count__setCount button" onClick={decrement}/>
                         {count}
                         <AddRoundedIcon className="count__setCount button" onClick={increment}/>
                     </p>
                 </> :
-                <NavLink className='service__addToCart' to='/auth'>Войти</NavLink>}
+                <NavLink className='button__success' to='/auth'>Войти</NavLink>}
         </div>
     </div>
     </>

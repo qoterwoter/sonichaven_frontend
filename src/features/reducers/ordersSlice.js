@@ -24,6 +24,11 @@ const initialState = {
 const ordersSlice = createSlice(({
     name: 'orders',
     initialState,
+    reducers: {
+        resetStatus: state => {
+            state.orderStatus = ''
+        }
+    },
     extraReducers: {
         [makeOrder.pending]: (state) => {
             state.orderStatus = 'Оформляем заказ...'
@@ -32,7 +37,7 @@ const ordersSlice = createSlice(({
             state.orderStatus = 'Заказ успешно оформлен'
         },
         [makeOrder.rejected]: state => {
-            state.orderStatus = 'Ошибка при оформлекнии заказа'
+            state.orderStatus = 'Ошибка при оформлении заказа'
         },
         [fetchOrders.pending]: handlePending,
         [fetchOrders.fulfilled]: (state, action) => {
@@ -42,5 +47,7 @@ const ordersSlice = createSlice(({
         }
     }
 }))
+
+export const {resetStatus} = ordersSlice.actions
 
 export default ordersSlice.reducer

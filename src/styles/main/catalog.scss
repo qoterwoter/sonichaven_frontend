@@ -56,25 +56,6 @@
                     transition: .3s;
                 }
             }
-            .service__addToCart {
-                height: fit-content;
-                background-color: $green-primary;
-                color: $gray-text-primary;
-                padding: 8px 16px;
-                border: none;
-                border-radius: 100px;
-                cursor: pointer;
-                transition: .2s;
-                width: fit-content;
-            }
-            .button {
-                &:hover {
-                    opacity: 85%;
-                }
-                &:active {
-                    opacity: 75%;
-                }
-            }
         }
     }
 }

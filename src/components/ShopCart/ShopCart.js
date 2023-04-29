@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCart} from "../../features/reducers/shopCartSlice";
 import CartItem from "./CartItem";
-import {makeOrder} from "../../features/reducers/ordersSlice";
+import {makeOrder, resetStatus} from "../../features/reducers/ordersSlice";
 import {NavLink} from "react-router-dom";
 import {pushNotification} from "../../features/reducers/notificationSlice";
 import NotificationsList from "../Notifications/NotificationsList";
@@ -36,8 +36,9 @@ const ShopCart = () => {
         }
     },[orderStatus, dispatch])
 
-    const handleOrder = () => {
-        dispatch(makeOrder())
+    const handleOrder = async () => {
+        await dispatch(makeOrder())
+        dispatch(resetStatus())
         dispatch(fetchCart())
     }
 
@@ -64,7 +65,7 @@ const ShopCart = () => {
                     </section>
                     <div className="shop-cart__bottomMenu block-title">
                         <p className='shop-cart__sum'>Сумма - {beautyNum(shopCart.sum)} Руб.</p>
-                        <button className='shop-cart__make-order button' onClick={handleOrder}>Оформить заказ</button>
+                        <button className='shop-cart__make-order button button__success' onClick={handleOrder}>Оформить заказ</button>
                     </div>
                 </> :
                 onEmpty

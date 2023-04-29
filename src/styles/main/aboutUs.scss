@@ -1,26 +1,33 @@
 .aboutUs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: $gap;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
 
     >* {
         box-shadow: $box-shadow;
     }
-
-    .about-us__paragraph {
+    .aboutUs__article {
         background: $blur-background;
         backdrop-filter: $blur;
-        display: block;
-        font-size: $heading-text-2;
-        line-height: 28px;
         padding: $gap;
         border-radius: $border-radius;
-    }
-    .about-us__image {
-        border-radius: $border-radius;
-        display: block;
-        width: 100%;
+        margin-bottom: 16px;
+
+        display: grid;
+        gap: $gap;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .about-us__paragraph {
+            display: block;
+            font-size: $heading-text-2;
+            line-height: 28px;
+        }
+        .about-us__image {
+            border-radius: $border-radius;
+            display: block;
+            width: 100%;
+        }
     }
 }
