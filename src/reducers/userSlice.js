@@ -2,10 +2,12 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
 import handleError, {handlePending} from "./handleResponse";
 
-const API_URL = 'http://127.0.0.1:8000/api/'
+const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api/'
 const user = JSON.parse(localStorage.getItem('user')) || {}
+const headers = {'Authorization': `Token ${user.token}`}
+const artist = user.artist
 
-export const authArtist = createAsyncThunk('artist/authArtist', async ({username, password}) => {
+export const authArtist = createAsyncThunk('user/authUser', async ({username, password}) => {
     console.log(username, password)
     const response = await axios.post(
         API_URL + 'login/',
@@ -17,13 +19,21 @@ export const authArtist = createAsyncThunk('artist/authArtist', async ({username
     return response.data
 })
 
+export const userUpdate = createAsyncThunk('user/updateUser', async  (data) => {
+    console.log(artist)
+    return await axios.put(`${API_URL}artists/${artist.id}/`, {
+        ...artist, ...data
+    }, {headers})
+})
+
+
 const initialState = {
-    ...user,
     status: 'Не авторизован',
+    ...user,
 }
 
 const userSlice = createSlice({
-    name: 'users',
+    name: 'user',
     initialState
     ,
     reducers: {

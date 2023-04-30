@@ -11,14 +11,18 @@ const Header = () => {
     const [isShow, setIsShow] = useState(false)
     const ref = useRef()
 
+    const hideMenu = () => {
+        setIsShow(false)
+    }
+
     const handleLogout = () => {
         dispatch(unAuthorize())
         setButtons(loginButtons)
+        hideMenu()
     }
 
     const handleClick = (event) => {
         if(ref.current && !ref.current.contains(event.target)) {
-            console.log('handled click', isShow)
             setIsShow(false)
         }
     }
@@ -31,7 +35,6 @@ const Header = () => {
     }, [ref.current])
 
     useEffect(() => {
-        console.log(isAuth)
         if(isAuth) {
             setButtons(loginButtons)
         } else {
@@ -39,12 +42,10 @@ const Header = () => {
         }
     }, [isAuth])
 
-    const loginButtons = <Avatar handleLogout={handleLogout} isShow={isShow} setIsShow={setIsShow} ref={ref}/>
+    const loginButtons = <Avatar handleLogout={handleLogout} isShow={isShow} setIsShow={setIsShow}/>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink >
 
-    const hideMenu = () => {
-        setIsShow(false)
-    }
+
 
     return (
         <header>
@@ -61,9 +62,10 @@ const Header = () => {
             </div>
             {isShow && <div className="header__bottomMenu">
                 <div className={'menu'} ref={ref}>
+                    <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMenu}>Мой профиль</NavLink>
                     <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>
                     <NavLink className='menu__action nav__link' to='/orders' onClick={hideMenu}>Заказы</NavLink>
-                    <a className='menu__action nav__link' onClick={handleLogout} href='/' onClick={hideMenu}>Выйти</a>
+                    <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
                 </div>
             </div>}
         </header>

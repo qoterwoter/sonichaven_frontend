@@ -41,7 +41,6 @@ const ordersSlice = createSlice(({
         },
         [fetchOrders.pending]: handlePending,
         [fetchOrders.fulfilled]: (state, action) => {
-            console.log(action)
             const data = action.payload;
             state.orders = [...data]
         }

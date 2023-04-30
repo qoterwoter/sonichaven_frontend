@@ -15,6 +15,7 @@ import ShopCart from "./Routes/ShopCart/ShopCart";
 import AboutUs from "./Routes/AboutUs";
 import Catalog from "./Routes/Catalog/Catalog";
 import OrdersList from "./Routes/Orders/OrdersList";
+import UserProfile from "./Routes/UserProfile/UserProfile";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
             <Route path='shopCart' element={<ShopCart/>}/>
             <Route path='catalog' element={<Catalog title={'Каталог'}/>}/>
             <Route path='orders' element={<OrdersList/>}/>
+            <Route path='userProfile' element={<UserProfile/>}/>
         </Route>
     </>
     )
