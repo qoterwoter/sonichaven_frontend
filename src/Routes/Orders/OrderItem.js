@@ -34,7 +34,7 @@ const OrderItem = (props) => {
         <div className="orders__order order">
             <h2 className="order__title">Заказ от {date}</h2>
             {itemsList}
-            {itemsList.length > 1 && <p className="order__sum">Общая сумма заказа <span className="span__border">·</span> {beautyNum(order.sum)} Руб.</p>}
+            {itemsList.length > 1 && <p className="order__sum">Сумма заказа <span className="span__border">·</span> {beautyNum(order.sum)} Руб.</p>}
         </div>
     </>
     )

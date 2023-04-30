@@ -1,6 +1,6 @@
 .orders {
     .order {
-        padding: 16px;
+        padding: 16px 16px 0 ;
         background-color: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
@@ -9,10 +9,12 @@
         .order__title {
             font-size: $heading-text-2;
             margin: 0;
+            border-bottom: 2px solid $gray-background-primary;
+            padding-bottom: 16px;
         }
 
         .order__service {
-            border-top: 2px solid $gray-background-primary;
+            border-bottom: 2px solid $gray-background-primary;
             margin-top: 16px;
             &:last-child {
                 border-bottom: none;
@@ -26,10 +28,12 @@
             .service__cost {
                 color: $gray-text-secondary;
                 margin-bottom: 0;
+                padding-bottom: 16px;
             }
         }
         .order__sum {
             margin-bottom: 0;
+            padding-bottom: 16px;
             color: $gray-text-general;
         }
     }

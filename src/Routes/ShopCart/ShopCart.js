@@ -71,7 +71,6 @@ const ShopCart = () => {
                 onEmpty
             }
         </div>
-        <NotificationsList/>
     </main>
     )
 }

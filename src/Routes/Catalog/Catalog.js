@@ -20,7 +20,6 @@ const Catalog = (props) => {
         <div className='catalog'>
             <h2 className="catalog__title block-title">{props.title}</h2>
             {props.isPopular ? servicesList.slice(0,6) : servicesList}
-            <NotificationsList/>
         </div>
 
     const render = props.isPopular ?

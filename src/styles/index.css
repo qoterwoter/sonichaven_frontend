@@ -413,7 +413,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 0 16px 16px 0;
 }
 .main .orders .order {
-  padding: 16px;
+  padding: 16px 16px 0;
   background-color: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(15px);
   border-radius: 16px;
@@ -422,9 +422,11 @@ body::-webkit-scrollbar-thumb {
 .main .orders .order .order__title {
   font-size: 20px;
   margin: 0;
+  border-bottom: 2px solid #2d2d2d;
+  padding-bottom: 16px;
 }
 .main .orders .order .order__service {
-  border-top: 2px solid #2d2d2d;
+  border-bottom: 2px solid #2d2d2d;
   margin-top: 16px;
 }
 .main .orders .order .order__service:last-child {
@@ -439,9 +441,11 @@ body::-webkit-scrollbar-thumb {
 .main .orders .order .order__service .service__cost {
   color: #868A91;
   margin-bottom: 0;
+  padding-bottom: 16px;
 }
 .main .orders .order .order__sum {
   margin-bottom: 0;
+  padding-bottom: 16px;
   color: #B4B8BF;
 }
 
