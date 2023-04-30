@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchReleases} from "../reducers/releasesSlice";
+import {fetchReleases} from "../../reducers/releasesSlice";
 export default function ReleasesList() {
   const releases = useSelector(state => state.releases.releases)
   const dispatch = useDispatch()

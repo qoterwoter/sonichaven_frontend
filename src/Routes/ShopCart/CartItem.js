@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
-import {changeCartItem, deleteCartItem, deleteItem, fetchCart} from "../../features/reducers/shopCartSlice";
+import {changeCartItem, deleteCartItem, deleteItem, fetchCart} from "../../reducers/shopCartSlice";
 import {beautyNum} from "./ShopCart";
 import {getIcon} from "../Catalog/CatalogItem";
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';

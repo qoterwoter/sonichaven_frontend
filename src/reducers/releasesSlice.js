@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
 import handleError, {handlePending, handleSuccess} from "./handleResponse";
 
-export const fetchReleases = createAsyncThunk('releases/fetchReleases', async () => {
+export const fetchReleases = createAsyncThunk('Releases/fetchReleases', async () => {
     const response = await axios.get('http://sonichaven-backend.std-962.ist.mospolytech.ru/api/releases/');
     return response.data;
 });

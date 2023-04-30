@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchNews} from "../reducers/newsSlice";
+import {fetchNews} from "../../reducers/newsSlice";
 
 const NewsList = () => {
     const news = useSelector(state => state.news.news)

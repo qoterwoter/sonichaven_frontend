@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authArtist} from "../reducers/userSlice";
+import {authArtist} from "../../reducers/userSlice";
 // import {useNavigate} from "react-router-dom";
 
 const Authorization = () => {

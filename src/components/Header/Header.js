@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Link, NavLink  } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {unAuthorize} from "../../features/reducers/userSlice";
+import {unAuthorize} from "../../reducers/userSlice";
 import Avatar from "./Avatar";
 
 const Header = () => {

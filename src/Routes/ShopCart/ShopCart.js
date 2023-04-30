@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCart} from "../../features/reducers/shopCartSlice";
+import {fetchCart} from "../../reducers/shopCartSlice";
 import CartItem from "./CartItem";
-import {makeOrder, resetStatus} from "../../features/reducers/ordersSlice";
+import {makeOrder, resetStatus} from "../../reducers/ordersSlice";
 import {NavLink} from "react-router-dom";
-import {pushNotification} from "../../features/reducers/notificationSlice";
-import NotificationsList from "../Notifications/NotificationsList";
+import {pushNotification} from "../../reducers/notificationSlice";
+import NotificationsList from "../../components/Notifications/NotificationsList";
 
 const beautyNum = num => {
     num=`${num}`
@@ -64,7 +64,7 @@ const ShopCart = () => {
                         {cartItems}
                     </section>
                     <div className="shop-cart__bottomMenu block-title">
-                        <p className='shop-cart__sum'>Сумма - {beautyNum(shopCart.sum)} Руб.</p>
+                        <p className='shop-cart__sum'>Сумма<span className="span__border"> · </span>{beautyNum(shopCart.sum)} Руб.</p>
                         <button className='shop-cart__make-order button button__success' onClick={handleOrder}>Оформить заказ</button>
                     </div>
                 </> :

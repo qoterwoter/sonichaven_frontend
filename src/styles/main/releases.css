@@ -3,7 +3,7 @@
  * 5 |     gap: $gap;
  *   |          ^^^^
  *   '
- *   releases.scss 5:10  root stylesheet */
+ *   Releases.scss 5:10  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",

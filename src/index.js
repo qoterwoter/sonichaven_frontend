@@ -9,12 +9,12 @@ import {
     createRoutesFromElements,
     Route,
 } from "react-router-dom";
-import Authorization from "./features/auth/Authorization";
-import Main from "./components/Main";
-import ShopCart from "./components/ShopCart/ShopCart";
-import AboutUs from "./components/AboutUs";
-import Catalog from "./components/Catalog/Catalog";
-import OrdersList from "./components/Orders/OrdersList";
+import Authorization from "./Routes/Authorization/Authorization";
+import Main from "./Routes/Main";
+import ShopCart from "./Routes/ShopCart/ShopCart";
+import AboutUs from "./Routes/AboutUs";
+import Catalog from "./Routes/Catalog/Catalog";
+import OrdersList from "./Routes/Orders/OrdersList";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

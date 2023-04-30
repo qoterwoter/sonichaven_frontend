@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addCartItem} from "../../features/reducers/shopCartSlice";
+import {addCartItem} from "../../reducers/shopCartSlice";
 import {NavLink} from "react-router-dom";
 import {beautyNum} from "../ShopCart/ShopCart";
 
@@ -13,7 +13,7 @@ import KeyRoundedIcon from '@mui/icons-material/KeyRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import LibraryMusicRoundedIcon from '@mui/icons-material/LibraryMusicRounded';
-import {pushNotification} from "../../features/reducers/notificationSlice";
+import {pushNotification} from "../../reducers/notificationSlice";
 
 export const getIcon = (service, className) => {
     if (service.type === 'Exclusive' || service.type === 'Exclusive+') return <MusicNoteRoundedIcon className={className}/>

@@ -1,11 +1,11 @@
-import releasesSlice from "./features/reducers/releasesSlice";
+import releasesSlice from "./reducers/releasesSlice";
 import {combineReducers} from "@reduxjs/toolkit";
-import newsReducer from "./features/reducers/newsSlice";
-import userReducer from "./features/reducers/userSlice";
-import serviceReducer from "./features/reducers/serviceSlice";
-import shopCartReducer from "./features/reducers/shopCartSlice";
-import notificationSlice from "./features/reducers/notificationSlice";
-import ordersSlice from "./features/reducers/ordersSlice";
+import newsReducer from "./reducers/newsSlice";
+import userReducer from "./reducers/userSlice";
+import serviceReducer from "./reducers/serviceSlice";
+import shopCartReducer from "./reducers/shopCartSlice";
+import notificationSlice from "./reducers/notificationSlice";
+import ordersSlice from "./reducers/ordersSlice";
 
 const rootReducer = combineReducers({
   releases: releasesSlice,

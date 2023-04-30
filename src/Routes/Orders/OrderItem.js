@@ -13,7 +13,7 @@ const OrderItem = (props) => {
         <div className='order__service service' key={item.id}>
             <h3 className="service__title">{service.name} <span className="span__border">·</span> {item.quantity} шт</h3>
             <p className="service__description">{service.description}</p>
-            <p className="service__cost">{sum > 999 ? beautyNum(sum) : sum} Руб.</p>
+            <p className="service__cost">Стоимость<span className="span__border"> · </span>{sum > 999 ? beautyNum(sum) : sum} Руб.</p>
         </div>)
     })
 
@@ -34,7 +34,7 @@ const OrderItem = (props) => {
         <div className="orders__order order">
             <h2 className="order__title">Заказ от {date}</h2>
             {itemsList}
-            <p className="order__sum">Общая сумма заказа <span className="span__border">·</span> {beautyNum(order.sum)} Руб.</p>
+            {itemsList.length > 1 && <p className="order__sum">Общая сумма заказа <span className="span__border">·</span> {beautyNum(order.sum)} Руб.</p>}
         </div>
     </>
     )

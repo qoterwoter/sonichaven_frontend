@@ -420,11 +420,12 @@ body::-webkit-scrollbar-thumb {
   margin: 16px 0;
 }
 .main .orders .order .order__title {
+  font-size: 20px;
   margin: 0;
 }
 .main .orders .order .order__service {
   border-top: 2px solid #2d2d2d;
-  margin: 16px 0;
+  margin-top: 16px;
 }
 .main .orders .order .order__service:last-child {
   border-bottom: none;
@@ -437,6 +438,7 @@ body::-webkit-scrollbar-thumb {
 }
 .main .orders .order .order__service .service__cost {
   color: #868A91;
+  margin-bottom: 0;
 }
 .main .orders .order .order__sum {
   margin-bottom: 0;
