@@ -1,11 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {handlePending,  handleError} from "./handleResponse";
+import {API_URL, user, headers} from "./ordersSlice";
 
-const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
-
-const user = JSON.parse(localStorage.getItem('user')) || {}
-const headers = {'Authorization': `Token ${user.token}`}
 
 export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
     const response = await axios.get(`${API_URL}/carts/`, {headers})

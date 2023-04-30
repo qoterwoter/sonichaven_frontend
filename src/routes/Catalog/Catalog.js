@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchServices} from "../../reducers/serviceSlice";
 import CatalogItem from "./CatalogItem";
-import NotificationsList from "../../components/Notifications/NotificationsList";
 
 const Catalog = (props) => {
     const services = useSelector(state => state.services)

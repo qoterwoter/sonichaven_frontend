@@ -5,7 +5,6 @@ import CartItem from "./CartItem";
 import {makeOrder, resetStatus} from "../../reducers/ordersSlice";
 import {NavLink} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
-import NotificationsList from "../../components/Notifications/NotificationsList";
 
 const beautyNum = num => {
     num=`${num}`

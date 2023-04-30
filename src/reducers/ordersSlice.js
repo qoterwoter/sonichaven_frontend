@@ -3,9 +3,9 @@ import axios from "axios";
 import {handlePending} from "./handleResponse";
 
 
-const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
-const user = JSON.parse(localStorage.getItem('user')) || {}
-const headers = {'Authorization': `Token ${user.token}`}
+export const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
+export const user = JSON.parse(localStorage.getItem('user')) || {}
+export const headers = {'Authorization': `Token ${user.token}`}
 
 export const fetchOrders = createAsyncThunk('orders/fetchOrders', async () => {
     const response = await axios.get(`${API_URL}/cart_order_list/`, {headers})

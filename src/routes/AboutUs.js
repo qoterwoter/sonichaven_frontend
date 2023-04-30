@@ -29,9 +29,6 @@ const AboutUs = () => {
                         высококлассном оборудовании, что гарантирует идеальное качество звучания.
                     </p>
                     <img className='about-us__image about-us__image_right' src='https://sun9-67.userapi.com/impg/pj52lK3e-OYOl1wox7N899Nj6O_UTJfzK3blzQ/3qPLYVP7Ebs.jpg?size=2560x1000&quality=96&sign=fecd3d5b43160b30ba76250984e13577&type=album'/>
-                    {/*<div className="about-us__image"*/}
-                    {/*     style={{backgroundImage: `url('https://sun9-67.userapi.com/impg/pj52lK3e-OYOl1wox7N899Nj6O_UTJfzK3blzQ/3qPLYVP7Ebs.jpg?size=2560x1000&quality=96&sign=fecd3d5b43160b30ba76250984e13577&type=album')`}}*/}
-                    {/*/>*/}
                 </div>
             </div>
         </main>

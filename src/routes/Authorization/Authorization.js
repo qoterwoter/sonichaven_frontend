@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authArtist} from "../../reducers/userSlice";
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Authorization = () => {
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const onChangeUsername = e => setUsername(e.target.value)
     const onChangePassword = e => setPassword(e.target.value)
@@ -15,11 +15,11 @@ const Authorization = () => {
     const dispatch = useDispatch()
     const userData = useSelector(state=>state.user)
 
-    const login = e => {
+    const login = async (e) => {
         e.preventDefault()
 
-        dispatch(authArtist({username, password}))
-        // navigate('/')
+        await dispatch(authArtist({username, password}))
+        navigate('/userProfile')
     }
 
     return (

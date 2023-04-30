@@ -1,12 +1,18 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
 import handleError, {handlePending, handleSuccess} from "./handleResponse";
+import {API_URL, user, headers} from "./ordersSlice";
 
-export const fetchReleases = createAsyncThunk('Releases/fetchReleases', async () => {
-    const response = await axios.get('http://sonichaven-backend.std-962.ist.mospolytech.ru/api/releases/');
+
+export const fetchReleases = createAsyncThunk('releases/fetchReleases', async () => {
+    const response = await axios.get(`${API_URL}/releases/`);
     return response.data;
 });
 
+export const fetchReleasesByArtist = createAsyncThunk('releases/fetchReleasesByArtist', async () => {
+    const response = await axios.get(`${API_URL}/release/${user.artist.id}/`, {headers})
+    return response.data
+})
 
 const releasesSlice = createSlice({
     name: 'releases',
@@ -19,6 +25,7 @@ const releasesSlice = createSlice({
         [fetchReleases.pending]: handlePending,
         [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
         [fetchReleases.rejected]: handleError,
+        [fetchReleasesByArtist.fulfilled]: (state, action) => handleSuccess(state,action,'releases'),
     }
 })
 

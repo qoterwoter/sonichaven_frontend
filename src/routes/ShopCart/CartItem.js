@@ -55,7 +55,7 @@ const CartItem = (props) => {
                 </>)
         }
         else setButton(<EditRoundedIcon className='actions__edit icon' onClick={toggleEdit}/>)
-    }, [isEdit, count])
+    }, [isEdit, count, props, toggleEdit])
 
     return (
     <>

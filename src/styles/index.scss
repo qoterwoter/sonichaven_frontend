@@ -96,7 +96,7 @@ body {
 }
 
 .header__bottomMenu {
-    width: 1190px;
+    width: 1167px;
     margin: 0 auto;
     display: flex;
     justify-content: end;
@@ -134,7 +134,7 @@ body {
     margin: 0 auto;
 }
 
-@import "./main/main";
+@import "main";
 @import "helloElement";
 @import 'elements';
 
