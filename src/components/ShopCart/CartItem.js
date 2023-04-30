@@ -61,11 +61,11 @@ const CartItem = (props) => {
     <>
         <article key={props.item.id} className="shop-cart__item item">
             <div className="item__content">
-                <h3 className="item__title">{getIcon(service, 'item__icon icon')} {service.name} - {count} шт.</h3>
+                <h3 className="item__title">{getIcon(service, 'item__icon icon')} {service.name} <span className="span__border">·</span> {count} шт.</h3>
                 <p className="item__description">{service.description}</p>
             </div>
             <div className="item__bottom-menu">
-                <p className="item__cost">{sum} Руб.</p>
+                <p className="item__cost">Стоимосить<span className="span__border"> · </span>{sum} Руб.</p>
                 <form className="item__actions actions form" onSubmit={handleSubmit}>
                     <DeleteRoundedIcon alt='Удалить' className='actions__delete action icon' onClick={handleDelete}/>
                     {button}

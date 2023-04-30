@@ -311,6 +311,9 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   margin: 0;
 }
+.main .shopCart .shop-cart__items .item .item__title .span__border {
+  padding: 0 6px;
+}
 .main .shopCart .shop-cart__items .item .item__icon {
   margin-right: 16px;
 }
@@ -571,6 +574,10 @@ a:active {
   margin: 32px 0 16px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.span__border {
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=index.css.map */

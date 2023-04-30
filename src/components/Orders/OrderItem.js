@@ -11,7 +11,7 @@ const OrderItem = (props) => {
 
         return (
         <div className='order__service service' key={item.id}>
-            <h3 className="service__title">{service.name} - {item.quantity} шт</h3>
+            <h3 className="service__title">{service.name} <span className="span__border">·</span> {item.quantity} шт</h3>
             <p className="service__description">{service.description}</p>
             <p className="service__cost">{sum > 999 ? beautyNum(sum) : sum} Руб.</p>
         </div>)

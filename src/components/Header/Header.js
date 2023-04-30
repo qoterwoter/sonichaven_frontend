@@ -16,14 +16,6 @@ const Header = () => {
         setButtons(loginButtons)
     }
 
-    const toggleMenu = () => {
-        setIsShow(!isShow);
-        console.log(isShow);
-        if (isShow) {
-            setIsShow(false);
-        }
-    };
-
     const handleClick = (event) => {
         if(ref.current && !ref.current.contains(event.target)) {
             console.log('handled click', isShow)
