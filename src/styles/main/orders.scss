@@ -5,15 +5,17 @@
         backdrop-filter: $blur;
         border-radius: $border-radius;
         margin: 16px 0;
+
         .order__title {
             margin: 0;
         }
+
         .order__service {
-            border-bottom: 2px solid $gray-background-primary;
+            border-top: 2px solid $gray-background-primary;
+            margin: 16px 0;
             &:last-child {
                 border-bottom: none;
             }
-
             .service__title {
                 color: $gray-text-primary;
             }
@@ -25,13 +27,8 @@
             }
         }
         .order__sum {
-            display: flex;
-            align-items: center;
             margin-bottom: 0;
             color: $gray-text-general;
-            .span__border {
-                padding: 0 6px;
-            }
         }
     }
 }

@@ -420,7 +420,8 @@ body::-webkit-scrollbar-thumb {
   margin: 0;
 }
 .main .orders .order .order__service {
-  border-bottom: 2px solid #2d2d2d;
+  border-top: 2px solid #2d2d2d;
+  margin: 16px 0;
 }
 .main .orders .order .order__service:last-child {
   border-bottom: none;
@@ -435,13 +436,8 @@ body::-webkit-scrollbar-thumb {
   color: #868A91;
 }
 .main .orders .order .order__sum {
-  display: flex;
-  align-items: center;
   margin-bottom: 0;
   color: #B4B8BF;
-}
-.main .orders .order .order__sum .span__border {
-  padding: 0 6px;
 }
 
 .helloElement {
