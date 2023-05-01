@@ -45,9 +45,6 @@ a {
     &:active {
         color: $blue-pressed;
     }
-    &.active {
-        color: $gray-text-general;
-    }
 }
 
 .button {
@@ -67,12 +64,62 @@ a {
     }
 }
 
+.button__success {
+    height: fit-content;
+    background-color: $green-primary;
+    color: $gray-text-primary;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .2s;
+    width: fit-content;
+}
+
 .icon {
     height: 28px !important;
     width: 28px !important;
+    &.icon_edit {
+        color: $purple-general;
+    }
 }
 
 .form {
+
+    .form__label {
+        color: $gray-text-general;
+    }
+
+    .form__input {
+        box-sizing: border-box;
+        width: 300px;
+        margin: 8px 0;
+        font-size: 18px;
+        border: 2px solid $gray-border ;
+        border-radius: 4px;
+        padding: 8px 6px;
+        color: $gray-text-primary;
+        background-color: $gray-background-primary;
+
+        &:focus {
+            border-color: $blue-primary;
+            outline: none !important;
+        }
+    }
+    .form__input_submit {
+        cursor: pointer;
+        color: $gray-text-primary;
+        border: none;
+        background-color: $blue-primary;
+        transition: .2s;
+
+        &:hover {
+            background-color: $blue-hovered;
+        }
+        &:active {
+            background-color: $blue-pressed;
+        }
+    }
     .input {
         height: 28px;
         border-radius: 4px;
@@ -94,4 +141,26 @@ a {
     margin: 32px 0 16px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+}
+
+.span__border {
+    font-weight: 400;
+}
+
+.actions__delete {
+    color: $red-primary;
+}
+.actions__edit {
+    color: $green-edit;
+}
+
+.icon {
+    transition: .3s !important;
+    cursor: pointer;
+    &:hover {
+        filter: opacity(70%);
+    }
+    &:active {
+        filter: opacity(50%);
+    }
 }

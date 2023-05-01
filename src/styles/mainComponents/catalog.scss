@@ -1,0 +1,61 @@
+.catalog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+
+    .catalog__title {
+        grid-column: span 3;
+        margin-bottom: 0;
+    }
+
+    .service {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $blur-background;
+        padding: $block-padding;
+        backdrop-filter: $blur;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        .service__title {
+            margin: 0;
+            padding-bottom: 16px;
+            border-bottom: 2px solid $gray-background-primary;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .service__description {
+            margin: 16px 0;
+            color: $gray-text-general;
+        }
+        .service__cost {
+            margin: 16px 0;
+            color: $gray-text-secondary;
+        }
+        .service__actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .service__count {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 95px;
+                margin: 0;
+
+                .count__setCount {
+                    height: 32px;
+                    width: 32px;
+                    padding: 3px;
+                    cursor: pointer;
+                    background-color: $gray-text-general;
+                    color: $gray-background-primary;
+                    border-radius: 50px;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+}

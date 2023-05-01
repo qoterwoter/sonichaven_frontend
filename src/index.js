@@ -9,12 +9,13 @@ import {
     createRoutesFromElements,
     Route,
 } from "react-router-dom";
-import Authorization from "./features/auth/Authorization";
-import Main from "./components/Main";
-import ShopCart from "./components/ShopCart/ShopCart";
-import AboutUs from "./components/AboutUs";
-import Catalog from "./components/Catalog/Catalog";
-import OrdersList from "./components/Orders/OrdersList";
+import Authorization from "./routes/Authorization/Authorization";
+import Main from "./routes/Main";
+import ShopCart from "./routes/ShopCart/ShopCart";
+import AboutUs from "./routes/AboutUs";
+import Catalog from "./routes/Catalog/Catalog";
+import OrdersList from "./routes/Orders/OrdersList";
+import UserProfile from "./routes/UserProfile/UserProfile";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
             <Route path='shopCart' element={<ShopCart/>}/>
             <Route path='catalog' element={<Catalog title={'Каталог'}/>}/>
             <Route path='orders' element={<OrdersList/>}/>
+            <Route path='userProfile' element={<UserProfile/>}/>
         </Route>
     </>
     )

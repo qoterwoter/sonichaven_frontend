@@ -1,0 +1,10 @@
+.userProfile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.userProfile .userProfile__item {
+  padding: 16px;
+}
+
+/*# sourceMappingURL=userProfile.css.map */

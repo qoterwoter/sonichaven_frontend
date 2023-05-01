@@ -1,0 +1,24 @@
+.main {
+    min-height: 92vh;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 70px $gap $gap;
+    display: flex;
+    flex-direction: column;
+
+    @import "mainComponents/catalog";
+
+    @import "mainComponents/releases";
+
+    @import "mainComponents/news";
+
+    @import "mainComponents/authForm";
+
+    @import "mainComponents/shopCart";
+
+    @import "mainComponents/aboutUs";
+
+    @import "mainComponents/orders";
+
+    @import "mainComponents/userProfile";
+}

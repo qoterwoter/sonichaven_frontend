@@ -1,0 +1,147 @@
+.userProfile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    justify-items: stretch;
+    gap: $gap;
+    .userProfile__item {
+        background: $blur-background;
+        backdrop-filter: $blur;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        width: 100%;
+        padding: 16px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .item__title {
+            margin: 0;
+            padding-bottom: 16px;
+            border-bottom: 2px solid $gray-background-primary;
+        }
+
+        .item__information {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            padding-bottom: 0;
+            height: border-box;
+            .information__general {
+                margin-bottom: 0;
+                color: $gray-text-general;
+            }
+            .information__secondary {
+                color: $gray-text-secondary;
+            }
+            .item__action {
+                margin: 0;
+            }
+            .miniItems {
+                margin-top: 16px;
+                display: grid;
+                gap: $gap;
+                grid-template-columns: auto auto;
+
+                &.miniItems_vertical {
+                    grid-template-columns: auto;
+                }
+
+                .miniItem {
+                    background-color: $gray-background-secondary;
+                    padding: 16px;
+                    border-radius: $border-radius;
+                    width: fit-content;
+                    position: relative;
+
+                    &.miniItem_horizontal {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: calc(300px - 28px);
+                    }
+
+                    .miniItem__title {
+                        margin-top: 0;
+                        margin-bottom: 16px;
+                    }
+                    .miniItem__block {
+                        text-align: justify;
+                        min-height: 200px;
+                    }
+                    .miniItem__edit {
+                        position: absolute;
+                        right: 25px;
+                        bottom: 25px;
+                    }
+                }
+            }
+            .miniItems_vertical {
+                .miniItem {
+                    display: flex;
+                    width: 100%;
+                }
+                .miniItem__aside {
+                    margin-left: 16px;
+                    width: 100%;
+                    .aside__item {
+                        display: flex;
+                        justify-content: space-between;
+                        .item__description {
+                            margin: 4px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .item__artistData {
+        grid-row: span 2;
+        height: 100%;
+        .artistData__profileImage {
+            border-radius: $border-radius;
+            margin: 0;
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+        .artistData__bio {
+            line-height: 22px;
+        }
+    }
+    .item__userData {
+        //grid-row: span 2;
+        .userData__userEmail {
+            margin-bottom: 0;
+        }
+        .userData__editableItem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+            height: 28px;
+            .editableItem__title {
+                margin-top: 0;
+                //margin-bottom: 4px;
+            }
+        }
+        .userData__form {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .userData__input, .userData__label ,.userData__button {
+                height: 28px;
+            }
+        }
+    }
+    .item__releasesData {
+        grid-row: span 4;
+        .releaseData__releaseImage {
+            width: 200px;
+            height: 200px;
+            display: block;
+            border-radius: $border-radius;
+        }
+    }
+}
