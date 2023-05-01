@@ -79,9 +79,47 @@ a {
 .icon {
     height: 28px !important;
     width: 28px !important;
+    &.icon_edit {
+        color: $purple-general;
+    }
 }
 
 .form {
+
+    .form__label {
+        color: $gray-text-general;
+    }
+
+    .form__input {
+        box-sizing: border-box;
+        width: 300px;
+        margin: 8px 0;
+        font-size: 18px;
+        border: 2px solid $gray-border ;
+        border-radius: 4px;
+        padding: 8px 6px;
+        color: $gray-text-primary;
+        background-color: $gray-background-primary;
+
+        &:focus {
+            border-color: $blue-primary;
+            outline: none !important;
+        }
+    }
+    .form__input_submit {
+        cursor: pointer;
+        color: $gray-text-primary;
+        border: none;
+        background-color: $blue-primary;
+        transition: .2s;
+
+        &:hover {
+            background-color: $blue-hovered;
+        }
+        &:active {
+            background-color: $blue-pressed;
+        }
+    }
     .input {
         height: 28px;
         border-radius: 4px;
@@ -107,4 +145,22 @@ a {
 
 .span__border {
     font-weight: 400;
+}
+
+.actions__delete {
+    color: $red-primary;
+}
+.actions__edit {
+    color: $green-edit;
+}
+
+.icon {
+    transition: .3s !important;
+    cursor: pointer;
+    &:hover {
+        filter: opacity(70%);
+    }
+    &:active {
+        filter: opacity(50%);
+    }
 }

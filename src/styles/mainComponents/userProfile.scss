@@ -42,17 +42,37 @@
                 display: grid;
                 gap: $gap;
                 grid-template-columns: auto auto;
+
                 &.miniItems_vertical {
                     grid-template-columns: auto;
                 }
+
                 .miniItem {
                     background-color: $gray-background-secondary;
                     padding: 16px;
                     border-radius: $border-radius;
                     width: fit-content;
+                    position: relative;
+
+                    &.miniItem_horizontal {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: calc(300px - 28px);
+                    }
+
                     .miniItem__title {
                         margin-top: 0;
                         margin-bottom: 16px;
+                    }
+                    .miniItem__block {
+                        text-align: justify;
+                        min-height: 200px;
+                    }
+                    .miniItem__edit {
+                        position: absolute;
+                        right: 25px;
+                        bottom: 25px;
                     }
                 }
             }
@@ -93,6 +113,26 @@
         //grid-row: span 2;
         .userData__userEmail {
             margin-bottom: 0;
+        }
+        .userData__editableItem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+            height: 28px;
+            .editableItem__title {
+                margin-top: 0;
+                //margin-bottom: 4px;
+            }
+        }
+        .userData__form {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .userData__input, .userData__label ,.userData__button {
+                height: 28px;
+            }
         }
     }
     .item__releasesData {

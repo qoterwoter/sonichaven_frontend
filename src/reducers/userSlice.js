@@ -19,11 +19,23 @@ export const authArtist = createAsyncThunk('user/authUser', async ({username, pa
     return response.data
 })
 
-export const userUpdate = createAsyncThunk('user/updateUser', async  (data) => {
-    console.log(artist)
-    return await axios.put(`${API_URL}artists/${artist.id}/`, {
+export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
+    const response = await axios.get(`${API_URL}users/${user.id}/`, {headers})
+    return response.data
+})
+
+export const artistUpdate = createAsyncThunk('user/artistUpdate', async  (data, {dispatch}) => {
+    const response = await axios.put(`${API_URL}artists/${artist.id}/`, {
         ...artist, ...data
     }, {headers})
+    return response.data
+})
+
+export const userUpdate = createAsyncThunk('user/userUpdate', async (data) => {
+    const response = await axios.put(`${API_URL}users/${user.id}/`, {
+        ...user, ...data
+    }, {headers})
+    return response.data
 })
 
 
@@ -50,6 +62,21 @@ const userSlice = createSlice({
             return data
         },
         [authArtist.rejected]: handleError,
+        [artistUpdate.fulfilled]: (state, action) => {
+            const data = {...user, artist: {...action.payload}}
+            localStorage.setItem("user", JSON.stringify(data))
+            return data
+        },
+        [fetchUserData.fulfilled]: (state, action) => {
+            const data = {...user, ...action.payload}
+            localStorage.setItem("user", JSON.stringify(data))
+            return data
+        },
+        [userUpdate.fulfilled]: (state, action) => {
+            const data = {...user, ...action.payload}
+            localStorage.setItem("user", JSON.stringify(data))
+            return data
+        }
     }
 })
 

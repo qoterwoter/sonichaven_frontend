@@ -7,38 +7,4 @@
     grid-column: span 2;
     height: 86vh;
 
-    .form__label {
-        color: $gray-text-general;
-    }
-
-    .form__input {
-        box-sizing: border-box;
-        width: 300px;
-        margin: 8px 0;
-        font-size: 18px;
-        border: 2px solid $gray-border ;
-        border-radius: 4px;
-        padding: 8px 6px;
-        color: $gray-text-primary;
-        background-color: $gray-background-primary;
-
-        &:focus {
-            border-color: $blue-primary;
-            outline: none !important;
-        }
-    }
-    .form__input_submit {
-        cursor: pointer;
-        color: $gray-text-primary;
-        border: none;
-        background-color: $blue-primary;
-        transition: .2s;
-
-        &:hover {
-            background-color: $blue-hovered;
-        }
-        &:active {
-            background-color: $blue-pressed;
-        }
-    }
 }

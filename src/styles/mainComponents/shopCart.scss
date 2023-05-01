@@ -54,32 +54,6 @@
                     align-items: center;
                     justify-content: space-between;
 
-                    .actions__delete {
-                        color: $red-primary;
-                    }
-                    .actions__edit {
-                        color: $green-edit;
-
-                    }
-
-                    .icon {
-                        transition: .3s;
-                        &:hover {
-                            filter: opacity(70%);
-                        }
-                        &:active {
-                            filter: opacity(50%);
-                        }
-                    }
-
-                    .actions__label {
-                        margin-right: 8px;
-                    }
-                    .actions__input {
-                        margin-right: 8px;
-                        width: 60px;
-                    }
-
                     .action {
                         margin: 0 8px;
                     }

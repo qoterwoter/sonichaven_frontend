@@ -9,6 +9,7 @@ import UserProfileItem from "../../components/UserProfile/UserProfileItem";
 import {fetchReleasesByArtist} from "../../reducers/releasesSlice";
 import UserProfileMiniItem from "../../components/UserProfile/UserProfileMiniItem";
 import UserProfileMiniItemAside from "../../components/UserProfile/UserProfileMiniItemAside";
+import UserEditableItem from "../../components/UserProfile/UserEditableItem";
 
 const showCount = (count, text) => {
     if (count % 10 === 1) return `${count} ${text}`
@@ -28,7 +29,7 @@ const UserProfile = () => {
         dispatch(fetchCart())
         dispatch(fetchOrders())
         dispatch(fetchReleasesByArtist(artistData.id))
-    }, [dispatch])
+    }, [dispatch, artistData])
 
     const shopCart = useSelector(state => state.shopCart)
     const orders = useSelector(state => state.orders)
@@ -49,25 +50,40 @@ const UserProfile = () => {
         <NavLink className='item__action' to='/orders'>Перейти к заказам</NavLink>
     </>
     const userItem = <>
-        <p className="userData__userName information__general">Имя <Separator/> {userData.first_name + ' ' + userData.last_name}</p>
-        <p className="artistData__name information__general">Псевдоним артиста <Separator/> {artistData.name}</p>
-        <p className="userData__userEmail information__general">Почта <Separator/> {userData.email}</p>
+        <UserEditableItem
+            placeholder={'Имя'}
+            value={userData.first_name + ' ' + userData.last_name}
+            type={'text'}
+            sendTo={'user_name'}/>
+        <UserEditableItem
+            placeholder={'Псевдоним артиста'}
+            value={artistData?.name}
+            type={'text'}
+            sendTo={'artist_name'}
+        />
+        <UserEditableItem
+            placeholder={'Почта'}
+            value={userData.email}
+            type={'email'}
+            sendTo={'user_email'}
+        />
     </>
     const artistItem = <>
         <div className="information__miniItems miniItems ">
             <UserProfileMiniItem
                 title={'Изображение артиста'}
-                description={<img className="artistData__profileImage" alt="" src={artistData.profile_image}/>}
+                description={<img className="artistData__profileImage" alt="" src={artistData?.profile_image}/>}
             />
             <UserProfileMiniItem
                 title={'Описание артиста'}
-                description={<p className="artistData__bio information__secondary">{artistData.bio}</p>}
+                description={<p className="artistData__bio information__secondary">{artistData?.bio}</p>}
             />
         </div>
     </>
     const releasesItem = <div className={'releases__miniItems miniItems miniItems_vertical'}>
-        {releases.map(release => {
+        {releases.map((release, id) => {
             return <UserProfileMiniItemAside
+                key={String(release.id)}
                 title={release.title}
                 release = {release}
                 description={<img className={'releaseData__releaseImage'} alt={''} src={release.image}/>}
