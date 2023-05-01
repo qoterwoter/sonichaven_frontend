@@ -21,12 +21,23 @@ const UserProfileMiniItemAside = (props) => {
         </div>
     })
 
+    const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "UTC"
+    };
+
+    const date = new Date(release.release_date).toLocaleDateString('ru',options)
+
+
     return (
         <div className={`${classList}__miniItem miniItem`}>
             <div className="miniItem__main">
                 <h3 className="miniItem__title information__general">{release.title}</h3>
                 <div className="miniItem__block">{description}</div>
                 <p className="miniItem__secondary information__secondary">Тип релиза <Separator/> {releaseType(release.type)}</p>
+                <p className="miniItem__secondary information__secondary">Вышел <Separator/> {date}</p>
             </div>
             <div className="miniItem__aside">
                 <h3 className="miniItem__title information__general">{asideTitle}</h3>
