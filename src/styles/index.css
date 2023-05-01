@@ -464,6 +464,10 @@ body::-webkit-scrollbar-thumb {
 .main .userProfile .userProfile__item .item__information .miniItems .miniItem .miniItem__block {
   text-align: justify;
   min-height: 200px;
+  margin-bottom: 16px;
+}
+.main .userProfile .userProfile__item .item__information .miniItems .miniItem .miniItem__secondary {
+  margin: 8px 0;
 }
 .main .userProfile .userProfile__item .item__information .miniItems .miniItem .miniItem__edit {
   position: absolute;
