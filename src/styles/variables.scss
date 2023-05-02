@@ -1,10 +1,10 @@
 $gray-text-primary: #DFE1E5;
 $gray-text-general: #CED0D6;
-$gray-background-primary: #2d2d2d; // #1E1F22
-$gray-background-secondary: rgba(30, 30, 30, 0.7); // #2B2D30
 $gray-text-secondary: #868A91;
-$gray-text-general: #B4B8BF;
-$gray-border: #4E5157;
+$gray-background-primary: #1E1F22; // #1E1F22
+$gray-background-secondary: #2B2D30; // #2B2D30
+//$gray-text-general: #B4B8BF;
+$gray-border: #2d2d2d;
 
 $gray-shadow: rgba(0, 0, 0, 0.35);
 $box-shadow: 0 8px 32px $gray-shadow;
@@ -30,14 +30,16 @@ $green-pressed: #436946;
 
 $gap: 16px;
 
-$heading-text-1: 24px;
-$heading-text-2: 20px;
-$default-text: 16px;
+$heading-text-1: 65px;
+$heading-text-2: 24px;
+$heading-text-3: 20px;
+
+$paragraph-text: 16px;
 
 $border-radius: 16px;
 $block-padding: 16px;
 
-$blur-background: rgba(30, 30, 30, 0.5);
+$blur-background: #1E1E1E7F;
 $header-background: rgba(0, 0, 0, 0.55);
 $blur: blur(15px);
 

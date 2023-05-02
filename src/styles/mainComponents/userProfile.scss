@@ -16,9 +16,11 @@
         flex-direction: column;
         justify-content: space-between;
         .item__title {
+            color: $gray-text-primary;
             margin: 0;
             padding-bottom: 16px;
-            border-bottom: 2px solid $gray-background-primary;
+            font-size: 20px;
+            border-bottom: 2px solid $gray-border;
         }
 
         .item__information {
@@ -48,27 +50,18 @@
                 }
 
                 .miniItem {
-                    background-color: $gray-background-secondary;
+                    background-color: $gray-background-primary;
                     padding: 16px;
                     border-radius: $border-radius;
-                    width: fit-content;
                     position: relative;
-
-                    &.miniItem_horizontal {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        height: calc(300px - 28px);
-                    }
 
                     .miniItem__title {
                         margin-top: 0;
                         margin-bottom: 16px;
                     }
                     .miniItem__block {
+                        display: block;
                         text-align: justify;
-                        min-height: 200px;
-                        margin-bottom: 16px;
                     }
                     .miniItem__secondary {
                         margin: 8px 0;
@@ -94,6 +87,9 @@
                         .item__description {
                             margin: 4px 0;
                         }
+                        &:last-child .item__description{
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
@@ -102,19 +98,29 @@
     .item__artistData {
         grid-row: span 2;
         height: 100%;
-        .artistData__profileImage {
-            border-radius: $border-radius;
-            margin: 0;
-            display: block;
-            width: 200px;
-            height: 200px;
-        }
-        .artistData__bio {
-            line-height: 22px;
+        .information__miniItems {
+            grid-template-columns: repeat(11, 1fr) !important;
+
+            .artistData__profileImage {
+                grid-column: span 5;
+            }
+            .profileImage__image {
+                border-radius: $border-radius;
+                margin: 0;
+                display: block;
+                width: 100%;
+            }
+            .artistData__bio {
+                grid-column: span 6;
+                line-height: 22px;
+            }
+            .miniItem__textarea {
+                width: 100%;
+                background: none;
+            }
         }
     }
     .item__userData {
-        //grid-row: span 2;
         .userData__userEmail {
             margin-bottom: 0;
         }
@@ -126,7 +132,6 @@
             height: 28px;
             .editableItem__title {
                 margin-top: 0;
-                //margin-bottom: 4px;
             }
         }
         .userData__form {

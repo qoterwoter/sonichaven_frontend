@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
-import handleError, {handlePending} from "./handleResponse";
+import handleError, {handlePending, handleSuccess} from "./handleResponse";
 
 const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api/'
 const user = JSON.parse(localStorage.getItem('user')) || {}
@@ -38,6 +38,10 @@ export const userUpdate = createAsyncThunk('user/userUpdate', async (data) => {
     return response.data
 })
 
+export const fetchReleasesByArtist = createAsyncThunk('releases/fetchReleasesByArtist', async () => {
+    const response = await axios.get(`${API_URL}/release/${user.artist.id}/`, {headers})
+    return response.data
+})
 
 const initialState = {
     status: 'Не авторизован',
@@ -76,7 +80,8 @@ const userSlice = createSlice({
             const data = {...user, ...action.payload}
             localStorage.setItem("user", JSON.stringify(data))
             return data
-        }
+        },
+        [fetchReleasesByArtist.fulfilled]: (state, action) => handleSuccess(state,action,'releases'),
     }
 })
 

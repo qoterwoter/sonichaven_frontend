@@ -9,10 +9,6 @@ export const fetchReleases = createAsyncThunk('releases/fetchReleases', async ()
     return response.data;
 });
 
-export const fetchReleasesByArtist = createAsyncThunk('releases/fetchReleasesByArtist', async () => {
-    const response = await axios.get(`${API_URL}/release/${user.artist.id}/`, {headers})
-    return response.data
-})
 
 const releasesSlice = createSlice({
     name: 'releases',
@@ -25,7 +21,6 @@ const releasesSlice = createSlice({
         [fetchReleases.pending]: handlePending,
         [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
         [fetchReleases.rejected]: handleError,
-        [fetchReleasesByArtist.fulfilled]: (state, action) => handleSuccess(state,action,'releases'),
     }
 })
 

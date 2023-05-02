@@ -29,10 +29,25 @@ const OrderItem = (props) => {
 
     const date = new Date(order.created_at).toLocaleDateString('ru',options)
 
+    const STATUS_CHOICES = {
+        'PEND': ['Ожидание подтверждения', 'pending'],
+        'CONF': ['Подтверждено', 'confirmed'],
+        'SHIP': ['В работе', 'in-progress'],
+        'DELV': ['Завершен', 'delivered'],
+        'CANC': ['Отменено', 'cancelled'],
+    };
+
+    const getInfoByKey = (key) => [
+            STATUS_CHOICES[key][0],
+            STATUS_CHOICES[key][1],
+        ];
+
+    const [status, classList] = getInfoByKey(order.status)
+
     return (
     <>
         <div className="orders__order order">
-            <h2 className="order__title">Заказ от {date}</h2>
+            <h2 className="order__title">Заказ от {date} <span className={`order__status order__status_${classList}`}>{status}</span></h2>
             {itemsList}
             {itemsList.length > 1 && <p className="order__sum">Сумма заказа <Separator/> {beautyNum(order.sum)} Руб.</p>}
         </div>

@@ -91,7 +91,6 @@ a {
     }
 
     .form__input {
-        box-sizing: border-box;
         width: 300px;
         margin: 8px 0;
         font-size: 18px;
@@ -135,6 +134,9 @@ a {
 }
 
 .block-title {
+    color: $gray-text-primary;
+    font-size: 24px;
+    font-weight: 600;
     background-color: $blur-background;
     backdrop-filter: $blur;
     padding: 16px;
@@ -145,6 +147,20 @@ a {
 
 .span__border {
     font-weight: 400;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow-y: hidden;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+    height: 205px;
+    border: 2px solid $gray-border ;
+    margin-bottom: 0;
+    border-radius: $border-radius;
+    padding: 6px 8px;
+    color: $gray-text-primary;
+    background-color: $gray-background-primary;
 }
 
 .actions__delete {

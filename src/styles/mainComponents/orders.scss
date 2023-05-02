@@ -9,12 +9,35 @@
         .order__title {
             font-size: $heading-text-2;
             margin: 0;
-            border-bottom: 2px solid $gray-background-primary;
+            border-bottom: 2px solid $gray-border;
             padding-bottom: 16px;
+
+            display: flex;
+            justify-content: space-between;
+            .order__status_pending {
+                color: $orange-primary;
+            }
+
+            .order__status_confirmed {
+                color: $green-primary;
+            }
+
+            .order__status_in-progress {
+                color: $blue-primary;
+            }
+
+            .order__status_delivered {
+                color: $purple-primary;
+            }
+
+            .order__status_cancelled {
+                color: $red-primary;
+            }
+
         }
 
         .order__service {
-            border-bottom: 2px solid $gray-background-primary;
+            border-bottom: 2px solid $gray-border;
             margin-top: 16px;
             &:last-child {
                 border-bottom: none;

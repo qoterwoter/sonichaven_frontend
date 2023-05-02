@@ -13,6 +13,7 @@ export default function ReleasesList() {
     <section className='releases'>
       <h2 className="releases__title block-title">Популярные релизы</h2>
       {releases.length > 0 && releases.map((release, id) => {
+        if(id > 2) return null
         const date = new Date(release.release_date)
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
 

@@ -12,7 +12,7 @@ body {
     margin: 0 auto;
     font-family: Arial, sans-serif;
     color: $gray-text-primary;
-    font-size: $default-text;
+    font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
     background-size: 100%;
@@ -56,7 +56,7 @@ body {
         justify-content: space-between;
 
         .header__logo {
-            font-size: $heading-text-1;
+            font-size: $heading-text-2;
             text-shadow: 0 20px 50px black;
             background: $gradient;
             background-size: 500%;

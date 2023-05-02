@@ -24,7 +24,7 @@ const Authorization = () => {
 
     return (
         <main className='main'>
-        <form className='authForm' onSubmit={login}>
+        <form className='authForm form' onSubmit={login}>
             <label className='form__label' htmlFor='login'>Введите логин:</label>
             <input
                 className='form__input'
