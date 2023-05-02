@@ -231,10 +231,14 @@ body::-webkit-scrollbar-thumb {
 }
 .main .news .news__article {
   margin: 16px 0;
-  background-color: rgba(33, 33, 33, 0.35);
+  background-color: rgba(30, 30, 30, 0.4980392157);
+  backdrop-filter: blur(15px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   padding: 16px;
+}
+.main .news .news__article .article__title {
+  margin-top: 0;
 }
 .main .news .news__article .article__image {
   width: 100%;
