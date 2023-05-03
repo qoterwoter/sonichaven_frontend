@@ -16,7 +16,7 @@ import AboutUs from "./routes/AboutUs";
 import Catalog from "./routes/Catalog/Catalog";
 import OrdersList from "./routes/Orders/OrdersList";
 import UserProfile from "./routes/UserProfile/UserProfile";
-import UserReleases from "./routes/Releases/UserReleases";
+import UserReleases from "./routes/UserProfile/UserReleases";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

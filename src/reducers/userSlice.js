@@ -39,7 +39,7 @@ export const userUpdate = createAsyncThunk('user/userUpdate', async (data) => {
 })
 
 export const fetchReleasesByArtist = createAsyncThunk('releases/fetchReleasesByArtist', async () => {
-    const response = await axios.get(`${API_URL}/release/${user.artist.id}/`, {headers})
+    const response = await axios.get(`${API_URL}release/${user.artist.id}/`, {headers})
     return response.data
 })
 
@@ -73,17 +73,17 @@ const userSlice = createSlice({
         [artistUpdate.fulfilled]: (state, action) => {
             const data = {...user, artist: {...action.payload}}
             localStorage.setItem("user", JSON.stringify(data))
-            return data
+            state.user = data
         },
         [fetchUserData.fulfilled]: (state, action) => {
             const data = {...user, ...action.payload}
             localStorage.setItem("user", JSON.stringify(data))
-            return data
+            state.user = data
         },
         [userUpdate.fulfilled]: (state, action) => {
             const data = {...user, ...action.payload}
             localStorage.setItem("user", JSON.stringify(data))
-            return data
+            state.user = data
         },
         [fetchReleasesByArtist.fulfilled]: (state, action) => {
             const data = {...user, releases: [...action.payload]}

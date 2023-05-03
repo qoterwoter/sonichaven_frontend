@@ -442,11 +442,17 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
 }
 .main .userProfile .userProfile__item .item__title {
-  color: #DFE1E5;
   margin: 0;
   padding-bottom: 16px;
-  font-size: 20px;
   border-bottom: 2px solid #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .userProfile .userProfile__item .item__title .title {
+  margin: 0;
+  color: #DFE1E5;
+  font-size: 24px;
 }
 .main .userProfile .userProfile__item .item__information {
   display: flex;

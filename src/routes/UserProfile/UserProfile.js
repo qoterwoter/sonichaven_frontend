@@ -44,11 +44,13 @@ const UserProfile = () => {
             <NavLink to='/catalog'>Перейти к каталогу</NavLink>
         }
     </>
+
     const orderItem = <>
         <p className="orders__countItems information__general">Количество заказов <Separator/> {showCount(orders.orders.length, 'Заказ')}</p>
         <p className="ordersSum information__secondary">Сумма заказов <Separator/> {beautyNum(ordersSum)} Руб.</p>
         <NavLink className='item__action' to='/orders'>Перейти к заказам</NavLink>
     </>
+
     const userItem = <>
         <UserEditableItem
             placeholder={'Имя'}
@@ -68,6 +70,7 @@ const UserProfile = () => {
             sendTo={'user_email'}
         />
     </>
+
     const artistItem = <>
         <div className="information__miniItems miniItems ">
             <UserProfileMiniItem
@@ -86,6 +89,10 @@ const UserProfile = () => {
             />
         </div>
     </>
+    const releasesLink = <>
+        <NavLink className={'link'} to={'/releases'}>Мои релизы</NavLink>
+    </>
+
     const releasesItem = <div className={'releases__miniItems miniItems miniItems_vertical'}>
         {releases && releases.map((release, id) => {
             return <UserProfileMiniItemAside
@@ -105,7 +112,7 @@ const UserProfile = () => {
         <section className="userProfile">
             <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
             <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
-            <UserProfileItem title={'Релизы артиста'} description={releasesItem} classList={'item__releasesData'}/>
+            <UserProfileItem title={'Релизы артиста'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
             <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
             <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
         </section>
