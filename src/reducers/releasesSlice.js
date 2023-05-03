@@ -9,6 +9,12 @@ export const fetchReleases = createAsyncThunk('releases/fetchReleases', async ()
     return response.data;
 });
 
+export const updateSong = createAsyncThunk('releases/updateSong', async ({song}) => {
+    const response = await axios.put(`${API_URL}/song/${song.id}`, {
+        ...song
+    }, {headers})
+    return response.data
+})
 
 const releasesSlice = createSlice({
     name: 'releases',

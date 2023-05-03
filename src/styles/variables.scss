@@ -1,13 +1,12 @@
-$gray-text-primary: #DFE1E5;
-$gray-text-general: #CED0D6;
-$gray-text-secondary: #868A91;
-$gray-background-primary: #1E1F22; // #1E1F22
-$gray-background-secondary: #2B2D30; // #2B2D30
-//$gray-text-general: #B4B8BF;
-$gray-border: #2d2d2d;
+$text-primary: #DFE1E5;
+$text-general: #CED0D6; // #B4B8BF;
+$text-secondary: #868A91;
+$background-primary: #1E1F22;
+$background-secondary: #2B2D30;
+$border: #2d2d2d;
 
-$gray-shadow: rgba(0, 0, 0, 0.35);
-$box-shadow: 0 8px 32px $gray-shadow;
+$shadow: rgba(0, 0, 0, 0.35);
+$box-shadow: 0 8px 32px $shadow;
 
 $blue-link: #6B9BFA;
 $blue-general: #548AF7;

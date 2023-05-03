@@ -328,8 +328,11 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   margin-top: 16px;
+  font-size: 16px;
+  font-weight: 300;
 }
 .main .shopCart .shop-cart__bottomMenu .shop-cart__sum {
+  color: #CED0D6;
   margin: 0 32px 0 0;
 }
 .main .aboutUs {
@@ -418,7 +421,7 @@ body::-webkit-scrollbar-thumb {
 .main .orders .order .order__sum {
   margin-bottom: 0;
   padding-bottom: 16px;
-  color: #868A91;
+  color: #CED0D6;
 }
 .main .userProfile {
   display: grid;
@@ -613,6 +616,7 @@ body::-webkit-scrollbar-thumb {
   z-index: 9999;
 }
 .notifications .notification {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   margin: 16px 0;
   transition: 0.5s;
   background: rgba(30, 30, 30, 0.4980392157);
@@ -679,7 +683,10 @@ a:active {
   width: 28px !important;
 }
 .icon.icon_edit {
-  color: #A571E6;
+  color: #548AF7;
+}
+.icon.icon_save {
+  color: #5FAD65;
 }
 
 .form .form__label {

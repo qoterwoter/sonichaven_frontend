@@ -11,12 +11,12 @@ const Notification = (props) => {
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        setTimeout(() => {
-                setClassList('hide')
-            },
-            2500)
-    })
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //             setClassList('hide')
+    //         },
+    //         2500)
+    // })
 
     const handleClose = () => {
         dispatch(removeNotification())

@@ -39,10 +39,10 @@ const UserProfileMiniItem = (props) => {
             <h3 className="miniItem__title information__general">{title}</h3>
             <div className="miniItem__block">
                 {isEdit ?
-                    <form className={'form'} onSubmit={onSubmit}>
+                    <>
                         <textarea onChange={onChange} rows={6} className={'miniItem__textarea textarea'} value={value}/>
                         <CheckRoundedIcon className={'miniItem__edit icon actions__edit '} onClick={onSubmit}/>
-                    </form> :
+                    </> :
                     description
                 }
             </div>

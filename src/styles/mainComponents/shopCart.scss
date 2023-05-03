@@ -17,7 +17,7 @@
 
         .item {
             padding: 16px 0;
-            border-bottom: 2px solid $gray-border;
+            border-bottom: 2px solid $border;
             &:last-child {
                 border: none;
             }
@@ -36,7 +36,7 @@
             }
 
             .item__description {
-                color: $gray-text-general;
+                color: $text-general;
             }
             .item__bottom-menu {
                 display: flex;
@@ -45,7 +45,7 @@
                 align-items: center;
 
                 .item__cost {
-                    color: $gray-text-secondary;
+                    color: $text-secondary;
                     margin: 0;
                 }
 
@@ -78,7 +78,10 @@
         display: flex;
         align-items: center;
         margin-top: 16px;
+        font-size: $paragraph-text;
+        font-weight: 300;
         .shop-cart__sum {
+            color: $text-general;
             margin: 0 32px 0 0;
         }
     }

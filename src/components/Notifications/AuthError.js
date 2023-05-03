@@ -1,8 +1,7 @@
 import React from "react";
 import Notification from "./Notification";
 
-const NotificationError = (props) => {
-
+const AuthError = (props) => {
     const state = props.notification
 
     console.log(props)
@@ -18,5 +17,5 @@ const NotificationError = (props) => {
     />
 }
 
-export default NotificationError
+export default AuthError
 

@@ -6,7 +6,7 @@ const CartAppended = (props) => {
 
     const notification = {
         title: 'Товар добавлен в корзину!',
-        description: `"${state.name}" в количестве ${state.count} шт. добавлен в корзину.`,
+        description: `"${state.name}" в количестве ${state.quantity} шт. добавлен в корзину.`,
         action: {
             button: 'Перейти в корзину',
             url: '/shopCart'

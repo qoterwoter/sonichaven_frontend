@@ -9,7 +9,7 @@
         .order__title {
             font-size: $heading-text-2;
             margin: 0;
-            border-bottom: 2px solid $gray-border;
+            border-bottom: 2px solid $border;
             padding-bottom: 16px;
 
             display: flex;
@@ -37,19 +37,19 @@
         }
 
         .order__service {
-            border-bottom: 2px solid $gray-border;
+            border-bottom: 2px solid $border;
             margin-top: 16px;
             &:last-child {
                 border-bottom: none;
             }
             .service__title {
-                color: $gray-text-primary;
+                color: $text-primary;
             }
             .service__description {
-                color: $gray-text-general;
+                color: $text-general;
             }
             .service__cost {
-                color: $gray-text-secondary;
+                color: $text-secondary;
                 margin-bottom: 0;
                 padding-bottom: 16px;
             }
@@ -57,7 +57,7 @@
         .order__sum {
             margin-bottom: 0;
             padding-bottom: 16px;
-            color: $gray-text-secondary;
+            color: $text-general;
         }
     }
 }

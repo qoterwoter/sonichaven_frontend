@@ -16,11 +16,11 @@
         flex-direction: column;
         justify-content: space-between;
         .item__title {
-            color: $gray-text-primary;
+            color: $text-primary;
             margin: 0;
             padding-bottom: 16px;
             font-size: 20px;
-            border-bottom: 2px solid $gray-border;
+            border-bottom: 2px solid $border;
         }
 
         .item__information {
@@ -31,10 +31,10 @@
             height: border-box;
             .information__general {
                 margin-bottom: 0;
-                color: $gray-text-general;
+                color: $text-general;
             }
             .information__secondary {
-                color: $gray-text-secondary;
+                color: $text-secondary;
             }
             .item__action {
                 margin: 0;
@@ -50,7 +50,7 @@
                 }
 
                 .miniItem {
-                    background-color: $gray-background-primary;
+                    background-color: $background-primary;
                     padding: 16px;
                     border-radius: $border-radius;
                     position: relative;

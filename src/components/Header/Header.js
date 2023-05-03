@@ -63,6 +63,7 @@ const Header = () => {
             {isShow && <div className="header__bottomMenu">
                 <div className={'menu'} ref={ref}>
                     <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMenu}>Мой профиль</NavLink>
+                    <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMenu}>Мои релизы</NavLink>
                     <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>
                     <NavLink className='menu__action nav__link' to='/orders' onClick={hideMenu}>Заказы</NavLink>
                     <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>

@@ -11,6 +11,7 @@
     bottom: 0;
     z-index: 9999;
     .notification {
+        box-shadow: $box-shadow;
         margin: 16px 0;
         transition: .5s;
         background: $blur-background;
@@ -48,7 +49,7 @@ a {
 }
 
 .button {
-    color: $gray-text-primary;
+    color: $text-primary;
     background: $blue-primary;
     cursor: pointer;
     border: none;
@@ -67,7 +68,7 @@ a {
 .button__success {
     height: fit-content;
     background-color: $green-primary;
-    color: $gray-text-primary;
+    color: $text-primary;
     padding: 8px 16px;
     border: none;
     border-radius: 100px;
@@ -80,25 +81,28 @@ a {
     height: 28px !important;
     width: 28px !important;
     &.icon_edit {
-        color: $purple-general;
+        color: $blue-general;
+    }
+    &.icon_save {
+        color: $green-edit;
     }
 }
 
 .form {
 
     .form__label {
-        color: $gray-text-general;
+        color: $text-general;
     }
 
     .form__input {
         width: 300px;
         margin: 8px 0;
         font-size: 18px;
-        border: 2px solid $gray-border ;
+        border: 2px solid $border;
         border-radius: 4px;
         padding: 8px 6px;
-        color: $gray-text-primary;
-        background-color: $gray-background-primary;
+        color: $text-primary;
+        background-color: $background-primary;
 
         &:focus {
             border-color: $blue-primary;
@@ -107,7 +111,7 @@ a {
     }
     .form__input_submit {
         cursor: pointer;
-        color: $gray-text-primary;
+        color: $text-primary;
         border: none;
         background-color: $blue-primary;
         transition: .2s;
@@ -124,17 +128,17 @@ a {
         border-radius: 4px;
         padding: 6px 9px;
         background: none;
-        color: $gray-text-general;
-        border: 2px solid $gray-text-secondary;
+        color: $text-general;
+        border: 2px solid $text-secondary;
     }
 
     .label {
-        color: $gray-text-secondary;
+        color: $text-secondary;
     }
 }
 
 .block-title {
-    color: $gray-text-primary;
+    color: $text-primary;
     font-size: 24px;
     font-weight: 600;
     background-color: $blur-background;
@@ -155,12 +159,12 @@ a {
     overflow-y: hidden;
     resize: none; /* Remove this if you want the user to resize the textarea */
     height: 205px;
-    border: 2px solid $gray-border ;
+    border: 2px solid $border;
     margin-bottom: 0;
     border-radius: $border-radius;
     padding: 6px 8px;
-    color: $gray-text-primary;
-    background-color: $gray-background-primary;
+    color: $text-primary;
+    background-color: $background-primary;
 }
 
 .actions__delete {

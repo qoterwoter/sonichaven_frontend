@@ -85,7 +85,11 @@ const userSlice = createSlice({
             localStorage.setItem("user", JSON.stringify(data))
             return data
         },
-        [fetchReleasesByArtist.fulfilled]: (state, action) => handleSuccess(state,action,'releases'),
+        [fetchReleasesByArtist.fulfilled]: (state, action) => {
+            const data = {...user, releases: [...action.payload]}
+            localStorage.setItem("user", JSON.stringify(data))
+            return data
+        },
     }
 })
 

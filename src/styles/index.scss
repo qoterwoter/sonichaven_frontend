@@ -4,14 +4,14 @@
     box-sizing: border-box;
     &::selection {
         background-color: #0090e0;
-        color: $gray-text-primary;
+        color: $text-primary;
     }
 }
 
 body {
     margin: 0 auto;
     font-family: Arial, sans-serif;
-    color: $gray-text-primary;
+    color: $text-primary;
     font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
@@ -21,7 +21,7 @@ body {
 
     &::-webkit-scrollbar {
         width: 10px;
-        background-color: $gray-background-primary;
+        background-color: $background-primary;
     }
     &::-webkit-scrollbar-thumb {
         background-color: #999;
@@ -108,7 +108,7 @@ body {
         flex-direction: column;
         justify-content: end;
 
-        box-shadow: 0px 8px 40px $gray-shadow;
+        box-shadow: 0px 8px 40px $shadow;
         background: $header-background;
         backdrop-filter: blur(15px);
         padding: 8px;
@@ -116,7 +116,7 @@ body {
         .menu__action {
             display: block;
             padding: 8px 0;
-            border-bottom: 1px solid $gray-border;
+            border-bottom: 1px solid $border;
             &:last-child {
                 border: none;
             }

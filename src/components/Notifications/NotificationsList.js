@@ -2,7 +2,8 @@ import React from "react";
 import {useSelector} from "react-redux";
 import CartAppended from "./CartAppended";
 import OrderCompleted from "./OrderCompleted";
-import NotificationError from "./NotificationError";
+import AuthError from "./AuthError";
+import CartItemExist from "./CartItemExist";
 
 const NotificationsList = () => {
     const state = useSelector(state => state.notifications)
@@ -14,11 +15,15 @@ const NotificationsList = () => {
             if(notification.notificationType==='cartAppended') {
                 return <CartAppended notification={notification}/>
             }
+            if (notification.notificationType==='cartItemExist') {
+                console.log('noti')
+                return <CartItemExist notification={notification}/>
+            }
             if(notification.notificationType==='orderComplete') {
                 return <OrderCompleted notification={notification}/>
             }
             if(notification.notificationType==='error') {
-                return <NotificationError notification={notification} isNav={false}/>
+                return <AuthError notification={notification} isNav={false}/>
             }
             return null
         }) }
