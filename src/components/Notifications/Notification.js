@@ -7,6 +7,7 @@ const Notification = (props) => {
     const state = props.notification
 
     const [classList, setClassList] = useState('show')
+    const isNav = props.isNav != false && true
 
     const dispatch = useDispatch()
 
@@ -26,7 +27,7 @@ const Notification = (props) => {
             <div className={'notification notification_'+classList}>
                 <h2 className="notification__title">{state.title} <CloseRoundedIcon onClick={handleClose} className='notification__close'/></h2>
                 <p className="notification__description">{state.description}</p>
-                <NavLink to={state.action.url}>{state.action.button}</NavLink>
+                {isNav && <NavLink to={state?.action?.url}>{state?.action?.button}</NavLink>}
             </div>
         </>
     )

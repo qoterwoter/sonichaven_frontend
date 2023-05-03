@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authArtist} from "../../reducers/userSlice";
 import {useNavigate} from "react-router-dom";
+import {pushNotification} from "../../reducers/notificationSlice";
+import notification from "../../components/Notifications/Notification";
 
 const Authorization = () => {
     const [username,setUsername] = useState('')
@@ -15,11 +17,19 @@ const Authorization = () => {
     const dispatch = useDispatch()
     const userData = useSelector(state=>state.user)
 
-    const login = async (e) => {
+    useEffect(() => {
+        if(userData && userData.status === 'Успешно') {
+            navigate('/userProfile')
+        }
+        if(userData && userData.status === 'Ошибка') {
+            dispatch(pushNotification({title:"Неверные данные для входа", description: userData?.errorCode,notificationType: 'error'}))
+        }
+    })
+
+    const login = (e) => {
         e.preventDefault()
 
-        await dispatch(authArtist({username, password}))
-        navigate('/userProfile')
+        dispatch(authArtist({username, password}))
     }
 
     return (
@@ -48,7 +58,7 @@ const Authorization = () => {
                 type='submit'
                 onClick={login}
             />
-            <p>Статус: {userData.status}</p>
+            {/*<p>Статус: {userData.status}</p>*/}
         </form>
         </main>
     )

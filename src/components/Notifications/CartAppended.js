@@ -1,5 +1,6 @@
 import React from "react";
 import Notification from "./Notification";
+
 const CartAppended = (props) => {
     const state = props.notification
 

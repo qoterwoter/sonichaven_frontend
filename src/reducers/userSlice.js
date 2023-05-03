@@ -65,7 +65,11 @@ const userSlice = createSlice({
             localStorage.setItem("user", JSON.stringify(data))
             return data
         },
-        [authArtist.rejected]: handleError,
+        [authArtist.rejected]: (state, action) => {
+            console.log(action)
+            state.status = 'Ошибка'
+            state.errorCode = action.error.message
+        },
         [artistUpdate.fulfilled]: (state, action) => {
             const data = {...user, artist: {...action.payload}}
             localStorage.setItem("user", JSON.stringify(data))

@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchReleases} from "../../reducers/releasesSlice";
+import Separator from "../Separator";
 export default function ReleasesList() {
   const releases = useSelector(state => state.releases.releases)
   const dispatch = useDispatch()
@@ -19,9 +20,9 @@ export default function ReleasesList() {
 
         return (
           <article key={id} className='releases__release release'>
-            <h3 className='release__title'>{release.artist_name} - {release.title}</h3>
+            <h3 className='release__title'>{release.title}</h3> {/*{release.artist_name} <br/>*/}
             <img className='release__image' src={release.image} alt='img'/>
-            <p className='release__date'>Выпущен {date.toLocaleDateString('RU-ru', options)}</p>
+            <p className='release__date'>Выпущен <Separator/> {date.toLocaleDateString('RU-ru', options)}</p>
           </article>
         )
       })}

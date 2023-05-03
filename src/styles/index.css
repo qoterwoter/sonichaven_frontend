@@ -204,11 +204,14 @@ body::-webkit-scrollbar-thumb {
   backdrop-filter: blur(15px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  width: 100%;
 }
 .main .releases .release .release__title {
   font-size: 24px;
+  word-wrap: break-word;
   margin: 0;
   padding-bottom: 16px;
+  width: 300px;
 }
 .main .releases .release .release__image {
   border-radius: 8px;
