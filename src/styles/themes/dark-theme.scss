@@ -1,0 +1,59 @@
+$text-primary-light: #DFE1E5;
+$text-general: #CED0D6; // #B4B8BF;
+$text-secondary: #868A91;
+$background-primary: #1E1F22;
+$background-secondary: #2B2D30;
+$border: #2d2d2d;
+
+$shadow: rgba(0, 0, 0, 0.35);
+$box-shadow: 0 8px 32px $shadow;
+
+$blue-link: #6B9BFA;
+$blue-general: #548AF7;
+$blue-primary: #3574F0;
+$blue-hovered: #366ACF;
+$blue-pressed: #375FAD;
+
+$purple-general: #A571E6;
+$purple-primary: #955AE0;
+
+$red-primary: #DB5C5C;
+$red-secondary: #BD5757;
+
+$orange-primary: #E08855;
+
+$green-edit: #5FAD65;
+$green-primary: #57965C;
+$green-hovered: #4E8052;
+$green-pressed: #436946;
+
+$blur-background: #1E1E1E7F;
+$header-background: rgba(0, 0, 0, 0.55);
+
+$gap: 16px;
+
+$heading-text-1: 65px;
+$heading-text-2: 24px;
+$heading-text-3: 20px;
+
+$paragraph-text: 16px;
+
+$border-radius: 16px;
+$block-padding: 16px;
+
+
+$blur: blur(15px);
+
+$gradient: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, $blue-primary);
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

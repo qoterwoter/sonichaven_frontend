@@ -575,6 +575,82 @@ body::-webkit-scrollbar-thumb {
   display: block;
   border-radius: 16px;
 }
+.main .userReleases .release {
+  padding: 16px;
+  background-color: rgba(30, 30, 30, 0.4980392157);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(15px);
+  width: 100%;
+  margin: 16px 0;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 16px;
+}
+.main .userReleases .release .release__header {
+  width: 100%;
+}
+.main .userReleases .release .release__header .release__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .userReleases .release .release__header .release__title .title {
+  margin: 0;
+}
+.main .userReleases .release .release__header .release__image {
+  width: 100%;
+  border-radius: 16px;
+}
+.main .userReleases .release .release__header .release__type {
+  color: #868A91;
+}
+.main .userReleases .release .release__body {
+  display: flex;
+  flex-direction: column;
+}
+.main .userReleases .release .release__body .body__title {
+  margin: 0;
+}
+.main .userReleases .release .release__body .body__duration {
+  color: #868A91;
+}
+.main .userReleases .release .release__body .songList {
+  margin: 0;
+  display: block;
+  padding: 0;
+}
+.main .userReleases .release .release__body .songList .song {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 8px 0;
+  background-color: #1E1F22;
+  border-radius: 16px;
+  color: #CED0D6;
+}
+.main .userReleases .release .release__body .songList .song .song__body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.main .userReleases .release .release__body .songList .song .song__body > * {
+  padding-right: 16px;
+  margin: 0;
+}
+.main .userReleases .release .release__body .songList .song .song__body .song__duration {
+  color: #868A91;
+}
+.main .userReleases .release .release__body .songList .song .song__body_editable .song__duration_input {
+  width: 90px;
+}
+.main .userReleases .release .release__body .songList .song:last-child {
+  margin-bottom: 0;
+}
+.main .userReleases .release .release__body .songList .song:first-child {
+  margin-top: 0;
+}
 
 .helloElement {
   background-image: url("../images/background.jpg");
@@ -725,7 +801,8 @@ a:active {
 .form .form__input_submit:active {
   background-color: #375FAD;
 }
-.form .input {
+
+.input {
   height: 28px;
   border-radius: 4px;
   padding: 6px 9px;
@@ -733,7 +810,8 @@ a:active {
   color: #CED0D6;
   border: 2px solid #868A91;
 }
-.form .label {
+
+.label {
   color: #868A91;
 }
 

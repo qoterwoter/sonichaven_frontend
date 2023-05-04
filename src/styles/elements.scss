@@ -49,7 +49,7 @@ a {
 }
 
 .button {
-    color: $text-primary;
+    color: $text-primary-light;
     background: $blue-primary;
     cursor: pointer;
     border: none;
@@ -68,7 +68,7 @@ a {
 .button__success {
     height: fit-content;
     background-color: $green-primary;
-    color: $text-primary;
+    color: $text-primary-light;
     padding: 8px 16px;
     border: none;
     border-radius: 100px;
@@ -101,7 +101,7 @@ a {
         border: 2px solid $border;
         border-radius: 4px;
         padding: 8px 6px;
-        color: $text-primary;
+        color: $text-primary-light;
         background-color: $background-primary;
 
         &:focus {
@@ -111,7 +111,7 @@ a {
     }
     .form__input_submit {
         cursor: pointer;
-        color: $text-primary;
+        color: $text-primary-light;
         border: none;
         background-color: $blue-primary;
         transition: .2s;
@@ -123,22 +123,21 @@ a {
             background-color: $blue-pressed;
         }
     }
-    .input {
-        height: 28px;
-        border-radius: 4px;
-        padding: 6px 9px;
-        background: none;
-        color: $text-general;
-        border: 2px solid $text-secondary;
-    }
-
-    .label {
-        color: $text-secondary;
-    }
+}
+.input {
+    height: 28px;
+    border-radius: 4px;
+    padding: 6px 9px;
+    background: none;
+    color: $text-general;
+    border: 2px solid $text-secondary;
 }
 
+.label {
+    color: $text-secondary;
+}
 .block-title {
-    color: $text-primary;
+    color: $text-primary-light;
     font-size: 24px;
     font-weight: 600;
     background-color: $blur-background;
@@ -163,7 +162,7 @@ a {
     margin-bottom: 0;
     border-radius: $border-radius;
     padding: 6px 8px;
-    color: $text-primary;
+    color: $text-primary-light;
     background-color: $background-primary;
 }
 

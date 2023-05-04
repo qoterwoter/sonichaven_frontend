@@ -24,14 +24,18 @@ function SongEditable(props) {
     }
 
     return (
-        <li className={'songsList__song'}>
+        <li className={'songsList__song song'}>
             <div className="song__body">
                 {isEdit ?
                 <>
-                    <label htmlFor="title" className="song__title">Название</label>
-                    <input id={'title'} type="text" className="song__title_input" value={title} onChange={onChangeTitle}/>
-                    <label htmlFor={'duration'} className="song__duration">Длительность</label>
-                    <input id={'duration'} type="text" className="song__duration_input" value={duration} onChange={onChangeDuration}/>
+                    <div className="song__body_editable">
+                        <label htmlFor="title" className="song__title">Название <Separator/></label>
+                        <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
+                    </div>
+                    <div className="song__body_editable">
+                        <label htmlFor={'duration'} className="song__duration">Длительность <Separator/></label>
+                        <input id={'duration'} type="text" className="song__duration_input input" value={duration} onChange={onChangeDuration}/>
+                    </div>
                 </> :
                 <>
                     <p className={'song__title'}>Название <Separator/> {title}</p>

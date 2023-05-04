@@ -51,7 +51,7 @@ const UserEditableItem = (props) => {
                     <Separator/>
                     <input className={'userData__input input'} type={type} value={value} onChange={onChange} placeholder={placeholder}/>
                 </div>
-                <CheckRoundedIcon className={'icon icon_save actions__edit '} onClick={onSubmit}/>
+                <CheckRoundedIcon className={'icon icon_save actions__edit'} onClick={onSubmit}/>
             </form> :
             <div className={'userData__editableItem editableItem'}>
                 <p className={`editableItem__title information__general`}>

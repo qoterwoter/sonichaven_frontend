@@ -1,17 +1,18 @@
-@import "variables";
+@import "./themes/dark-theme";
+//@import "./themes/light-theme";
 
 * {
     box-sizing: border-box;
     &::selection {
         background-color: #0090e0;
-        color: $text-primary;
+        color: $text-primary-light;
     }
 }
 
 body {
     margin: 0 auto;
     font-family: Arial, sans-serif;
-    color: $text-primary;
+    color: $text-primary-light;
     font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;

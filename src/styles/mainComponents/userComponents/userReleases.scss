@@ -1,0 +1,83 @@
+.userReleases {
+    .release {
+        padding: $gap;
+        background-color: $blur-background;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        backdrop-filter: $blur;
+        width: 100%;
+        margin: $gap 0;
+
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        gap: $gap;
+
+        .release__header {
+            width: 100%;
+            .release__title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .title {
+                    margin: 0;
+                }
+            }
+            .release__image {
+                width: 100%;
+                border-radius: $border-radius;
+            }
+            .release__type {
+                color: $text-secondary
+            }
+        }
+        .release__body {
+            display: flex;
+            flex-direction: column;
+            .body__title {
+                margin: 0;
+            }
+            .body__duration {
+                color: $text-secondary;
+            }
+            .songList {
+                margin: 0;
+                display: block;
+                padding: 0;
+                .song {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 8px $gap;
+                    margin: 8px 0;
+                    background-color: $background-primary;
+                    border-radius: $border-radius;
+                    color: $text-general;
+
+                    .song__body {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        >* {
+                            padding-right: $gap;
+                            margin: 0;
+                        }
+                        .song__duration {
+                            color: $text-secondary;
+                        }
+                    }
+                    .song__body_editable {
+                        .song__duration_input {
+                            width: 90px;
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
