@@ -25,24 +25,20 @@ function SongEditable(props) {
 
     return (
         <li className={'songsList__song song'}>
-            <div className="song__body">
-                {isEdit ?
-                <>
-                    <div className="song__body_editable">
-                        <label htmlFor="title" className="song__title">Название <Separator/></label>
-                        <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
-                    </div>
-                    <div className="song__body_editable">
-                        <label htmlFor={'duration'} className="song__duration">Длительность <Separator/></label>
-                        <input id={'duration'} type="text" className="song__duration_input input" value={duration} onChange={onChangeDuration}/>
-                    </div>
-                </> :
-                <>
-                    <p className={'song__title'}>Название <Separator/> {title}</p>
-                    <p className="song__duration">Длительность <Separator/> {duration}</p>
-                </>
-                }
-            </div>
+            {isEdit ?
+            <>
+                <div className="song__body_editable">
+                    <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
+                </div>
+                <div className="song__body_editable">
+                    <input id={'duration'} type="text" className="song__duration_input input" value={duration} onChange={onChangeDuration}/>
+                </div>
+            </> :
+            <>
+                <p className='song__title'>{title}</p>
+                <p className="song__duration">{duration}</p>
+            </>
+            }
             <div className="song__actions">
                 {!isEdit && <EditRoundedIcon onClick={toggleEdit} className={'icon icon_edit'}/>}
                 {isEdit && <CheckRoundedIcon onClick={toggleEdit} className={'icon icon_save'}/>}

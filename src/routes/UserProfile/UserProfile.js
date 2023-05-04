@@ -90,7 +90,7 @@ const UserProfile = () => {
         </div>
     </>
     const releasesLink = <>
-        <NavLink className={'link'} to={'/releases'}>Мои релизы</NavLink>
+        <NavLink className={'link'} to={'/releases'}>Все релизы</NavLink>
     </>
 
     const releasesItem = <div className={'releases__miniItems miniItems miniItems_vertical'}>
@@ -112,7 +112,7 @@ const UserProfile = () => {
         <section className="userProfile">
             <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
             <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
-            <UserProfileItem title={'Релизы артиста'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
+            <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
             <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
             <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
         </section>

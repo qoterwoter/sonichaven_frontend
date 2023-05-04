@@ -105,7 +105,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   justify-content: end;
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.35);
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(15px);
   padding: 8px;
   border-radius: 0 0 8px 8px;
@@ -584,7 +584,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   margin: 16px 0;
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: 1fr 3fr;
   gap: 16px;
 }
 .main .userReleases .release .release__header {
@@ -594,15 +594,23 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 16px;
 }
 .main .userReleases .release .release__header .release__title .title {
   margin: 0;
+}
+.main .userReleases .release .release__header .release__title .input {
+  width: 140px;
 }
 .main .userReleases .release .release__header .release__image {
   width: 100%;
   border-radius: 16px;
 }
-.main .userReleases .release .release__header .release__type {
+.main .userReleases .release .release__header .release__type,
+.main .userReleases .release .release__header .release__date,
+.main .userReleases .release .release__header .release__duration,
+.main .userReleases .release .release__header .release__about {
+  margin: 8px 0;
   color: #868A91;
 }
 .main .userReleases .release .release__body {
@@ -610,46 +618,46 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
 }
 .main .userReleases .release .release__body .body__title {
-  margin: 0;
-}
-.main .userReleases .release .release__body .body__duration {
-  color: #868A91;
+  margin: 4px 0 8px;
 }
 .main .userReleases .release .release__body .songList {
   margin: 0;
-  display: block;
+  display: grid;
+  grid-template-columns: 5fr 5fr 1fr;
+  gap: 8px;
   padding: 0;
 }
+.main .userReleases .release .release__body .songList .songList__title,
+.main .userReleases .release .release__body .songList .songList__duration {
+  list-style: none;
+  padding: 8px;
+  color: #868A91;
+}
 .main .userReleases .release .release__body .songList .song {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5fr 5fr 1fr;
+  grid-column: span 5;
   align-items: center;
-  padding: 8px 16px;
-  margin: 8px 0;
+  padding: 8px 8px 8px 12px;
   background-color: #1E1F22;
   border-radius: 16px;
   color: #CED0D6;
 }
-.main .userReleases .release .release__body .songList .song .song__body {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-.main .userReleases .release .release__body .songList .song .song__body > * {
+.main .userReleases .release .release__body .songList .song > * {
   padding-right: 16px;
   margin: 0;
 }
-.main .userReleases .release .release__body .songList .song .song__body .song__duration {
+.main .userReleases .release .release__body .songList .song .song__duration {
   color: #868A91;
+}
+.main .userReleases .release .release__body .songList .song .song__actions {
+  justify-self: end;
+  padding: 0;
+  margin: 0;
+  height: 28px;
 }
 .main .userReleases .release .release__body .songList .song .song__body_editable .song__duration_input {
   width: 90px;
-}
-.main .userReleases .release .release__body .songList .song:last-child {
-  margin-bottom: 0;
-}
-.main .userReleases .release .release__body .songList .song:first-child {
-  margin-top: 0;
 }
 
 .helloElement {

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authArtist} from "../../reducers/userSlice";
+import {authUser} from "../../reducers/userSlice";
 import {useNavigate} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
 import notification from "../../components/Notifications/Notification";
@@ -29,7 +29,7 @@ const Authorization = () => {
     const login = (e) => {
         e.preventDefault()
 
-        dispatch(authArtist({username, password}))
+        dispatch(authUser({username, password}))
     }
 
     return (

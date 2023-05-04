@@ -8,6 +8,17 @@ export const getReleaseType = (type) => {
     if(type === 'single') return "Епи"
 }
 
+export const getReleaseDate = date => {
+    const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "UTC"
+    };
+
+    return new Date(date).toLocaleDateString('ru',options)
+}
+
 const UserProfileMiniItemAside = (props) => {
     const release = props.release
     const classList = props.classList
@@ -21,14 +32,7 @@ const UserProfileMiniItemAside = (props) => {
         </div>
     })
 
-    const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        timeZone: "UTC"
-    };
 
-    const date = new Date(release.release_date).toLocaleDateString('ru',options)
 
 
     return (
@@ -37,7 +41,7 @@ const UserProfileMiniItemAside = (props) => {
                 <h3 className="miniItem__title information__general">{release.title}</h3>
                 <div className="miniItem__block">{description}</div>
                 <p className="miniItem__secondary information__secondary">Тип релиза <Separator/> {getReleaseType(release.type)}</p>
-                <p className="miniItem__secondary information__secondary">Вышел <Separator/> {date}</p>
+                <p className="miniItem__secondary information__secondary">Вышел <Separator/> {getReleaseDate(release.release_date)}</p>
             </div>
             <div className="miniItem__aside">
                 <h3 className="miniItem__title information__general">{asideTitle}</h3>

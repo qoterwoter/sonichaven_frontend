@@ -110,7 +110,7 @@ body {
         justify-content: end;
 
         box-shadow: 0px 8px 40px $shadow;
-        background: $header-background;
+        background: rgba(0, 0, 0, 0.37);
         backdrop-filter: blur(15px);
         padding: 8px;
         border-radius: 0 0 8px 8px;

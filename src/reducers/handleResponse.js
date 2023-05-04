@@ -8,10 +8,12 @@ export const handleError = (state, action) => {
 export const handleSuccess = (state, action, type) => {
     state.status = 'Успешно'
     state[type] = action.payload
+    return state
 }
 
 export const handlePending = state => {
     state.status = 'Загрузка данных...'
+    return state
 }
 
 export default handleSuccess
