@@ -9,21 +9,22 @@ export const fetchReleases = createAsyncThunk('releases/fetchReleases', async ()
     return response.data;
 });
 
-export const updateSong = createAsyncThunk('releases/updateSong', async ({song}) => {
-    const response = await axios.put(`${API_URL}/song/${song.id}`, {
-        ...song
-    }, {headers})
-    return response.data
-})
-
 export const updateRelease = createAsyncThunk('releases/updateRelease', async (release) => {
     const response = await axios.put(`${API_URL}/releases/${release.id}/`, {
         ...release
     }, {headers})
 
+    console.log(response)
     return response.data
 })
 
+export const updateSong = createAsyncThunk('releases/updateSong', async (song) => {
+    const response = await axios.put(`${API_URL}/song/${song.id}/`, {
+        ...song
+    }, {headers})
+
+    return response.data
+})
 
 const releasesSlice = createSlice({
     name: 'releases',
@@ -37,10 +38,14 @@ const releasesSlice = createSlice({
         [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
         [fetchReleases.rejected]: handleError,
         [updateRelease.fulfilled]: (state, action) => {
-            const release = action.payload
-            const userReleases = user.releases.filter(userRelease=> userRelease.id !== release.id)
-            const data = {...user, releases: [...userReleases, release]}
-            localStorage.setItem("user", JSON.stringify(data))
+            const data = action.payload
+            const releaseToUpdate = user.releases.find(release => release.id === data.id)
+            const output = user.releases.map(release => {
+                if(release.id === data.id) {
+                    return {...releaseToUpdate, ...data}
+                } else return release
+            })
+            localStorage.setItem("user", JSON.stringify({...user, releases: output}))
 
         }
     }

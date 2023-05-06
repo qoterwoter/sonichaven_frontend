@@ -69,6 +69,7 @@ const UserProfile = () => {
             type={'email'}
             sendTo={'user_email'}
         />
+        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData.payment)} Руб.</p>
     </>
 
     const artistItem = <>

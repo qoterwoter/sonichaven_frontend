@@ -33,7 +33,7 @@
             .release__type,
             .release__date,
             .release__duration,
-            .release__about {
+            .release__about, {
                 margin: 8px 0;
                 color: $text-secondary
             }
@@ -47,18 +47,19 @@
             .songList {
                 margin: 0;
                 display: grid;
-                grid-template-columns: 5fr 5fr 1fr;
+                grid-template-columns: 5fr 5fr 5fr 1fr;
                 gap: 8px;
                 padding: 0;
                 .songList__title,
-                .songList__duration {
+                .songList__duration,
+                .songList__listens {
                     list-style: none;
                     padding: 8px;
                     color: $text-secondary;
                 }
                 .song {
                     display: grid;
-                    grid-template-columns: 5fr 5fr 1fr;
+                    grid-template-columns:  5fr 5fr 5fr 1fr;
                     grid-column: span 5;
                     align-items: center;
                     padding: 8px 8px 8px 12px ;
@@ -70,7 +71,8 @@
                         padding-right: $gap;
                         margin: 0;
                     }
-                    .song__duration {
+                    .song__duration,
+                    .song__listens {
                         color: $text-secondary;
                     }
                     .song__actions {

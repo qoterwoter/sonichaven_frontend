@@ -3,6 +3,8 @@ import Separator from "../Separator";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import {useDispatch} from "react-redux";
+import {updateSong} from "../../reducers/releasesSlice";
+import {beautyCount} from "../UserProfile/UserProfileMiniItemAside";
 
 function SongEditable(props) {
     const song = props?.song
@@ -19,7 +21,7 @@ function SongEditable(props) {
     const onChangeDuration = (e) => setDuration(e.target.value)
 
     const onSave = () => {
-        dispatch()
+        dispatch(updateSong({...song, title, duration}))
         toggleEdit()
     }
 
@@ -33,15 +35,17 @@ function SongEditable(props) {
                 <div className="song__body_editable">
                     <input id={'duration'} type="text" className="song__duration_input input" value={duration} onChange={onChangeDuration}/>
                 </div>
+                <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </> :
             <>
                 <p className='song__title'>{title}</p>
                 <p className="song__duration">{duration}</p>
+                <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </>
             }
             <div className="song__actions">
                 {!isEdit && <EditRoundedIcon onClick={toggleEdit} className={'icon icon_edit'}/>}
-                {isEdit && <CheckRoundedIcon onClick={toggleEdit} className={'icon icon_save'}/>}
+                {isEdit && <CheckRoundedIcon onClick={onSave} className={'icon icon_save'}/>}
             </div>
         </li>
     )

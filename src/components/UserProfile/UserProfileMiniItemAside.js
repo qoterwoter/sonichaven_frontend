@@ -1,5 +1,6 @@
 import React from "react";
 import Separator from "../Separator";
+import {beautyNum} from "../../routes/ShopCart/ShopCart";
 
 export const getReleaseType = (type) => {
     if(type === 'album') return "Альбом"
@@ -19,6 +20,10 @@ export const getReleaseDate = date => {
     return new Date(date).toLocaleDateString('ru',options)
 }
 
+export const beautyCount = num => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 const UserProfileMiniItemAside = (props) => {
     const release = props.release
     const classList = props.classList
@@ -32,16 +37,13 @@ const UserProfileMiniItemAside = (props) => {
         </div>
     })
 
-
-
-
     return (
         <div className={`${classList}__miniItem miniItem`}>
             <div className="miniItem__main">
                 <h3 className="miniItem__title information__general">{release.title}</h3>
                 <div className="miniItem__block">{description}</div>
-                <p className="miniItem__secondary information__secondary">Тип релиза <Separator/> {getReleaseType(release.type)}</p>
-                <p className="miniItem__secondary information__secondary">Вышел <Separator/> {getReleaseDate(release.release_date)}</p>
+                <p className="miniItem__secondary information__secondary">{getReleaseType(release.type)}  <Separator/> {getReleaseDate(release.release_date)}</p>
+                <p className="miniItem__secondary information__secondary">{beautyCount(release.listens)} Стримов</p>
             </div>
             <div className="miniItem__aside">
                 <h3 className="miniItem__title information__general">{asideTitle}</h3>

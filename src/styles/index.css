@@ -547,6 +547,9 @@ body::-webkit-scrollbar-thumb {
 .main .userProfile .item__userData .userData__userEmail {
   margin-bottom: 0;
 }
+.main .userProfile .item__userData .userData__payment {
+  color: #CED0D6;
+}
 .main .userProfile .item__userData .userData__editableItem {
   display: flex;
   align-items: center;
@@ -623,19 +626,20 @@ body::-webkit-scrollbar-thumb {
 .main .userReleases .release .release__body .songList {
   margin: 0;
   display: grid;
-  grid-template-columns: 5fr 5fr 1fr;
+  grid-template-columns: 5fr 5fr 5fr 1fr;
   gap: 8px;
   padding: 0;
 }
 .main .userReleases .release .release__body .songList .songList__title,
-.main .userReleases .release .release__body .songList .songList__duration {
+.main .userReleases .release .release__body .songList .songList__duration,
+.main .userReleases .release .release__body .songList .songList__listens {
   list-style: none;
   padding: 8px;
   color: #868A91;
 }
 .main .userReleases .release .release__body .songList .song {
   display: grid;
-  grid-template-columns: 5fr 5fr 1fr;
+  grid-template-columns: 5fr 5fr 5fr 1fr;
   grid-column: span 5;
   align-items: center;
   padding: 8px 8px 8px 12px;
@@ -647,7 +651,8 @@ body::-webkit-scrollbar-thumb {
   padding-right: 16px;
   margin: 0;
 }
-.main .userReleases .release .release__body .songList .song .song__duration {
+.main .userReleases .release .release__body .songList .song .song__duration,
+.main .userReleases .release .release__body .songList .song .song__listens {
   color: #868A91;
 }
 .main .userReleases .release .release__body .songList .song .song__actions {

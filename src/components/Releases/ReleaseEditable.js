@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {getReleaseDate, getReleaseType} from "../UserProfile/UserProfileMiniItemAside";
+import {beautyCount, getReleaseDate, getReleaseType} from "../UserProfile/UserProfileMiniItemAside";
 import Separator from "../Separator";
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
@@ -66,6 +66,7 @@ const ReleaseEditable = (props) => {
                 {/*<p className="release__date">Дата выхода <Separator/> {getReleaseDate(release.release_date)}</p>*/}
                 {/*<p className='release__duration'>Длительность релиза <Separator/> {sumDuration(release.songs)}</p>*/}
                 <p className="release__about">{getReleaseType(release.type)} <Separator/> {(new Date(release.release_date)).getUTCFullYear()} <Separator/> {sumDuration(release.songs)}</p>
+                <p className="release__about">{beautyCount(release.listens)} Прослушиваний</p>
             </div>
             <div className="release__body body">
                 <h3 className="body__title">
@@ -75,6 +76,7 @@ const ReleaseEditable = (props) => {
                 <ul className="body__songsList songList">
                     <li className='songList__title'>Название</li>
                     <li className='songList__duration'>Длительность</li>
+                    <li className="songList__listens">Прослушиваний</li>
                     {songsList}
                 </ul>
             </div>
