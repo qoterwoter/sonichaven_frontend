@@ -19,7 +19,7 @@ const Authorization = () => {
 
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
-            navigate('/userProfile')
+            navigate('/')
         }
         if(userData && userData.status === 'Ошибка') {
             dispatch(pushNotification({title:"Неверные данные для входа", description: userData?.errorCode,notificationType: 'error'}))

@@ -38,7 +38,7 @@ function SongEditable(props) {
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </> :
             <>
-                <p className='song__title'>{title}</p>
+                <p className='song__title'>{props.songId}. {title}</p>
                 <p className="song__duration">{duration}</p>
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </>

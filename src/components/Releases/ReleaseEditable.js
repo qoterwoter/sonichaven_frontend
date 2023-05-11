@@ -16,7 +16,6 @@ export const sumDuration = (songs) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
-    // return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
     const sumHours = hours > 0 ? `${hours} ч.` : ''
     const sumMinutes = minutes > 0 ? `${minutes} мин. ` : ''
@@ -35,7 +34,7 @@ const ReleaseEditable = (props) => {
     const [isTitleEdit, setIsTitleEdit] = useState(false)
     const [isTypeEdit, setIsTypeEdit] = useState(false)
 
-    const songsList = release.songs && release.songs.map(song => <SongEditable song={song}/>)
+    const songsList = release.songs && release.songs.map((song, id) => <SongEditable song={song} songId={id+1}/>)
 
     const submitTitle = e => {
         e.preventDefault()
@@ -62,9 +61,6 @@ const ReleaseEditable = (props) => {
                     </div>
                 }
                 <img className="release__image" src={release.image} alt={'Релиз'}/>
-                {/*<p className="release__type">Тип релиза <Separator/> {getReleaseType(release.type)}</p>*/}
-                {/*<p className="release__date">Дата выхода <Separator/> {getReleaseDate(release.release_date)}</p>*/}
-                {/*<p className='release__duration'>Длительность релиза <Separator/> {sumDuration(release.songs)}</p>*/}
                 <p className="release__about">{getReleaseType(release.type)} <Separator/> {(new Date(release.release_date)).getUTCFullYear()} <Separator/> {sumDuration(release.songs)}</p>
                 <p className="release__about">{beautyCount(release.listens)} Прослушиваний</p>
             </div>
@@ -76,7 +72,7 @@ const ReleaseEditable = (props) => {
                 <ul className="body__songsList songList">
                     <li className='songList__title'>Название</li>
                     <li className='songList__duration'>Длительность</li>
-                    <li className="songList__listens">Прослушиваний</li>
+                    <li className="songList__listens">Прослушивания</li>
                     {songsList}
                 </ul>
             </div>
