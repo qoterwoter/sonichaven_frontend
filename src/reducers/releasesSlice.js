@@ -47,6 +47,19 @@ const releasesSlice = createSlice({
             })
             localStorage.setItem("user", JSON.stringify({...user, releases: output}))
 
+        },
+        [updateSong.fulfilled]: (state, action) => {
+            const song = action.payload
+            const releases = user.releases.map(
+                release => {
+                    const songs = release.songs.map(song_ => {
+                        if (song_.id === song.id) return song
+                        else return song_
+                    })
+                    return {...release, songs}
+                }
+            )
+            localStorage.setItem("user", JSON.stringify({...user, releases}))
         }
     }
 })

@@ -5,6 +5,7 @@ import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import {useDispatch} from "react-redux";
 import {updateSong} from "../../reducers/releasesSlice";
 import {beautyCount} from "../UserProfile/UserProfileMiniItemAside";
+import {fetchReleasesByArtist} from "../../reducers/userSlice";
 
 function SongEditable(props) {
     const song = props?.song
@@ -22,6 +23,7 @@ function SongEditable(props) {
 
     const onSave = () => {
         dispatch(updateSong({...song, title, duration}))
+        dispatch(fetchReleasesByArtist()) // Нужно чтобы обновить Количество прослушиваний
         toggleEdit()
     }
 
@@ -29,12 +31,13 @@ function SongEditable(props) {
         <li className={'songsList__song song'}>
             {isEdit ?
             <>
-                <div className="song__body_editable">
+                <form className="song__body_editable" onSubmit={onSave} >
+                    <label className={'song__title'}>{props.songId}. </label>
                     <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
-                </div>
-                <div className="song__body_editable">
+                </form>
+                <form className="song__body_editable" onSubmit={onSave}>
                     <input id={'duration'} type="text" className="song__duration_input input" value={duration} onChange={onChangeDuration}/>
-                </div>
+                </form>
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </> :
             <>
