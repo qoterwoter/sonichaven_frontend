@@ -34,7 +34,7 @@ const ReleaseEditable = (props) => {
     const [isTitleEdit, setIsTitleEdit] = useState(false)
     const [isTypeEdit, setIsTypeEdit] = useState(false)
 
-    const songsList = release.songs && release.songs.map((song, id) => <SongEditable song={song} songId={id+1}/>)
+    const songsList = release.songs && release.songs.map((song, id) => <SongEditable song={song} songId={id+1} key={`song${id}`}/>)
 
     const submitTitle = e => {
         e.preventDefault()
@@ -44,7 +44,6 @@ const ReleaseEditable = (props) => {
 
     const onChange = e => setTitle(e.target.value)
     const toggleIsTitleEdit = () => setIsTitleEdit(!isTitleEdit)
-    const toggleIsTypeEdit = () => setIsTypeEdit(!isTypeEdit)
 
     return (
         <article className="userReleases__release release">

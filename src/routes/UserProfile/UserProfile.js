@@ -97,7 +97,7 @@ const UserProfile = () => {
     const releasesItem = <div className={'releases__miniItems miniItems miniItems_vertical'}>
         {releases && releases.map((release, id) => {
             return <UserProfileMiniItemAside
-                key={String(release.id)}
+                key={`release${id}`}
                 title={release.title}
                 release = {release}
                 description={<img className={'releaseData__releaseImage'} alt={''} src={release.image}/>}

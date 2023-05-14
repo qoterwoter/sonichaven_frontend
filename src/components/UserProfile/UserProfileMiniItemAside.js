@@ -30,8 +30,8 @@ const UserProfileMiniItemAside = (props) => {
     const description = props.description
     const asideTitle = props.asideTitle
 
-    const aside = release.songs && release.songs.map(song => {
-        return <div className={'aside__item item'}>
+    const aside = release.songs && release.songs.map((song, id) => {
+        return <div className={'aside__item item'} key={`song${id}`}>
             <p className="item__description information__general">{song.track_number}. {song.title}</p>
             <p className="item__description information__secondary">{song.duration.slice(3)}</p>
         </div>

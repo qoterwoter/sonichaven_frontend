@@ -18,7 +18,7 @@ const NewsList = () => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
         return (
-        <NewsArticle newsArticle={{...newsArticle, date: date.toLocaleDateString('ru-RU', options), article}} />
+        <NewsArticle newsArticle={{...newsArticle, date: date.toLocaleDateString('ru-RU', options), article}} key={`news${id}`}/>
         )
     })
 

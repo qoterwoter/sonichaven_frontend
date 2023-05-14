@@ -11,8 +11,8 @@ const Catalog = (props) => {
         dispatch(fetchServices())
     }, [dispatch])
 
-    const servicesList = services.services.map(service => {
-        return <CatalogItem service={service}/>
+    const servicesList = services.services.map((service, id) => {
+        return <CatalogItem service={service} key={`service${id}`}/>
     })
 
     const content =

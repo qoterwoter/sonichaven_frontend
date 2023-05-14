@@ -9,30 +9,28 @@ import ChangeSaved from "./ChangeSaved";
 const NotificationsList = () => {
     const state = useSelector(state => state.notifications)
     return (
-    <>
     <div className="notifications">
-        {state.notifications.map(notification => {
-            console.log(notification)
+        {state.notifications.map((notification, id) => {
+            const key = `notification${id}`
+
             if(notification.notificationType==='cartAppended') {
-                return <CartAppended notification={notification}/>
+                return <CartAppended key={key} notification={notification}/>
             }
             if (notification.notificationType==='cartItemExist') {
-                console.log('noti')
-                return <CartItemExist notification={notification}/>
+                return <CartItemExist key={key}  notification={notification}/>
             }
             if(notification.notificationType==='orderComplete') {
-                return <OrderCompleted notification={notification}/>
+                return <OrderCompleted key={key}  notification={notification}/>
             }
             if(notification.notificationType==='error') {
-                return <AuthError notification={notification} isNav={false}/>
+                return <AuthError key={key}  notification={notification} isNav={false}/>
             }
             if (notification.notificationType==='saved') {
-                return <ChangeSaved notification={notification} isNav={false} />
+                return <ChangeSaved key={key}  notification={notification} isNav={false}/>
             }
             return null
         }) }
     </div>
-    </>
     )
 }
 

@@ -11,7 +11,7 @@ const UserReleases = () => {
         dispatch(fetchReleasesByArtist())
     }, [dispatch])
 
-    const releasesList = releases && releases.map(release => <ReleaseEditable release={release}/>)
+    const releasesList = releases && releases.map((release, id) => <ReleaseEditable release={release} key={`release${id}`}/>)
 
     return (
     <main className={'main'}>
