@@ -159,7 +159,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 .main .catalog .service .service__description {
-  margin: 16px 0;
+  margin: 16px 0 0;
   color: #CED0D6;
 }
 .main .catalog .service .service__cost {

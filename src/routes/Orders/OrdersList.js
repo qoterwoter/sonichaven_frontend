@@ -11,8 +11,8 @@ const OrdersList = () => {
         dispatch(fetchOrders())
     }, [dispatch])
 
-    const orderItems = orders && orders.map(order => {
-        return <OrderItem order={order}/>
+    const orderItems = orders && orders.map((order, id) => {
+        return <OrderItem order={order} key={`order${id}`}/>
     }).reverse()
 
 
