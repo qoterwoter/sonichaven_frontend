@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import {useDispatch} from "react-redux";
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import {artistUpdate, userUpdate} from "../../reducers/userSlice";
+import {artistUpdate} from "../../reducers/userSlice";
+import {notificator} from "./UserEditableItem";
 
 const UserProfileMiniItem = (props) => {
     const title = props.title
-    const classList = props.classList
     const description = props.description
 
     const [isEdit, setIsEdit] = useState(false)
@@ -23,13 +23,18 @@ const UserProfileMiniItem = (props) => {
         setIsEdit(!isEdit)
     }
 
+    const notify = notificator(dispatch)
+
+
     const onSubmit = e => {
         e.preventDefault()
         if(key==='artist_bio') {
             dispatch(artistUpdate({bio: value}))
+            notify("Описание артиста успешно обновлено!")
         }
         if(key==='artist_image') {
             dispatch(artistUpdate({profile_image: value}))
+            notify("Фотография артиста успешно обновлена!")
         }
         toggleEdit()
     }

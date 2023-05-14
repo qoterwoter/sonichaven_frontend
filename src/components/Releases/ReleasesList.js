@@ -20,7 +20,7 @@ export default function ReleasesList() {
 
         return (
           <article key={id} className='releases__release release'>
-            <h3 className='release__title'>{release.title}</h3> {/*{release.artist_name} <br/>*/}
+            <h3 className='release__title'>{release.title}</h3> {/* <br/>*/}
             <img className='release__image' src={release.image} alt='img'/>
             <p className='release__date'>Выпущен <Separator/> {date.toLocaleDateString('RU-ru', options)}</p>
           </article>

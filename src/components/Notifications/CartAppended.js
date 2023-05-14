@@ -13,7 +13,7 @@ const CartAppended = (props) => {
         }
     }
 
-    return <Notification notification ={notification}/>
+    return <Notification notification = {notification}/>
 }
 
 export default CartAppended

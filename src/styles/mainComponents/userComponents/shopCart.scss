@@ -53,9 +53,19 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    //width: min-content;
+                    min-width: 70px;
 
-                    .action {
+                    .actions__change {
+                        display: flex;
+                        align-items: center;
                         margin: 0 8px;
+                        .actions__count {
+                            margin: 0 8px;
+                            background-color: $text-general;
+                            color: $background-primary;
+                            border-radius: 50px;
+                        }
                     }
 
                     >* {

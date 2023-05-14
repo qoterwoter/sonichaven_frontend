@@ -8,7 +8,7 @@ const AuthError = (props) => {
 
     const notification = {
         description: state.description,
-        title: 'Ошибка: ' + state?.title,
+        title: 'Ошибка!',
     }
 
     return <Notification

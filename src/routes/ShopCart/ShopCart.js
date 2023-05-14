@@ -41,8 +41,8 @@ const ShopCart = () => {
         dispatch(fetchCart())
     }
 
-    const cartItems = shopCart.cart && shopCart.cart.map(cart => {
-        return <CartItem cartId = {shopCart.cartId} item={cart}/>
+    const cartItems = shopCart.cart && shopCart.cart.map((cart, id) => {
+        return <CartItem cartId = {shopCart.cartId} item={cart} key={`cartItem${id}`}/>
     })
 
     const onEmpty = (

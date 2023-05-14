@@ -4,6 +4,7 @@ import CartAppended from "./CartAppended";
 import OrderCompleted from "./OrderCompleted";
 import AuthError from "./AuthError";
 import CartItemExist from "./CartItemExist";
+import ChangeSaved from "./ChangeSaved";
 
 const NotificationsList = () => {
     const state = useSelector(state => state.notifications)
@@ -24,6 +25,9 @@ const NotificationsList = () => {
             }
             if(notification.notificationType==='error') {
                 return <AuthError notification={notification} isNav={false}/>
+            }
+            if (notification.notificationType==='saved') {
+                return <ChangeSaved notification={notification} isNav={false} />
             }
             return null
         }) }

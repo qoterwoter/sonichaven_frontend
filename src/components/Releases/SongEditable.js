@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Separator from "../Separator";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import {useDispatch} from "react-redux";
@@ -23,7 +22,7 @@ function SongEditable(props) {
 
     const onSave = () => {
         dispatch(updateSong({...song, title, duration}))
-        dispatch(fetchReleasesByArtist()) // Нужно чтобы обновить Количество прослушиваний
+        dispatch(fetchReleasesByArtist())                   // Нужно чтобы обновить Количество прослушиваний
         toggleEdit()
     }
 

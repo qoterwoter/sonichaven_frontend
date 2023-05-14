@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authUser} from "../../reducers/userSlice";
+import {authUser, fetchReleasesByArtist} from "../../reducers/userSlice";
 import {useNavigate} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
-import notification from "../../components/Notifications/Notification";
 
 const Authorization = () => {
     const [username,setUsername] = useState('')
@@ -17,20 +16,38 @@ const Authorization = () => {
     const dispatch = useDispatch()
     const userData = useSelector(state=>state.user)
 
+    const showError = (description) => {
+        dispatch(pushNotification({description, notificationType: 'error'})) // description: userData?.errorCode
+    }
+
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
+            dispatch(fetchReleasesByArtist())
             navigate('/')
         }
         if(userData && userData.status === 'Ошибка') {
-            dispatch(pushNotification({title:"Неверные данные для входа", description: userData?.errorCode,notificationType: 'error'}))
+            showError("Неверные данные для входа")
         }
-    })
+    }, [userData])
 
     const login = (e) => {
         e.preventDefault()
 
-        dispatch(authUser({username, password}))
+        console.log(username && username.length < 5, password && password.length < 5)
+
+        if (username.length < 5) {
+            showError('Введите корректное имя')
+            return
+        }
+
+        else if (password.length < 5) {
+            showError('Введите корректный пароль')
+            return
+        }
+
+        else dispatch(authUser({username, password}))
     }
+
 
     return (
         <main className='main'>
@@ -56,6 +73,7 @@ const Authorization = () => {
             <input
                 className='form__input_submit form__input'
                 type='submit'
+                value={'Войти'}
                 onClick={login}
             />
             {/*<p>Статус: {userData.status}</p>*/}

@@ -31,6 +31,24 @@
                 color: $red-primary;
             }
         }
+
+        .notification__description {
+            color: $text-notification;
+        }
+        &.notification_success,
+        &.notification_error{
+            //.notification__title {
+            //    color: $green-hovered;
+            //}
+            .notification__description {
+                margin-bottom: 0;
+            }
+        }
+        //&.notification_error {
+        //    .notification__title {
+        //        color: $red-primary;
+        //    }
+        //}
     }
 }
 
