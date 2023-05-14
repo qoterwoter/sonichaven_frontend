@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addCartItem} from "../../reducers/shopCartSlice";
 import {NavLink} from "react-router-dom";
@@ -34,17 +34,12 @@ const CatalogItem = (props) => {
 
     const [count, setCount] = useState(1)
 
-    const setNotification = () => {
-        dispatch(pushNotification({...service, count, notificationType: 'cartAppended'}))
-    }
-
     const addServiceToCart = (e) => {
-        setNotification()
         dispatch(addCartItem({
             cart: cartId,
-            service: service.id,
+            service,
             quantity: count,
-        }))
+        }, {dispatch}))
     }
 
     const increment = () => {

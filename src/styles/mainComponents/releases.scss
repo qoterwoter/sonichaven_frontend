@@ -15,11 +15,14 @@
         backdrop-filter: $blur;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
+        width: 100%;
 
         .release__title {
             font-size: $heading-text-2;
+            word-wrap: break-word;
             margin: 0;
             padding-bottom: 16px;
+            width: 300px;
         }
 
         .release__image {
@@ -28,7 +31,7 @@
 
         .release__date {
             margin: 8px 0 0;
-            color: $gray-text-secondary;
+            color: $text-secondary;
         }
 
         &:first-child {

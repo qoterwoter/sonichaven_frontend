@@ -4,6 +4,11 @@ import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import {useDispatch} from "react-redux";
 import {artistUpdate, userUpdate} from "../../reducers/userSlice";
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import {pushNotification} from "../../reducers/notificationSlice";
+
+export const notificator = dispatch => description => {
+    dispatch(pushNotification({description, notificationType: 'saved'}))
+}
 
 const UserEditableItem = (props) => {
     const [value, setValue] = useState(props.value)
@@ -22,10 +27,13 @@ const UserEditableItem = (props) => {
         setIsEdit(!isEdit)
     }
 
+    const notify = notificator(dispatch)
+    
     const onSubmit = e => {
         e.preventDefault()
         if(key==='artist_name') {
             dispatch(artistUpdate({name: value}, {dispatch}))
+            notify('Имя артиста успешно обновлено!')
         }
         if(key==='user_name') {
             const name = value.split(' ')
@@ -35,9 +43,11 @@ const UserEditableItem = (props) => {
                 last_name: name[1]
             }
             dispatch(userUpdate(data))
+            notify('Имя пользователя успешно обновлено!')
         }
         if (key==='user_email') {
             dispatch(userUpdate({email: value}))
+            notify('Почта успешно обновлена!')
         }
         toggleEdit()
     }
@@ -51,7 +61,7 @@ const UserEditableItem = (props) => {
                     <Separator/>
                     <input className={'userData__input input'} type={type} value={value} onChange={onChange} placeholder={placeholder}/>
                 </div>
-                <CheckRoundedIcon className={'icon actions__edit '} onClick={onSubmit}/>
+                <CheckRoundedIcon className={'icon icon_save actions__edit'} onClick={onSubmit}/>
             </form> :
             <div className={'userData__editableItem editableItem'}>
                 <p className={`editableItem__title information__general`}>

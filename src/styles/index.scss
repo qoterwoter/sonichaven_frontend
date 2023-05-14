@@ -1,18 +1,19 @@
-@import "variables";
+@import "./themes/dark-theme";
+//@import "./themes/light-theme";
 
 * {
     box-sizing: border-box;
     &::selection {
         background-color: #0090e0;
-        color: $gray-text-primary;
+        color: $text-primary-light;
     }
 }
 
 body {
     margin: 0 auto;
     font-family: Arial, sans-serif;
-    color: $gray-text-primary;
-    font-size: $default-text;
+    color: $text-primary-light;
+    font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
     background-size: 100%;
@@ -21,7 +22,7 @@ body {
 
     &::-webkit-scrollbar {
         width: 10px;
-        background-color: $gray-background-primary;
+        background-color: $background-primary;
     }
     &::-webkit-scrollbar-thumb {
         background-color: #999;
@@ -56,7 +57,7 @@ body {
         justify-content: space-between;
 
         .header__logo {
-            font-size: $heading-text-1;
+            font-size: $heading-text-2;
             text-shadow: 0 20px 50px black;
             background: $gradient;
             background-size: 500%;
@@ -108,15 +109,15 @@ body {
         flex-direction: column;
         justify-content: end;
 
-        box-shadow: 0px 8px 40px $gray-shadow;
-        background: $header-background;
+        box-shadow: 0px 8px 40px $shadow;
+        background: rgba(0, 0, 0, 0.37);
         backdrop-filter: blur(15px);
         padding: 8px;
         border-radius: 0 0 8px 8px;
         .menu__action {
             display: block;
             padding: 8px 0;
-            border-bottom: 1px solid $gray-border;
+            border-bottom: 1px solid $border;
             &:last-child {
                 border: none;
             }

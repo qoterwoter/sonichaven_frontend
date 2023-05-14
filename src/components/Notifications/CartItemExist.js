@@ -1,20 +1,19 @@
 import React from "react";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import {NavLink} from "react-router-dom";
+import Notification from "./Notification";
 
 const CartItemExist = (props) => {
     const state = props.notification
 
+    const notification = {
+        title: 'Ошибка!',
+        description: `Товар "${state.name}" уже находится в корзине`,
+        action: {
+            button: 'Перейти в корзину',
+            url: '/shopCart'
+        }
+    }
 
-    return (
-        <>
-            <div className={'notification notification_'+state.classList}>
-                <h2 className="notification__title">Товар уже есть в корзине! <CloseRoundedIcon className='notification__close'/></h2>
-                <p className="notification__description">"{state.name}" уже находится в корзине</p>
-                <NavLink to='/shopCart'>Перейти в корзину</NavLink>
-            </div>
-        </>
-    )
+    return <Notification notification ={notification} classList={'error'}/>
 }
 
 export default CartItemExist

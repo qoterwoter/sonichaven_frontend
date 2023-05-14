@@ -21,18 +21,18 @@
         .service__title {
             margin: 0;
             padding-bottom: 16px;
-            border-bottom: 2px solid $gray-background-primary;
+            border-bottom: 2px solid $border;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .service__description {
-            margin: 16px 0;
-            color: $gray-text-general;
+            margin: 16px 0 0;
+            color: $text-general;
         }
         .service__cost {
             margin: 16px 0;
-            color: $gray-text-secondary;
+            color: $text-secondary;
         }
         .service__actions {
             display: flex;
@@ -50,8 +50,8 @@
                     width: 32px;
                     padding: 3px;
                     cursor: pointer;
-                    background-color: $gray-text-general;
-                    color: $gray-background-primary;
+                    background-color: $text-general;
+                    color: $background-primary;
                     border-radius: 50px;
                     transition: .3s;
                 }

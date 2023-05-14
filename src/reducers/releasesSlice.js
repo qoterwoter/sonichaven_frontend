@@ -9,8 +9,20 @@ export const fetchReleases = createAsyncThunk('releases/fetchReleases', async ()
     return response.data;
 });
 
-export const fetchReleasesByArtist = createAsyncThunk('releases/fetchReleasesByArtist', async () => {
-    const response = await axios.get(`${API_URL}/release/${user.artist.id}/`, {headers})
+export const updateRelease = createAsyncThunk('releases/updateRelease', async (release) => {
+    const response = await axios.put(`${API_URL}/releases/${release.id}/`, {
+        ...release
+    }, {headers})
+
+    console.log(response)
+    return response.data
+})
+
+export const updateSong = createAsyncThunk('releases/updateSong', async (song) => {
+    const response = await axios.put(`${API_URL}/song/${song.id}/`, {
+        ...song
+    }, {headers})
+
     return response.data
 })
 
@@ -25,7 +37,30 @@ const releasesSlice = createSlice({
         [fetchReleases.pending]: handlePending,
         [fetchReleases.fulfilled]: (state,action) => handleSuccess(state,action,'releases'),
         [fetchReleases.rejected]: handleError,
-        [fetchReleasesByArtist.fulfilled]: (state, action) => handleSuccess(state,action,'releases'),
+        [updateRelease.fulfilled]: (state, action) => {
+            const data = action.payload
+            const releaseToUpdate = user.releases.find(release => release.id === data.id)
+            const output = user.releases.map(release => {
+                if(release.id === data.id) {
+                    return {...releaseToUpdate, ...data}
+                } else return release
+            })
+            localStorage.setItem("user", JSON.stringify({...user, releases: output}))
+
+        },
+        [updateSong.fulfilled]: (state, action) => {
+            const song = action.payload
+            const releases = user.releases.map(
+                release => {
+                    const songs = release.songs.map(song_ => {
+                        if (song_.id === song.id) return song
+                        else return song_
+                    })
+                    return {...release, songs}
+                }
+            )
+            localStorage.setItem("user", JSON.stringify({...user, releases}))
+        }
     }
 })
 

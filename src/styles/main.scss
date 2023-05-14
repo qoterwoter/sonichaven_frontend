@@ -14,11 +14,13 @@
 
     @import "mainComponents/authForm";
 
-    @import "mainComponents/shopCart";
+    @import "mainComponents/userComponents/shopCart";
 
     @import "mainComponents/aboutUs";
 
-    @import "mainComponents/orders";
+    @import "mainComponents/userComponents/orders";
 
-    @import "mainComponents/userProfile";
+    @import "mainComponents/userComponents/userProfile";
+
+    @import "mainComponents/userComponents/userReleases";
 }

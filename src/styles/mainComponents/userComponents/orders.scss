@@ -1,0 +1,64 @@
+.orders {
+    .order {
+        padding: 16px 16px 0 ;
+        background-color: $blur-background;
+        backdrop-filter: $blur;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        margin: 16px 0;
+
+        .order__title {
+            font-size: $heading-text-2;
+            margin: 0;
+            border-bottom: 2px solid $border;
+            padding-bottom: 16px;
+
+            display: flex;
+            justify-content: space-between;
+            .order__status_pending {
+                color: $orange-primary;
+            }
+
+            .order__status_confirmed {
+                color: $green-primary;
+            }
+
+            .order__status_in-progress {
+                color: $blue-primary;
+            }
+
+            .order__status_delivered {
+                color: $purple-primary;
+            }
+
+            .order__status_cancelled {
+                color: $red-primary;
+            }
+
+        }
+
+        .order__service {
+            border-bottom: 2px solid $border;
+            margin-top: 16px;
+            &:last-child {
+                border-bottom: none;
+            }
+            .service__title {
+                color: $text-primary-light;
+            }
+            .service__description {
+                color: $text-general;
+            }
+            .service__cost {
+                color: $text-secondary;
+                margin-bottom: 0;
+                padding-bottom: 16px;
+            }
+        }
+        .order__sum {
+            margin-bottom: 0;
+            padding-bottom: 16px;
+            color: $text-general;
+        }
+    }
+}

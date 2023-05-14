@@ -5,6 +5,10 @@ import {beautyNum} from "./ShopCart";
 import {getIcon} from "../Catalog/CatalogItem";
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
+import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import {pushNotification} from "../../reducers/notificationSlice";
 
 const CartItem = (props) => {
     const service = props.item.service
@@ -16,19 +20,20 @@ const CartItem = (props) => {
     const [isEdit, setEdit] = useState(false)
     const [button, setButton] = useState('')
 
-    const onChangeCount = (e) => {
-        setCount(e.target.value)
-        setSum(beautyNum(service.cost * e.target.value + '.00'))
+    const toggleEdit = () => {
+        setEdit(!isEdit)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        toggleEdit()
         const data = {
             quantity: +count,
             service: service.id,
             cart: props.cartId,
             id: props.item.id
         }
+        dispatch(pushNotification({description: 'Корзина успешно сохранена!',notificationType: 'saved'}))
         await dispatch(changeCartItem(data))
         dispatch(fetchCart())
     }
@@ -39,23 +44,32 @@ const CartItem = (props) => {
         dispatch(fetchCart())
     }
 
-    const toggleEdit = () => {
-        setEdit(!isEdit)
+    const increment = () => {
+        setCount(count+1)
+        setSum(beautyNum(service.cost * (count+1) + '.00'))
+    }
+
+    const decrement = () => {
+        if (count !== 1) {
+            setSum(beautyNum(service.cost * (count-1) + '.00'))
+            setCount(count - 1)
+        }
+
     }
 
     useEffect(() => {
         if (isEdit) {
             setButton(<>
-                    <div className="actions__type">
-                        <label className='actions__label label' htmlFor={'count' + props.item.id}>Количество:</label>
-                        <input className='actions__input input' type='number' id={'count' + props.item.id}
-                               onChange={onChangeCount} value={count}/>
+                    <div className="actions__change">
+                        <RemoveRoundedIcon className={'actions__count'} onClick={decrement}/>
+                        {count}
+                        <AddRoundedIcon className={'actions__count'} onClick={increment}/>
                     </div>
-                    <input className='actions__submit button' type='submit' value='Сохранить' onClick={toggleEdit}/>
+                <CheckRoundedIcon className={'icon icon_save actions__edit'} onClick={handleSubmit}/>
                 </>)
         }
-        else setButton(<EditRoundedIcon className='actions__edit icon' onClick={toggleEdit}/>)
-    }, [isEdit, count, props, toggleEdit])
+        else setButton(<EditRoundedIcon className='actions__edit icon icon_edit' onClick={toggleEdit}/>)
+    }, [isEdit, count])
 
     return (
     <>
@@ -65,7 +79,7 @@ const CartItem = (props) => {
                 <p className="item__description">{service.description}</p>
             </div>
             <div className="item__bottom-menu">
-                <p className="item__cost">Стоимосить<span className="span__border"> · </span>{sum} Руб.</p>
+                <p className="item__cost">Стоимость<span className="span__border"> · </span>{sum} Руб.</p>
                 <form className="item__actions actions form" onSubmit={handleSubmit}>
                     <DeleteRoundedIcon alt='Удалить' className='actions__delete action icon' onClick={handleDelete}/>
                     {button}

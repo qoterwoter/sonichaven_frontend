@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authArtist} from "../../reducers/userSlice";
+import {authUser, fetchReleasesByArtist} from "../../reducers/userSlice";
 import {useNavigate} from "react-router-dom";
+import {pushNotification} from "../../reducers/notificationSlice";
 
 const Authorization = () => {
     const [username,setUsername] = useState('')
@@ -15,16 +16,42 @@ const Authorization = () => {
     const dispatch = useDispatch()
     const userData = useSelector(state=>state.user)
 
-    const login = async (e) => {
+    const showError = (description) => {
+        dispatch(pushNotification({description, notificationType: 'error'})) // description: userData?.errorCode
+    }
+
+    useEffect(() => {
+        if(userData && userData.status === 'Успешно') {
+            dispatch(fetchReleasesByArtist())
+            navigate('/')
+        }
+        if(userData && userData.status === 'Ошибка') {
+            showError("Неверные данные для входа")
+        }
+    }, [userData])
+
+    const login = (e) => {
         e.preventDefault()
 
-        await dispatch(authArtist({username, password}))
-        navigate('/userProfile')
+        console.log(username && username.length < 5, password && password.length < 5)
+
+        if (username.length < 5) {
+            showError('Введите корректное имя')
+            return
+        }
+
+        else if (password.length < 5) {
+            showError('Введите корректный пароль')
+            return
+        }
+
+        else dispatch(authUser({username, password}))
     }
+
 
     return (
         <main className='main'>
-        <form className='authForm' onSubmit={login}>
+        <form className='authForm form' onSubmit={login}>
             <label className='form__label' htmlFor='login'>Введите логин:</label>
             <input
                 className='form__input'
@@ -46,9 +73,10 @@ const Authorization = () => {
             <input
                 className='form__input_submit form__input'
                 type='submit'
+                value={'Войти'}
                 onClick={login}
             />
-            <p>Статус: {userData.status}</p>
+            {/*<p>Статус: {userData.status}</p>*/}
         </form>
         </main>
     )

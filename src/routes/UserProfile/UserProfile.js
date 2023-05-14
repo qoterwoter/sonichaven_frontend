@@ -6,10 +6,10 @@ import {beautyNum} from "../ShopCart/ShopCart";
 import Separator from "../../components/Separator";
 import {NavLink} from "react-router-dom";
 import UserProfileItem from "../../components/UserProfile/UserProfileItem";
-import {fetchReleasesByArtist} from "../../reducers/releasesSlice";
 import UserProfileMiniItem from "../../components/UserProfile/UserProfileMiniItem";
 import UserProfileMiniItemAside from "../../components/UserProfile/UserProfileMiniItemAside";
 import UserEditableItem from "../../components/UserProfile/UserEditableItem";
+import {fetchReleasesByArtist} from "../../reducers/userSlice";
 
 const showCount = (count, text) => {
     if (count % 10 === 1) return `${count} ${text}`
@@ -23,7 +23,7 @@ const UserProfile = () => {
     const userData = useSelector(state => state.user)
     const artistData = userData.artist
 
-    const releases = useSelector(state => state.releases?.releases)
+    const releases = useSelector(state => state.user?.releases)
 
     useEffect(() => {
         dispatch(fetchCart())
@@ -44,11 +44,13 @@ const UserProfile = () => {
             <NavLink to='/catalog'>Перейти к каталогу</NavLink>
         }
     </>
+
     const orderItem = <>
         <p className="orders__countItems information__general">Количество заказов <Separator/> {showCount(orders.orders.length, 'Заказ')}</p>
         <p className="ordersSum information__secondary">Сумма заказов <Separator/> {beautyNum(ordersSum)} Руб.</p>
         <NavLink className='item__action' to='/orders'>Перейти к заказам</NavLink>
     </>
+
     const userItem = <>
         <UserEditableItem
             placeholder={'Имя'}
@@ -67,23 +69,35 @@ const UserProfile = () => {
             type={'email'}
             sendTo={'user_email'}
         />
+        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData.payment)} Руб.</p>
     </>
+
     const artistItem = <>
         <div className="information__miniItems miniItems ">
             <UserProfileMiniItem
                 title={'Изображение артиста'}
-                description={<img className="artistData__profileImage" alt="" src={artistData?.profile_image}/>}
+                className={'artistData__profileImage profileImage'}
+                description={<img className="profileImage__image" alt="" src={artistData?.profile_image}/>}
+                value={artistData?.profile_image}
+                sendTo={'artist_image'}
             />
             <UserProfileMiniItem
                 title={'Описание артиста'}
+                className={'artistData__bio'}
                 description={<p className="artistData__bio information__secondary">{artistData?.bio}</p>}
+                value={artistData?.bio}
+                sendTo={'artist_bio'}
             />
         </div>
     </>
+    const releasesLink = <>
+        <NavLink className={'link'} to={'/releases'}>Все релизы</NavLink>
+    </>
+
     const releasesItem = <div className={'releases__miniItems miniItems miniItems_vertical'}>
-        {releases.map((release, id) => {
+        {releases && releases.map((release, id) => {
             return <UserProfileMiniItemAside
-                key={String(release.id)}
+                key={`release${id}`}
                 title={release.title}
                 release = {release}
                 description={<img className={'releaseData__releaseImage'} alt={''} src={release.image}/>}
@@ -95,11 +109,11 @@ const UserProfile = () => {
 
     return (
     <main className='main'>
-        <h2 className="block-title">Ваш профиль</h2>
+        <h2 className="block-title">Мой профиль</h2>
         <section className="userProfile">
             <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
             <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
-            <UserProfileItem title={'Релизы артиста'} description={releasesItem} classList={'item__releasesData'}/>
+            <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
             <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
             <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
         </section>

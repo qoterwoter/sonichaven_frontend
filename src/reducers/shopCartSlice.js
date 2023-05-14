@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {handlePending,  handleError} from "./handleResponse";
 import {API_URL, user, headers} from "./ordersSlice";
+import {pushNotification} from "./notificationSlice";
 
 
 export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
@@ -10,14 +11,15 @@ export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
     return response.data
 })
 
-export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service, quantity}) => {
+export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service, quantity}, {dispatch}) => {
     let response
     try {
-        response = await axios.post(`${API_URL}/cart-items/`, {cart, service, quantity}, {headers})
-    } catch (error) {
-        response = error
-    }
-    finally {
+        response = await axios.post(`${API_URL}/cart-items/`, {cart, service: service.id, quantity}, {headers})
+        console.log(service)
+        dispatch(pushNotification({...service, quantity, notificationType: 'cartAppended'}))
+    } catch (e) {
+        dispatch(pushNotification({...service, notificationType: 'cartItemExist'}))
+    } finally {
         return response
     }
 })
@@ -66,7 +68,8 @@ const shopCartSlice = createSlice({
         },
         [fetchCart.rejected]: handleError,
         [addCartItem.rejected]: (state, action) => {
-            console.log(action)
+            // state.error =
+            // console.log(action)
         }
     }
 })

@@ -1,0 +1,94 @@
+.userReleases {
+    .release {
+        padding: $gap;
+        background-color: $blur-background;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        backdrop-filter: $blur;
+        width: 100%;
+        margin: $gap 0;
+
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: $gap;
+
+        .release__header {
+            width: 100%;
+            .release__title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: $gap;
+                .title {
+                    margin: 0;
+                }
+                .input {
+                    width: 140px;
+                }
+            }
+            .release__image {
+                width: 100%;
+                border-radius: $border-radius;
+            }
+            .release__type,
+            .release__date,
+            .release__duration,
+            .release__about, {
+                margin: 8px 0;
+                color: $text-secondary
+            }
+        }
+        .release__body {
+            display: flex;
+            flex-direction: column;
+            .body__title {
+                margin: 4px 0 8px;
+            }
+            .songList {
+                margin: 0;
+                display: grid;
+                grid-template-columns: 5fr 2fr 2fr 1fr;
+                gap: 8px;
+                padding: 0;
+                .songList__title,
+                .songList__duration,
+                .songList__listens {
+                    list-style: none;
+                    padding: 8px;
+                    color: $text-secondary;
+                }
+                .song {
+                    display: grid;
+                    grid-template-columns:  5fr 2fr 2fr 1fr;
+                    grid-column: span 5;
+                    align-items: center;
+                    padding: 8px 8px 8px 12px ;
+                    background-color: $background-primary;
+                    border-radius: $border-radius;
+                    color: $text-general;
+
+                    >* {
+                        padding-right: $gap;
+                        margin: 0;
+                    }
+                    .song__duration,
+                    .song__listens {
+                        color: $text-secondary;
+                    }
+                    .song__actions {
+                        justify-self: end;
+                        padding: 0;
+                        margin: 0;
+                        height: 28px;
+                    }
+                    .song__body_editable {
+                        .song__duration_input {
+                            width: 90px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

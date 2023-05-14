@@ -16,6 +16,7 @@ import AboutUs from "./routes/AboutUs";
 import Catalog from "./routes/Catalog/Catalog";
 import OrdersList from "./routes/Orders/OrdersList";
 import UserProfile from "./routes/UserProfile/UserProfile";
+import UserReleases from "./routes/UserProfile/UserReleases";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
             <Route path='catalog' element={<Catalog title={'Каталог'}/>}/>
             <Route path='orders' element={<OrdersList/>}/>
             <Route path='userProfile' element={<UserProfile/>}/>
+            <Route path='releases' element={<UserReleases/>}/>
         </Route>
     </>
     )

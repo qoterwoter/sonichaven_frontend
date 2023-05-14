@@ -11,6 +11,7 @@
     bottom: 0;
     z-index: 9999;
     .notification {
+        box-shadow: $box-shadow;
         margin: 16px 0;
         transition: .5s;
         background: $blur-background;
@@ -30,6 +31,24 @@
                 color: $red-primary;
             }
         }
+
+        .notification__description {
+            color: $text-notification;
+        }
+        &.notification_success,
+        &.notification_error{
+            //.notification__title {
+            //    color: $green-hovered;
+            //}
+            .notification__description {
+                margin-bottom: 0;
+            }
+        }
+        //&.notification_error {
+        //    .notification__title {
+        //        color: $red-primary;
+        //    }
+        //}
     }
 }
 
@@ -48,7 +67,7 @@ a {
 }
 
 .button {
-    color: $gray-text-primary;
+    color: $text-primary-light;
     background: $blue-primary;
     cursor: pointer;
     border: none;
@@ -67,7 +86,7 @@ a {
 .button__success {
     height: fit-content;
     background-color: $green-primary;
-    color: $gray-text-primary;
+    color: $text-primary-light;
     padding: 8px 16px;
     border: none;
     border-radius: 100px;
@@ -80,26 +99,28 @@ a {
     height: 28px !important;
     width: 28px !important;
     &.icon_edit {
-        color: $purple-general;
+        color: $blue-general;
+    }
+    &.icon_save {
+        color: $green-edit;
     }
 }
 
 .form {
 
     .form__label {
-        color: $gray-text-general;
+        color: $text-general;
     }
 
     .form__input {
-        box-sizing: border-box;
         width: 300px;
         margin: 8px 0;
         font-size: 18px;
-        border: 2px solid $gray-border ;
+        border: 2px solid $border;
         border-radius: 4px;
         padding: 8px 6px;
-        color: $gray-text-primary;
-        background-color: $gray-background-primary;
+        color: $text-primary-light;
+        background-color: $background-primary;
 
         &:focus {
             border-color: $blue-primary;
@@ -108,7 +129,7 @@ a {
     }
     .form__input_submit {
         cursor: pointer;
-        color: $gray-text-primary;
+        color: $text-primary-light;
         border: none;
         background-color: $blue-primary;
         transition: .2s;
@@ -120,21 +141,23 @@ a {
             background-color: $blue-pressed;
         }
     }
-    .input {
-        height: 28px;
-        border-radius: 4px;
-        padding: 6px 9px;
-        background: none;
-        color: $gray-text-general;
-        border: 2px solid $gray-text-secondary;
-    }
-
-    .label {
-        color: $gray-text-secondary;
-    }
+}
+.input {
+    height: 28px;
+    border-radius: 4px;
+    padding: 6px 9px;
+    background: none;
+    color: $text-general;
+    border: 2px solid $text-secondary;
 }
 
+.label {
+    color: $text-secondary;
+}
 .block-title {
+    color: $text-primary-light;
+    font-size: 24px;
+    font-weight: 600;
     background-color: $blur-background;
     backdrop-filter: $blur;
     padding: 16px;
@@ -145,6 +168,20 @@ a {
 
 .span__border {
     font-weight: 400;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow-y: hidden;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+    height: 205px;
+    border: 2px solid $border;
+    margin-bottom: 0;
+    border-radius: $border-radius;
+    padding: 6px 8px;
+    color: $text-primary-light;
+    background-color: $background-primary;
 }
 
 .actions__delete {
