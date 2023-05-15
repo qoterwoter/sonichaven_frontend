@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authUser, fetchReleasesByArtist} from "../../reducers/userSlice";
+import {authUser} from "../../reducers/userSlice";
 import {useNavigate} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
 
@@ -22,8 +22,8 @@ const Authorization = () => {
 
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
-            dispatch(fetchReleasesByArtist())
             navigate('/')
+            window.location.reload();
         }
         if(userData && userData.status === 'Ошибка') {
             showError("Неверные данные для входа")
