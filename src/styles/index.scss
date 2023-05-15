@@ -16,7 +16,6 @@ body {
     font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
-    background-size: 100%;
     background-repeat: repeat-y;
     min-height: 100vh;
 
@@ -141,7 +140,7 @@ body {
 
         box-shadow: 0px 8px 40px $shadow;
         background: rgba(0, 0, 0, 0.37);
-        backdrop-filter: blur(15px);
+        backdrop-filter: $blur;
         padding: 8px;
         border-radius: 0 0 8px 8px;
         .menu__action {
@@ -153,14 +152,36 @@ body {
             }
         }
     }
-    //.menu_hide {
-    //    display: none;
-    //}
-    //.menu_show {
-    //    display: flex;
-    //}
 }
 
+.header__mobileMenu {
+    position: fixed;
+    top: 70px;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.37);
+    backdrop-filter: $blur;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    padding: $gap;
+    .menu {
+        padding: $gap;
+        display: grid;
+        height: min-content;
+        gap: $gap;
+        .menu__title {
+            margin: 0;
+            padding: 0 0 16px 0;
+            color: $text-general;
+            border-bottom: 2px solid $border;
+        }
+        .nav__link {
+            font-size: 18px;
+        }
+    }
+}
 .footer__description {
     margin: 0 auto;
 }
@@ -168,7 +189,7 @@ body {
 @import "main";
 @import "helloElement";
 @import 'elements';
-
+@import "adaptive";
 //@media (prefers-color-scheme: dark) {
 //    body {
 //        background-color: black;
