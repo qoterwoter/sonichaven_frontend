@@ -33,7 +33,7 @@ body {
 .header, .footer {
     background: $header-background;
     backdrop-filter: $blur;
-    height: 70px;
+    min-height: 70px;
     box-shadow: 0px 8px 40px black;
     .container {
         width: 1200px;
@@ -44,6 +44,36 @@ body {
         height: 70px;
         min-height: 70px;
         padding: 5px $gap;
+    }
+}
+
+.footer {
+    .container {
+        height: unset;
+        padding-top: 0;
+        flex-direction: column;
+        .footer__menu {
+            display: flex;
+            justify-content: space-between;
+            padding: $gap;
+            width: 100%;
+            .menu__links {
+                .links__title {
+                    margin-top: 0;
+                    margin-bottom: $gap;
+                }
+                .links {
+                    display: grid;
+                    gap: 8px;
+                }
+            }
+        }
+        .footer__copyright {
+            color: $text-secondary;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
     }
 }
 

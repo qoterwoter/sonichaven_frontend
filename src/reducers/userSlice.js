@@ -6,10 +6,15 @@ import {API_URL, user, headers} from "./ordersSlice";
 const artist = user.artist
 
 export const authUser = createAsyncThunk('user/authUser', async ({username, password}) => {
-    const response = await axios.post(
-        API_URL + '/login/',{username, password}
-    )
-    return response.data
+    try {
+        const response = await axios.post(
+            API_URL + '/login/',{username, password}
+        )
+        return response.data
+    } catch (e) {
+        return Promise.reject(e)
+    }
+
 })
 
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {

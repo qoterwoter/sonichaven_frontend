@@ -1,6 +1,7 @@
 .news {
+    display: grid;
+    gap: $gap;
     .news__article {
-        margin: 16px 0;
         background-color: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
@@ -10,13 +11,15 @@
         .article__title {
             margin-top: 0;
         }
-
+        .article__content {
+            color: $text-notification;
+        }
         .article__image {
             width: 100%;
             border-radius: 12px;
         }
         .article__date {
-            margin-top: 5px;
+            margin: 0;
             color: $text-secondary;
         }
     }
