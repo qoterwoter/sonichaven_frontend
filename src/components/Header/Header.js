@@ -100,13 +100,15 @@ const Header = () => {
                     <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
                 </div>
             </div>}
-            {showMenu && <div className={'header__mobileMenu'}>
+            {showMenu &&
+                <div className={'header__mobileMenu'}>
                 <div className="menu">
                     <h2 className="menu__title">Навигация</h2>
                     <NavLink className='nav__link' to='/' onClick={hideMobileMenu}>Главная</NavLink>
                     <NavLink className='nav__link' to='/about-us' onClick={hideMobileMenu}>О нас</NavLink>
                     <NavLink className='nav__link' to='/catalog' onClick={hideMobileMenu}>Каталог</NavLink>
                 </div>
+                {isAuth &&
                 <div className="menu">
                     <h2 className="menu__title">Моя информация</h2>
                     <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMobileMenu}>Мой профиль</NavLink>
@@ -115,6 +117,7 @@ const Header = () => {
                     <NavLink className='menu__action nav__link' to='/orders' onClick={hideMobileMenu}>Заказы</NavLink>
                     <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
                 </div>
+                }
             </div>}
         </header>
     )
