@@ -169,6 +169,14 @@
                 }
             }
         }
+        .shopCart .shopCart__items .item {
+            .item__content {
+                .item__title {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
     }
     .header__mobileMenu {
         grid-template-columns: 1fr;

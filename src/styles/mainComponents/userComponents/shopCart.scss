@@ -4,15 +4,15 @@
     justify-content: center;
     min-height: 50vh;
 
-    .shop-cart__empty,
-    .shop-cart__items {
+    .shopCart__empty,
+    .shopCart__items {
         background: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
     }
 
-    .shop-cart__items {
+    .shopCart__items {
         padding: 16px 32px;
 
         .item {
@@ -77,21 +77,21 @@
 
     }
 
-    .shop-cart__empty {
+    .shopCart__empty {
         padding: 16px;
         .empty__title {
             margin: 0 0 16px;
         }
     }
 
-    .shop-cart__bottomMenu {
+    .shopCart__bottomMenu {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-top: 16px;
         font-size: $paragraph-text;
         font-weight: 300;
-        .shop-cart__sum {
+        .shopCart__sum {
             color: $text-general;
             margin: 0 32px 0 0;
         }

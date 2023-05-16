@@ -171,6 +171,7 @@ body {
         padding: $gap;
         display: grid;
         height: min-content;
+        justify-items: end;
         gap: $gap;
         .menu__title {
             margin: 0;
