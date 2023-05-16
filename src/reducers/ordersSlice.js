@@ -3,7 +3,7 @@ import axios from "axios";
 import {handlePending} from "./handleResponse";
 
 
-export const API_URL = 'http://sonichaven-backend.std-962.ist.mospolytech.ru/api'
+export const API_URL = 'https://qoter.pythonanywhere.com/api'
 export const user = JSON.parse(localStorage.getItem('user')) || {}
 export const headers = {'Authorization': `Token ${user.token}`}
 
