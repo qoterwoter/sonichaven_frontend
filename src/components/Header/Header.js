@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {unAuthorize} from "../../reducers/userSlice";
 import Avatar from "./Avatar";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const Header = () => {
     const isAuth = useSelector(state => state.user.token)
@@ -108,16 +107,19 @@ const Header = () => {
                     <NavLink className='nav__link' to='/about-us' onClick={hideMobileMenu}>О нас</NavLink>
                     <NavLink className='nav__link' to='/catalog' onClick={hideMobileMenu}>Каталог</NavLink>
                 </div>
-                {isAuth &&
+
                 <div className="menu">
                     <h2 className="menu__title">Моя информация</h2>
-                    <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMobileMenu}>Мой профиль</NavLink>
-                    <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMobileMenu}>Мои релизы</NavLink>
-                    <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMobileMenu}>Корзина</NavLink>
-                    <NavLink className='menu__action nav__link' to='/orders' onClick={hideMobileMenu}>Заказы</NavLink>
-                    <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
+                    {isAuth ? <>
+                            <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMobileMenu}>Мой профиль</NavLink>
+                            <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMobileMenu}>Мои релизы</NavLink>
+                            <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMobileMenu}>Корзина</NavLink>
+                            <NavLink className='menu__action nav__link' to='/orders' onClick={hideMobileMenu}>Заказы</NavLink>
+                            <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
+                        </> :
+                        logoutButton
+                    }
                 </div>
-                }
             </div>}
         </header>
     )

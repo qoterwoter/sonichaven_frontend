@@ -54,7 +54,8 @@ body {
         .footer__menu {
             display: flex;
             justify-content: space-between;
-            padding: $gap;
+            border-bottom: 2px solid $border;
+            padding: $gap $gap 32px;
             width: 100%;
             .menu__links {
                 .links__title {

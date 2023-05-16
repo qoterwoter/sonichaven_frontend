@@ -79,6 +79,14 @@
                 }
             }
         }
+        .aboutUs {
+            .aboutUs__article {
+                .aboutUs__paragraph {
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
     }
 }
 
@@ -103,11 +111,12 @@
 
 @media (max-width: 650px) {
     body {
-        background-position-y: 80vh;
+        //background-position-y: 80vh;
     }
     .helloElement {
-        background-size: 100%;
-        height: 80vh;
+        background-image: url("../images/mobilebackground.png");
+        background-size: 160%;
+        //height: 80vh;
         background-color: black;
         .container {
             padding: $gap;
@@ -135,6 +144,28 @@
                 }
                 .service__actions {
                     flex-direction: row-reverse;
+                }
+            }
+        }
+        .aboutUs {
+            background: none;
+            box-shadow: none;
+            backdrop-filter: none;
+            display: grid;
+            gap: $gap;
+            .aboutUs__article {
+                border-radius: $border-radius;
+                background: $blur-background;
+                backdrop-filter: $blur;
+                box-shadow: $box-shadow;
+                display: flex;
+                flex-direction: column;
+                &:nth-child(2) {
+                    flex-direction: column-reverse;
+                }
+                .aboutUs__image {
+                    height: 200px;
+                    border-radius: $border-radius $border-radius 0 0;
                 }
             }
         }

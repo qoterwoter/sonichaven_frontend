@@ -61,7 +61,8 @@ body::-webkit-scrollbar-thumb {
 .footer .container .footer__menu {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  border-bottom: 2px solid #2d2d2d;
+  padding: 16px 16px 32px;
   width: 100%;
 }
 .footer .container .footer__menu .menu__links .links__title {
@@ -396,6 +397,7 @@ body::-webkit-scrollbar-thumb {
 .main .shopCart .shop-cart__bottomMenu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 16px;
   font-size: 16px;
   font-weight: 300;
@@ -413,7 +415,6 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 .main .aboutUs .aboutUs__article {
-  border-bottom: 2px solid #2B2D30;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -743,10 +744,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .helloElement {
-  background-image: url("../images/background.jpg");
+  background: url("../images/background.jpg") repeat-x;
   background-size: cover;
   background-position-x: 52vw;
-  background-repeat: repeat-x;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -1028,6 +1028,10 @@ a:active {
   .main .userProfile .item__artistData .miniItems .artistData__profileImage {
     grid-column: span 2;
   }
+  .main .aboutUs .aboutUs__article .aboutUs__paragraph {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 @media (max-width: 720px) {
   .main .releases {
@@ -1044,12 +1048,9 @@ a:active {
   }
 }
 @media (max-width: 650px) {
-  body {
-    background-position-y: 80vh;
-  }
   .helloElement {
-    background-size: 100%;
-    height: 80vh;
+    background-image: url("../images/mobilebackground.png");
+    background-size: 160%;
     background-color: black;
   }
   .helloElement .container {
@@ -1072,6 +1073,28 @@ a:active {
   }
   .main .catalog .service .service__actions {
     flex-direction: row-reverse;
+  }
+  .main .aboutUs {
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    display: grid;
+    gap: 16px;
+  }
+  .main .aboutUs .aboutUs__article {
+    border-radius: 16px;
+    background: rgba(30, 30, 30, 0.4980392157);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+  }
+  .main .aboutUs .aboutUs__article:nth-child(2) {
+    flex-direction: column-reverse;
+  }
+  .main .aboutUs .aboutUs__article .aboutUs__image {
+    height: 200px;
+    border-radius: 16px 16px 0 0;
   }
   .header__mobileMenu {
     grid-template-columns: 1fr;

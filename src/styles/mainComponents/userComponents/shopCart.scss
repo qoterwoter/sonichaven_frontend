@@ -87,6 +87,7 @@
     .shop-cart__bottomMenu {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         margin-top: 16px;
         font-size: $paragraph-text;
         font-weight: 300;
