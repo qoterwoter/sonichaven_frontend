@@ -1,12 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {handlePending,  handleError} from "./handleResponse";
-import {API_URL, headers} from "./ordersSlice";
+import {API_URL, headers, user} from "./ordersSlice";
 import {pushNotification} from "./notificationSlice";
 
+const artistId = user?.artist?.id
 
 export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
-    const response = await axios.get(`${API_URL}/carts/`, {headers})
+    const response = await axios.get(`${API_URL}/carts/${artistId}/`)
 
     return response.data
 })
@@ -14,7 +15,6 @@ export const fetchCart = createAsyncThunk('shopCart/fetchCart', async () => {
 export const addCartItem = createAsyncThunk('shopCart/addCartItem', async ({cart, service, quantity}, {dispatch}) => {
     try {
         const response = await axios.post(`${API_URL}/cart-items/`, {cart, service: service.id, quantity}, {headers})
-        console.log(service)
         dispatch(pushNotification({...service, quantity, notificationType: 'cartAppended'}))
         return response
     } catch (e) {
