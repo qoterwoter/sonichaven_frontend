@@ -36,7 +36,8 @@
             }
 
             .item__description {
-                color: $text-general;
+                color: $text-secondary;
+                margin-bottom: 10px;
             }
             .item__bottom-menu {
                 display: flex;
@@ -44,8 +45,9 @@
                 justify-content: space-between;
                 align-items: center;
 
+
                 .item__cost {
-                    color: $text-secondary;
+                    color: $text-general;
                     margin: 0;
                 }
 
@@ -92,8 +94,11 @@
         font-size: $paragraph-text;
         font-weight: 300;
         .shopCart__sum {
-            color: $text-general;
+            color: $text-primary;
             margin: 0 32px 0 0;
+        }
+        .shopCart__make-order {
+            background-color: $blue-primary;
         }
     }
 }

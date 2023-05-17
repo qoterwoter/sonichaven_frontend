@@ -400,7 +400,8 @@ body::-webkit-scrollbar-thumb {
   margin-right: 16px;
 }
 .main .shopCart .shopCart__items .item .item__description {
-  color: #afafb6;
+  color: #868A91;
+  margin-bottom: 10px;
 }
 .main .shopCart .shopCart__items .item .item__bottom-menu {
   display: flex;
@@ -409,7 +410,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 .main .shopCart .shopCart__items .item .item__bottom-menu .item__cost {
-  color: #868A91;
+  color: #afafb6;
   margin: 0;
 }
 .main .shopCart .shopCart__items .item .item__bottom-menu .item__actions {
@@ -447,8 +448,11 @@ body::-webkit-scrollbar-thumb {
   font-weight: 300;
 }
 .main .shopCart .shopCart__bottomMenu .shopCart__sum {
-  color: #afafb6;
+  color: #DFE1E5;
   margin: 0 32px 0 0;
+}
+.main .shopCart .shopCart__bottomMenu .shopCart__make-order {
+  background-color: #3574F0;
 }
 .main .aboutUs {
   display: flex;
@@ -1056,6 +1060,15 @@ a:active {
     margin-top: 8px;
   }
 }
+@media (max-width: 920px) {
+  .main .userReleases .release {
+    display: flex;
+    flex-direction: column;
+  }
+  .main .userReleases .release .release__header .release__image {
+    width: 260px;
+  }
+}
 @media (max-width: 720px) {
   .main .releases {
     display: flex;
@@ -1131,6 +1144,34 @@ a:active {
     width: 100%;
   }
 }
+@media (max-width: 570px) {
+  .main .userProfile .item__artistData .item__information .miniItems {
+    display: flex;
+    flex-direction: column;
+  }
+  .main .userProfile .item__artistData .item__information .miniItems .profileImage__image {
+    width: 100%;
+  }
+  .main .userProfile .item__releasesData .item__information .miniItem__aside {
+    display: none !important;
+  }
+  .main .userProfile .item__releasesData .item__information .releaseData__releaseImage {
+    width: auto;
+    height: auto;
+  }
+  .main .userReleases .release .release__body .songList {
+    grid-template-columns: 5fr 1fr 1fr;
+  }
+  .main .userReleases .release .release__body .songList .songList__listens {
+    display: none;
+  }
+  .main .userReleases .release .release__body .songList .song {
+    grid-template-columns: 5fr 1fr 1fr;
+  }
+  .main .userReleases .release .release__body .songList .song .song__listens {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
   .helloElement .container .helloElement__title {
     font-size: 28px;
@@ -1150,6 +1191,57 @@ a:active {
   }
   .notifications .notification .notification__title {
     font-size: 21px;
+  }
+  .main .userReleases .release .release__header .release__image {
+    width: 100%;
+  }
+  .main .shopCart .shopCart__items {
+    padding: 16px;
+  }
+  .main .shopCart .shopCart__items .item:first-child {
+    padding-top: 0;
+  }
+  .main .shopCart .shopCart__items .item:last-child {
+    padding-bottom: 0;
+  }
+  .main .shopCart .shopCart__items .item .item__icon {
+    margin-right: 8px;
+  }
+  .main .shopCart .shopCart__items .item .item__bottom-menu.edit {
+    flex-direction: column;
+    align-items: start;
+  }
+  .main .shopCart .shopCart__items .item .item__bottom-menu.edit .item__cost {
+    margin-bottom: 10px;
+  }
+  .main .shopCart .shopCart__items .item .item__bottom-menu.edit .item__actions {
+    width: 100%;
+  }
+  .main .shopCart .shopCart__items .item .item__bottom-menu.edit .item__actions .actions__count {
+    margin: 0 16px;
+  }
+  .main .shopCart .shopCart__bottomMenu {
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    flex-direction: column;
+    align-items: end;
+    padding: 0;
+  }
+  .main .shopCart .shopCart__bottomMenu > * {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+  .main .shopCart .shopCart__bottomMenu .shopCart__sum {
+    margin: 0;
+    border-radius: 16px;
+    width: 100%;
+    padding: 16px;
+    background-color: rgba(30, 30, 30, 0.4980392157);
+  }
+  .main .shopCart .shopCart__bottomMenu .shopCart__make-order {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 16px;
   }
 }
 

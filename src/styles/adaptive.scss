@@ -111,6 +111,21 @@
     }
 }
 
+@media (max-width: 920px) {
+    .main {
+        .userReleases .release {
+            display: flex;
+            flex-direction: column;
+            .release__header {
+                .release__image {
+                    width: 260px;
+                }
+            }
+
+        }
+    }
+}
+
 @media (max-width: 720px) {
     .main {
         .releases {
@@ -208,6 +223,42 @@
     }
 }
 
+@media (max-width: 570px) {
+    .main {
+        .userProfile {
+            .item__artistData .item__information .miniItems{
+                display: flex;
+                flex-direction: column;
+                .profileImage__image {
+                    width: 100%;
+                }
+            }
+            .item__releasesData .item__information {
+                .miniItem__aside {
+                    display: none !important;
+                }
+                .releaseData__releaseImage {
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+        .userReleases .release {
+            .release__body .songList {
+                grid-template-columns: 5fr 1fr 1fr;
+                .songList__listens {
+                    display: none;
+                }
+                .song {
+                    grid-template-columns: 5fr 1fr 1fr;
+                    .song__listens {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
 @media (max-width: 500px) {
     .helloElement {
         .container {
@@ -231,6 +282,65 @@
             width: 100%;
             .notification__title {
                 font-size: 21px;
+            }
+        }
+    }
+    .main {
+        .userReleases .release .release__header .release__image {
+            width: 100%;
+        }
+        .shopCart {
+            .shopCart__items {
+                padding: $gap;
+                .item {
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                    .item__icon {
+                        margin-right: 8px;
+                    }
+                    .item__bottom-menu.edit {
+                        flex-direction: column;
+                        align-items: start;
+                        .item__cost {
+                            //display: none;
+                            margin-bottom: 10px;
+                        }
+                        .item__actions {
+                            width: 100%;
+                            .actions__count {
+                                margin: 0 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            .shopCart__bottomMenu {
+                background: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                flex-direction: column;
+                align-items: end;
+                padding: 0;
+                >* {
+                    box-shadow: $box-shadow;
+                }
+                .shopCart__sum {
+                    margin: 0;
+                    border-radius: $border-radius;
+                    width: 100%;
+                    padding: $gap;
+                    background-color: $blur-background;
+                }
+                .shopCart__make-order {
+                    width: 100%;
+                    margin-top: $gap;
+                    border-radius: $border-radius;
+                }
+                //flex-direction: column;
             }
         }
     }

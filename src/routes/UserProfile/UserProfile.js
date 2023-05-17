@@ -58,7 +58,7 @@ const UserProfile = () => {
             type={'text'}
             sendTo={'user_name'}/>
         <UserEditableItem
-            placeholder={'Псевдоним артиста'}
+            placeholder={'Псевдоним'}
             value={artistData?.name}
             type={'text'}
             sendTo={'artist_name'}

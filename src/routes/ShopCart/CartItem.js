@@ -20,6 +20,7 @@ const CartItem = (props) => {
     const [isEdit, setEdit] = useState(false)
     const [button, setButton] = useState('')
 
+
     const toggleEdit = () => {
         setEdit(!isEdit)
     }
@@ -78,7 +79,7 @@ const CartItem = (props) => {
                 <h3 className="item__title">{getIcon(service, 'item__icon icon')} {service.name} <span className="span__border">·</span> {count} шт.</h3>
                 <p className="item__description">{service.description}</p>
             </div>
-            <div className="item__bottom-menu">
+            <div className={`item__bottom-menu ${isEdit ? 'edit' : ''} `}>
                 <p className="item__cost">Стоимость<span className="span__border"> · </span>{sum} Руб.</p>
                 <form className="item__actions actions form" onSubmit={handleSubmit}>
                     <DeleteRoundedIcon alt='Удалить' className='actions__delete action icon' onClick={handleDelete}/>
