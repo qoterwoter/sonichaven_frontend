@@ -396,7 +396,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 .main .registration .registerForm .row .form__input {
-  background-color: rgba(30, 30, 30, 0.4980392157);
+  background: none;
 }
 .main .registration .registerForm .row .form__input_submit {
   background-color: #3574F0;

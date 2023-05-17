@@ -22,7 +22,7 @@ const Authorization = () => {
 
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
-            navigate('/userProfile')
+            navigate('/')
             window.location.reload();
         }
         if(userData && userData.status === 'Ошибка') {

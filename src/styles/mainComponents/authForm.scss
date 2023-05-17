@@ -34,7 +34,7 @@
             flex-direction: column;
             align-items: center;
             .form__input {
-                background-color: $blur-background;
+                background: none;
             }
             .form__input_submit {
                 background-color: $blue-primary;

@@ -89,6 +89,7 @@ const userSlice = createSlice({
         [artistUpdate.fulfilled]: (state, action) => {
             const data = {...user, artist: {...action.payload}}
             localStorage.setItem("user", JSON.stringify(data))
+            console.log(data, localStorage.getItem('user'))
             state.user = data
         },
         [fetchUserData.fulfilled]: (state, action) => {

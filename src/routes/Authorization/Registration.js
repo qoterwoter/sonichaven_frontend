@@ -31,7 +31,7 @@ const Registration = props => {
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
             navigate('/')
-            // window.location.reload();
+            window.location.reload();
         }
         if(userData && userData.status === 'Ошибка') {
             showError("Неверные данные для входа")
