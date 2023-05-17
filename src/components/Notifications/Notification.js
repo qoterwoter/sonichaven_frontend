@@ -6,7 +6,8 @@ import {removeNotification} from "../../reducers/notificationSlice";
 const Notification = (props) => {
     const state = props.notification
 
-    const isNav = props.isNav !== false && true
+
+    const isNav = props.isNav ? false : true
 
     const dispatch = useDispatch()
 
@@ -21,7 +22,7 @@ const Notification = (props) => {
             <div className={`notification ${notificationType}`}>
                 <h2 className="notification__title">{state.title} <CloseRoundedIcon onClick={handleClose} className='notification__close'/></h2>
                 <p className="notification__description">{state.description}</p>
-                {isNav && <NavLink to={state?.action?.url}>{state?.action?.button}</NavLink>}
+                {isNav && <NavLink className={'notification__link'} to={state?.action?.url}>{state?.action?.button}</NavLink>}
             </div>
         </>
     )

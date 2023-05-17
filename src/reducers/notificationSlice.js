@@ -3,7 +3,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 export const pushNotification = createAsyncThunk('notifications/pushNotification', async (notification, {dispatch}) => {
     setTimeout(() => {
         dispatch(removeNotification())
-    },3000)
+    },2500)
 
     return notification
 })

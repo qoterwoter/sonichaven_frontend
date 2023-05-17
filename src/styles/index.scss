@@ -1,18 +1,19 @@
 @import "./themes/dark-theme";
 //@import "./themes/light-theme";
+@import "notifications";
 
 * {
     box-sizing: border-box;
     &::selection {
         background-color: #0090e0;
-        color: $text-primary-light;
+        color: $text-primary;
     }
 }
 
 body {
     margin: 0 auto;
     font-family: Arial, sans-serif;
-    color: $text-primary-light;
+    color: $text-primary;
     font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
@@ -54,7 +55,8 @@ body {
         .footer__menu {
             display: flex;
             justify-content: space-between;
-            padding: $gap;
+            border-bottom: 2px solid $border;
+            padding: $gap $gap 32px;
             width: 100%;
             .menu__links {
                 .links__title {
@@ -170,6 +172,7 @@ body {
         padding: $gap;
         display: grid;
         height: min-content;
+        justify-items: end;
         gap: $gap;
         .menu__title {
             margin: 0;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import CartAppended from "./CartAppended";
 import OrderCompleted from "./OrderCompleted";
@@ -8,6 +8,7 @@ import ChangeSaved from "./ChangeSaved";
 
 const NotificationsList = () => {
     const state = useSelector(state => state.notifications)
+
     return (
     <div className="notifications">
         {state.notifications.map((notification, id) => {

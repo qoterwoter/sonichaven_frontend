@@ -1,8 +1,7 @@
 .helloElement {
-    background-image: url("../images/background.jpg");
+    background: url("../images/background.jpg") repeat-x;
     background-size: cover;
     background-position-x: 52vw;
-    background-repeat: repeat-x;
 
     height: 100vh;
     display: flex;
@@ -15,7 +14,7 @@
             font-size: 65px;
             text-align: center;
             text-shadow: 0 0 20px black;
-            color: $text-primary-light;
+            color: $text-primary;
             margin-bottom: 50px;
         }
         .helloElement__description {

@@ -1,56 +1,4 @@
-.notification_hide {
-    opacity: 0;
-}
 
-.notification_show {
-    opacity: 1;
-}
-.notifications {
-    position: fixed;
-    right: 16px;
-    bottom: 0;
-    z-index: 9999;
-    .notification {
-        box-shadow: $box-shadow;
-        margin: 16px 0;
-        transition: .5s;
-        background: $blur-background;
-        backdrop-filter: $blur;
-        padding: $gap;
-        width: 390px;
-        border-radius: 12px;
-
-        .notification__title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0;
-
-            .notification__close {
-                cursor: pointer;
-                color: $red-primary;
-            }
-        }
-
-        .notification__description {
-            color: $text-notification;
-        }
-        &.notification_success,
-        &.notification_error{
-            //.notification__title {
-            //    color: $green-hovered;
-            //}
-            .notification__description {
-                margin-bottom: 0;
-            }
-        }
-        //&.notification_error {
-        //    .notification__title {
-        //        color: $red-primary;
-        //    }
-        //}
-    }
-}
 
 a {
     color: $blue-link;
@@ -67,7 +15,7 @@ a {
 }
 
 .button {
-    color: $text-primary-light;
+    color: $text-primary;
     background: $blue-primary;
     cursor: pointer;
     border: none;
@@ -86,7 +34,7 @@ a {
 .button__success {
     height: fit-content;
     background-color: $green-primary;
-    color: $text-primary-light;
+    color: $text-primary;
     padding: 8px 16px;
     border: none;
     border-radius: 100px;
@@ -119,7 +67,7 @@ a {
         border: 2px solid $border;
         border-radius: 4px;
         padding: 8px 6px;
-        color: $text-primary-light;
+        color: $text-primary;
         background-color: $background-primary;
 
         &:focus {
@@ -129,7 +77,7 @@ a {
     }
     .form__input_submit {
         cursor: pointer;
-        color: $text-primary-light;
+        color: $text-primary;
         border: none;
         background-color: $blue-primary;
         transition: .2s;
@@ -155,7 +103,7 @@ a {
     color: $text-secondary;
 }
 .block-title {
-    color: $text-primary-light;
+    color: $text-primary;
     font-size: 24px;
     font-weight: 600;
     background-color: $blur-background;
@@ -180,7 +128,7 @@ a {
     margin-bottom: 0;
     border-radius: $border-radius;
     padding: 6px 8px;
-    color: $text-primary-light;
+    color: $text-primary;
     background-color: $background-primary;
 }
 

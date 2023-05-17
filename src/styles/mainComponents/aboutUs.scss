@@ -8,7 +8,6 @@
     box-shadow: $box-shadow;
 
     .aboutUs__article {
-        border-bottom: 2px solid $background-secondary;
         display: grid;
         grid-template-columns: 1fr 1fr;
         &:last-child {

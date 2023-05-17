@@ -79,6 +79,50 @@
                 }
             }
         }
+        .aboutUs {
+            .aboutUs__article {
+                .aboutUs__paragraph {
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+    .notifications {
+        top: 70px;
+        right: 0;
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        .notification {
+            background-color: $header-background;
+            margin: 8px 0;
+            .notification__description {
+                margin-top: 8px;
+            }
+
+            .notification__link {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .main {
+        .userReleases .release {
+            display: flex;
+            flex-direction: column;
+            .release__header {
+                .release__image {
+                    width: 260px;
+                }
+            }
+
+        }
     }
 }
 
@@ -103,11 +147,12 @@
 
 @media (max-width: 650px) {
     body {
-        background-position-y: 80vh;
+        //background-position-y: 80vh;
     }
     .helloElement {
-        background-size: 100%;
-        height: 80vh;
+        background-image: url("../images/mobilebackground.png");
+        background-size: 160%;
+        //height: 80vh;
         background-color: black;
         .container {
             padding: $gap;
@@ -138,6 +183,42 @@
                 }
             }
         }
+        .aboutUs {
+            background: none;
+            box-shadow: none;
+            backdrop-filter: none;
+            display: grid;
+            gap: $gap;
+            .aboutUs__article {
+                border-radius: $border-radius;
+                background: $blur-background;
+                backdrop-filter: $blur;
+                box-shadow: $box-shadow;
+                display: flex;
+                flex-direction: column;
+                &:nth-child(2) {
+                    flex-direction: column-reverse;
+                }
+                .aboutUs__image {
+                    height: 200px;
+                    border-radius: $border-radius $border-radius 0 0;
+                }
+            }
+        }
+        .shopCart .shopCart__items .item {
+            .item__content {
+                .item__title {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+        .orders .order {
+            .order__footer {
+                display: grid;
+                gap: 12px;
+            }
+        }
     }
     .header__mobileMenu {
         grid-template-columns: 1fr;
@@ -148,6 +229,42 @@
     }
 }
 
+@media (max-width: 570px) {
+    .main {
+        .userProfile {
+            .item__artistData .item__information .miniItems{
+                display: flex;
+                flex-direction: column;
+                .profileImage__image {
+                    width: 100%;
+                }
+            }
+            .item__releasesData .item__information {
+                .miniItem__aside {
+                    display: none !important;
+                }
+                .releaseData__releaseImage {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .userReleases .release {
+            .release__body .songList {
+                grid-template-columns: 5fr 1fr 1fr;
+                .songList__listens {
+                    display: none;
+                }
+                .song {
+                    grid-template-columns: 5fr 1fr 1fr;
+                    .song__listens {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
 @media (max-width: 500px) {
     .helloElement {
         .container {
@@ -163,6 +280,82 @@
         .footer__menu {
             display: flex;
             flex-direction: column;
+        }
+    }
+    .notifications {
+        padding: 0 $gap;
+        .notification {
+            width: 100%;
+            .notification__title {
+                font-size: 21px;
+            }
+        }
+    }
+    .main {
+        .userReleases .release .release__header .release__image {
+            width: 100%;
+        }
+        .shopCart {
+            .shopCart__items {
+                padding: $gap;
+                .item {
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                    .item__icon {
+                        margin-right: 8px;
+                    }
+                    .item__description {
+                        margin-top: 12px;
+                    }
+                    .item__bottom-menu.edit {
+                        flex-direction: column;
+                        align-items: start;
+                        .item__cost {
+                            //display: none;
+                            margin-bottom: 10px;
+                        }
+                        .item__actions {
+                            width: 100%;
+                            .actions__count {
+                                margin: 0 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            .shopCart__bottomMenu {
+                background: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                flex-direction: column;
+                align-items: end;
+                padding: 0;
+                >* {
+                    box-shadow: $box-shadow;
+                }
+                .shopCart__sum {
+                    margin: 0;
+                    border-radius: $border-radius;
+                    width: 100%;
+                    padding: $gap;
+                    background-color: $blur-background;
+                }
+                .shopCart__make-order {
+                    width: 100%;
+                    margin-top: $gap;
+                    border-radius: $border-radius;
+                }
+                //flex-direction: column;
+            }
+        }
+        .orders .order {
+            .order__header {
+                flex-wrap: wrap;
+            }
         }
     }
 }
