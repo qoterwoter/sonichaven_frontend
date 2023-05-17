@@ -503,51 +503,63 @@ body::-webkit-scrollbar-thumb {
   border-radius: 16px;
   margin: 16px 0;
 }
-.main .orders .order .order__title {
-  font-size: 24px;
-  margin: 0;
+.main .orders .order .order__header {
   border-bottom: 2px solid #2d2d2d;
   padding-bottom: 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.main .orders .order .order__title .order__status_pending {
+.main .orders .order .order__header .order__title {
+  margin: 0;
+  font-size: 24px;
+}
+.main .orders .order .order__header .order__status_pending {
   color: #E08855;
 }
-.main .orders .order .order__title .order__status_confirmed {
+.main .orders .order .order__header .order__status_confirmed {
   color: #57965C;
 }
-.main .orders .order .order__title .order__status_in-progress {
+.main .orders .order .order__header .order__status_in-progress {
   color: #3574F0;
 }
-.main .orders .order .order__title .order__status_delivered {
+.main .orders .order .order__header .order__status_delivered {
   color: #955AE0;
 }
-.main .orders .order .order__title .order__status_cancelled {
+.main .orders .order .order__header .order__status_cancelled {
   color: #DB5C5C;
 }
-.main .orders .order .order__service {
+.main .orders .order .order__body {
+  display: grid;
+  gap: 16px;
+}
+.main .orders .order .order__body .order__service {
   border-bottom: 2px solid #2d2d2d;
-  margin-top: 16px;
 }
-.main .orders .order .order__service:last-child {
-  border-bottom: none;
-}
-.main .orders .order .order__service .service__title {
+.main .orders .order .order__body .order__service .service__title {
+  margin: 0;
   color: #DFE1E5;
 }
-.main .orders .order .order__service .service__description {
+.main .orders .order .order__body .order__service .service__description {
   color: #afafb6;
 }
-.main .orders .order .order__service .service__cost {
+.main .orders .order .order__body .order__service .service__cost {
   color: #868A91;
   margin-bottom: 0;
   padding-bottom: 16px;
 }
-.main .orders .order .order__sum {
-  margin-bottom: 0;
-  padding-bottom: 16px;
+.main .orders .order .order__body .order__service:first-child .service__title {
+  margin-top: 16px;
+}
+.main .orders .order .order__footer {
+  padding: 16px 0;
   color: #afafb6;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.main .orders .order .order__footer .order__sum {
+  margin: 0;
 }
 .main .userProfile {
   display: grid;
@@ -1136,6 +1148,10 @@ a:active {
     display: flex;
     flex-wrap: wrap;
   }
+  .main .orders .order .order__footer {
+    display: grid;
+    gap: 12px;
+  }
   .header__mobileMenu {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 4fr;
@@ -1156,8 +1172,8 @@ a:active {
     display: none !important;
   }
   .main .userProfile .item__releasesData .item__information .releaseData__releaseImage {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
   }
   .main .userReleases .release .release__body .songList {
     grid-template-columns: 5fr 1fr 1fr;
@@ -1207,6 +1223,9 @@ a:active {
   .main .shopCart .shopCart__items .item .item__icon {
     margin-right: 8px;
   }
+  .main .shopCart .shopCart__items .item .item__description {
+    margin-top: 12px;
+  }
   .main .shopCart .shopCart__items .item .item__bottom-menu.edit {
     flex-direction: column;
     align-items: start;
@@ -1242,6 +1261,9 @@ a:active {
     width: 100%;
     margin-top: 16px;
     border-radius: 16px;
+  }
+  .main .orders .order .order__header {
+    flex-wrap: wrap;
   }
 }
 

@@ -1,6 +1,12 @@
 import React from "react";
 import {beautyNum} from "../ShopCart/ShopCart";
 import Separator from "../../components/Separator";
+import {user} from "../../reducers/ordersSlice";
+
+export const getOrderNum = date => {
+    const time = String(new Date(date).valueOf()).slice(0, -4)
+    return `${time}${user.id}`
+}
 
 const OrderItem = (props) => {
     const order = props.order;
@@ -47,9 +53,17 @@ const OrderItem = (props) => {
     return (
     <>
         <div className="orders__order order">
-            <h2 className="order__title">Заказ от {date} <span className={`order__status order__status_${classList}`}>{status}</span></h2>
-            {itemsList}
-            {itemsList.length > 1 && <p className="order__sum">Сумма заказа <Separator/> {beautyNum(order.sum)} Руб.</p>}
+            <div className="order__header">
+                <h2 className="order__title"># {getOrderNum(order.created_at)}</h2>
+                <span className={`order__status order__status_${classList}`}>{status}</span>
+            </div>
+            <div className="order__body">
+                {itemsList}
+            </div>
+            <div className="order__footer">
+                {itemsList.length > 1 && <p className="order__sum">Сумма заказа <Separator/> {beautyNum(order.sum)} Руб.</p>}
+                <span className={`order__date`}>Заказ создан {date}</span>
+            </div>
         </div>
     </>
     )

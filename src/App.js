@@ -6,8 +6,8 @@ import './styles/index.scss'
 import Footer from "./components/Footer";
 import NotificationsList from "./components/Notifications/NotificationsList";
 
-export default function App() {
 
+export default function App() {
     return (
     <div>
         <Header/>

@@ -7,14 +7,16 @@
         border-radius: $border-radius;
         margin: 16px 0;
 
-        .order__title {
-            font-size: $heading-text-2;
-            margin: 0;
+        .order__header {
             border-bottom: 2px solid $border;
             padding-bottom: 16px;
-
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            .order__title {
+                margin: 0;
+                font-size: $heading-text-2;
+            }
             .order__status_pending {
                 color: $orange-primary;
             }
@@ -37,28 +39,39 @@
 
         }
 
-        .order__service {
-            border-bottom: 2px solid $border;
-            margin-top: 16px;
-            &:last-child {
-                border-bottom: none;
-            }
-            .service__title {
-                color: $text-primary;
-            }
-            .service__description {
-                color: $text-general;
-            }
-            .service__cost {
-                color: $text-secondary;
-                margin-bottom: 0;
-                padding-bottom: 16px;
+        .order__body {
+            display: grid;
+            gap: $gap;
+            .order__service {
+                border-bottom: 2px solid $border;
+                .service__title {
+                    margin: 0;
+                    color: $text-primary;
+                }
+
+                .service__description {
+                    color: $text-general;
+                }
+
+                .service__cost {
+                    color: $text-secondary;
+                    margin-bottom: 0;
+                    padding-bottom: 16px;
+                }
+                &:first-child .service__title {
+                    margin-top: $gap;
+                }
             }
         }
-        .order__sum {
-            margin-bottom: 0;
-            padding-bottom: 16px;
+        .order__footer {
+            padding: $gap 0;
             color: $text-general;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .order__sum {
+                margin: 0;
+            }
         }
     }
 }
