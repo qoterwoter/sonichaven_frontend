@@ -88,6 +88,27 @@
             }
         }
     }
+    .notifications {
+        top: 70px;
+        right: 0;
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        .notification {
+            background-color: $header-background;
+            margin: 8px 0;
+            .notification__description {
+                margin-top: 8px;
+            }
+
+            .notification__link {
+                margin-top: 8px;
+            }
+        }
+    }
 }
 
 @media (max-width: 720px) {
@@ -202,6 +223,15 @@
         .footer__menu {
             display: flex;
             flex-direction: column;
+        }
+    }
+    .notifications {
+        padding: 0 $gap;
+        .notification {
+            width: 100%;
+            .notification__title {
+                font-size: 21px;
+            }
         }
     }
 }

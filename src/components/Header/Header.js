@@ -61,7 +61,7 @@ const Header = () => {
         mediaQuery.addEventListener('change', handleMediaQuery);
         handleMediaQuery(mediaQuery);
 
-        return () => {mediaQuery.removeListener(handleMediaQuery)}
+        return () => {mediaQuery.removeEventListener('change', handleMediaQuery)}
     }, [])
 
     const toggleMenu = () => {

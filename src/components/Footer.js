@@ -12,8 +12,8 @@ const Footer = () => {
                     <div className="menu__links">
                         <h3 className="links__title">Контакты</h3>
                         <nav className={'links'}>
-                            <a className={'links__link link'} href="https://vk.com/sonichaven">ВКонтакте</a>
-                            <a className={'links__link link'} href="https://t.me/sonichaven">Telegram</a>
+                            <a className={'links__link link'} href="https://vk.com/sonichaven" target="_blank">ВКонтакте</a>
+                            <a className={'links__link link'} href="https://t.me/sonichaven" target="_blank">Telegram</a>
                             <a className="contacts-information__link" href="mailto:marderics@gmail.com">Email</a>
                         </nav>
                     </div>
