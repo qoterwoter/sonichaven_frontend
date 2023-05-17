@@ -18,7 +18,7 @@ body {
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
     background-repeat: repeat-y;
-    min-height: 100vh;
+    min-height: 80vh;
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -77,6 +77,8 @@ body {
         }
     }
 }
+
+
 
 .header {
     width: 100%;
@@ -149,8 +151,12 @@ body {
             display: block;
             padding: 8px 0;
             border-bottom: 1px solid $border;
+            &:first-child {
+                padding-top: 0;
+            }
             &:last-child {
                 border: none;
+                padding-bottom: 0;
             }
         }
     }

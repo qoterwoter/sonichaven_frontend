@@ -98,6 +98,8 @@
             margin: 0 32px 0 0;
         }
         .shopCart__make-order {
+            padding: 8px $gap;
+            font-size: $paragraph-text;
             background-color: $blue-primary;
         }
     }

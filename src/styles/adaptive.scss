@@ -121,7 +121,6 @@
                     width: 260px;
                 }
             }
-
         }
     }
 }
@@ -141,6 +140,10 @@
                     display: block;
                 }
             }
+        }
+        .registration .form {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
@@ -346,6 +349,7 @@
                 }
                 .shopCart__make-order {
                     width: 100%;
+                    padding: 12px $gap;
                     margin-top: $gap;
                     border-radius: $border-radius;
                 }

@@ -44,13 +44,17 @@ a {
 }
 
 .icon {
-    height: 28px !important;
-    width: 28px !important;
+    height: 28px;
+    width: 28px;
     &.icon_edit {
         color: $blue-general;
     }
     &.icon_save {
         color: $green-edit;
+    }
+    &.icon_user {
+        width: 50px;
+        height: 50px;
     }
 }
 

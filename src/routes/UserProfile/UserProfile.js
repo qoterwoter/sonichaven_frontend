@@ -107,6 +107,8 @@ const UserProfile = () => {
         })}
     </div>
 
+    console.log(releases)
+
     return (
     <main className='main'>
         <h2 className="block-title">Мой профиль</h2>

@@ -14,7 +14,17 @@ export const authUser = createAsyncThunk('user/authUser', async ({username, pass
     } catch (e) {
         return Promise.reject(e)
     }
+})
 
+export const registerUser = createAsyncThunk('user/registerUser', async ({firstName, lastName, username, password, email}) => {
+    try {
+        const response = await axios.post(
+            API_URL + '/register/',{first_name: firstName, last_name: lastName, username, password, email, is_artist: 'True'}
+        )
+        return response.data
+    } catch (e) {
+        return Promise.reject(e)
+    }
 })
 
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
@@ -24,7 +34,7 @@ export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => 
 
 export const artistUpdate = createAsyncThunk('user/artistUpdate', async  (data, {dispatch}) => {
     const response = await axios.put(`${API_URL}/artists/${artist.id}/`, {
-        ...artist, ...data
+        ...data
     }, {headers})
     return response.data
 })
@@ -67,6 +77,14 @@ const userSlice = createSlice({
             console.log(action)
             state.status = 'Ошибка'
             state.errorCode = action.error.message
+        },
+        [registerUser.fulfilled]: (state, action) => {
+            const data = {...action.payload, status: "Успешно"};
+            localStorage.setItem("user", JSON.stringify(data))
+            return data
+        },
+        [registerUser.rejected]: (state, action) => {
+            console.log(action)
         },
         [artistUpdate.fulfilled]: (state, action) => {
             const data = {...user, artist: {...action.payload}}

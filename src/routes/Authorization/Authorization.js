@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authUser} from "../../reducers/userSlice";
-import {useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
 
 const Authorization = () => {
@@ -22,7 +22,7 @@ const Authorization = () => {
 
     useEffect(() => {
         if(userData && userData.status === 'Успешно') {
-            navigate('/')
+            navigate('/userProfile')
             window.location.reload();
         }
         if(userData && userData.status === 'Ошибка') {
@@ -51,33 +51,38 @@ const Authorization = () => {
 
     return (
         <main className='main'>
-        <form className='authForm form' onSubmit={login}>
-            <label className='form__label' htmlFor='login'>Введите логин:</label>
-            <input
-                className='form__input'
-                id='login'
-                type='text'
-                placeholder='Логин'
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <label className='form__label' htmlFor='password'>Введите пароль:</label>
-            <input
-                className='form__input'
-                id='password'
-                type='password'
-                placeholder='Пароль'
-                onChange={onChangePassword}
-                value={password}
-            />
-            <input
-                className='form__input_submit form__input'
-                type='submit'
-                value={'Войти'}
-                onClick={login}
-            />
-            {/*<p>Статус: {userData.status}</p>*/}
-        </form>
+            <div className="authorization">
+                <form className='authForm form' onSubmit={login}>
+                    <label className='form__label' htmlFor='login'>Введите логин:</label>
+                    <input
+                        className='form__input'
+                        id='login'
+                        type='text'
+                        placeholder='Логин'
+                        onChange={onChangeUsername}
+                        value={username}
+                    />
+                    <label className='form__label' htmlFor='password'>Введите пароль:</label>
+                    <input
+                        className='form__input'
+                        id='password'
+                        type='password'
+                        placeholder='Пароль'
+                        onChange={onChangePassword}
+                        value={password}
+                    />
+                    <input
+                        className='form__input_submit form__input'
+                        type='submit'
+                        value={'Войти'}
+                        onClick={login}
+                    />
+                    <p className="form__help">
+                        Нет аккаунта ? <NavLink to={"/register"}>Регистрация</NavLink>
+                    </p>
+                    {/*<p>Статус: {userData.status}</p>*/}
+                </form>
+            </div>
         </main>
     )
 }

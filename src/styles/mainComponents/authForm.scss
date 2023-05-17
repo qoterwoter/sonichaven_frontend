@@ -1,9 +1,51 @@
-.authForm {
-    font-size: 18px;
+.authorization {
+    .authForm {
+        height: fit-content;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        grid-column: span 2;
+    }
+}
+.authorization,
+.registration {
+    margin-top: $gap;
+    min-height: 65vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    grid-column: span 2;
-    height: 86vh;
+    .form {
+        background-color: $blur-background;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        backdrop-filter: $blur;
+        padding: $gap;
+    }
+}
+.registration {
+    .registerForm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $gap;
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .form__input {
+                background-color: $blur-background;
+            }
+            .form__input_submit {
+                background-color: $blue-primary;
+            }
+        }
+        .row_submit {
+            grid-column: span 2;
+            justify-self: center;
+            .form__help {
+                margin: 8px;
+            }
+        }
+    }
 }
