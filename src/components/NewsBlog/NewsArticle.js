@@ -6,8 +6,6 @@ const NewsArticle = (props) => {
     const newsArticle = props.newsArticle
     const article = newsArticle.article
 
-    console.log(props)
-
     return (
         <article className='news__article article' key={newsArticle.id}>
             <div className="article__header">

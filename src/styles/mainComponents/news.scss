@@ -5,6 +5,13 @@
         display: flex;
         align-items: center;
     }
+    .news__menu {
+        display: flex;
+        justify-content: space-between;
+        .menu__action {
+            border-radius: $border-radius;
+        }
+    }
     .news__article {
         background-color: $blur-background;
         backdrop-filter: $blur;

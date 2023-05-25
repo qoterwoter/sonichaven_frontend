@@ -5,7 +5,7 @@ import {API_URL} from "./ordersSlice";
 
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async  (page) => {
-    const response = await axios.get(`${API_URL}/news/ ${page ? '?page' + page + '/' : ''}`)
+    const response = await axios.get(`${API_URL}/news/?page=${page}`)
     return response.data
 })
 

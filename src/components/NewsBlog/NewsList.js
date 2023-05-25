@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchNews} from "../../reducers/newsSlice";
 import NewsArticle from "./NewsArticle";
@@ -14,14 +14,22 @@ const NewsList = () => {
     const news = useSelector(state => state.news.news)
     const dispatch = useDispatch()
 
-    const {page} = useParams()
-    console.log(page)
+    const [page, setPage] = useState(1)
 
     const location = useLocation()
 
+    const onChangePage = (type) => {
+        if(type==='inc' && page * 5 <= news.count) {
+            setPage(page+1)
+        }
+        if(type==='dec' && page > 1) {
+            setPage(page-1)
+        }
+    }
+
     useEffect(() => {
-        dispatch(fetchNews())
-    }, [dispatch])
+        dispatch(fetchNews(page))
+    }, [dispatch, page])
 
     const newsList = news.count > 0 && news.results.map((newsArticle,id) => {
         if(!location.pathname.endsWith('/news') && id > 2) {
@@ -34,13 +42,30 @@ const NewsList = () => {
         )
     })
 
+    const menu = (
+        <div className="news__menu">
+            {page > 1 && (
+                <button
+                    onClick={() => {onChangePage('dec')}}
+                    className={'menu__action button'}
+                >Предыдущие</button>
+            )}
+
+            {page * 5 < news.count && (
+                <button
+                    onClick={() => {onChangePage('inc')}}
+                    className={'menu__action button'}
+                >Следующие</button>
+            )}
+        </div>
+    )
+
     return (
     <section className='news'>
         <h2 className='news__title block-title'>Новости</h2>
+        {menu}
         {newsList}
-        <div className="news__menu">
-
-        </div>
+        {menu}
     </section>
     )
 }

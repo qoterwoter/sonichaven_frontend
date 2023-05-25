@@ -350,6 +350,13 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
 }
+.main .news .news__menu {
+  display: flex;
+  justify-content: space-between;
+}
+.main .news .news__menu .menu__action {
+  border-radius: 16px;
+}
 .main .news .news__article {
   background-color: rgba(30, 30, 30, 0.4980392157);
   backdrop-filter: blur(15px);
