@@ -22,7 +22,7 @@ const NewsList = () => {
 
     const location = useLocation()
 
-    const ends = location.pathname.endsWith('/news')
+    const ends = location.pathname.endsWith('/news') || location.pathname.endsWith('/news/')
 
     const onChangePage = (type) => {
         if(type==='inc' && page * 5 <= news.count) {

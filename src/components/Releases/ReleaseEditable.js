@@ -59,7 +59,7 @@ const ReleaseEditable = (props) => {
             <div className="block-header block-header_menu">
                 <NavLink className={'block-header__title'} to={'/releases/'}>Релизы</NavLink>
                 <KeyboardArrowRightRoundedIcon className={'icon icon_secondary'}/>
-                <NavLink to={''}>{title}</NavLink>
+                <p className={'title__route'} to={''}>{title}</p>
             </div>
         )}
         <article className={"userReleases__release release " + (!isMyRelease && 'userReleases__release_all')}>

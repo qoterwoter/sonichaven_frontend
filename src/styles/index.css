@@ -1218,6 +1218,9 @@ a.active {
   font-size: 24px;
   font-weight: 600;
 }
+.block-header .title__route {
+  color: #6B9BFA;
+}
 
 .span__border {
   font-weight: 400;

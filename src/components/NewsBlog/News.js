@@ -21,10 +21,10 @@ function News(props) {
     return (
     <main className="main">
         <div className="news">
-            <div className="news__title block-header">
-                <NavLink className={'title__route'} to={'/news'}>Новости</NavLink>
+            <div className="news__title block-header block-header_menu">
+                <NavLink className={'title__route'} to={'/news/'}>Новости</NavLink>
                 <KeyboardArrowRightRoundedIcon className={'icon icon_secondary'}/>
-                <NavLink className={'title__route'} to={'/'}>№{news.id}</NavLink>
+                <p className={'title__route'} to={'/'}>№{news.id}</p>
             </div>
             <div className="news__article">
                 <div className="article__header">
