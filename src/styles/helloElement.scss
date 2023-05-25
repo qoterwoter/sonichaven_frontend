@@ -10,6 +10,9 @@
     justify-content: center;
     .container {
         width: 1100px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         .helloElement__title {
             font-size: 65px;
             text-align: center;
@@ -26,6 +29,32 @@
             color: transparent;
 
             animation: gradient 4s linear infinite;
+        }
+        .helloElement__button {
+            display: block;
+            text-align: center;
+            padding: 8px 32px;
+            border-radius: 50px;
+            font-size: 22px;
+            background: $text-primary;
+            width: fit-content;
+            transition: .2s;
+            &:hover {
+                opacity: 90%;
+            }
+            &:active {
+                opacity: 85%;
+            }
+            .container {
+                width: auto;
+                background: $gradient;
+                background-size: 400%;
+                -webkit-background-clip: text;
+                color: transparent;
+
+                animation: gradient 4s linear infinite;
+            }
+
         }
     }
 

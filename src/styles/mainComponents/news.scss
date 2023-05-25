@@ -21,9 +21,8 @@
         display: grid;
         gap: 8px;
         justify-content: start;
-        .article__header {
-            display: flex;
-            justify-content: space-between;
+        .article__title a {
+            color: $text-primary;
         }
         * {
             margin: 0;

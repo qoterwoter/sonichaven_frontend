@@ -29,7 +29,6 @@ const NewsList = () => {
         if(type==='dec' && page > 1) {
             setPage(page-1)
         }
-
     }
 
     useEffect(() => {

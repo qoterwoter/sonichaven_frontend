@@ -158,6 +158,10 @@
     body {
         //background-position-y: 80vh;
     }
+    .block-title {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
     .helloElement {
         background-image: url("../images/mobilebackground.png");
         background-size: 160%;
@@ -173,9 +177,18 @@
             .helloElement__description {
                 font-size: 20px;
             }
+            .helloElement__button .container {
+                font-size: 18px;
+                padding: 0;
+            }
         }
     }
     .main {
+        .news {
+            .article__title {
+                font-size: 20px;
+            }
+        }
         .catalog {
             grid-template-columns: 1fr;
             .catalog__title {

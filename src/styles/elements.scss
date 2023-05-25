@@ -23,6 +23,7 @@ a {
     height: 32px;
     border-radius: 4px;
     transition: .3s;
+    font-size: $paragraph-text;
     &:hover {
         opacity: 90%;
     }

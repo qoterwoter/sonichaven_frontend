@@ -86,7 +86,7 @@ body {
     z-index: 999;
     .container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: min-content 1fr min-content;
         width: 1200px;
 
         :nth-child(2) {

@@ -16,9 +16,7 @@ function News(props) {
 
     useEffect(() => {
         dispatch(fetchCurrentNews(id))
-    }, [dispatch])
-
-    console.log(news)
+    }, [dispatch, id])
 
     return (
     <main className="main">
@@ -26,7 +24,7 @@ function News(props) {
             <div className="news__title block-title">
                 <NavLink className={'title__route'} to={'/news'}>Новости</NavLink>
                 <KeyboardArrowRightRoundedIcon className={'icon icon_secondary'}/>
-                <NavLink className={'title__route'} to={''}>Новость от {beautyDate(news.created_at)}</NavLink>
+                <NavLink className={'title__route'} to={''}>№{news.id}</NavLink>
             </div>
             <div className="news__article">
                 <div className="article__header">
@@ -38,6 +36,7 @@ function News(props) {
                     {article.image && <img className='article__image' src={article.image} alt={article.caption}/>}
                 </>
                 ))}
+                <p className={'article__date'}>{beautyDate(news.created_at)}</p>
             </div>
         </div>
     </main>

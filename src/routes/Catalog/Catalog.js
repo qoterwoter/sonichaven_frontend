@@ -16,7 +16,7 @@ const Catalog = (props) => {
     })
 
     const content =
-        <div className='catalog'>
+        <div className='catalog' id={'catalog'}>
             <h2 className="catalog__title block-title">{props.title}</h2>
             {props.isPopular ? servicesList.slice(0,6) : servicesList}
         </div>
