@@ -593,13 +593,17 @@ body::-webkit-scrollbar-thumb {
   font-weight: 300;
 }
 .main .shopCart .shopCart__bottomMenu .shopCart__sum {
+  display: flex;
   color: #DFE1E5;
+  width: auto;
   margin: 0 32px 0 0;
+}
+.main .shopCart .shopCart__bottomMenu .shopCart__sum .span__border {
+  margin: 0 8px;
 }
 .main .shopCart .shopCart__bottomMenu .shopCart__make-order {
   padding: 8px 16px;
   font-size: 16px;
-  background-color: #3574F0;
 }
 .main .aboutUs {
   display: flex;
@@ -1045,30 +1049,6 @@ body::-webkit-scrollbar-thumb {
   color: transparent;
   animation: gradient 4s linear infinite;
 }
-.helloElement .container .helloElement__button {
-  display: block;
-  text-align: center;
-  padding: 8px 32px;
-  border-radius: 50px;
-  font-size: 22px;
-  background: #DFE1E5;
-  width: fit-content;
-  transition: 0.2s;
-}
-.helloElement .container .helloElement__button:hover {
-  opacity: 90%;
-}
-.helloElement .container .helloElement__button:active {
-  opacity: 85%;
-}
-.helloElement .container .helloElement__button .container {
-  width: auto;
-  background: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, #3574F0);
-  background-size: 400%;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradient 4s linear infinite;
-}
 
 a {
   color: #6B9BFA;
@@ -1106,6 +1086,31 @@ a.active {
 }
 .button:active {
   opacity: 75%;
+}
+.button.button_white {
+  display: block;
+  text-align: center;
+  padding: 8px 32px;
+  border-radius: 50px;
+  font-size: 22px;
+  background: #DFE1E5;
+  width: fit-content;
+  transition: 0.2s;
+  height: auto;
+}
+.button.button_white:hover {
+  opacity: 90%;
+}
+.button.button_white:active {
+  opacity: 85%;
+}
+.button.button_white .container {
+  width: auto;
+  background: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, #3574F0);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient 10s linear infinite;
 }
 
 .button__success {

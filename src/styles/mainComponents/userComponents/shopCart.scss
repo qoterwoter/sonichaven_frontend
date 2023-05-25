@@ -94,13 +94,17 @@
         font-size: $paragraph-text;
         font-weight: 300;
         .shopCart__sum {
+            display: flex;
             color: $text-primary;
+            width: auto;
             margin: 0 32px 0 0;
+            .span__border {
+                margin: 0 8px;
+            }
         }
         .shopCart__make-order {
             padding: 8px $gap;
             font-size: $paragraph-text;
-            background-color: $blue-primary;
         }
     }
 }

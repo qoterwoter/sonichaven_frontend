@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 import {makeOrder, resetStatus} from "../../reducers/ordersSlice";
 import {NavLink} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
+import Separator from "../../components/Separator";
 
 const beautyNum = num => {
     num=`${num}`
@@ -63,8 +64,10 @@ const ShopCart = () => {
                         {cartItems}
                     </section>
                     <div className="shopCart__bottomMenu block-header">
-                        <p className='shopCart__sum'>Сумма<span className="span__border"> · </span>{beautyNum(shopCart.sum)} Руб.</p>
-                        <button className='shopCart__make-order button button__success' onClick={handleOrder}>Оформить заказ</button>
+                        <p className='shopCart__sum'>Сумма<Separator/>{beautyNum(shopCart.sum)} Руб.</p>
+                        <button className='shopCart__make-order button button_white' onClick={handleOrder}>
+                            <span className="container">Оформить заказ</span>
+                        </button>
                     </div>
                 </> :
                 onEmpty

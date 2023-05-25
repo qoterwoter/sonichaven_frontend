@@ -35,6 +35,32 @@ a {
     &:active {
         opacity: 75%;
     }
+    &.button_white {
+        display: block;
+        text-align: center;
+        padding: 8px 32px;
+        border-radius: 50px;
+        font-size: 22px;
+        background: $text-primary;
+        width: fit-content;
+        transition: .2s;
+        height: auto;
+        &:hover {
+            opacity: 90%;
+        }
+        &:active {
+            opacity: 85%;
+        }
+        .container {
+            width: auto;
+            background: $gradient;
+            background-size: 400%;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation: gradient 10s linear infinite;
+        }
+    }
 }
 
 .button__success {
