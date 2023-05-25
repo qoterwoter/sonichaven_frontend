@@ -5,11 +5,15 @@ import {useDispatch} from "react-redux";
 import {updateSong} from "../../reducers/releasesSlice";
 import {beautyCount} from "../UserProfile/UserProfileMiniItemAside";
 import {fetchReleasesByArtist} from "../../reducers/userSlice";
+import {useLocation} from "react-router-dom";
 
 function SongEditable(props) {
     const song = props?.song
 
     const dispatch = useDispatch()
+    const location = useLocation()
+
+    const isMyRelease = !!location.pathname.startsWith('/myReleases')
 
     const [isEdit, setIsEdit] = useState(false)
     const [title, setTitle] = useState(song.title)
@@ -46,10 +50,10 @@ function SongEditable(props) {
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </>
             }
-            <div className="song__actions">
+            {isMyRelease && <div className="song__actions">
                 {!isEdit && <EditRoundedIcon onClick={toggleEdit} className={'icon icon_edit'}/>}
                 {isEdit && <CheckRoundedIcon onClick={onSave} className={'icon icon_save'}/>}
-            </div>
+            </div>}
         </li>
     )
 }

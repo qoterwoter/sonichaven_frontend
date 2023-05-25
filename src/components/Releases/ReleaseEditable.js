@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {beautyCount, getReleaseDate, getReleaseType} from "../UserProfile/UserProfileMiniItemAside";
 import Separator from "../Separator";
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
@@ -6,10 +6,12 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import SongEditable from "./SongEditable";
 import {useDispatch} from "react-redux";
 import {updateRelease} from "../../reducers/releasesSlice";
+import {NavLink, useLocation} from "react-router-dom";
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 
 export const sumDuration = (songs) => {
     let totalSeconds = 0;
-    songs.forEach(track => {
+    songs?.forEach(track => {
         const [hours, minutes, seconds] = track.duration.split(':').map(Number);
         totalSeconds += hours * 3600 + minutes * 60 + seconds;
     });
@@ -24,17 +26,23 @@ export const sumDuration = (songs) => {
     return sumHours + sumMinutes + sumSeconds
 }
 
-
 const ReleaseEditable = (props) => {
     const release = props?.release
 
+    const location = useLocation()
     const dispatch = useDispatch()
 
-    const [title, setTitle] = useState(release.title)
+    const isMyRelease = !!location.pathname.startsWith('/myReleases')
+
+    const [title, setTitle] = useState(release?.title)
     const [isTitleEdit, setIsTitleEdit] = useState(false)
     const [isTypeEdit, setIsTypeEdit] = useState(false)
 
-    const songsList = release.songs && release.songs.map((song, id) => <SongEditable song={song} songId={id+1} key={`song${id}`}/>)
+    const songsList = release?.songs && release?.songs.map((song, id) => <SongEditable song={song} songId={id+1} key={`song${id}`}/>)
+
+    useEffect(() => {
+        setTitle(release.title)
+    }, [release])
 
     const submitTitle = e => {
         e.preventDefault()
@@ -46,7 +54,15 @@ const ReleaseEditable = (props) => {
     const toggleIsTitleEdit = () => setIsTitleEdit(!isTitleEdit)
 
     return (
-        <article className="userReleases__release release">
+    <>
+        {!isMyRelease && (
+            <div className="block-header block-header_menu">
+                <NavLink className={'block-header__title'} to={'/releases/'}>Релизы</NavLink>
+                <KeyboardArrowRightRoundedIcon className={'icon icon_secondary'}/>
+                <NavLink to={''}>{title}</NavLink>
+            </div>
+        )}
+        <article className={"userReleases__release release " + (!isMyRelease && 'userReleases__release_all')}>
             <div className="release__header">
                 {isTitleEdit ?
                     <form className={'release__title'} onSubmit={submitTitle}>
@@ -56,12 +72,12 @@ const ReleaseEditable = (props) => {
                     </form> :
                     <div className="release__title">
                         <h3 className="title">Название <Separator/>{title}</h3>
-                        <EditRoundedIcon className={'icon icon_edit'} onClick={toggleIsTitleEdit}/>
+                        {isMyRelease && <EditRoundedIcon className={'icon icon_edit'} onClick={toggleIsTitleEdit}/>}
                     </div>
                 }
                 <img className="release__image" src={release.image} alt={'Релиз'}/>
-                <p className="release__about">{getReleaseType(release.type)} <Separator/> {(new Date(release.release_date)).getUTCFullYear()} <Separator/> {sumDuration(release.songs)}</p>
-                <p className="release__about">{beautyCount(release.listens)} Прослушиваний</p>
+                <p className="release__about">{getReleaseType(release.type)} <Separator/> {(new Date(release?.release_date)).getUTCFullYear()} <Separator/> {sumDuration(release?.songs)}</p>
+                <p className="release__about">{beautyCount(release?.listens)} Прослушиваний</p>
             </div>
             <div className="release__body body">
                 <h3 className="body__title">
@@ -77,6 +93,7 @@ const ReleaseEditable = (props) => {
                 </ul>
             </div>
         </article>
+    </>
     );
 }
 

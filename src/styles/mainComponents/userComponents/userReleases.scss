@@ -11,7 +11,7 @@
             padding: 0 8px;
         }
     }
-    .release {
+    .userReleases__release {
         padding: $gap;
         background-color: $blur-background;
         border-radius: $border-radius;
@@ -54,7 +54,7 @@
             display: flex;
             flex-direction: column;
             .body__title {
-                margin: 4px 0 8px;
+                margin: 0 0 8px;
             }
             .songList {
                 margin: 0;
@@ -103,11 +103,22 @@
             }
         }
     }
+
+    .userReleases__release_all .release__body{
+        .songList {
+            grid-template-columns: 20px 5fr 2fr 2fr;
+            .song {
+                grid-column: span 6;
+                grid-template-columns: 24px 5fr 2fr 2fr;
+            }
+        }
+    }
 }
 .userReleases {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     .userReleases__title {
         grid-column: span 4;
         margin-bottom: 0;
@@ -132,6 +143,7 @@
             grid-template-columns: max-content auto;
             gap: 20px;
             align-items: center;
+            margin-bottom: 8px;
             :last-child {
                 justify-self: end;
             }

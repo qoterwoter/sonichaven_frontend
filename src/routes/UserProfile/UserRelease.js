@@ -20,8 +20,8 @@ function UserRelease(props) {
     return (
     <main className="main">
         <div className="userRelease">
-            <div className="userRelease__title block-title">
-                <NavLink className={'title__route'} to={'/releases'}>Мои релизы</NavLink>
+            <div className="userRelease__title block-header">
+                <NavLink className={'title__route'} to={'/myReleases/'}>Мои релизы</NavLink>
                 <KeyboardArrowRightRoundedIcon className={'icon icon_secondary'}/>
                 <NavLink className={'title__route'} to={''}>{release.title}</NavLink>
             </div>

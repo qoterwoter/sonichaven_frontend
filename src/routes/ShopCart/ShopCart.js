@@ -55,14 +55,14 @@ const ShopCart = () => {
     return (
     <main className='main'>
         <div className="shopCart">
-            <h2 className="shopCart__title block-title">Корзина</h2>
+            <h2 className="shopCart__title block-header">Корзина</h2>
             {
                 cartItems.length > 0 ?
                 <>
                     <section className="shopCart__items">
                         {cartItems}
                     </section>
-                    <div className="shopCart__bottomMenu block-title">
+                    <div className="shopCart__bottomMenu block-header">
                         <p className='shopCart__sum'>Сумма<span className="span__border"> · </span>{beautyNum(shopCart.sum)} Руб.</p>
                         <button className='shopCart__make-order button button__success' onClick={handleOrder}>Оформить заказ</button>
                     </div>

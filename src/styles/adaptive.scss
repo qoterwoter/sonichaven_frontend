@@ -143,7 +143,7 @@
             }
             .release {
                 &:last-child {
-                    display: block;
+                    display: grid;
                 }
             }
         }
@@ -158,9 +158,12 @@
     body {
         //background-position-y: 80vh;
     }
-    .block-title {
+    .block-header {
         font-size: 20px;
         margin-bottom: 0;
+        .icon_secondary {
+            display: none;
+        }
     }
     .helloElement {
         background-image: url("../images/mobilebackground.png");
@@ -293,6 +296,11 @@
     }
 }
 @media (max-width: 500px) {
+    .block-header {
+        display: grid;
+        align-items: start;
+        gap: 8px;
+    }
     .helloElement {
         .container {
             .helloElement__title {

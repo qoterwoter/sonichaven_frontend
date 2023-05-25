@@ -5,6 +5,21 @@
         display: flex;
         align-items: center;
     }
+    .news__header {
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        .news__title {
+            font-size: $heading-text-2;
+        }
+        * {
+            margin: 0;
+        }
+        .news__link {
+            font-size: $paragraph-text;
+            font-weight: 400;
+        }
+    }
     .news__menu {
         display: flex;
         justify-content: space-between;

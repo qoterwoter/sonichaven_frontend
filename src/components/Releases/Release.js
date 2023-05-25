@@ -14,7 +14,7 @@ function Release(props) {
         <article className='releases__release release'>
             <div className="release__header">
                 <h3 className='release__title'>{release.title}</h3> {/* <br/>*/}
-                <NavLink to={`/releases/${release.id}`}>Открыть</NavLink>
+                <NavLink to={`/myReleases/${release.id}`}>Открыть</NavLink>
             </div>
             <img className='release__image' src={release.image} alt='img'/>
             <p className="release__about">{getReleaseType(release.type)} <Separator/> {(new Date(release.release_date)).getUTCFullYear()} <Separator/> {sumDuration(release.songs)}</p>

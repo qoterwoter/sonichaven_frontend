@@ -16,7 +16,7 @@ const UserAllReleases = () => {
 
     return (
     <main className={'main'}>
-        <h2 className="block-title">Мои релизы</h2>
+        <h2 className="block-header">Мои релизы</h2>
         <section className="userReleases">
             {releasesList}
         </section>

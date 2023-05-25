@@ -22,6 +22,8 @@ import Questions from "./routes/FAQ/Questions";
 import Registration from "./routes/Authorization/Registration";
 import AllNews from "./components/NewsBlog/AllNews";
 import News from "./components/NewsBlog/News";
+import CurrentReleases from "./routes/Releases/CurrentReleases";
+import Releases from "./routes/Releases/Releases";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -32,12 +34,15 @@ const router = createBrowserRouter(
                 <Route path='register' element={<Registration/>}/>
                 <Route path='about-us' element={<AboutUs/>}/>
                 <Route path='faq' element={<Questions/>}/>
-                <Route path='shopCart' element={<ShopCart/>}/>
                 <Route path='catalog' element={<Catalog title={'Каталог'}/>}/>
+                <Route path='releases' element={<Releases/>}/>
+                <Route path='releases/:id' element={<CurrentReleases/>}/>
+
+                <Route path='shopCart' element={<ShopCart/>}/>
                 <Route path='orders' element={<OrdersList/>}/>
                 <Route path='userProfile' element={<UserProfile/>}/>
-                <Route path='releases' element={<UserAllReleases/>}/>
-                <Route path={'releases/:id'} element={<UserRelease/>}/>
+                <Route path='myReleases/' element={<UserAllReleases/>}/>
+                <Route path={'myReleases/:id'} element={<UserRelease/>}/>
                 <Route path={'news'} element={<AllNews/>}/>
                 <Route path={'news/:id'} element={<News/>}/>
             </Route>

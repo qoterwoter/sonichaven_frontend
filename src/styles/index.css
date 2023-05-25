@@ -309,25 +309,32 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 0;
 }
 .main .releases .release {
+  display: grid;
+  gap: 8px;
   padding: 16px;
   background-color: rgba(30, 30, 30, 0.4980392157);
   backdrop-filter: blur(15px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  width: 100%;
 }
-.main .releases .release .release__title {
+.main .releases .release * {
+  margin: 0;
+}
+.main .releases .release .release__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .releases .release .release__header .release__title {
   font-size: 24px;
   word-wrap: break-word;
-  margin: 0;
-  padding-bottom: 16px;
-  width: 300px;
 }
 .main .releases .release .release__image {
-  border-radius: 8px;
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
 }
 .main .releases .release .release__date {
-  margin: 8px 0 0;
   color: #868A91;
 }
 .main .releases .release:first-child {
@@ -349,6 +356,21 @@ body::-webkit-scrollbar-thumb {
 .main .news .news__title {
   display: flex;
   align-items: center;
+}
+.main .news .news__header {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.main .news .news__header .news__title {
+  font-size: 24px;
+}
+.main .news .news__header * {
+  margin: 0;
+}
+.main .news .news__header .news__link {
+  font-size: 16px;
+  font-weight: 400;
 }
 .main .news .news__menu {
   display: flex;
@@ -854,7 +876,7 @@ body::-webkit-scrollbar-thumb {
   color: #868A91;
   padding: 0 8px;
 }
-.main .userRelease .release {
+.main .userRelease .userReleases__release {
   padding: 16px;
   background-color: rgba(30, 30, 30, 0.4980392157);
   border-radius: 16px;
@@ -866,54 +888,54 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr 3fr;
   gap: 16px;
 }
-.main .userRelease .release .release__header {
+.main .userRelease .userReleases__release .release__header {
   width: 100%;
 }
-.main .userRelease .release .release__header .release__title {
+.main .userRelease .userReleases__release .release__header .release__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
-.main .userRelease .release .release__header .release__title .title {
+.main .userRelease .userReleases__release .release__header .release__title .title {
   margin: 0;
 }
-.main .userRelease .release .release__header .release__title .input {
+.main .userRelease .userReleases__release .release__header .release__title .input {
   width: 140px;
 }
-.main .userRelease .release .release__header .release__image {
+.main .userRelease .userReleases__release .release__header .release__image {
   width: 100%;
   border-radius: 16px;
 }
-.main .userRelease .release .release__header .release__type,
-.main .userRelease .release .release__header .release__date,
-.main .userRelease .release .release__header .release__duration,
-.main .userRelease .release .release__header .release__about {
+.main .userRelease .userReleases__release .release__header .release__type,
+.main .userRelease .userReleases__release .release__header .release__date,
+.main .userRelease .userReleases__release .release__header .release__duration,
+.main .userRelease .userReleases__release .release__header .release__about {
   margin: 8px 0;
   color: #868A91;
 }
-.main .userRelease .release .release__body {
+.main .userRelease .userReleases__release .release__body {
   display: flex;
   flex-direction: column;
 }
-.main .userRelease .release .release__body .body__title {
-  margin: 4px 0 8px;
+.main .userRelease .userReleases__release .release__body .body__title {
+  margin: 0 0 8px;
 }
-.main .userRelease .release .release__body .songList {
+.main .userRelease .userReleases__release .release__body .songList {
   margin: 0;
   display: grid;
   grid-template-columns: 20px 5fr 2fr 2fr 1fr;
   gap: 8px;
   padding: 0;
 }
-.main .userRelease .release .release__body .songList .songList__title,
-.main .userRelease .release .release__body .songList .songList__duration,
-.main .userRelease .release .release__body .songList .songList__listens {
+.main .userRelease .userReleases__release .release__body .songList .songList__title,
+.main .userRelease .userReleases__release .release__body .songList .songList__duration,
+.main .userRelease .userReleases__release .release__body .songList .songList__listens {
   list-style: none;
   padding: 8px;
   color: #868A91;
 }
-.main .userRelease .release .release__body .songList .song {
+.main .userRelease .userReleases__release .release__body .songList .song {
   display: grid;
   grid-template-columns: 24px 5fr 2fr 2fr 1fr;
   grid-column: span 7;
@@ -923,22 +945,29 @@ body::-webkit-scrollbar-thumb {
   border-radius: 16px;
   color: #afafb6;
 }
-.main .userRelease .release .release__body .songList .song > * {
+.main .userRelease .userReleases__release .release__body .songList .song > * {
   padding: 0;
   margin: 0;
 }
-.main .userRelease .release .release__body .songList .song .song__duration,
-.main .userRelease .release .release__body .songList .song .song__listens {
+.main .userRelease .userReleases__release .release__body .songList .song .song__duration,
+.main .userRelease .userReleases__release .release__body .songList .song .song__listens {
   color: #868A91;
 }
-.main .userRelease .release .release__body .songList .song .song__actions {
+.main .userRelease .userReleases__release .release__body .songList .song .song__actions {
   justify-self: end;
   padding: 0;
   margin: 0;
   height: 28px;
 }
-.main .userRelease .release .release__body .songList .song .song__body_editable .song__duration_input {
+.main .userRelease .userReleases__release .release__body .songList .song .song__body_editable .song__duration_input {
   width: 90px;
+}
+.main .userRelease .userReleases__release_all .release__body .songList {
+  grid-template-columns: 20px 5fr 2fr 2fr;
+}
+.main .userRelease .userReleases__release_all .release__body .songList .song {
+  grid-column: span 6;
+  grid-template-columns: 24px 5fr 2fr 2fr;
 }
 .main .userReleases {
   display: flex;
@@ -970,6 +999,7 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: max-content auto;
   gap: 20px;
   align-items: center;
+  margin-bottom: 8px;
 }
 .main .userReleases .release .release__header :last-child {
   justify-self: end;
@@ -1051,6 +1081,13 @@ a:hover {
 }
 a:active {
   color: #375FAD;
+}
+a.active {
+  color: rgba(255, 255, 255, 0.29);
+  background: linear-gradient(90deg, #e933ff, #00a0ff, #7700d5, #0021ff, #3574F0);
+  background-size: 500%;
+  -webkit-background-clip: text;
+  animation: gradient 15s linear infinite;
 }
 
 .button {
@@ -1153,16 +1190,33 @@ a:active {
   color: #868A91;
 }
 
-.block-title {
+.block-header {
   color: #DFE1E5;
-  font-size: 24px;
-  font-weight: 600;
   background-color: rgba(30, 30, 30, 0.4980392157);
   backdrop-filter: blur(15px);
   padding: 16px;
   margin: 32px 0 16px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-header.block-header_menu {
+  justify-content: start;
+}
+.block-header * {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.block-header .block-header__separator {
+  margin: 0 8px;
+  color: #afafb6;
+}
+.block-header .block-header__title {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .span__border {
@@ -1309,7 +1363,7 @@ a:active {
     width: 100%;
   }
   .main .releases .release:last-child {
-    display: block;
+    display: grid;
   }
   .main .registration .form {
     display: flex;
@@ -1317,9 +1371,12 @@ a:active {
   }
 }
 @media (max-width: 650px) {
-  .block-title {
+  .block-header {
     font-size: 20px;
     margin-bottom: 0;
+  }
+  .block-header .icon_secondary {
+    display: none;
   }
   .helloElement {
     background-image: url("../images/mobilebackground.png");
@@ -1424,6 +1481,11 @@ a:active {
   }
 }
 @media (max-width: 500px) {
+  .block-header {
+    display: grid;
+    align-items: start;
+    gap: 8px;
+  }
   .helloElement .container .helloElement__title {
     font-size: 28px;
   }

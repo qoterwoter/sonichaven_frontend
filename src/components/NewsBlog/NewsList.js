@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchNews} from "../../reducers/newsSlice";
 import NewsArticle from "./NewsArticle";
-import {useLocation} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 export const beautyDate = date => {
     const timestamp = new Date(date)
@@ -22,6 +22,8 @@ const NewsList = () => {
 
     const location = useLocation()
 
+    const ends = location.pathname.endsWith('/news')
+
     const onChangePage = (type) => {
         if(type==='inc' && page * 5 <= news.count) {
             setPage(page+1)
@@ -36,7 +38,7 @@ const NewsList = () => {
     }, [dispatch, page])
 
     const newsList = news.count > 0 && news.results.map((newsArticle,id) => {
-        if(!location.pathname.endsWith('/news') && id > 2) {
+        if(!ends && id > 2) {
             return null
         }
         const article = newsArticle.article
@@ -48,12 +50,12 @@ const NewsList = () => {
 
     const menu = (
         <div className="news__menu">
-            {page > 1 && (
+            {page > 1 ? (
                 <button
                     onClick={() => {onChangePage('dec')}}
                     className={'menu__action button'}
                 >Предыдущие</button>
-            )}
+            ) : <p></p>}
 
             {page * 5 < news.count && (
                 <button
@@ -66,10 +68,13 @@ const NewsList = () => {
 
     return (
     <section className='news'>
-        <h2 className='news__title block-title'>Новости</h2>
-        {menu}
+        <div className='news__header block-header'>
+            <h2 className={'news__title'}>Новости</h2>
+            {!ends && <NavLink className={'news__link'} to={'/news'}>Все новости</NavLink>}
+        </div>
+        {ends && menu}
         {newsList}
-        {menu}
+        {ends && menu}
     </section>
     )
 }

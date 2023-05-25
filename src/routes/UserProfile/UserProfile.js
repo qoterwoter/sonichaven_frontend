@@ -111,7 +111,7 @@ const UserProfile = () => {
 
     return (
     <main className='main'>
-        <h2 className="block-title">Мой профиль</h2>
+        <h2 className="block-header">Мой профиль</h2>
         <section className="userProfile">
             <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
             <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>

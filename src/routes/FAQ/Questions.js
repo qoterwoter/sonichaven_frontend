@@ -59,7 +59,7 @@ function Questions(props) {
     return (
     <main className="main">
         <div className="questions">
-            <h2 className="questions__title block-title">Популярные вопросы и ответы</h2>
+            <h2 className="questions__title block-header">Популярные вопросы и ответы</h2>
             <div className="questions__form form">
                 <label className={'form__label'} htmlFor={'search'}>Поиск:</label>
                 <input

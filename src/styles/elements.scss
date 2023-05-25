@@ -1,16 +1,21 @@
-
-
 a {
     color: $blue-link;
     text-decoration: none;
     transition: .3s;
     cursor: pointer;
-
     &:hover {
         color: $blue-hovered;
     }
     &:active {
         color: $blue-pressed;
+    }
+    &.active {
+        color: rgba(255, 255, 255, 0.29);
+        background: $gradient;
+        background-size: 500%;
+        -webkit-background-clip: text;
+
+        animation: gradient 15s linear infinite;
     }
 }
 
@@ -120,16 +125,33 @@ a {
 .label {
     color: $text-secondary;
 }
-.block-title {
+.block-header {
     color: $text-primary;
-    font-size: 24px;
-    font-weight: 600;
     background-color: $blur-background;
     backdrop-filter: $blur;
     padding: 16px;
     margin: 32px 0 16px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &.block-header_menu {
+        justify-content: start;
+    }
+    * {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .block-header__separator {
+        margin: 0 8px;
+        color: $text-general;
+    }
+    .block-header__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
 }
 
 .span__border {
