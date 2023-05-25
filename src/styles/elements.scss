@@ -46,6 +46,15 @@ a {
 .icon {
     height: 28px;
     width: 28px;
+    transition: .3s !important;
+    cursor: pointer;
+    &:hover {
+        filter: opacity(70%);
+    }
+    &:active {
+        filter: opacity(50%);
+    }
+
     &.icon_edit {
         color: $blue-general;
     }
@@ -56,6 +65,10 @@ a {
         width: 50px;
         height: 50px;
     }
+    &.icon_secondary {
+        color: $text-secondary;
+    }
+
 }
 
 .form {
@@ -141,15 +154,4 @@ a {
 }
 .actions__edit {
     color: $green-edit;
-}
-
-.icon {
-    transition: .3s !important;
-    cursor: pointer;
-    &:hover {
-        filter: opacity(70%);
-    }
-    &:active {
-        filter: opacity(50%);
-    }
 }

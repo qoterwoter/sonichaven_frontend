@@ -4,8 +4,13 @@ import {handlePending, handleSuccess, handleError} from "./handleResponse";
 import {API_URL} from "./ordersSlice";
 
 
-export const fetchNews = createAsyncThunk('news/fetchNews', async  () => {
-    const response = await axios.get(`${API_URL}/news/`)
+export const fetchNews = createAsyncThunk('news/fetchNews', async  (page) => {
+    const response = await axios.get(`${API_URL}/news/ ${page ? '?page' + page + '/' : ''}`)
+    return response.data
+})
+
+export const fetchCurrentNews = createAsyncThunk('news/fetchCurrentNews', async id => {
+    const response = await axios.get(`${API_URL}/news_detail/${id}/`)
     return response.data
 })
 
@@ -19,7 +24,11 @@ const newsReducer = createSlice({
     extraReducers: {
         [fetchNews.pending]: handlePending,
         [fetchNews.fulfilled]: (state, action) => handleSuccess(state,action,'news'),
-        [fetchNews.rejected]: handleError
+        [fetchNews.rejected]: handleError,
+        [fetchCurrentNews.fulfilled]: (state, action) => {
+            state.news = action.payload
+            state.status = 'успешно'
+        }
     }
 })
 

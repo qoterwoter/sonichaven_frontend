@@ -69,6 +69,7 @@ const ReleaseEditable = (props) => {
                     {release.songs && release.songs.length} треков
                 </h3>
                 <ul className="body__songsList songList">
+                    <li className='songList__title'>#</li>
                     <li className='songList__title'>Название</li>
                     <li className='songList__duration'>Длительность</li>
                     <li className="songList__listens">Прослушивания</li>

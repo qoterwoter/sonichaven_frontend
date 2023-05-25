@@ -30,8 +30,8 @@ function SongEditable(props) {
         <li className={'songsList__song song'}>
             {isEdit ?
             <>
+                <label className={'song__title'}>{props.songId}.</label>
                 <form className="song__body_editable" onSubmit={onSave} >
-                    <label className={'song__title'}>{props.songId}. </label>
                     <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
                 </form>
                 <form className="song__body_editable" onSubmit={onSave}>
@@ -40,7 +40,8 @@ function SongEditable(props) {
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </> :
             <>
-                <p className='song__title'>{props.songId}. {title}</p>
+                <p className="song__number">{props.songId}.</p>
+                <p className='song__title'>{title}</p>
                 <p className="song__duration">{duration}</p>
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </>

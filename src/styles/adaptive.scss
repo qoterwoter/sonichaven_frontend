@@ -113,7 +113,7 @@
 
 @media (max-width: 920px) {
     .main {
-        .userReleases .release {
+        .userRelease .release {
             display: flex;
             flex-direction: column;
             .release__header {
@@ -122,6 +122,12 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 750px) {
+    .header .container {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -228,6 +234,11 @@
         grid-template-rows: 1fr 4fr;
         .menu {
             width: 100%;
+            &:last-child {
+                .menu__title {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -252,7 +263,7 @@
                 }
             }
         }
-        .userReleases .release {
+        .userRelease .release {
             .release__body .songList {
                 grid-template-columns: 5fr 1fr 1fr;
                 .songList__listens {
@@ -295,7 +306,7 @@
         }
     }
     .main {
-        .userReleases .release .release__header .release__image {
+        .userRelease .release .release__header .release__image {
             width: 100%;
         }
         .shopCart {

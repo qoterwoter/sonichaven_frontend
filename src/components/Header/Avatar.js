@@ -15,7 +15,6 @@ const Avatar = (props) => {
             props.setIsShow(!props.isShow);
         }
     };
-    console.log(avatarUrl.length < 10)
     const avatar = avatarUrl.length < 10 ?
         <AccountCircleRoundedIcon className={'icon icon_user'} onClick={handleClick}/> :
         <img className='avatar__image' src={avatarUrl} alt='user profile' onClick={handleClick}/>

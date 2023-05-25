@@ -84,10 +84,18 @@ body {
     width: 100%;
     position: fixed;
     z-index: 999;
-
     .container {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 1200px;
+
+        :nth-child(2) {
+            justify-self: center;
+        }
+
+        :last-child {
+            justify-self: end;
+        }
 
         .header__logo {
             font-size: $heading-text-2;
@@ -172,7 +180,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-items: start;
+    justify-items: end;
     padding: $gap;
     .menu {
         padding: $gap;

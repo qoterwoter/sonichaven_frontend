@@ -129,8 +129,15 @@ body::-webkit-scrollbar-thumb {
   z-index: 999;
 }
 .header .container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 1200px;
+}
+.header .container :nth-child(2) {
+  justify-self: center;
+}
+.header .container :last-child {
+  justify-self: end;
 }
 .header .container .header__logo {
   font-size: 24px;
@@ -202,7 +209,7 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: start;
+  justify-items: end;
   padding: 16px;
 }
 .header__mobileMenu .menu {
@@ -339,15 +346,26 @@ body::-webkit-scrollbar-thumb {
   display: grid;
   gap: 16px;
 }
+.main .news .news__title {
+  display: flex;
+  align-items: center;
+}
 .main .news .news__article {
   background-color: rgba(30, 30, 30, 0.4980392157);
   backdrop-filter: blur(15px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   padding: 16px;
+  display: grid;
+  gap: 8px;
+  justify-content: start;
 }
-.main .news .news__article .article__title {
-  margin-top: 0;
+.main .news .news__article .article__header {
+  display: flex;
+  justify-content: space-between;
+}
+.main .news .news__article * {
+  margin: 0;
 }
 .main .news .news__article .article__content {
   color: #afafb6;
@@ -357,8 +375,64 @@ body::-webkit-scrollbar-thumb {
   border-radius: 12px;
 }
 .main .news .news__article .article__date {
-  margin: 0;
   color: #868A91;
+}
+.main .questions {
+  margin-top: 16px;
+}
+.main .questions .questions__form {
+  font-size: 16px;
+  padding: 16px;
+  background-color: rgba(30, 30, 30, 0.4980392157);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+}
+.main .questions .questions__form .form__input_search {
+  border-color: #868A91;
+  font-size: 16px;
+  margin: 0;
+  background-color: transparent;
+  width: 330px;
+}
+.main .questions .questions__list {
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.main .questions .questions__list .faq {
+  padding: 16px;
+  background-color: rgba(30, 30, 30, 0.4980392157);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  display: grid;
+}
+.main .questions .questions__list .faq .faq__question {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.main .questions .questions__list .faq .faq__question .icon_show {
+  transform: rotate(90deg);
+}
+.main .questions .questions__list .faq * {
+  margin: 0;
+}
+.main .questions .questions__list .faq .faq__answer {
+  border-top: 2px solid #2d2d2d;
+  transition: opacity 0.5s;
+  margin-top: 16px;
+  padding-top: 16px;
+  color: #afafb6;
+}
+.main .questions .questions__list .faq .faq__answer.faq__answer_hidden {
+  display: none;
+  opacity: 0;
 }
 .main .authorization .authForm {
   height: fit-content;
@@ -762,7 +836,19 @@ body::-webkit-scrollbar-thumb {
   display: block;
   border-radius: 16px;
 }
-.main .userReleases .release {
+.main .userRelease .userRelease__title {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+.main .userRelease .userRelease__title * {
+  margin: 0;
+}
+.main .userRelease .userRelease__title .title__separator {
+  color: #868A91;
+  padding: 0 8px;
+}
+.main .userRelease .release {
   padding: 16px;
   background-color: rgba(30, 30, 30, 0.4980392157);
   border-radius: 16px;
@@ -774,79 +860,121 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr 3fr;
   gap: 16px;
 }
-.main .userReleases .release .release__header {
+.main .userRelease .release .release__header {
   width: 100%;
 }
-.main .userReleases .release .release__header .release__title {
+.main .userRelease .release .release__header .release__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
-.main .userReleases .release .release__header .release__title .title {
+.main .userRelease .release .release__header .release__title .title {
   margin: 0;
 }
-.main .userReleases .release .release__header .release__title .input {
+.main .userRelease .release .release__header .release__title .input {
   width: 140px;
 }
-.main .userReleases .release .release__header .release__image {
+.main .userRelease .release .release__header .release__image {
   width: 100%;
   border-radius: 16px;
 }
-.main .userReleases .release .release__header .release__type,
-.main .userReleases .release .release__header .release__date,
-.main .userReleases .release .release__header .release__duration,
-.main .userReleases .release .release__header .release__about {
+.main .userRelease .release .release__header .release__type,
+.main .userRelease .release .release__header .release__date,
+.main .userRelease .release .release__header .release__duration,
+.main .userRelease .release .release__header .release__about {
   margin: 8px 0;
   color: #868A91;
 }
-.main .userReleases .release .release__body {
+.main .userRelease .release .release__body {
   display: flex;
   flex-direction: column;
 }
-.main .userReleases .release .release__body .body__title {
+.main .userRelease .release .release__body .body__title {
   margin: 4px 0 8px;
 }
-.main .userReleases .release .release__body .songList {
+.main .userRelease .release .release__body .songList {
   margin: 0;
   display: grid;
-  grid-template-columns: 5fr 2fr 2fr 1fr;
+  grid-template-columns: 20px 5fr 2fr 2fr 1fr;
   gap: 8px;
   padding: 0;
 }
-.main .userReleases .release .release__body .songList .songList__title,
-.main .userReleases .release .release__body .songList .songList__duration,
-.main .userReleases .release .release__body .songList .songList__listens {
+.main .userRelease .release .release__body .songList .songList__title,
+.main .userRelease .release .release__body .songList .songList__duration,
+.main .userRelease .release .release__body .songList .songList__listens {
   list-style: none;
   padding: 8px;
   color: #868A91;
 }
-.main .userReleases .release .release__body .songList .song {
+.main .userRelease .release .release__body .songList .song {
   display: grid;
-  grid-template-columns: 5fr 2fr 2fr 1fr;
-  grid-column: span 5;
+  grid-template-columns: 24px 5fr 2fr 2fr 1fr;
+  grid-column: span 7;
   align-items: center;
   padding: 8px 8px 8px 12px;
   background-color: #1E1F22;
   border-radius: 16px;
   color: #afafb6;
 }
-.main .userReleases .release .release__body .songList .song > * {
-  padding-right: 16px;
+.main .userRelease .release .release__body .songList .song > * {
+  padding: 0;
   margin: 0;
 }
-.main .userReleases .release .release__body .songList .song .song__duration,
-.main .userReleases .release .release__body .songList .song .song__listens {
+.main .userRelease .release .release__body .songList .song .song__duration,
+.main .userRelease .release .release__body .songList .song .song__listens {
   color: #868A91;
 }
-.main .userReleases .release .release__body .songList .song .song__actions {
+.main .userRelease .release .release__body .songList .song .song__actions {
   justify-self: end;
   padding: 0;
   margin: 0;
   height: 28px;
 }
-.main .userReleases .release .release__body .songList .song .song__body_editable .song__duration_input {
+.main .userRelease .release .release__body .songList .song .song__body_editable .song__duration_input {
   width: 90px;
+}
+.main .userReleases {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+}
+.main .userReleases .userReleases__title {
+  grid-column: span 4;
+  margin-bottom: 0;
+}
+.main .userReleases .release {
+  background-color: rgba(30, 30, 30, 0.4980392157);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(15px);
+  width: fit-content;
+  margin: 16px 0;
+  padding: 16px;
+  display: grid;
+  grid-gap: 8px;
+}
+.main .userReleases .release * {
+  margin: 0;
+}
+.main .userReleases .release .release__header {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 20px;
+  align-items: center;
+}
+.main .userReleases .release .release__header :last-child {
+  justify-self: end;
+}
+.main .userReleases .release .release__image {
+  width: 100%;
+  border-radius: 16px;
+}
+.main .userReleases .release .release__date,
+.main .userReleases .release .release__about {
+  color: #868A91;
 }
 
 .helloElement {
@@ -924,6 +1052,14 @@ a:active {
 .icon {
   height: 28px;
   width: 28px;
+  transition: 0.3s !important;
+  cursor: pointer;
+}
+.icon:hover {
+  filter: opacity(70%);
+}
+.icon:active {
+  filter: opacity(50%);
 }
 .icon.icon_edit {
   color: #548AF7;
@@ -934,6 +1070,9 @@ a:active {
 .icon.icon_user {
   width: 50px;
   height: 50px;
+}
+.icon.icon_secondary {
+  color: #868A91;
 }
 
 .form .form__label {
@@ -1016,17 +1155,6 @@ a:active {
 
 .actions__edit {
   color: #5FAD65;
-}
-
-.icon {
-  transition: 0.3s !important;
-  cursor: pointer;
-}
-.icon:hover {
-  filter: opacity(70%);
-}
-.icon:active {
-  filter: opacity(50%);
 }
 
 @media (max-width: 1230px) {
@@ -1123,12 +1251,17 @@ a:active {
   }
 }
 @media (max-width: 920px) {
-  .main .userReleases .release {
+  .main .userRelease .release {
     display: flex;
     flex-direction: column;
   }
-  .main .userReleases .release .release__header .release__image {
+  .main .userRelease .release .release__header .release__image {
     width: 260px;
+  }
+}
+@media (max-width: 750px) {
+  .header .container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 720px) {
@@ -1213,6 +1346,9 @@ a:active {
   .header__mobileMenu .menu {
     width: 100%;
   }
+  .header__mobileMenu .menu:last-child .menu__title {
+    display: none;
+  }
 }
 @media (max-width: 570px) {
   .main .userProfile .item__artistData .item__information .miniItems {
@@ -1229,16 +1365,16 @@ a:active {
     width: 100%;
     height: 100%;
   }
-  .main .userReleases .release .release__body .songList {
+  .main .userRelease .release .release__body .songList {
     grid-template-columns: 5fr 1fr 1fr;
   }
-  .main .userReleases .release .release__body .songList .songList__listens {
+  .main .userRelease .release .release__body .songList .songList__listens {
     display: none;
   }
-  .main .userReleases .release .release__body .songList .song {
+  .main .userRelease .release .release__body .songList .song {
     grid-template-columns: 5fr 1fr 1fr;
   }
-  .main .userReleases .release .release__body .songList .song .song__listens {
+  .main .userRelease .release .release__body .songList .song .song__listens {
     display: none;
   }
 }
@@ -1262,7 +1398,7 @@ a:active {
   .notifications .notification .notification__title {
     font-size: 21px;
   }
-  .main .userReleases .release .release__header .release__image {
+  .main .userRelease .release .release__header .release__image {
     width: 100%;
   }
   .main .shopCart .shopCart__items {
