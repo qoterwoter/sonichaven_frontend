@@ -16,7 +16,7 @@
             font-size: $paragraph-text;
             margin: 0;
             background-color: transparent;
-            width: 330px;
+            width: 100%;
         }
     }
     .questions__list {
@@ -45,7 +45,7 @@
                 border-top: 2px solid $border;
                 transition: opacity 0.5s;
                 margin-top: $gap;
-                padding-top: $gap;
+                padding: $gap 4px 4px 4px;
                 color: $text-general;
 
                 &.faq__answer_hidden {

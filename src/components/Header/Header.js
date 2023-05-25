@@ -16,6 +16,7 @@ const Header = () => {
 
     const hideMenu = () => {
         setIsShow(false)
+        setIsShow(false)
     }
 
     const handleLogout = () => {
@@ -67,25 +68,22 @@ const Header = () => {
     const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
-    const hideMobileMenu = () => {
-        setShowMenu(false)
-    }
+
     const loginButtons = <Avatar handleLogout={handleLogout} isShow={isShow} setIsShow={setIsShow}/>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink>
 
     const mainLinks = (
         <nav className='header__nav nav menu'>
-            <NavLink className='nav__link' to='/'>Главная</NavLink>
-            <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
-            <NavLink className='nav__link' to='/catalog'>Каталог</NavLink>
-            <NavLink className='nav__link' to='/news'>Новости</NavLink>
-            <NavLink className='nav__link' to='/faq'>F.A.Q.</NavLink>
+            <NavLink className='nav__link' to='/' onClick={hideMenu}>Главная</NavLink>
+            <NavLink className='nav__link' to='/about-us' onClick={hideMenu}>О нас</NavLink>
+            <NavLink className='nav__link' to='/catalog' onClick={hideMenu}>Каталог</NavLink>
+            <NavLink className='nav__link' to='/news' onClick={hideMenu}>Новости</NavLink>
+            <NavLink className='nav__link' to='/faq' onClick={hideMenu}>F.A.Q.</NavLink>
         </nav>
     )
 
     const userLinks = (
     <>
-
         <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMenu}>Мой профиль</NavLink>
         <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMenu}>Мои релизы</NavLink>
         <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>

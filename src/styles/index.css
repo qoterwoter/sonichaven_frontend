@@ -404,7 +404,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 16px;
   margin: 0;
   background-color: transparent;
-  width: 330px;
+  width: 100%;
 }
 .main .questions .questions__list {
   padding: 0;
@@ -434,7 +434,7 @@ body::-webkit-scrollbar-thumb {
   border-top: 2px solid #2d2d2d;
   transition: opacity 0.5s;
   margin-top: 16px;
-  padding-top: 16px;
+  padding: 16px 4px 4px 4px;
   color: #afafb6;
 }
 .main .questions .questions__list .faq .faq__answer.faq__answer_hidden {
@@ -1373,13 +1373,13 @@ a:active {
     height: 100%;
   }
   .main .userRelease .release .release__body .songList {
-    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-columns: 20px 5fr 1fr 1fr;
   }
   .main .userRelease .release .release__body .songList .songList__listens {
     display: none;
   }
   .main .userRelease .release .release__body .songList .song {
-    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-columns: 24px 5fr 1fr 1fr;
   }
   .main .userRelease .release .release__body .songList .song .song__listens {
     display: none;

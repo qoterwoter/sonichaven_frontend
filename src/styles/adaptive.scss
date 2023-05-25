@@ -265,12 +265,12 @@
         }
         .userRelease .release {
             .release__body .songList {
-                grid-template-columns: 5fr 1fr 1fr;
+                grid-template-columns: 20px 5fr 1fr 1fr;
                 .songList__listens {
                     display: none;
                 }
                 .song {
-                    grid-template-columns: 5fr 1fr 1fr;
+                    grid-template-columns: 24px 5fr 1fr 1fr;
                     .song__listens {
                         display: none;
                     }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchNews} from "../../reducers/newsSlice";
 import NewsArticle from "./NewsArticle";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 export const beautyDate = date => {
     const timestamp = new Date(date)
@@ -14,7 +14,11 @@ const NewsList = () => {
     const news = useSelector(state => state.news.news)
     const dispatch = useDispatch()
 
-    const [page, setPage] = useState(1)
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const [page, setPage] = useState(urlParams.get('page') || 1)
+
+    console.log(urlParams)
 
     const location = useLocation()
 
@@ -25,6 +29,7 @@ const NewsList = () => {
         if(type==='dec' && page > 1) {
             setPage(page-1)
         }
+
     }
 
     useEffect(() => {
