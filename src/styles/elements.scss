@@ -201,6 +201,10 @@ a {
     justify-content: space-between;
     &.block-header_menu {
         justify-content: start;
+        * {
+            font-size: $heading-text-3;
+            font-weight: 300 !important;
+        }
     }
     * {
         display: block;

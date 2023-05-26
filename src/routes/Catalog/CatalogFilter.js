@@ -18,7 +18,7 @@ function CatalogFilter(props) {
                     <input
                         type="number"
                         className="form__input"
-                        value={filter.minPrice}
+                        value={+filter.minPrice}
                         onChange={filter.onMinPrice}
                     />
                 </div>
