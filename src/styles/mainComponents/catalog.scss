@@ -7,9 +7,9 @@
         background: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
-        height: max-content;
         padding: $gap;
         z-index: 19999;
+        height: fit-content;
         position: absolute;
         display: grid;
         grid-template-columns: 1fr 1fr;

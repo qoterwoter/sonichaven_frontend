@@ -28,10 +28,6 @@ const serviceTypes = [
 
 const serviceObjects = serviceTypes.map(type => ({ title: type, isActive: true }));
 
-console.log(serviceObjects)
-
-serviceObjects.map(type => console.log(type))
-
 const Catalog = (props) => {
     const data = useSelector(state => state.services.services)
 
@@ -86,14 +82,10 @@ const Catalog = (props) => {
             .filter(type => type.isActive)
             .map(type=>type.title)
 
-        console.log(titles)
-
         if (search.length < 3) {
 
             const filtered = [...data]?.filter(service => {
                 const cost = +service.cost
-
-                console.log(service.type)
 
                 if(cost >= prices.minPrice && cost <= prices.maxPrice && titles.indexOf(service.type) > -1)
                     return true

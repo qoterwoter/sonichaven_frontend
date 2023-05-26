@@ -67,7 +67,6 @@ body {
   font-size: 16px;
   background-image: url("../images/body_background.jpg");
   background-position-y: 100vh;
-  background-size: 100%;
   background-repeat: repeat-y;
   min-height: 80vh;
 }
@@ -252,9 +251,9 @@ body::-webkit-scrollbar-thumb {
   background: rgba(30, 30, 30, 0.4980392157);
   backdrop-filter: blur(15px);
   border-radius: 16px;
-  height: max-content;
   padding: 16px;
   z-index: 19999;
+  height: fit-content;
   position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr;
