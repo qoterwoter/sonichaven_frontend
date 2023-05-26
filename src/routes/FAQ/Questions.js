@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Faq from "./Faq";
+import {highlightSearchQuery} from "../Catalog/Catalog";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 function Questions(props) {
     const data = [
@@ -43,36 +45,48 @@ function Questions(props) {
             setQuestions([...data])
             return
         }
-        setQuestions(data.filter(question => {
+        const query = search.toLocaleLowerCase()
+
+        const filtered = data.filter(question => {
             const quest = question.question.toLocaleLowerCase()
             const answer = question.answer.toLocaleLowerCase()
 
-            const request = search.toLocaleLowerCase()
 
-            if(quest.includes(request) || answer.includes(request)) {
+            if(quest.includes(query) || answer.includes(query)) {
                 console.log(question.question.includes(search) || question.answer.includes(search))
                 return true
             }
+        })
+
+        setQuestions(filtered.map(question => {
+            return {
+                ...question,
+                question: highlightSearchQuery(query, question.question),
+                answer: highlightSearchQuery(query, question.answer)
+            }
         }))
+
     }, [search])
 
     return (
     <main className="main">
         <div className="questions">
             <h2 className="questions__title block-header">Популярные вопросы и ответы</h2>
-            <div className="questions__form form">
-                <label className={'form__label'} htmlFor={'search'}>Поиск:</label>
+            <div className="questions__form form form_horizontal">
+                <label htmlFor="search" className="form__label">
+                    <SearchRoundedIcon className={'icon'}/>
+                </label>
                 <input
                     className={'form__input form__input_search'}
-                    type={'search'}
+                    placeholder={'Напишите ваш вопрос'}
                     id={'search'}
+                    type={'search'}
                     value={search}
                     onChange={onSearch}
-                    placeholder={'Введите запрос'}
                 />
             </div>
             <ol className="questions__list">
-                {questions.map(faq => <Faq faq={faq}/>)}
+                {questions.map((faq, id) => <Faq faq={faq} key={`faq${id}`}/>)}
             </ol>
         </div>
     </main>

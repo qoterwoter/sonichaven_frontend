@@ -2,7 +2,7 @@
     margin-top: $gap;
     .questions__form {
         font-size: $paragraph-text;
-        padding: $gap;
+        padding: 8px;
         background-color: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
@@ -11,13 +11,7 @@
         gap: 10px;
         grid-template-columns: max-content 1fr;
         align-items: center;
-        .form__input_search {
-            border-color: $text-secondary;
-            font-size: $paragraph-text;
-            margin: 0;
-            background-color: transparent;
-            width: 100%;
-        }
+
     }
     .questions__list {
         padding: 0;
@@ -36,6 +30,9 @@
                 cursor: pointer;
                 .icon_show {
                     transform: rotate(90deg);
+                }
+                .highlight {
+                    margin-left: 5px;
                 }
             }
             * {

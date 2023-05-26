@@ -54,7 +54,10 @@ const CatalogItem = (props) => {
     return (
     <>
     <div key={service.id} className='catalog__service service'>
-        <h2 className='service__title'>{service.name} {getIcon(service, 'service__icon icon')}</h2>
+        <div className='service__header'>
+            <h2 className="service__title">{service.name}</h2>
+            <div className="service__icon">{getIcon(service, 'service__icon icon')}</div>
+        </div>
         <p className="service__description">{service.description}</p>
         <p className='service__cost'>Стоимость <span className="span__border">·</span> {beautyNum(service.cost)} Руб.</p>
         <div className="service__actions">
