@@ -25,6 +25,9 @@
             .catalog__title {
                 grid-column: span 2;
             }
+            .filters {
+                grid-column: span 2;
+            }
         }
         .userProfile {
             grid-template-columns: 1fr;
@@ -194,6 +197,32 @@
         }
         .catalog {
             grid-template-columns: 1fr;
+            .catalog__title {
+                display: flex;
+                flex-direction: column;
+                 * {
+                     width: 100%;
+                 }
+            }
+            .filters {
+                position: static;
+                grid-column: span 1;
+                grid-template-columns: 1fr 1fr;
+                font-size: $paragraph-text;
+                .block-header {
+                    display: flex;
+                }
+                .filter:first-child .filter__options {
+                    left: 0;
+                }
+                .filter:last-child .filter__options {
+                    right: 0;
+                }
+                .filter__options {
+                    top: 71px;
+                    width: calc(200% + 16px);
+                }
+            }
             .catalog__title {
                 grid-column: span 1;
             }
@@ -391,6 +420,16 @@
         .orders .order {
             .order__header {
                 flex-wrap: wrap;
+            }
+        }
+        .catalog {
+            .filters {
+                .block-header {
+                    gap: 0;
+                    .icon {
+                        margin: 0;
+                    }
+                }
             }
         }
     }
