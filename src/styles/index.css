@@ -256,8 +256,6 @@ body::-webkit-scrollbar-thumb {
   padding: 16px;
   z-index: 19999;
   position: absolute;
-  right: 0;
-  top: 180px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -266,16 +264,39 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
 }
+.main .catalog .filter__options .form__row {
+  display: flex;
+}
+.main .catalog .filter__options .form__row .form__checkbox {
+  margin-right: 10px;
+}
+.main .catalog .filter__options .form__row .form__label {
+  color: #afafb6;
+}
 .main .catalog .filter__options .form__input {
   border-color: #868A91;
   width: 100px;
   background: transparent;
 }
-.main .catalog .block-header {
+.main .catalog .filters {
   grid-column: span 3;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
   align-items: center;
+  gap: 16px;
+}
+.main .catalog .filters .filters__title {
+  margin-top: 0;
+}
+.main .catalog .filters .filter {
+  position: relative;
+}
+.main .catalog .filters .filter .block-header {
+  cursor: pointer;
+  margin-top: 0;
+}
+.main .catalog .filters .filter .block-header .icon {
+  margin-right: 8px;
 }
 .main .catalog .catalog__title {
   grid-column: span 3;
@@ -1183,6 +1204,9 @@ a.active {
 }
 .icon:active {
   filter: opacity(50%);
+}
+.icon.icon_show {
+  transform: rotate(90deg);
 }
 .icon.icon_edit {
   color: #548AF7;

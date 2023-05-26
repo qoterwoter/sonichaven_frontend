@@ -93,7 +93,9 @@ a {
     &:active {
         filter: opacity(50%);
     }
-
+    &.icon_show {
+        transform: rotate(90deg);
+    }
     &.icon_edit {
         color: $blue-general;
     }

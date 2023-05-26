@@ -20,27 +20,46 @@ export const highlightSearchQuery = (query, text) => {
     });
 }
 
+const serviceTypes = [
+    'Exclusive', 'Exclusive+', 'Mixing', 'Mixing+',
+    'Leasing', 'Leasing+', 'Production', 'Key',
+    'Record', 'Distribution'
+]
+
+const serviceObjects = serviceTypes.map(type => ({ title: type, isActive: true }));
+
+console.log(serviceObjects)
+
+serviceObjects.map(type => console.log(type))
+
 const Catalog = (props) => {
     const data = useSelector(state => state.services.services)
 
     const [services, setServices] = useState()
     const [search, setSearch] = useState('')
 
-    const [priceFilter, setPriceFilter] = useState(null)
-
-    const [minPrice, setMinPrice] = useState(0)
-    const onMinPrice = e => setMinPrice(+e.target.value)
+    const [prices, setPrices] = useState({
+        minPrice: 0,
+        maxPrice: 0
+    })
 
     const onSearch = e => setSearch(e.target.value)
 
     const dispatch = useDispatch()
 
+    const [types, setTypes] = useState([...serviceObjects])
+
     const filters = [
         {
             title: 'Стоимость',
             id: 'price',
-            minPrice,
-            onMinPrice
+            prices,
+            setPrices
+        }, {
+            title: 'Тип услуги',
+            id: 'type',
+            types,
+            setTypes
         }
     ]
 
@@ -55,13 +74,31 @@ const Catalog = (props) => {
     useEffect(() => {
         const allPrices = data?.map(service=>+service.cost)
         if(allPrices?.length > 0) {
-            setMinPrice(Math.min(...allPrices))
+            setPrices({
+                minPrice: Math.min(...allPrices),
+                maxPrice: Math.max(...allPrices),
+            })
         }
     }, [data])
 
     useEffect(() => {
+        const titles = types
+            .filter(type => type.isActive)
+            .map(type=>type.title)
+
+        console.log(titles)
+
         if (search.length < 3) {
-            setServices([...data])
+
+            const filtered = [...data]?.filter(service => {
+                const cost = +service.cost
+
+                console.log(service.type)
+
+                if(cost >= prices.minPrice && cost <= prices.maxPrice && titles.indexOf(service.type) > -1)
+                    return true
+            })
+            setServices([...filtered])
             return;
         }
         const query = search.length > 0 && search.toLowerCase()
@@ -71,9 +108,10 @@ const Catalog = (props) => {
             const description = service.description.toLowerCase()
             const cost = service.cost.toLowerCase()
 
-            if(title.includes(query) || description.includes(query) || cost.includes(query)) return true
+            if(title.includes(query) || description.includes(query) || cost.includes(query))
+                if(+service.cost >= prices.minPrice && +service.cost <= prices.maxPrice && titles.indexOf(service.type) > -1)
+                    return true
         })
-
         setServices(filtered.map(service => {
             return {
                 ...service,
@@ -81,7 +119,8 @@ const Catalog = (props) => {
                 description: highlightSearchQuery(query, service.description),
             }
         }))
-    }, [search])
+    }, [search, prices, types])
+
 
     const servicesList = services?.map((service, id) => (
         <CatalogItem service={service} key={`service${id}`}/>)
@@ -116,13 +155,9 @@ const Catalog = (props) => {
                     <NavLink to={'/catalog'}>Все услуги</NavLink>}
             </div>
             {!props.isPopular && (
-            <>
-                <div className="block-header catalog__filters filters">
-                    <h3 className="filters__title">Фильтры</h3>
-                    {filters.map((filter, id) => <CatalogFilter filter={filter} key={`filter${id}`} setFilter={setPriceFilter}/>)}
-                </div>
-                {priceFilter}
-            </>
+            <div className={'filters'}>
+                {filters.map((filter, id) => <CatalogFilter filter={filter} key={`filter${id}`}/>)}
+            </div>
             )}
             {content}
         </div>
