@@ -15,12 +15,12 @@ const UserAllReleases = () => {
     const releasesList = releases && releases.map((release, id) => <Release release={release} key={`release${id}`}/>)
 
     return (
-    <main className={'main'}>
+    <>
         <h2 className="block-header">Мои релизы</h2>
         <section className="userReleases">
             {releasesList}
         </section>
-    </main>
+    </>
     )
 }
 

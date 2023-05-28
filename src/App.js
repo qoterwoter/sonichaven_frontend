@@ -15,13 +15,20 @@ const ScrollToTop = () => {
 }
 
 export default function App() {
+    const location = useLocation()
+
+    const ends = location.pathname === '/' || location.pathname.endsWith('about-us')
+
     return (
     <div>
         <Header/>
-        <>
+        {!ends ? (
+            <main className={'main'}>
+                <Outlet/>
+            </main>) : (
             <Outlet/>
-            <NotificationsList/>
-        </>
+        )}
+        <NotificationsList/>
         <Footer/>
         <ScrollToTop/>
     </div>

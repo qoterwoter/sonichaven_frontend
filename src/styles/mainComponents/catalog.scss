@@ -59,6 +59,9 @@
         display: grid;
         grid-template-columns: max-content 1fr;
         gap: $gap;
+        &.catalog__title_popular {
+            display: flex;
+        }
     }
 
     .catalog__filters {

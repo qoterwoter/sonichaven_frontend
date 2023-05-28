@@ -50,40 +50,38 @@ const Authorization = () => {
 
 
     return (
-        <main className='main'>
-            <div className="authorization">
-                <form className='authForm form' onSubmit={login}>
-                    <label className='form__label' htmlFor='login'>Введите логин:</label>
-                    <input
-                        className='form__input'
-                        id='login'
-                        type='text'
-                        placeholder='Логин'
-                        onChange={onChangeUsername}
-                        value={username}
-                    />
-                    <label className='form__label' htmlFor='password'>Введите пароль:</label>
-                    <input
-                        className='form__input'
-                        id='password'
-                        type='password'
-                        placeholder='Пароль'
-                        onChange={onChangePassword}
-                        value={password}
-                    />
-                    <input
-                        className='form__input_submit form__input'
-                        type='submit'
-                        value={'Войти'}
-                        onClick={login}
-                    />
-                    <p className="form__help">
-                        Нет аккаунта ? <NavLink to={"/register"}>Регистрация</NavLink>
-                    </p>
-                    {/*<p>Статус: {userData.status}</p>*/}
-                </form>
-            </div>
-        </main>
+        <div className="authorization">
+            <form className='authForm form' onSubmit={login}>
+                <label className='form__label' htmlFor='login'>Введите логин:</label>
+                <input
+                    className='form__input'
+                    id='login'
+                    type='text'
+                    placeholder='Логин'
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <label className='form__label' htmlFor='password'>Введите пароль:</label>
+                <input
+                    className='form__input'
+                    id='password'
+                    type='password'
+                    placeholder='Пароль'
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <input
+                    className='form__input_submit form__input'
+                    type='submit'
+                    value={'Войти'}
+                    onClick={login}
+                />
+                <p className="form__help">
+                    Нет аккаунта ? <NavLink to={"/register"}>Регистрация</NavLink>
+                </p>
+                {/*<p>Статус: {userData.status}</p>*/}
+            </form>
+        </div>
     )
 }
 

@@ -69,27 +69,25 @@ function Questions(props) {
     }, [search])
 
     return (
-    <main className="main">
-        <div className="questions">
-            <h2 className="questions__title block-header">Популярные вопросы и ответы</h2>
-            <div className="questions__form form form_horizontal">
-                <label htmlFor="search" className="form__label">
-                    <SearchRoundedIcon className={'icon'}/>
-                </label>
-                <input
-                    className={'form__input form__input_search'}
-                    placeholder={'Напишите ваш вопрос'}
-                    id={'search'}
-                    type={'search'}
-                    value={search}
-                    onChange={onSearch}
-                />
-            </div>
-            <ol className="questions__list">
-                {questions.map((faq, id) => <Faq faq={faq} key={`faq${id}`}/>)}
-            </ol>
+    <div className="questions">
+        <h2 className="questions__title block-header">Популярные вопросы и ответы</h2>
+        <div className="questions__form form form_horizontal">
+            <label htmlFor="search" className="form__label">
+                <SearchRoundedIcon className={'icon'}/>
+            </label>
+            <input
+                className={'form__input form__input_search'}
+                placeholder={'Напишите ваш вопрос'}
+                id={'search'}
+                type={'search'}
+                value={search}
+                onChange={onSearch}
+            />
         </div>
-    </main>
+        <ol className="questions__list">
+            {questions.map((faq, id) => <Faq faq={faq} key={`faq${id}`}/>)}
+        </ol>
+    </div>
     );
 }
 

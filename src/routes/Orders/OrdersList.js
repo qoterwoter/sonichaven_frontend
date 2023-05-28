@@ -18,12 +18,10 @@ const OrdersList = () => {
 
 
     return (
-    <main className='main'>
-        <div className="orders">
-            <h2 className='orders__title block-header'>Список заказов</h2>
-            {orderItems}
-        </div>
-    </main>
+    <div className="orders">
+        <h2 className='orders__title block-header'>Список заказов</h2>
+        {orderItems}
+    </div>
     )
 }
 

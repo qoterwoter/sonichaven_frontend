@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from "axios";
 import handleError, {handlePending, handleSuccess} from "./handleResponse";
 import {API_URL, user, headers} from "./ordersSlice";
+import {pushNotification} from "./notificationSlice";
 
 const artist = user.artist
 
@@ -12,18 +13,20 @@ export const authUser = createAsyncThunk('user/authUser', async ({username, pass
         )
         return response.data
     } catch (e) {
-        return Promise.reject(e)
+        return e
     }
 })
 
-export const registerUser = createAsyncThunk('user/registerUser', async ({firstName, lastName, username, password, email}) => {
+export const registerUser = createAsyncThunk('user/registerUser', async ({firstName, lastName, username, password, email}, {dispatch}, { rejectWithValue }) => {
     try {
         const response = await axios.post(
             API_URL + '/register/',{first_name: firstName, last_name: lastName, username, password, email, is_artist: 'True'}
         )
         return response.data
     } catch (e) {
-        return Promise.reject(e)
+        dispatch(pushNotification({ description:'asd', notificationType: 'error' })) // description: userData?.errorCode
+        return rejectWithValue(e.response.data)
+        // return e.response
     }
 })
 

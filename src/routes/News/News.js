@@ -19,7 +19,7 @@ function News(props) {
     }, [dispatch, id])
 
     return (
-    <main className="main">
+    <>
         <div className="news">
             <div className="news__title block-header block-header_menu">
                 <NavLink className={'title__route'} to={'/news/'}>Новости</NavLink>
@@ -39,7 +39,7 @@ function News(props) {
                 <p className={'article__date'}>{beautyDate(news.created_at)}</p>
             </div>
         </div>
-    </main>
+    </>
     );
 }
 

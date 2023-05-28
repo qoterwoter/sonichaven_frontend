@@ -303,6 +303,9 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: max-content 1fr;
   gap: 16px;
 }
+.main .catalog .catalog__title.catalog__title_popular {
+  display: flex;
+}
 .main .catalog .catalog__filters {
   margin-top: 0;
 }
@@ -468,9 +471,6 @@ body::-webkit-scrollbar-thumb {
 }
 .main .news .news__article .article__date {
   color: #868A91;
-}
-.main .questions {
-  margin-top: 16px;
 }
 .main .questions .questions__form {
   font-size: 16px;

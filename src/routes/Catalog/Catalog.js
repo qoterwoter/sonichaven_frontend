@@ -123,9 +123,8 @@ const Catalog = (props) => {
     </>
 
     return (
-    <main className='main'>
         <div className='catalog' id={'catalog'}>
-            <div className="catalog__title block-header">
+            <div className={"catalog__title block-header catalog__title_" + (props.isPopular ? 'popular' : 'all')}>
                 <h2 className={'block-header__title form'}>{props.title}</h2>
                 {!props.isPopular ? (
                     <>
@@ -153,7 +152,6 @@ const Catalog = (props) => {
             )}
             {content}
         </div>
-    </main>
     )
 }
 

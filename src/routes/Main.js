@@ -1,6 +1,6 @@
 import React from "react";
 import ReleasesList from "../components/Releases/ReleasesList";
-import NewsList from "../components/NewsBlog/NewsList";
+import NewsList from "./News/NewsList";
 import MainTitle from "./MainTitle";
 import Catalog from "./Catalog/Catalog";
 

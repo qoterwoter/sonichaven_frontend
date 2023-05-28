@@ -110,16 +110,16 @@ const UserProfile = () => {
     console.log(releases)
 
     return (
-    <main className='main'>
-        <h2 className="block-header">Мой профиль</h2>
-        <section className="userProfile">
-            <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
-            <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
-            <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
-            <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
-            <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
-        </section>
-    </main>
+        <>
+            <h2 className="block-header">Мой профиль</h2>
+            <section className="userProfile">
+                <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
+                <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
+                <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
+                <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
+                <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
+            </section>
+        </>
     )
 }
 

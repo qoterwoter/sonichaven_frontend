@@ -20,10 +20,10 @@ import UserAllReleases from "./routes/UserProfile/UserAllReleases";
 import UserRelease from "./routes/UserProfile/UserRelease";
 import Questions from "./routes/FAQ/Questions";
 import Registration from "./routes/Authorization/Registration";
-import AllNews from "./components/NewsBlog/AllNews";
-import News from "./components/NewsBlog/News";
+import News from "./routes/News/News";
 import CurrentReleases from "./routes/Releases/CurrentReleases";
-import Releases from "./routes/Releases/Releases";
+import NewsList from "./routes/News/NewsList";
+import ReleasesList from "./components/Releases/ReleasesList";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -35,7 +35,7 @@ const router = createBrowserRouter(
                 <Route path='about-us' element={<AboutUs/>}/>
                 <Route path='faq' element={<Questions/>}/>
                 <Route path='catalog' element={<Catalog title={'Каталог'}/>}/>
-                <Route path='releases' element={<Releases/>}/>
+                <Route path='releases' element={<ReleasesList/>}/>
                 <Route path='releases/:id' element={<CurrentReleases/>}/>
 
                 <Route path='shopCart' element={<ShopCart/>}/>
@@ -43,7 +43,7 @@ const router = createBrowserRouter(
                 <Route path='userProfile' element={<UserProfile/>}/>
                 <Route path='myReleases/' element={<UserAllReleases/>}/>
                 <Route path={'myReleases/:id'} element={<UserRelease/>}/>
-                <Route path={'news'} element={<AllNews/>}/>
+                <Route path={'news'} element={<NewsList/>}/>
                 <Route path={'news/:id'} element={<News/>}/>
             </Route>
         </>
