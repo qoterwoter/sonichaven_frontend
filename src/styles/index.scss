@@ -17,7 +17,8 @@ body {
     font-size: $paragraph-text;
     background-image: url("../images/body_background.jpg");
     background-position-y: 100vh;
-    background-repeat: repeat-y;
+    background-size: cover;
+    //background-repeat: repeat-y;
     min-height: 80vh;
 
     &::-webkit-scrollbar {

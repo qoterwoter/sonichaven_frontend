@@ -22,7 +22,7 @@ const Notification = (props) => {
             <div className={`notification ${notificationType}`}>
                 <h2 className="notification__title">{state.title} <CloseRoundedIcon onClick={handleClose} className='notification__close'/></h2>
                 <p className="notification__description">{state.description}</p>
-                {isNav && <NavLink className={'notification__link'} to={state?.action?.url}>{state?.action?.button}</NavLink>}
+                {state?.action?.url?.length > 1 && <NavLink className={'notification__link'} to={state?.action?.url}>{state?.action?.button}</NavLink>}
             </div>
         </>
     )
