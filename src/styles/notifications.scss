@@ -42,19 +42,8 @@
             display: block;
             margin-top: 16px;
         }
-        &.notification_success,
-        &.notification_error{
-            //.notification__title {
-            //    color: $green-hovered;
-            //}
-            //.notification__description {
-            //    margin-bottom: 0;
-            //}
+        &.notification_hidden {
+            opacity: 0;
         }
-        //&.notification_error {
-        //    .notification__title {
-        //        color: $red-primary;
-        //    }
-        //}
     }
 }

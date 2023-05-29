@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchServices} from "../../reducers/serviceSlice";
 import CatalogItem from "./CatalogItem";
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import CatalogFilter from "./CatalogFilter";
 
