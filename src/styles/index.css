@@ -215,6 +215,7 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr 1fr;
   justify-items: end;
   padding: 16px;
+  overflow-y: scroll;
 }
 .header__mobileMenu .menu {
   padding: 16px;
@@ -1210,6 +1211,36 @@ a.active {
 }
 .icon.icon_show {
   transform: rotate(90deg);
+}
+.icon.burgerIcon {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.icon.burgerIcon .icon__line {
+  transition: 0.3s;
+  width: 30px;
+  height: 4px;
+  background: #6B9BFA;
+  border-radius: 20px;
+}
+.icon.burgerIcon.burgerIcon_show * {
+  width: 38px;
+}
+.icon.burgerIcon.burgerIcon_show :first-child {
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+.icon.burgerIcon.burgerIcon_show :nth-child(2) {
+  transition: all 100ms ease-in-out;
+  width: 0;
+}
+.icon.burgerIcon.burgerIcon_show :last-child {
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
 }
 .icon.icon_edit {
   color: #548AF7;

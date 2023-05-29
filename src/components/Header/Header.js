@@ -101,7 +101,11 @@ const Header = () => {
                     {isMobile ? null : mainLinks
                     }
                     {isMobile ?
-                        <MenuRoundedIcon className={'icon icon_edit'} onClick={toggleMenu}/> :
+                        <div className={'icon burgerIcon icon_edit burgerIcon_'+ (showMenu ? 'show' : 'hidden')} onClick={toggleMenu}>
+                            <div className="icon__line"></div>
+                            <div className="icon__line"></div>
+                            <div className="icon__line"></div>
+                        </div> :
                         buttons}
                 </div>
             </div>

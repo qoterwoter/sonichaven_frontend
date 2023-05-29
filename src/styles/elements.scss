@@ -96,6 +96,39 @@ a {
     &.icon_show {
         transform: rotate(90deg);
     }
+
+    &.burgerIcon {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        .icon__line {
+            transition: .3s;
+            width: 30px;
+            height: 4px;
+            background: $blue-link;
+            border-radius: 20px;
+        }
+        &.burgerIcon_show {
+            * {
+                width: 38px;
+            }
+            :first-child {
+                transform: rotate(45deg);
+                transform-origin: top left;
+            }
+            :nth-child(2) {
+                transition: all 100ms ease-in-out;
+                width: 0;
+            }
+            :last-child {
+                transform: rotate(-45deg);
+                transform-origin: bottom left;
+            }
+        }
+    }
     &.icon_edit {
         color: $blue-general;
     }

@@ -183,6 +183,7 @@ body {
     grid-template-columns: 1fr 1fr;
     justify-items: end;
     padding: $gap;
+    overflow-y: scroll;
     .menu {
         padding: $gap;
         display: grid;
