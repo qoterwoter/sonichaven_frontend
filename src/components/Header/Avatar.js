@@ -1,10 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
+import React from "react";
 import {useSelector} from "react-redux";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import {NavLink} from "react-router-dom";
 
 const Avatar = (props) => {
-    const user = useSelector(state => state.user.artist)
+    const user = useSelector(state => state.user)
     const avatarUrl = user?.profile_image
 
     const handleClick = (event) => {
@@ -15,7 +14,7 @@ const Avatar = (props) => {
             props.setIsShow(!props.isShow);
         }
     };
-    const avatar = avatarUrl.length < 10 ?
+    const avatar = avatarUrl?.length < 10 ?
         <AccountCircleRoundedIcon className={'icon icon_user'} onClick={handleClick}/> :
         <img className='avatar__image' src={avatarUrl} alt='user profile' onClick={handleClick}/>
 

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import {artistUpdate} from "../../reducers/userSlice";
+import {artistUpdate, fetchUserData, uploadImage, userUpdate} from "../../reducers/userSlice";
 import {notificator} from "./UserEditableItem";
 
 const UserProfileMiniItem = (props) => {
@@ -12,8 +12,12 @@ const UserProfileMiniItem = (props) => {
     const [isEdit, setIsEdit] = useState(false)
     const [value, setValue] = useState(props.value)
     const dispatch = useDispatch()
-
     const key = props.sendTo
+    const [image, setImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
 
     const onChange = e => {
         setValue(e.target.value)
@@ -25,7 +29,6 @@ const UserProfileMiniItem = (props) => {
 
     const notify = notificator(dispatch)
 
-
     const onSubmit = e => {
         e.preventDefault()
         if(key==='artist_bio') {
@@ -33,11 +36,22 @@ const UserProfileMiniItem = (props) => {
             notify("Описание артиста успешно обновлено!")
         }
         if(key==='artist_image') {
-            dispatch(artistUpdate({profile_image: value}))
-            notify("Фотография артиста успешно обновлена!")
+            if (image === null) {
+                toggleEdit()
+                return
+            } else {
+                const formData = new FormData();
+                formData.append('profile_image', image, image.name)
+                dispatch(uploadImage(formData))
+                notify("Фотография успешно обновлена!")
+            }
         }
         toggleEdit()
     }
+
+    useEffect(() => {
+        dispatch(fetchUserData())
+    }, [dispatch])
 
     return (
         <div className={`${props.className} miniItem miniItem_horizontal`}>
@@ -45,7 +59,15 @@ const UserProfileMiniItem = (props) => {
             <div className="miniItem__block">
                 {isEdit ?
                     <form className={'form'} onSubmit={onSubmit}>
-                        <textarea onChange={onChange} rows={6} className={'miniItem__textarea textarea'} value={value}/>
+                    {key === 'artist_bio' ? (
+                        <textarea onChange={onChange} rows={6} className={'miniItem__textarea textarea'}
+                           value={value}/>
+                        ) : (
+                        <input
+                            type={'file'}
+                            accept="image/jpeg,image/png,image/gif"
+                            onChange={handleImageChange}
+                        />)}
                         <CheckRoundedIcon className={'miniItem__edit icon actions__edit'} onClick={onSubmit}/>
                     </form> :
                     description

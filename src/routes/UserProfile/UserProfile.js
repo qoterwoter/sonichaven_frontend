@@ -10,6 +10,7 @@ import UserProfileMiniItem from "../../components/UserProfile/UserProfileMiniIte
 import UserProfileMiniItemAside from "../../components/UserProfile/UserProfileMiniItemAside";
 import UserEditableItem from "../../components/UserProfile/UserEditableItem";
 import {fetchReleasesByArtist} from "../../reducers/userSlice";
+import {IMAGE_URL} from "../../components/Header/Avatar";
 
 const showCount = (count, text) => {
     if (count % 10 === 1) return `${count} ${text}`
@@ -20,8 +21,8 @@ const showCount = (count, text) => {
 const UserProfile = () => {
     const dispatch = useDispatch()
 
-    const userData = useSelector(state => state.user)
-    const artistData = userData.artist
+    const user = useSelector(state => state.user)
+    const artistData = user.artist
 
     const releases = useSelector(state => state.user?.releases)
 
@@ -54,7 +55,7 @@ const UserProfile = () => {
     const userItem = <>
         <UserEditableItem
             placeholder={'Имя'}
-            value={userData.first_name + ' ' + userData.last_name}
+            value={user.first_name + ' ' + user.last_name}
             type={'text'}
             sendTo={'user_name'}/>
         <UserEditableItem
@@ -65,7 +66,7 @@ const UserProfile = () => {
         />
         <UserEditableItem
             placeholder={'Почта'}
-            value={userData.email}
+            value={user.email}
             type={'email'}
             sendTo={'user_email'}
         />
@@ -77,7 +78,7 @@ const UserProfile = () => {
             <UserProfileMiniItem
                 title={'Изображение артиста'}
                 className={'artistData__profileImage profileImage'}
-                description={<img className="profileImage__image" alt="" src={artistData?.profile_image}/>}
+                description={<img className="profileImage__image" alt="" src={user?.profile_image}/>}
                 value={artistData?.profile_image}
                 sendTo={'artist_image'}
             />
@@ -106,8 +107,6 @@ const UserProfile = () => {
             />
         })}
     </div>
-
-    console.log(releases)
 
     return (
         <>

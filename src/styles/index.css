@@ -215,7 +215,6 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr 1fr;
   justify-items: end;
   padding: 16px;
-  overflow-y: scroll;
 }
 .header__mobileMenu .menu {
   padding: 16px;

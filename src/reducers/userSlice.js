@@ -44,8 +44,13 @@ export const artistUpdate = createAsyncThunk('user/artistUpdate', async  (data, 
 
 export const userUpdate = createAsyncThunk('user/userUpdate', async (data) => {
     const response = await axios.put(`${API_URL}/users/${user.id}/`, {
-        ...user, ...data
+        data
     }, {headers})
+    return response.data
+})
+
+export const uploadImage = createAsyncThunk('user/uploadImage', async image => {
+    const response = await axios.put(`${API_URL}/users/${user.id}/`, image, {headers})
     return response.data
 })
 
@@ -101,6 +106,11 @@ const userSlice = createSlice({
             state.user = data
         },
         [userUpdate.fulfilled]: (state, action) => {
+            const data = {...user, ...action.payload}
+            localStorage.setItem("user", JSON.stringify(data))
+            state.user = data
+        },
+        [uploadImage.fulfilled]: (state, action) => {
             const data = {...user, ...action.payload}
             localStorage.setItem("user", JSON.stringify(data))
             state.user = data

@@ -12,8 +12,6 @@ const Notification = (props) => {
 
     const notificationType = props.classList ? `notification_${props.classList}` : ''
 
-    console.log(state.id)
-
     useEffect(() => {
         setTimeout(() => {
             setStatus('hidden')
