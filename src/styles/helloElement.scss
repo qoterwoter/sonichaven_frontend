@@ -10,6 +10,9 @@
     justify-content: center;
     .container {
         width: 1100px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         .helloElement__title {
             font-size: 65px;
             text-align: center;

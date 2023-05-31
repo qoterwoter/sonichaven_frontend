@@ -25,6 +25,9 @@
             .catalog__title {
                 grid-column: span 2;
             }
+            .filters {
+                grid-column: span 2;
+            }
         }
         .userProfile {
             grid-template-columns: 1fr;
@@ -113,7 +116,7 @@
 
 @media (max-width: 920px) {
     .main {
-        .userReleases .release {
+        .userRelease .release {
             display: flex;
             flex-direction: column;
             .release__header {
@@ -121,8 +124,13 @@
                     width: 260px;
                 }
             }
-
         }
+    }
+}
+
+@media (max-width: 750px) {
+    .header .container {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -138,9 +146,13 @@
             }
             .release {
                 &:last-child {
-                    display: block;
+                    display: grid;
                 }
             }
+        }
+        .registration .form {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
@@ -148,6 +160,13 @@
 @media (max-width: 650px) {
     body {
         //background-position-y: 80vh;
+    }
+    .block-header {
+        font-size: 20px;
+        margin-bottom: 0;
+        .icon_secondary {
+            display: none;
+        }
     }
     .helloElement {
         background-image: url("../images/mobilebackground.png");
@@ -164,11 +183,46 @@
             .helloElement__description {
                 font-size: 20px;
             }
+            .helloElement__button .container {
+                font-size: 18px;
+                padding: 0;
+            }
         }
     }
     .main {
+        .news {
+            .article__title {
+                font-size: 20px;
+            }
+        }
         .catalog {
             grid-template-columns: 1fr;
+            .catalog__title {
+                display: flex;
+                flex-direction: column;
+                 * {
+                     width: 100%;
+                 }
+            }
+            .filters {
+                position: static;
+                grid-column: span 1;
+                grid-template-columns: 1fr 1fr;
+                font-size: $paragraph-text;
+                .block-header {
+                    display: flex;
+                }
+                .filter:first-child .filter__options {
+                    left: 0;
+                }
+                .filter:last-child .filter__options {
+                    right: 0;
+                }
+                .filter__options {
+                    top: 71px;
+                    width: calc(200% + 16px);
+                }
+            }
             .catalog__title {
                 grid-column: span 1;
             }
@@ -225,6 +279,11 @@
         grid-template-rows: 1fr 4fr;
         .menu {
             width: 100%;
+            &:last-child {
+                .menu__title {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -249,14 +308,14 @@
                 }
             }
         }
-        .userReleases .release {
+        .userRelease .release {
             .release__body .songList {
-                grid-template-columns: 5fr 1fr 1fr;
+                grid-template-columns: 20px 5fr 1fr 1fr;
                 .songList__listens {
                     display: none;
                 }
                 .song {
-                    grid-template-columns: 5fr 1fr 1fr;
+                    grid-template-columns: 24px 5fr 1fr 1fr;
                     .song__listens {
                         display: none;
                     }
@@ -266,6 +325,11 @@
     }
 }
 @media (max-width: 500px) {
+    .block-header {
+        display: grid;
+        align-items: start;
+        gap: 8px;
+    }
     .helloElement {
         .container {
             .helloElement__title {
@@ -292,7 +356,7 @@
         }
     }
     .main {
-        .userReleases .release .release__header .release__image {
+        .userRelease .release .release__header .release__image {
             width: 100%;
         }
         .shopCart {
@@ -346,6 +410,7 @@
                 }
                 .shopCart__make-order {
                     width: 100%;
+                    padding: 12px $gap;
                     margin-top: $gap;
                     border-radius: $border-radius;
                 }
@@ -355,6 +420,16 @@
         .orders .order {
             .order__header {
                 flex-wrap: wrap;
+            }
+        }
+        .catalog {
+            .filters {
+                .block-header {
+                    gap: 0;
+                    .icon {
+                        margin: 0;
+                    }
+                }
             }
         }
     }

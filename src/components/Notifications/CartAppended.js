@@ -5,6 +5,7 @@ const CartAppended = (props) => {
     const state = props.notification
 
     const notification = {
+        ...state,
         title: 'Товар добавлен в корзину!',
         description: `"${state.name}" в количестве ${state.quantity} шт. добавлен в корзину.`,
         action: {

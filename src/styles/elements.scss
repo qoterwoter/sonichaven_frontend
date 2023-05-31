@@ -1,16 +1,21 @@
-
-
 a {
     color: $blue-link;
     text-decoration: none;
     transition: .3s;
     cursor: pointer;
-
     &:hover {
         color: $blue-hovered;
     }
     &:active {
         color: $blue-pressed;
+    }
+    &.active {
+        color: rgba(255, 255, 255, 0.29);
+        background: $gradient;
+        background-size: 500%;
+        -webkit-background-clip: text;
+
+        animation: gradient 15s linear infinite;
     }
 }
 
@@ -23,12 +28,46 @@ a {
     height: 32px;
     border-radius: 4px;
     transition: .3s;
+    font-size: $paragraph-text;
     &:hover {
         opacity: 90%;
     }
     &:active {
         opacity: 75%;
     }
+    &.button_white {
+        display: block;
+        text-align: center;
+        padding: 8px 32px;
+        border-radius: 50px;
+        font-size: 22px;
+        background: $text-primary;
+        width: fit-content;
+        transition: .2s;
+        height: auto;
+        &:hover {
+            opacity: 90%;
+        }
+        &:active {
+            opacity: 85%;
+        }
+        .container {
+            width: auto;
+            background: $gradient;
+            background-size: 400%;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation: gradient 10s linear infinite;
+        }
+    }
+}
+
+.highlight {
+    color: black;
+    background: $text-primary;
+    padding: 0 4px;
+    border-radius: 5px;
 }
 
 .button__success {
@@ -44,20 +83,95 @@ a {
 }
 
 .icon {
-    height: 28px !important;
-    width: 28px !important;
+    height: 28px;
+    width: 28px;
+    transition: .3s !important;
+    cursor: pointer;
+    &:hover {
+        filter: opacity(70%);
+    }
+    &:active {
+        filter: opacity(50%);
+    }
+    &.icon_show {
+        transform: rotate(90deg);
+    }
+
+    &.burgerIcon {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        .icon__line {
+            transition: .3s;
+            width: 30px;
+            height: 4px;
+            background: $blue-link;
+            border-radius: 20px;
+        }
+        &.burgerIcon_show {
+            * {
+                width: 38px;
+            }
+            :first-child {
+                transform: rotate(45deg);
+                transform-origin: top left;
+            }
+            :nth-child(2) {
+                transition: all 100ms ease-in-out;
+                width: 0;
+            }
+            :last-child {
+                transform: rotate(-45deg);
+                transform-origin: bottom left;
+            }
+        }
+    }
     &.icon_edit {
         color: $blue-general;
     }
     &.icon_save {
         color: $green-edit;
     }
+    &.icon_user {
+        width: 50px;
+        height: 50px;
+    }
+    &.icon_secondary {
+        color: $text-secondary;
+    }
+
 }
 
 .form {
-
+    &.form_horizontal {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        align-items: center;
+        gap: 10px;
+        border: 2px solid $text-secondary;
+        border-radius: $border-radius;
+        padding: 4px 6px;
+        color: $text-primary;
+        * {
+            background: none !important;
+            border: none !important;
+        }
+        .form__input_search {
+            padding: 0;
+            height: 32px;
+        }
+        .icon {
+            display: flex;
+            align-items: center;
+        }
+    }
     .form__label {
+        font-size: $paragraph-text;
         color: $text-general;
+        cursor: pointer;
     }
 
     .form__input {
@@ -65,10 +179,18 @@ a {
         margin: 8px 0;
         font-size: 18px;
         border: 2px solid $border;
-        border-radius: 4px;
+        border-radius: 8px;
         padding: 8px 6px;
         color: $text-primary;
         background-color: $background-primary;
+
+        &.form__input_search {
+            border-color: $text-secondary;
+            font-size: $paragraph-text;
+            margin: 0;
+            background-color: transparent;
+            width: 100%;
+        }
 
         &:focus {
             border-color: $blue-primary;
@@ -102,16 +224,40 @@ a {
 .label {
     color: $text-secondary;
 }
-.block-title {
+.block-header {
     color: $text-primary;
-    font-size: 24px;
-    font-weight: 600;
     background-color: $blur-background;
     backdrop-filter: $blur;
     padding: 16px;
     margin: 32px 0 16px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &.block-header_menu {
+        justify-content: start;
+        * {
+            font-size: $heading-text-3;
+            font-weight: 300 !important;
+        }
+    }
+    * {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .block-header__separator {
+        margin: 0 8px;
+        color: $text-general;
+    }
+    .block-header__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .title__route {
+        color: $blue-link;
+    }
 }
 
 .span__border {
@@ -137,15 +283,4 @@ a {
 }
 .actions__edit {
     color: $green-edit;
-}
-
-.icon {
-    transition: .3s !important;
-    cursor: pointer;
-    &:hover {
-        filter: opacity(70%);
-    }
-    &:active {
-        filter: opacity(50%);
-    }
 }

@@ -16,6 +16,7 @@ const Header = () => {
 
     const hideMenu = () => {
         setIsShow(false)
+        setIsShow(false)
     }
 
     const handleLogout = () => {
@@ -67,60 +68,63 @@ const Header = () => {
     const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
-    const hideMobileMenu = () => {
-        setShowMenu(false)
-    }
+
     const loginButtons = <Avatar handleLogout={handleLogout} isShow={isShow} setIsShow={setIsShow}/>
     const logoutButton = <NavLink className='nav__link' to='auth'>Войти</NavLink>
+
+    const mainLinks = (
+        <nav className='header__nav nav menu'>
+            <NavLink className='nav__link' to='/' onClick={hideMenu}>Главная</NavLink>
+            <NavLink className='nav__link' to='/about-us' onClick={hideMenu}>О нас</NavLink>
+            <NavLink className='nav__link' to='/catalog' onClick={hideMenu}>Каталог</NavLink>
+            <NavLink className='nav__link' to='/news' onClick={hideMenu}>Новости</NavLink>
+            <NavLink className='nav__link' to='/releases' onClick={hideMenu}>Релизы</NavLink>
+            <NavLink className='nav__link' to='/faq' onClick={hideMenu}>F.A.Q.</NavLink>
+        </nav>
+    )
+
+    const userLinks = (
+    <>
+        <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMenu}>Мой профиль</NavLink>
+        <NavLink className='menu__action nav__link' to={'/myReleases'} onClick={hideMenu}>Мои релизы</NavLink>
+        <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>
+        <NavLink className='menu__action nav__link' to='/orders' onClick={hideMenu}>Заказы</NavLink>
+        <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
+    </>
+    )
 
     return (
         <header>
             <div className='header' ref={ref}>
                 <div className="container">
                     <Link className='header__logo' to='/'>SonicHaven</Link>
-                    {isMobile ? null :
-                        <nav className='header__nav nav'>
-                            <NavLink className='nav__link' to='/'>Главная</NavLink>
-                            <NavLink className='nav__link' to='/about-us'>О нас</NavLink>
-                            <NavLink className='nav__link' to='/catalog'>Каталог</NavLink>
-                        </nav>
+                    {isMobile ? null : mainLinks
                     }
                     {isMobile ?
-                        <MenuRoundedIcon className={'icon icon_edit'} onClick={toggleMenu}/> :
-                    buttons}
+                        <div className={'icon burgerIcon icon_edit burgerIcon_'+ (showMenu ? 'show' : 'hidden')} onClick={toggleMenu}>
+                            <div className="icon__line"></div>
+                            <div className="icon__line"></div>
+                            <div className="icon__line"></div>
+                        </div> :
+                        buttons}
                 </div>
             </div>
             {isShow && <div className="header__bottomMenu">
                 <div className={'menu'} ref={ref}>
-                    <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMenu}>Мой профиль</NavLink>
-                    <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMenu}>Мои релизы</NavLink>
-                    <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMenu}>Корзина</NavLink>
-                    <NavLink className='menu__action nav__link' to='/orders' onClick={hideMenu}>Заказы</NavLink>
-                    <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
+                    {userLinks}
                 </div>
             </div>}
             {showMenu &&
                 <div className={'header__mobileMenu'}>
-                <div className="menu">
-                    <h2 className="menu__title">Навигация</h2>
-                    <NavLink className='nav__link' to='/' onClick={hideMobileMenu}>Главная</NavLink>
-                    <NavLink className='nav__link' to='/about-us' onClick={hideMobileMenu}>О нас</NavLink>
-                    <NavLink className='nav__link' to='/catalog' onClick={hideMobileMenu}>Каталог</NavLink>
-                </div>
+                    {mainLinks}
 
-                <div className="menu">
-                    <h2 className="menu__title">Моя информация</h2>
-                    {isAuth ? <>
-                            <NavLink className='menu__action nav__link' to='/userProfile' onClick={hideMobileMenu}>Мой профиль</NavLink>
-                            <NavLink className='menu__action nav__link' to={'/releases'} onClick={hideMobileMenu}>Мои релизы</NavLink>
-                            <NavLink className='menu__action nav__link' to='/shopCart' onClick={hideMobileMenu}>Корзина</NavLink>
-                            <NavLink className='menu__action nav__link' to='/orders' onClick={hideMobileMenu}>Заказы</NavLink>
-                            <a className='menu__action nav__link' onClick={handleLogout} href='/'>Выйти</a>
-                        </> :
-                        logoutButton
-                    }
-                </div>
-            </div>}
+                    <div className="menu">
+                        <h2 className="menu__title">Моя информация</h2>
+                        {isAuth ? userLinks :
+                            logoutButton
+                        }
+                    </div>
+                </div>}
         </header>
     )
 }

@@ -5,11 +5,15 @@ import {useDispatch} from "react-redux";
 import {updateSong} from "../../reducers/releasesSlice";
 import {beautyCount} from "../UserProfile/UserProfileMiniItemAside";
 import {fetchReleasesByArtist} from "../../reducers/userSlice";
+import {useLocation} from "react-router-dom";
 
 function SongEditable(props) {
     const song = props?.song
 
     const dispatch = useDispatch()
+    const location = useLocation()
+
+    const isMyRelease = !!location.pathname.startsWith('/myReleases')
 
     const [isEdit, setIsEdit] = useState(false)
     const [title, setTitle] = useState(song.title)
@@ -30,8 +34,8 @@ function SongEditable(props) {
         <li className={'songsList__song song'}>
             {isEdit ?
             <>
+                <label className={'song__title'}>{props.songId}.</label>
                 <form className="song__body_editable" onSubmit={onSave} >
-                    <label className={'song__title'}>{props.songId}. </label>
                     <input id={'title'} type="text" className="song__title_input input" value={title} onChange={onChangeTitle}/>
                 </form>
                 <form className="song__body_editable" onSubmit={onSave}>
@@ -40,15 +44,16 @@ function SongEditable(props) {
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </> :
             <>
-                <p className='song__title'>{props.songId}. {title}</p>
+                <p className="song__number">{props.songId}.</p>
+                <p className='song__title'>{title}</p>
                 <p className="song__duration">{duration}</p>
                 <p className="song__listens">{beautyCount(song.playcounts)}</p>
             </>
             }
-            <div className="song__actions">
+            {isMyRelease && <div className="song__actions">
                 {!isEdit && <EditRoundedIcon onClick={toggleEdit} className={'icon icon_edit'}/>}
                 {isEdit && <CheckRoundedIcon onClick={onSave} className={'icon icon_save'}/>}
-            </div>
+            </div>}
         </li>
     )
 }

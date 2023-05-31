@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 import {makeOrder, resetStatus} from "../../reducers/ordersSlice";
 import {NavLink} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
+import Separator from "../../components/Separator";
 
 const beautyNum = num => {
     num=`${num}`
@@ -53,24 +54,24 @@ const ShopCart = () => {
     )
 
     return (
-    <main className='main'>
-        <div className="shopCart">
-            <h2 className="shopCart__title block-title">Корзина</h2>
-            {
-                cartItems.length > 0 ?
-                <>
-                    <section className="shopCart__items">
-                        {cartItems}
-                    </section>
-                    <div className="shopCart__bottomMenu block-title">
-                        <p className='shopCart__sum'>Сумма<span className="span__border"> · </span>{beautyNum(shopCart.sum)} Руб.</p>
-                        <button className='shopCart__make-order button button__success' onClick={handleOrder}>Оформить заказ</button>
-                    </div>
-                </> :
-                onEmpty
-            }
-        </div>
-    </main>
+    <div className="shopCart">
+        <h2 className="shopCart__title block-header">Корзина</h2>
+        {
+            cartItems.length > 0 ?
+            <>
+                <section className="shopCart__items">
+                    {cartItems}
+                </section>
+                <div className="shopCart__bottomMenu block-header">
+                    <p className='shopCart__sum'>Сумма<Separator/>{beautyNum(shopCart.sum)} Руб.</p>
+                    <button className='shopCart__make-order button button_white' onClick={handleOrder}>
+                        <span className="container">Оформить заказ</span>
+                    </button>
+                </div>
+            </> :
+            onEmpty
+        }
+    </div>
     )
 }
 

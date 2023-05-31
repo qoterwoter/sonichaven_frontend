@@ -1,12 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-
-export const pushNotification = createAsyncThunk('notifications/pushNotification', async (notification, {dispatch}) => {
-    setTimeout(() => {
-        dispatch(removeNotification())
-    },2500)
-
-    return notification
-})
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     notifications: []
@@ -16,17 +8,18 @@ const notificationSlice = createSlice({
     name: 'notifications',
     initialState,
     reducers: {
-        removeNotification: state => {
-            state.notifications = state.notifications.slice(1)
+        pushNotification: (state, action) => {
+            const id = state.notifications.length
+            const notification = action.payload
+            state.notifications = [...state.notifications, {...notification, id}]
         },
-    },
-    extraReducers: {
-        [pushNotification.pending]: (state, action) => {
-            state.notifications = [...state.notifications, {...action.meta.arg, classList: 'show'}]
-        }
+        removeNotification: (state, action) => {
+            const toRemove= action.payload
+            state.notifications = [...state.notifications.filter(notification => notification.id !== toRemove)]
+        },
     }
 })
 
-export const {removeNotification, hideNotification} = notificationSlice.actions
+export const {removeNotification, pushNotification} = notificationSlice.actions
 
 export default notificationSlice.reducer

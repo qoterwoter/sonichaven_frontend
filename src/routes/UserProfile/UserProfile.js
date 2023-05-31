@@ -20,8 +20,9 @@ const showCount = (count, text) => {
 const UserProfile = () => {
     const dispatch = useDispatch()
 
-    const userData = useSelector(state => state.user)
-    const artistData = userData.artist
+    const user = useSelector(state => state.user)
+    const artistData = user.artist
+    const profileImage = useSelector(state => state.user.profile_image)
 
     const releases = useSelector(state => state.user?.releases)
 
@@ -54,7 +55,7 @@ const UserProfile = () => {
     const userItem = <>
         <UserEditableItem
             placeholder={'Имя'}
-            value={userData.first_name + ' ' + userData.last_name}
+            value={user.first_name + ' ' + user.last_name}
             type={'text'}
             sendTo={'user_name'}/>
         <UserEditableItem
@@ -65,11 +66,11 @@ const UserProfile = () => {
         />
         <UserEditableItem
             placeholder={'Почта'}
-            value={userData.email}
+            value={user.email}
             type={'email'}
             sendTo={'user_email'}
         />
-        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData.payment)} Руб.</p>
+        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData?.payment)} Руб.</p>
     </>
 
     const artistItem = <>
@@ -77,8 +78,8 @@ const UserProfile = () => {
             <UserProfileMiniItem
                 title={'Изображение артиста'}
                 className={'artistData__profileImage profileImage'}
-                description={<img className="profileImage__image" alt="" src={artistData?.profile_image}/>}
-                value={artistData?.profile_image}
+                description={<img className="profileImage__image" alt="" src={profileImage}/>}
+                value={profileImage}
                 sendTo={'artist_image'}
             />
             <UserProfileMiniItem
@@ -108,16 +109,16 @@ const UserProfile = () => {
     </div>
 
     return (
-    <main className='main'>
-        <h2 className="block-title">Мой профиль</h2>
-        <section className="userProfile">
-            <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
-            <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
-            <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
-            <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
-            <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
-        </section>
-    </main>
+        <>
+            <h2 className="block-header">Мой профиль</h2>
+            <section className="userProfile">
+                <UserProfileItem title={'Личная информация'} description={userItem} classList={'item__userData'}/>
+                <UserProfileItem title={'Карточка артиста'} description={artistItem} classList={'item__artistData'}/>
+                <UserProfileItem title={'Мои релизы'} link={releasesLink} description={releasesItem} classList={'item__releasesData'}/>
+                <UserProfileItem title={'Корзина'} description = {shopCartItem} classList={'item__shopCart'}/>
+                <UserProfileItem title={'Заказы'} description = {orderItem} classList={'item__orders'}/>
+            </section>
+        </>
     )
 }
 

@@ -10,27 +10,35 @@
     }
 
     .release {
+        display: grid;
+        gap: 8px;
         padding: $block-padding;
         background-color: $blur-background;
         backdrop-filter: $blur;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
-        width: 100%;
 
-        .release__title {
-            font-size: $heading-text-2;
-            word-wrap: break-word;
+        * {
             margin: 0;
-            padding-bottom: 16px;
-            width: 300px;
+        }
+
+        .release__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .release__title {
+                font-size: $heading-text-2;
+                word-wrap: break-word;
+            }
         }
 
         .release__image {
-            border-radius: 8px;
+            width: 300px;
+            height: 300px;
+            border-radius: $border-radius;
         }
 
         .release__date {
-            margin: 8px 0 0;
             color: $text-secondary;
         }
 

@@ -23,6 +23,9 @@ const Footer = () => {
                             <NavLink className='links__link link' to='/'>Главная</NavLink>
                             <NavLink className='links__link link' to='/about-us'>О нас</NavLink>
                             <NavLink className='links__link link' to='/catalog'>Каталог</NavLink>
+                            <NavLink className='nav__link' to='/news'>Новости</NavLink>
+                            <NavLink className='nav__link' to='/releases'>Релизы</NavLink>
+                            <NavLink className='nav__link' to='/faq'>F.A.Q.</NavLink>
                         </nav>
                     </div>
                     {isAuth &&

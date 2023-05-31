@@ -36,7 +36,7 @@ const OrderItem = (props) => {
     const date = new Date(order.created_at).toLocaleDateString('ru',options)
 
     const STATUS_CHOICES = {
-        'PEND': ['Ожидание подтверждения', 'pending'],
+        'PEND': ['Ожидает подтверждения', 'pending'],
         'CONF': ['Подтверждено', 'confirmed'],
         'SHIP': ['В работе', 'in-progress'],
         'DELV': ['Завершен', 'delivered'],

@@ -4,8 +4,8 @@ import handleError, {handlePending, handleSuccess} from "./handleResponse";
 import {API_URL, user, headers} from "./ordersSlice";
 
 
-export const fetchReleases = createAsyncThunk('releases/fetchReleases', async () => {
-    const response = await axios.get(`${API_URL}/releases/`);
+export const fetchReleases = createAsyncThunk('releases/fetchReleases', async (id) => {
+    const response = await axios.get(`${API_URL}/releases/${id ? id : ''}`);
     return response.data;
 });
 

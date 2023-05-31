@@ -4,9 +4,8 @@ import Notification from "./Notification";
 const AuthError = (props) => {
     const state = props.notification
 
-    console.log(props)
-
     const notification = {
+        ...state,
         description: state.description,
         title: 'Ошибка!',
     }
