@@ -3,6 +3,7 @@ import Notification from "./Notification";
 
 const OrderCompleted = (props) => {
     const notification = {
+        ...props.notification,
         title: 'Заказ оформлен!',
         description: 'Заказ успешно оформлен и находится на вкладке "Заказы"',
         action: {

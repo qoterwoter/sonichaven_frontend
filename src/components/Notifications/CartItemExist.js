@@ -7,13 +7,13 @@ const CartItemExist = (props) => {
     console.log(state)
 
     const notification = {
+        ...state,
         title: 'Ошибка!',
         description: `Товар "${state.name}" уже находится в корзине`,
         action: {
             button: 'Перейти в корзину',
             url: '/shopCart'
         },
-        id: state.id
     }
 
     return <Notification notification = {notification} classList={'error'}/>

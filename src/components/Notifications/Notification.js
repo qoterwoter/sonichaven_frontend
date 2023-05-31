@@ -15,9 +15,9 @@ const Notification = (props) => {
     useEffect(() => {
         setTimeout(() => {
             setStatus('hidden')
-            // setTimeout(() => {
-            //     dispatch(removeNotification())
-            // })
+            setTimeout(() => {
+                dispatch(removeNotification({id: state.id}))
+            }, 500)
         }, 2500)
     }, [state])
 

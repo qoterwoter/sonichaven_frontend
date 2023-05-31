@@ -50,8 +50,9 @@ export const userUpdate = createAsyncThunk('user/userUpdate', async (data) => {
     return response.data
 })
 
-export const uploadImage = createAsyncThunk('user/uploadImage', async image => {
+export const uploadImage = createAsyncThunk('user/uploadImage', async (image, {dispatch}) => {
     const response = await axios.put(`${API_URL}/users/${user.id}/`, image, {headers})
+    dispatch(fetchUserData())
     return response.data
 })
 

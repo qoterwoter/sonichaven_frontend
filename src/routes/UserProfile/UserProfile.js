@@ -10,7 +10,6 @@ import UserProfileMiniItem from "../../components/UserProfile/UserProfileMiniIte
 import UserProfileMiniItemAside from "../../components/UserProfile/UserProfileMiniItemAside";
 import UserEditableItem from "../../components/UserProfile/UserEditableItem";
 import {fetchReleasesByArtist} from "../../reducers/userSlice";
-import {IMAGE_URL} from "../../components/Header/Avatar";
 
 const showCount = (count, text) => {
     if (count % 10 === 1) return `${count} ${text}`
@@ -23,6 +22,7 @@ const UserProfile = () => {
 
     const user = useSelector(state => state.user)
     const artistData = user.artist
+    const profileImage = useSelector(state => state.user.profile_image)
 
     const releases = useSelector(state => state.user?.releases)
 
@@ -70,7 +70,7 @@ const UserProfile = () => {
             type={'email'}
             sendTo={'user_email'}
         />
-        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData.payment)} Руб.</p>
+        <p className={'userData__payment'}>Выплаты <Separator/> {beautyNum(artistData?.payment)} Руб.</p>
     </>
 
     const artistItem = <>
@@ -78,8 +78,8 @@ const UserProfile = () => {
             <UserProfileMiniItem
                 title={'Изображение артиста'}
                 className={'artistData__profileImage profileImage'}
-                description={<img className="profileImage__image" alt="" src={user?.profile_image}/>}
-                value={artistData?.profile_image}
+                description={<img className="profileImage__image" alt="" src={profileImage}/>}
+                value={profileImage}
                 sendTo={'artist_image'}
             />
             <UserProfileMiniItem
