@@ -18,8 +18,6 @@ const NewsList = () => {
 
     const [page, setPage] = useState(urlParams.get('page') || 1)
 
-    console.log(urlParams)
-
     const location = useLocation()
 
     const ends = location.pathname.endsWith('/news') || location.pathname.endsWith('/news/')

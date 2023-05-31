@@ -15,10 +15,11 @@ const Notification = (props) => {
     useEffect(() => {
         setTimeout(() => {
             setStatus('hidden')
-            setTimeout(() => {
-                dispatch(removeNotification({id: state.id}))
-            }, 500)
+
         }, 2500)
+        setTimeout(() => {
+            dispatch(removeNotification(state.id))
+        }, 3200)
     }, [state])
 
     const handleClose = () => {

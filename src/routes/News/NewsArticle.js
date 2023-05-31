@@ -13,7 +13,7 @@ const NewsArticle = (props) => {
             </h2>
             <p className='article__content'>
                 {article.content}
-                <NavLink to={'/news/' + newsArticle.id}> Читать далее</NavLink>
+                <NavLink className={'link'} to={'/news/' + newsArticle.id}>Читать далее</NavLink>
             </p>
             {article.image && <img className='article__image' src={article.image} alt={article.caption}/>}
             <p className='article__date'>{newsArticle.date}</p>

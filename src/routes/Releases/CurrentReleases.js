@@ -12,7 +12,7 @@ function CurrentReleases(props) {
 
     useEffect(() => {
         dispatch(fetchReleases(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
         <div className="userRelease release">

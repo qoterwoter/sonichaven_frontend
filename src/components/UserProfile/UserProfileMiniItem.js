@@ -14,9 +14,7 @@ const UserProfileMiniItem = (props) => {
     const [value, setValue] = useState(props.value)
     const dispatch = useDispatch()
     const key = props.sendTo
-    const [image, setImage] = useState(profileImage);
-
-    console.log(profileImage)
+    const [image, setImage] = useState(null);
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -56,8 +54,6 @@ const UserProfileMiniItem = (props) => {
         dispatch(fetchUserData())
     }, [dispatch])
 
-    console.log(image)
-
     return (
         <div className={`${props.className} miniItem miniItem_horizontal`}>
             <h3 className="miniItem__title information__general">{title}</h3>
@@ -67,12 +63,16 @@ const UserProfileMiniItem = (props) => {
                     {key === 'artist_bio' ? (
                         <textarea onChange={onChange} rows={6} className={'miniItem__textarea textarea'}
                            value={value}/>
-                        ) : (
-                        <input
-                            type={'file'}
-                            accept="image/jpeg,image/png,image/gif"
-                            onChange={handleImageChange}
-                        />)}
+                        ) : (<>
+                            <label className={'form__label form__label_file'} htmlFor={'image'}>Выберите файл</label>
+                            <input
+                                className={'form__input form__input_file'}
+                                id={'image'}
+                                type={'file'}
+                                accept="image/jpeg,image/png,image/gif"
+                                onChange={handleImageChange}
+                            />
+                        </>)}
                         <CheckRoundedIcon className={'miniItem__edit icon actions__edit'} onClick={onSubmit}/>
                     </form> :
                     key === 'artist_bio' ? description : <img className="profileImage__image" alt="" src={profileImage}/>

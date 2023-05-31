@@ -44,6 +44,9 @@
         }
         .article__content {
             color: $text-notification;
+            .link {
+                padding-left: 4px;
+            }
         }
         .article__image {
             width: 100%;

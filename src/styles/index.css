@@ -234,7 +234,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 2px solid #2d2d2d;
 }
 .header__mobileMenu .menu .nav__link {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .footer__description {
@@ -471,6 +471,9 @@ body::-webkit-scrollbar-thumb {
 }
 .main .news .news__article .article__content {
   color: #afafb6;
+}
+.main .news .news__article .article__content .link {
+  padding-left: 4px;
 }
 .main .news .news__article .article__image {
   width: 100%;
@@ -851,6 +854,9 @@ body::-webkit-scrollbar-thumb {
   min-height: 100px;
   text-align: justify;
 }
+.main .userProfile .userProfile__item .item__information .miniItems .miniItem .miniItem__block .form {
+  height: 100%;
+}
 .main .userProfile .userProfile__item .item__information .miniItems .miniItem .miniItem__secondary {
   margin: 8px 0;
 }
@@ -883,6 +889,9 @@ body::-webkit-scrollbar-thumb {
 }
 .main .userProfile .item__artistData .information__miniItems {
   grid-template-columns: repeat(11, 1fr) !important;
+}
+.main .userProfile .item__artistData .information__miniItems .miniItem__block {
+  height: calc(100% - 40px);
 }
 .main .userProfile .item__artistData .information__miniItems .artistData__profileImage {
   grid-column: span 5;
@@ -1125,6 +1134,7 @@ a {
 }
 a:hover {
   color: #366ACF;
+  text-decoration: underline;
 }
 a:active {
   color: #375FAD;
@@ -1287,6 +1297,20 @@ a.active {
   color: #afafb6;
   cursor: pointer;
 }
+.form .form__label.form__label_file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #2B2D30;
+  border-radius: 16px;
+  transition: 0.5s;
+}
+.form .form__label.form__label_file:hover {
+  font-size: 18px;
+  text-shadow: 0 0 15px black;
+}
 .form .form__input {
   width: 300px;
   margin: 8px 0;
@@ -1296,6 +1320,9 @@ a.active {
   padding: 8px 6px;
   color: #DFE1E5;
   background-color: #1E1F22;
+}
+.form .form__input.form__input_file {
+  display: none;
 }
 .form .form__input.form__input_search {
   border-color: #868A91;

@@ -4,8 +4,6 @@ import Notification from "./Notification";
 const CartItemExist = (props) => {
     const state = props.notification
 
-    console.log(state)
-
     const notification = {
         ...state,
         title: 'Ошибка!',

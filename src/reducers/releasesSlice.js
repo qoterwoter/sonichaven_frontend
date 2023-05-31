@@ -14,7 +14,6 @@ export const updateRelease = createAsyncThunk('releases/updateRelease', async (r
         ...release
     }, {headers})
 
-    console.log(response)
     return response.data
 })
 

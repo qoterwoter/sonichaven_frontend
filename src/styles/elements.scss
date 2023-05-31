@@ -5,6 +5,7 @@ a {
     cursor: pointer;
     &:hover {
         color: $blue-hovered;
+        text-decoration: underline;
     }
     &:active {
         color: $blue-pressed;
@@ -174,6 +175,20 @@ a {
         font-size: $paragraph-text;
         color: $text-general;
         cursor: pointer;
+        &.form__label_file {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background-color: $background-secondary;
+            border-radius: $border-radius;
+            transition: .5s;
+            &:hover {
+                font-size: calc($paragraph-text + 2px);
+                text-shadow: 0 0 15px black;
+            }
+        }
     }
 
     .form__input {
@@ -185,6 +200,10 @@ a {
         padding: 8px 6px;
         color: $text-primary;
         background-color: $background-primary;
+
+        &.form__input_file {
+            display: none;
+        }
 
         &.form__input_search {
             border-color: $text-secondary;

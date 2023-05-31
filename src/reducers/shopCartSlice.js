@@ -48,7 +48,6 @@ const shopCartSlice = createSlice({
     initialState,
     reducers: {
         deleteItem: (state, action) => {
-            console.log(action.payload)
             state.cart = state.cart.filter(item => item.id !== action.payload)
         },
         setSum: (state, action) => {

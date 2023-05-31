@@ -69,6 +69,9 @@
                         display: block;
                         min-height: 100px;
                         text-align: justify;
+                        .form {
+                            height: 100%;
+                        }
                     }
                     .miniItem__secondary {
                         margin: 8px 0;
@@ -80,6 +83,7 @@
                     }
                 }
             }
+
             .miniItems_vertical {
                 .miniItem {
                     display: flex;
@@ -107,7 +111,9 @@
         height: 100%;
         .information__miniItems {
             grid-template-columns: repeat(11, 1fr) !important;
-
+            .miniItem__block {
+                height: calc(100% - 40px);
+            }
             .artistData__profileImage {
                 grid-column: span 5;
             }

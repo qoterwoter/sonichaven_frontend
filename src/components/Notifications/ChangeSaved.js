@@ -10,8 +10,6 @@ const ChangeSaved = props => {
         description: `${state.description}`,
     }
 
-    console.log(notification)
-
     return <Notification notification={notification} classList={'success'}/>
 }
 

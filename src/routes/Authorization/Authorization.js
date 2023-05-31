@@ -33,8 +33,6 @@ const Authorization = () => {
     const login = (e) => {
         e.preventDefault()
 
-        console.log(username && username.length < 5, password && password.length < 5)
-
         if (username.length < 5) {
             showError('Введите корректное имя')
             return
