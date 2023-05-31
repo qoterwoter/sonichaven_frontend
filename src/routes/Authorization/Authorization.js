@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {authUser} from "../../reducers/userSlice";
+import {authUser, fetchUserData} from "../../reducers/userSlice";
 import {NavLink, useNavigate} from "react-router-dom";
 import {pushNotification} from "../../reducers/notificationSlice";
 
