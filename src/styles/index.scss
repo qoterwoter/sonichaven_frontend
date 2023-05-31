@@ -183,6 +183,10 @@ body {
     grid-template-columns: 1fr 1fr;
     justify-items: end;
     padding: $gap;
+    overflow: hidden;
+    margin: 0;
+    touch-action: none;
+    -ms-touch-action: none;
     .menu {
         padding: $gap;
         display: grid;
@@ -196,7 +200,7 @@ body {
             border-bottom: 2px solid $border;
         }
         .nav__link {
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 }

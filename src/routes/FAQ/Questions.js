@@ -79,7 +79,7 @@ function Questions(props) {
                 className={'form__input form__input_search'}
                 placeholder={'Напишите ваш вопрос'}
                 id={'search'}
-                type={'search'}
+                type={'text'}
                 value={search}
                 onChange={onSearch}
             />

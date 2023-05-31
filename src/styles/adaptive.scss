@@ -164,9 +164,7 @@
     .block-header {
         font-size: 20px;
         margin-bottom: 0;
-        .icon_secondary {
-            display: none;
-        }
+
     }
     .helloElement {
         background-image: url("../images/mobilebackground.png");
@@ -310,14 +308,18 @@
         }
         .userRelease .release {
             .release__body .songList {
-                grid-template-columns: 20px 5fr 1fr 1fr;
+                grid-template-columns: 20px 5fr 1fr;
                 .songList__listens {
                     display: none;
                 }
                 .song {
-                    grid-template-columns: 24px 5fr 1fr 1fr;
+                    grid-column: span 4;
+                    grid-template-columns: 24px 5fr 1fr;
                     .song__listens {
                         display: none;
+                    }
+                    .song__duration {
+                        margin-right: 8px;
                     }
                 }
             }
@@ -326,9 +328,13 @@
 }
 @media (max-width: 500px) {
     .block-header {
-        display: grid;
-        align-items: start;
+        //display: grid;
+        //align-items: start;
         gap: 8px;
+        flex-wrap: wrap;
+        * {
+            font-size: 20px !important;
+        }
     }
     .helloElement {
         .container {
@@ -356,8 +362,12 @@
         }
     }
     .main {
-        .userRelease .release .release__header .release__image {
+        .userRelease .release .release__header,
+        .releases .release {
             width: 100%;
+            .release__image {
+                width: 100%;
+            }
         }
         .shopCart {
             .shopCart__items {
@@ -423,7 +433,7 @@
             }
         }
         .catalog {
-            .filters {
+            .filters .filter {
                 .block-header {
                     gap: 0;
                     .icon {

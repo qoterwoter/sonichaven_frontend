@@ -15,11 +15,9 @@ function CurrentReleases(props) {
     }, [dispatch])
 
     return (
-        <main className="main">
-            <div className="userRelease">
-                <ReleaseEditable release={release}/>
-            </div>
-        </main>
+        <div className="userRelease release">
+            <ReleaseEditable release={release}/>
+        </div>
     );
 }
 

@@ -47,7 +47,7 @@ function CatalogFilter(props) {
                 type="number"
                 id={'min'}
                 className="form__input"
-                value={+prices.minPrice}
+                value={prices.minPrice}
                 onChange={e => setPrices({...prices, minPrice: e.target.value})}
             />
         </div>
@@ -60,7 +60,7 @@ function CatalogFilter(props) {
                 type="number"
                 id={'max'}
                 className="form__input"
-                value={+prices.maxPrice}
+                value={prices.maxPrice}
                 onChange={e => setPrices({...prices, maxPrice: e.target.value})}
             />
         </div>

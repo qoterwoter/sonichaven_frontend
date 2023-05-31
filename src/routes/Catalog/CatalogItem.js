@@ -30,7 +30,7 @@ const CatalogItem = (props) => {
 
     const dispatch = useDispatch()
     const cartId = useSelector(state=>state.user.cart_id)
-    const isLogin = useSelector(state=>state.user.is_artist)
+    const isLogin = useSelector(state=>state.user.status) === "Успешно"
 
     const [count, setCount] = useState(1)
 

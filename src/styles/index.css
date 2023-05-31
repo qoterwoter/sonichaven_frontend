@@ -215,6 +215,10 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr 1fr;
   justify-items: end;
   padding: 16px;
+  overflow: hidden;
+  margin: 0;
+  touch-action: none;
+  -ms-touch-action: none;
 }
 .header__mobileMenu .menu {
   padding: 16px;
@@ -230,7 +234,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 2px solid #2d2d2d;
 }
 .header__mobileMenu .menu .nav__link {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .footer__description {
@@ -257,7 +261,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 16px;
   padding: 16px;
   z-index: 19999;
-  height: fit-content;
   position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1212,7 +1215,7 @@ a.active {
   transform: rotate(90deg);
 }
 .icon.burgerIcon {
-  height: 30px;
+  height: 27px;
   width: 30px;
   display: flex;
   flex-direction: column;
@@ -1227,7 +1230,7 @@ a.active {
   border-radius: 20px;
 }
 .icon.burgerIcon.burgerIcon_show * {
-  width: 38px;
+  width: 34px;
 }
 .icon.burgerIcon.burgerIcon_show :first-child {
   transform: rotate(45deg);
@@ -1256,8 +1259,7 @@ a.active {
 }
 
 .form.form_horizontal {
-  display: grid;
-  grid-template-columns: max-content 1fr;
+  display: flex;
   align-items: center;
   gap: 10px;
   border: 2px solid #868A91;
@@ -1268,6 +1270,9 @@ a.active {
 .form.form_horizontal * {
   background: none !important;
   border: none !important;
+}
+.form.form_horizontal .form__label {
+  width: 20px !important;
 }
 .form.form_horizontal .form__input_search {
   padding: 0;
@@ -1525,9 +1530,6 @@ a.active {
     font-size: 20px;
     margin-bottom: 0;
   }
-  .block-header .icon_secondary {
-    display: none;
-  }
   .helloElement {
     background-image: url("../images/mobilebackground.png");
     background-size: 160%;
@@ -1644,23 +1646,29 @@ a.active {
     height: 100%;
   }
   .main .userRelease .release .release__body .songList {
-    grid-template-columns: 20px 5fr 1fr 1fr;
+    grid-template-columns: 20px 5fr 1fr;
   }
   .main .userRelease .release .release__body .songList .songList__listens {
     display: none;
   }
   .main .userRelease .release .release__body .songList .song {
-    grid-template-columns: 24px 5fr 1fr 1fr;
+    grid-column: span 4;
+    grid-template-columns: 24px 5fr 1fr;
   }
   .main .userRelease .release .release__body .songList .song .song__listens {
     display: none;
   }
+  .main .userRelease .release .release__body .songList .song .song__duration {
+    margin-right: 8px;
+  }
 }
 @media (max-width: 500px) {
   .block-header {
-    display: grid;
-    align-items: start;
     gap: 8px;
+    flex-wrap: wrap;
+  }
+  .block-header * {
+    font-size: 20px !important;
   }
   .helloElement .container .helloElement__title {
     font-size: 28px;
@@ -1681,7 +1689,12 @@ a.active {
   .notifications .notification .notification__title {
     font-size: 21px;
   }
-  .main .userRelease .release .release__header .release__image {
+  .main .userRelease .release .release__header,
+  .main .releases .release {
+    width: 100%;
+  }
+  .main .userRelease .release .release__header .release__image,
+  .main .releases .release .release__image {
     width: 100%;
   }
   .main .shopCart .shopCart__items {
@@ -1739,10 +1752,10 @@ a.active {
   .main .orders .order .order__header {
     flex-wrap: wrap;
   }
-  .main .catalog .filters .block-header {
+  .main .catalog .filters .filter .block-header {
     gap: 0;
   }
-  .main .catalog .filters .block-header .icon {
+  .main .catalog .filters .filter .block-header .icon {
     margin: 0;
   }
 }

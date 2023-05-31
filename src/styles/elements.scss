@@ -98,7 +98,7 @@ a {
     }
 
     &.burgerIcon {
-        height: 30px;
+        height: 27px;
         width: 30px;
         display: flex;
         flex-direction: column;
@@ -113,7 +113,7 @@ a {
         }
         &.burgerIcon_show {
             * {
-                width: 38px;
+                width: 34px;
             }
             :first-child {
                 transform: rotate(45deg);
@@ -147,8 +147,7 @@ a {
 
 .form {
     &.form_horizontal {
-        display: grid;
-        grid-template-columns: max-content 1fr;
+        display: flex;
         align-items: center;
         gap: 10px;
         border: 2px solid $text-secondary;
@@ -158,6 +157,9 @@ a {
         * {
             background: none !important;
             border: none !important;
+        }
+        .form__label {
+            width: 20px !important;
         }
         .form__input_search {
             padding: 0;

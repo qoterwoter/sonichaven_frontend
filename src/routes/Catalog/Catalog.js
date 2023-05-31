@@ -26,7 +26,12 @@ const serviceTypes = [
     'Record', 'Distribution'
 ]
 
-const serviceObjects = serviceTypes.map(type => ({ title: type, isActive: true }));
+const serviceObjects = serviceTypes.map(type => (
+    {
+        title: type,
+        isActive: true
+    }
+));
 
 const Catalog = (props) => {
     const data = useSelector(state => state.services.services)
@@ -136,7 +141,7 @@ const Catalog = (props) => {
                                 className={'form__input form__input_search'}
                                 placeholder={'Например: Дистрибуция на платформы'}
                                 id={'search'}
-                                type={'search'}
+                                type={'text'}
                                 value={search}
                                 onChange={onSearch}
                             />
