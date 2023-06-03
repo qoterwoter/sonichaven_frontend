@@ -2,24 +2,9 @@
 //@import "./themes/light-theme";
 @import "notifications";
 
-* {
-    box-sizing: border-box;
-    &::selection {
-        background-color: #0090e0;
-        color: $text-primary;
-    }
-}
 
 body {
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    color: $text-primary;
-    font-size: $paragraph-text;
-    background-image: url("../images/body_background.jpg");
-    background-position-y: 100vh;
-    background-size: cover;
-    //background-repeat: repeat-y;
-    min-height: 80vh;
+    margin: 0px;
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -28,6 +13,31 @@ body {
     &::-webkit-scrollbar-thumb {
         background-color: #999;
         border-radius: 5px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    &::selection {
+        background-color: #0090e0;
+        color: $text-primary;
+    }
+}
+
+#root .body_indexPage {
+    background-position-y: 100vh;
+}
+
+#root {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: $text-primary;
+    font-size: $paragraph-text;
+    >.body {
+        background-image: url("../images/body_background.jpg");
+        background-size: cover;
+        //background-repeat: repeat-y;
+        min-height: 80vh;
     }
 }
 

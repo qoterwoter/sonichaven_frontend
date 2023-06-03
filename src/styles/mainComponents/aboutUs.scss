@@ -10,16 +10,38 @@
     .aboutUs__article {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        * {
+            margin: 0 !important;
+        }
         &:last-child {
             margin-bottom: 0;
         }
+        .aboutUs__list {
+            padding-left: $gap;
+            .list__item {
+                padding: 8px 0;
+            }
+        }
         .aboutUs__paragraph {
             padding: $gap;
-            display: block;
+            display: grid;
             font-size: $heading-text-3;
             color: $text-general;
             line-height: 26px;
-            margin: 0;
+            gap: $gap;
+            .paragraph__header {
+                .paragraph__title {
+                    padding-bottom: 12px;
+                    color: $text-primary;
+                }
+                .paragraph__description_secondary {
+                    color: $text-secondary;
+                }
+            }
+            .description__title {
+                display: inline-block;
+                padding-bottom: 12px;
+            }
         }
         .aboutUs__image {
             display: block;
@@ -27,6 +49,9 @@
             height: 100%;
             object-fit: cover;
 
+        }
+        .aboutUs__staff {
+            height: 400px !important;
         }
         .aboutUs__image_left {
             border-top-left-radius: $border-radius;

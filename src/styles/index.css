@@ -56,23 +56,8 @@
   opacity: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-*::selection {
-  background-color: #0090e0;
-  color: #DFE1E5;
-}
-
 body {
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-  color: #DFE1E5;
-  font-size: 16px;
-  background-image: url("../images/body_background.jpg");
-  background-position-y: 100vh;
-  background-size: cover;
-  min-height: 80vh;
+  margin: 0px;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -81,6 +66,30 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #999;
   border-radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+*::selection {
+  background-color: #0090e0;
+  color: #DFE1E5;
+}
+
+#root .body_indexPage {
+  background-position-y: 100vh;
+}
+
+#root {
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #DFE1E5;
+  font-size: 16px;
+}
+#root > .body {
+  background-image: url("../images/body_background.jpg");
+  background-size: cover;
+  min-height: 80vh;
 }
 
 .header, .footer {
@@ -687,22 +696,45 @@ body::-webkit-scrollbar-thumb {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.main .aboutUs .aboutUs__article * {
+  margin: 0 !important;
+}
 .main .aboutUs .aboutUs__article:last-child {
   margin-bottom: 0;
 }
+.main .aboutUs .aboutUs__article .aboutUs__list {
+  padding-left: 16px;
+}
+.main .aboutUs .aboutUs__article .aboutUs__list .list__item {
+  padding: 8px 0;
+}
 .main .aboutUs .aboutUs__article .aboutUs__paragraph {
   padding: 16px;
-  display: block;
+  display: grid;
   font-size: 20px;
   color: #afafb6;
   line-height: 26px;
-  margin: 0;
+  gap: 16px;
+}
+.main .aboutUs .aboutUs__article .aboutUs__paragraph .paragraph__header .paragraph__title {
+  padding-bottom: 12px;
+  color: #DFE1E5;
+}
+.main .aboutUs .aboutUs__article .aboutUs__paragraph .paragraph__header .paragraph__description_secondary {
+  color: #868A91;
+}
+.main .aboutUs .aboutUs__article .aboutUs__paragraph .description__title {
+  display: inline-block;
+  padding-bottom: 12px;
 }
 .main .aboutUs .aboutUs__article .aboutUs__image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.main .aboutUs .aboutUs__article .aboutUs__staff {
+  height: 400px !important;
 }
 .main .aboutUs .aboutUs__article .aboutUs__image_left {
   border-top-left-radius: 16px;

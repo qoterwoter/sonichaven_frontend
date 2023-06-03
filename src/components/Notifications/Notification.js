@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import {useDispatch} from "react-redux";
 import {removeNotification} from "../../reducers/notificationSlice";
+
 const Notification = (props) => {
     const state = props.notification
 

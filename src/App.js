@@ -20,7 +20,7 @@ export default function App() {
     const ends = location.pathname === '/' || location.pathname.endsWith('about-us')
 
     return (
-    <div>
+    <div className={ends ? 'body body_indexPage' : 'body'}>
         <Header/>
         {!ends ? (
             <main className={'main'}>
