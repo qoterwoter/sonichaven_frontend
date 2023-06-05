@@ -1587,7 +1587,6 @@ a.active {
 @media (max-width: 650px) {
   .block-header {
     font-size: 20px;
-    margin-bottom: 0;
   }
   .helloElement {
     background-image: url("../images/mobilebackground.png");
